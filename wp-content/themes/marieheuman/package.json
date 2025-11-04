@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.16"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^5.3.10",
+    "postcss": "^8.5.6",
+    "sass": "^1.93.2",
+    "tailwindcss": "^4.1.16"
+  },
+  "scripts": {
+    "build": "tailwindcss -i ./assets/css/input.css -o ./dist/style.css --minify",
+    "daisyui": "tailwindcss -i ./assets/css/input.css -o ./dist/style.css --watch",
+    "build-css": "sass assets/scss/main.scss dist/main.css --no-source-map --style=compressed",
+    "watch": "sass --watch assets/scss/main.scss:dist/main.css --style=expanded"
+  }
+}

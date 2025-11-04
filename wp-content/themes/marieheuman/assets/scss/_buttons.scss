@@ -1,0 +1,19 @@
+@use "globals" as *;
+@use "mixins" as *;
+
+.primary-button {
+    @include primary-button;
+}
+
+.secondary-button {
+    @include secondary-button;
+}
+
+.orange-button {
+
+    @include orange-button;
+}
+
+.border-orange-button {
+    @include border-orange-button;
+}

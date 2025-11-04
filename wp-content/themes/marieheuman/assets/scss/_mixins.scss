@@ -1,0 +1,58 @@
+@use "globals" as *;
+
+//BUTTONS
+
+@mixin primary-button {
+    color: $light;
+    background-color: $marron;
+    padding: 10px 30px;
+    transition: .3s;
+    border: 1px solid $marron;
+
+    &:hover {
+        border: 1px solid $secondary;
+        background-color: $secondary;
+    }
+}
+
+@mixin secondary-button {
+    color: $marron;
+    background-color: transparent;
+    padding: 10px 30px;
+    transition: .3s;
+    border: 1px solid $marron;
+
+    &:hover {
+        background-color: $marron;
+        color: $light;
+    }
+}
+
+@mixin orange-button {
+    color: $beige;
+    background-color: $orange;
+    border: 2px solid $orange;
+    padding: 1rem 3rem;
+    border-radius: 100px;
+    font-size: 18px;
+    transition: .3s;
+
+    &:hover {
+        background-color: $marron;
+        border-color: $marron;
+    }
+}
+
+@mixin border-orange-button {
+    color: $beige;
+    background-color: transparent;
+    border: 2px solid $orange;
+    padding: 1rem 3rem;
+    border-radius: 100px;
+    font-size: 18px;
+    transition: .3s;
+
+    &:hover {
+        background-color: $orange;
+    }
+}

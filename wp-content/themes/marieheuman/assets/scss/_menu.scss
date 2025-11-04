@@ -1,0 +1,101 @@
+@use "globals" as *;
+
+header {
+    display: flex;
+    background-color: $marron;
+    left: 0;
+    padding: 0 25px;
+    position: fixed;
+    top: 100vh;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    width: 100vh;
+    height: 5rem;
+    z-index: 5;
+
+    >nav {
+        width: 100%;
+    }
+
+    //MENU
+    .menu-menu-principal-container {
+        width: 100%;
+    }
+
+    #menu-menu-principal {
+        width: 100%;
+        padding: 0;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 1rem;
+
+        >li:first-child {
+
+            a {
+                color: $orange;
+                display: flex;
+                flex-direction: row-reverse;
+                gap: 1rem;
+                margin-right: 3.5rem;
+
+                &::before {
+                    transform: rotate(90deg);
+                    background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    display: inline;
+                    position: absolute;
+                    width: 30px;
+                    height: 40px;
+                    right: 0;
+                    content: "";
+                }
+            }
+        }
+
+        >li:last-child {
+
+            a {
+                width: 50px;
+                font-size: 0;
+
+                &::after {
+                    font-family: "FontAwesome";
+                    content: "\f133";
+                    transform: rotate(90deg);
+                    background-color: $orange;
+                    border-radius: 50%;
+                    font-size: 2rem;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    bottom: -13px;
+                    transition: .2s;
+                }
+
+                &:hover {
+                    &::after {
+                        background-color: $beige;
+                        color: $orange;
+                    }
+                }
+            }
+        }
+
+        a {
+            padding: 0;
+            font-size: 1rem;
+            transition: .2s;
+            color: $beige;
+            text-transform: uppercase;
+
+            &:hover {
+                background: none;
+                color: $orange;
+            }
+        }
+    }
+}

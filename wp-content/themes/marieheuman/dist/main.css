@@ -20,14 +20,15 @@
   font-style: 300;
   font-display: swap;
 }
-.primary-button {
+.marron-button {
   color: #f3efea;
   background-color: #462620;
   padding: 10px 30px;
   transition: 0.3s;
   border: 1px solid #462620;
+  border-radius: 50px;
 }
-.primary-button:hover {
+.marron-button:hover {
   border: 1px solid #857c5a;
   background-color: #857c5a;
 }
@@ -59,7 +60,7 @@
 }
 
 .border-orange-button {
-  color: #f6f5f2;
+  color: #e87234;
   background-color: transparent;
   border: 2px solid #e87234;
   padding: 1rem 3rem;
@@ -69,6 +70,30 @@
 }
 .border-orange-button:hover {
   background-color: #e87234;
+  color: #f6f5f2;
+}
+
+.border-marron-button {
+  color: #462620;
+  background-color: transparent;
+  padding: 10px 30px;
+  transition: 0.3s;
+  border: 1px solid #462620;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.border-marron-button:hover {
+  background-color: #462620;
+  color: #f3efea;
+}
+
+.active-border-marron-button {
+  color: #f3efea;
+  background-color: #462620;
+  padding: 10px 30px;
+  transition: 0.3s;
+  border: 1px solid #462620;
+  border-radius: 50px;
 }
 
 header {
@@ -97,16 +122,21 @@ header #menu-menu-principal {
   justify-content: space-between;
   gap: 1rem;
 }
+header #menu-menu-principal > .current-menu-item a {
+  color: #e87234 !important;
+}
+header #menu-menu-principal > .current-menu-item a::before {
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png") !important;
+}
 header #menu-menu-principal > li:first-child a {
-  color: #e87234;
   display: flex;
   flex-direction: row-reverse;
   gap: 1rem;
-  margin-right: 3.5rem;
+  padding-right: 3.5rem !important;
 }
 header #menu-menu-principal > li:first-child a::before {
   transform: rotate(90deg);
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png");
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png");
   background-size: contain;
   background-repeat: no-repeat;
   display: inline;
@@ -115,10 +145,15 @@ header #menu-menu-principal > li:first-child a::before {
   height: 40px;
   right: 0;
   content: "";
+  transition: 0.2s;
+}
+header #menu-menu-principal > li:first-child a:hover::before {
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png");
 }
 header #menu-menu-principal > li:last-child a {
-  width: 50px;
+  width: 56px;
   font-size: 0;
+  padding: 0;
 }
 header #menu-menu-principal > li:last-child a::after {
   font-family: "FontAwesome";
@@ -127,33 +162,97 @@ header #menu-menu-principal > li:last-child a::after {
   background-color: #e87234;
   border-radius: 50%;
   font-size: 2rem;
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: -13px;
+  bottom: 0;
   transition: 0.2s;
+}
+header #menu-menu-principal > li:last-child a:hover {
+  background: none;
 }
 header #menu-menu-principal > li:last-child a:hover::after {
   background-color: #f6f5f2;
   color: #e87234;
 }
-header #menu-menu-principal a {
-  padding: 0;
+header #menu-menu-principal li:not(:last-child) a {
+  padding: 1rem;
   font-size: 1rem;
   transition: 0.2s;
   color: #f6f5f2;
   text-transform: uppercase;
+  background-color: #462620;
+  border-radius: 50px;
 }
-header #menu-menu-principal a:hover {
-  background: none;
+header #menu-menu-principal li:not(:last-child) a:hover {
   color: #e87234;
+  transform: rotate(45deg) translateX(50px);
 }
 
 section {
   padding: 4rem 120px;
+}
+
+.more {
+  color: #e87234;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 18px;
+  border-bottom: 1px solid #e87234;
+  position: relative;
+}
+.more::after {
+  font-family: "FontAwesome";
+  content: "\f061";
+  transition: 0.3s;
+  position: absolute;
+  right: -2rem;
+  z-index: 12;
+}
+.more:hover::after {
+  transform: translateX(0.5rem);
+}
+
+.tag-home {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #857c5a;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.tag-home::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #e87234;
+  border-radius: 50%;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  color: #462620;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  color: #462620;
+  font-size: 20px;
+  gap: 13px;
+  margin-bottom: 3.5rem;
+}
+h3::before {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background-color: #462620;
 }
 
 .content-img-header {
@@ -175,7 +274,7 @@ section {
   color: #f6f5f2;
 }
 .content-img-header h2 {
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   gap: 13px;
@@ -187,6 +286,9 @@ section {
   height: 1px;
   width: 50px;
   background-color: #f6f5f2;
+}
+.content-img-header .border-orange-button {
+  color: #f6f5f2;
 }
 
 .content-links {
@@ -211,41 +313,6 @@ section {
 .content-ma-vision {
   background-color: #f6f5f2;
 }
-.content-ma-vision .tag {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1rem;
-  color: #857c5a;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.content-ma-vision .tag::before {
-  content: "";
-  width: 1rem;
-  height: 1rem;
-  background-color: #e87234;
-  border-radius: 50%;
-}
-.content-ma-vision h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  color: #462620;
-}
-.content-ma-vision h3 {
-  display: flex;
-  align-items: center;
-  color: #462620;
-  font-size: 18px;
-  gap: 13px;
-  margin-bottom: 3.5rem;
-}
-.content-ma-vision h3::before {
-  content: "";
-  width: 50px;
-  height: 1px;
-  background-color: #462620;
-}
 .content-ma-vision img {
   height: 100%;
   object-fit: cover;
@@ -258,27 +325,95 @@ section {
   padding: 1rem 0;
 }
 .content-ma-vision .texte-ma-vision p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.2rem;
 }
-.content-ma-vision .texte-ma-vision a {
-  color: #e87234;
-  display: inline-flex;
+
+.content-services-accueil {
+  background-color: white;
+  color: #462620;
+}
+.content-services-accueil .selector-services {
+  margin-bottom: 56px;
+}
+.content-services-accueil .selector-services .point:not(:last-child) {
+  display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 18px;
-  border-bottom: 1px solid #e87234;
+}
+.content-services-accueil .selector-services .point:not(:last-child)::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background-color: #462620;
+  border-radius: 50%;
+}
+.content-services-accueil .item-service {
+  display: none;
+}
+.content-services-accueil .active-service {
+  display: flex;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.content-services-accueil .left-service img {
+  border-radius: 30px;
+  object-fit: cover;
+  height: 100%;
+}
+.content-services-accueil .right-service {
+  padding: 1rem 0;
+}
+.content-services-accueil .right-service .tag {
+  text-transform: uppercase;
+  color: #857c5a;
+}
+.content-services-accueil .right-service h4 {
+  font-size: 24px;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.content-services-accueil .right-service p {
+  margin-bottom: 1rem;
+}
+.content-services-accueil .right-service ul li {
   position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  margin-bottom: 0.5rem;
 }
-.content-ma-vision .texte-ma-vision a::after {
-  font-family: "FontAwesome";
-  content: "\f061";
-  transition: 0.3s;
+.content-services-accueil .right-service ul li::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: rgba(133, 124, 90, 0.3);
+  border-radius: 50%;
   position: absolute;
-  right: -2rem;
-  z-index: 12;
+  left: 0;
 }
-.content-ma-vision .texte-ma-vision a:hover::after {
-  transform: translateX(0.5rem);
+.content-services-accueil .right-service ul li::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #857c5a;
+  border-radius: 50%;
+  position: absolute;
+  left: 0.25rem;
+}
+
+footer {
+  background-color: #462620;
+  color: #f3efea;
+  padding: 4rem 120px;
 }
 
 * {

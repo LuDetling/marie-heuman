@@ -25,7 +25,7 @@
             </div>
         </section>
     <?php endif; ?>
-
+    <!-- END IMAGE HEADER -->
 
     <!-- MA VISION -->
 
@@ -38,7 +38,7 @@
     ?>
 
     <section class="content-ma-vision">
-        <span class="tag"><?= $tag_ma_vision ?></span>
+        <span class="tag-home"><?= $tag_ma_vision ?></span>
         <?= $titres_ma_vision ?>
         <div class="flex items-stretch gap-16">
             <div class="image-ma-vision md:w-4/10">
@@ -50,11 +50,71 @@
                 <?= $texte_ma_vision ?>
                 <div class="mt-8">
                     <a href="<?= esc_url($plus_ma_vision['url']) ?>"
-                        class=""><?= esc_html($plus_ma_vision['title']) ?></a>
+                        class="more"><?= esc_html($plus_ma_vision['title']) ?></a>
                 </div>
             </div>
         </div>
     </section>
+    <!-- END MA VISION -->
+
+
+
+    <!-- SERIVCES -->
+    <?php
+    $tag_services_accueil = get_field('tag_services_accueil');
+    $titres_services_accueil = get_field('titres_services_accueil');
+    $lien_1_services_accueil = get_field('lien_1_services_accueil');
+    $lien_2_services_accueil = get_field('lien_2_services_accueil');
+    ?>
+    <section class="content-services-accueil">
+        <span class="tag-home"><?= $tag_services_accueil ?></span>
+        <?= $titres_services_accueil ?>
+        <div class="flex gap-4 justify-center selector-services">
+            <?php
+            for ($i = 1; $i <= 3; $i++) {
+
+                $titre_service = get_field('titre_service_' . $i);
+                ?>
+                <div class="point">
+                    <button
+                        class="service-button border-marron-button<?= $i == 1 ? ' active-border-marron-button' : '' ?>"><?= $titre_service ?></button>
+                </div>
+            <?php } ?>
+        </div>
+        <?php
+        for ($i = 1; $i <= 3; $i++) {
+            $image_service = get_field('image_service_' . $i);
+            $tag_service = get_field('tag_service_' . $i);
+            $texte_service = get_field('texte_service_' . $i);
+            $plus_service = get_field('plus_service_' . $i);
+            ?>
+            <div id="<?= "content-service-{$i}" ?>" class="flex item-service gap-16<?= $i == 1 ? ' active-service' : '' ?>">
+                <div class="md:w-4/10 left-service">
+                    <img src="<?= esc_url($image_service['url']); ?>" alt="<?= esc_attr($image_service['alt']); ?>"
+                        width="<?= esc_attr($image_service['width']); ?>"
+                        height="<?= esc_attr($image_service['height']); ?>">
+                </div>
+                <div class="md:w-6/10 right-service">
+                    <span class="tag"><?= $tag_service ?></span>
+                    <?= $texte_service ?>
+                    <div class="mt-8">
+                        <a href="<?= esc_url($plus_service['url']) ?>"
+                            class="more"><?= esc_html($plus_service['title']) ?></a>
+                    </div>
+                </div>
+            </div>
+
+
+        <?php } ?>
+
+        <div class="flex justify-end gap-4 mt-12">
+            <a href="<?= esc_url($lien_1_services_accueil['url']) ?>"
+                class="orange-button"><?= esc_html($lien_1_services_accueil['title']) ?></a>
+            <a href="<?= esc_url($lien_2_services_accueil['url']) ?>"
+                class="border-orange-button"><?= esc_html($lien_2_services_accueil['title']) ?></a>
+        </div>
+    </section>
+    <!-- END SERIVCES -->
 
 
 
@@ -69,7 +129,7 @@
             <?= $content; ?>
             <div class="flex gap-4 mt-12">
                 <a href="<?= esc_url($content_button1['url']) ?>"
-                    class="primary-button"><?= esc_html($content_button1['title']) ?></a>
+                    class="marron-button"><?= esc_html($content_button1['title']) ?></a>
                 <a href="<?= esc_url($content_button2['url']) ?>"
                     class="secondary-button"><?= esc_html($content_button2['title']) ?></a>
             </div>

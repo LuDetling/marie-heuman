@@ -2,17 +2,42 @@
 
 //BUTTONS
 
-@mixin primary-button {
+@mixin marron-button {
     color: $light;
     background-color: $marron;
     padding: 10px 30px;
     transition: .3s;
     border: 1px solid $marron;
+    border-radius: 50px;
 
     &:hover {
         border: 1px solid $secondary;
         background-color: $secondary;
     }
+}
+
+@mixin border-marron-button {
+    color: $marron;
+    background-color: transparent;
+    padding: 10px 30px;
+    transition: .3s;
+    border: 1px solid $marron;
+    border-radius: 50px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $marron;
+        color: $light;
+    }
+}
+
+@mixin active-border-marron-button {
+    color: $light;
+    background-color: $marron;
+    padding: 10px 30px;
+    transition: .3s;
+    border: 1px solid $marron;
+    border-radius: 50px;
 }
 
 @mixin secondary-button {
@@ -44,7 +69,7 @@
 }
 
 @mixin border-orange-button {
-    color: $beige;
+    color: $orange;
     background-color: transparent;
     border: 2px solid $orange;
     padding: 1rem 3rem;
@@ -54,5 +79,6 @@
 
     &:hover {
         background-color: $orange;
+        color: $beige;
     }
 }

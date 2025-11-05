@@ -1,0 +1,7 @@
+@use "globals" as *;
+
+footer {
+    background-color: $marron;
+    color: $light;
+    padding: 4rem 120px;
+}

@@ -9,7 +9,8 @@
 
 <body>
     <header class="">
-        <nav class="flex items-center p-8 flex-row-reverse gap-8">
+        <!-- <nav class="flex items-center p-8 flex-row-reverse gap-8"> -->
+        <nav class="flex items-center flex-row-reverse gap-8">
             <!-- Logo -->
             <!-- <a href="<?= home_url() ?>" class="logo flex flex-row-reverse gap-4">
                 <span class="block">MH</span>

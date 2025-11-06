@@ -3,6 +3,11 @@
 
 section {
     padding: 4rem 120px;
+
+    @media screen and (max-width: 1200px) {
+        padding: 4rem 60px;
+
+    }
 }
 
 .more {
@@ -85,6 +90,9 @@ h3 {
         z-index: 1;
     }
 
+    .logo-header {
+        width: 20%;
+    }
 
     h1 {
         font-size: 48px;
@@ -180,8 +188,8 @@ h3 {
 
             &::after {
                 content: '';
-                width: 11px;
-                height: 11px;
+                min-width: 11px;
+                min-height: 11px;
                 background-color: $marron;
                 border-radius: 50%;
             }
@@ -265,3 +273,104 @@ h3 {
         }
     }
 }
+
+// END SERVICES ACCUEIL
+
+// APPROCHE & PHILOSOPHIE 
+.content-approche {
+    background-color: $beige;
+    color: $marron;
+
+    .card-approche {
+        background-color: white;
+        border-radius: 30px;
+        padding: 2rem;
+
+        h4 {
+            font-size: 24px;
+            font-family: "Playfair Display", serif;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .tag-card {
+            color: $secondary;
+            font-size: 18px;
+            margin-bottom: 1rem;
+        }
+
+        .text-card {
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+
+        &:hover {
+            .list-hide-approche {
+                max-height: 150px;
+            }
+        }
+
+        .list-hide-approche {
+            max-height: 0;
+            overflow: hidden;
+            transition: 1s;
+            display: block;
+            margin-top: 1rem;
+            position: relative;
+            border-top: 1px solid $marron;
+            padding-top: 1rem;
+            ul {
+                li {
+                    position: relative;
+                    padding-left: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: .7rem;
+
+                    &::before {
+                        content: "";
+                        width: .5rem;
+                        height: .5rem;
+                        background-color: $orange;
+                        border-radius: 50%;
+                        position: absolute;
+                        left: .25rem;
+                    }
+
+                    &::after {
+                        content: "";
+                        width: 1rem;
+                        height: 1rem;
+                        background-color: rgba($color: $orange, $alpha: .3);
+                        border-radius: 50%;
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .content-question-conception-accueil {
+        margin-top: 5rem;
+        background-color: $secondary;
+        color: $beige;
+        padding: 2rem;
+        border-radius: 30px;
+        width: 90%;
+        margin-inline: auto;
+
+        h4 {
+            font-size: 36px;
+            font-family: "Playfair Display";
+            margin-bottom: 1rem;
+        }
+
+        .texte-question-conception {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+// END APPROCHE & PHILOSOPHIE 

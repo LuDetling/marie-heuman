@@ -9,6 +9,7 @@
     transition: .3s;
     border: 1px solid $marron;
     border-radius: 50px;
+    display: inline-block;
 
     &:hover {
         border: 1px solid $secondary;
@@ -24,6 +25,7 @@
     border: 1px solid $marron;
     border-radius: 50px;
     cursor: pointer;
+    display: inline-block;
 
     &:hover {
         background-color: $marron;
@@ -46,6 +48,7 @@
     padding: 10px 30px;
     transition: .3s;
     border: 1px solid $marron;
+    display: inline-block;
 
     &:hover {
         background-color: $marron;
@@ -61,6 +64,7 @@
     border-radius: 100px;
     font-size: 18px;
     transition: .3s;
+    display: inline-block;
 
     &:hover {
         background-color: $marron;
@@ -76,6 +80,7 @@
     border-radius: 100px;
     font-size: 18px;
     transition: .3s;
+    display: inline-block;
 
     &:hover {
         background-color: $orange;

@@ -27,6 +27,7 @@
   transition: 0.3s;
   border: 1px solid #462620;
   border-radius: 50px;
+  display: inline-block;
 }
 .marron-button:hover {
   border: 1px solid #857c5a;
@@ -39,6 +40,7 @@
   padding: 10px 30px;
   transition: 0.3s;
   border: 1px solid #462620;
+  display: inline-block;
 }
 .secondary-button:hover {
   background-color: #462620;
@@ -53,6 +55,7 @@
   border-radius: 100px;
   font-size: 18px;
   transition: 0.3s;
+  display: inline-block;
 }
 .orange-button:hover {
   background-color: #462620;
@@ -67,6 +70,7 @@
   border-radius: 100px;
   font-size: 18px;
   transition: 0.3s;
+  display: inline-block;
 }
 .border-orange-button:hover {
   background-color: #e87234;
@@ -81,6 +85,7 @@
   border: 1px solid #462620;
   border-radius: 50px;
   cursor: pointer;
+  display: inline-block;
 }
 .border-marron-button:hover {
   background-color: #462620;
@@ -195,6 +200,11 @@ header #menu-menu-principal li:not(:last-child) a:hover {
 section {
   padding: 4rem 120px;
 }
+@media screen and (max-width: 1200px) {
+  section {
+    padding: 4rem 60px;
+  }
+}
 
 .more {
   color: #e87234;
@@ -267,6 +277,9 @@ h3::before {
   height: 100%;
   background-color: rgba(70, 38, 32, 0.64);
   z-index: 1;
+}
+.content-img-header .logo-header {
+  width: 20%;
 }
 .content-img-header h1 {
   font-size: 48px;
@@ -343,8 +356,8 @@ h3::before {
 }
 .content-services-accueil .selector-services .point:not(:last-child)::after {
   content: "";
-  width: 11px;
-  height: 11px;
+  min-width: 11px;
+  min-height: 11px;
   background-color: #462620;
   border-radius: 50%;
 }
@@ -408,6 +421,85 @@ h3::before {
   border-radius: 50%;
   position: absolute;
   left: 0.25rem;
+}
+
+.content-approche {
+  background-color: #f6f5f2;
+  color: #462620;
+}
+.content-approche .card-approche {
+  background-color: white;
+  border-radius: 30px;
+  padding: 2rem;
+}
+.content-approche .card-approche h4 {
+  font-size: 24px;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.content-approche .card-approche .tag-card {
+  color: #857c5a;
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+.content-approche .card-approche .text-card p {
+  margin-bottom: 1rem;
+}
+.content-approche .card-approche:hover .list-hide-approche {
+  max-height: 150px;
+}
+.content-approche .card-approche .list-hide-approche {
+  max-height: 0;
+  overflow: hidden;
+  transition: 1s;
+  display: block;
+  margin-top: 1rem;
+  position: relative;
+  border-top: 1px solid #462620;
+  padding-top: 1rem;
+}
+.content-approche .card-approche .list-hide-approche ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+.content-approche .card-approche .list-hide-approche ul li::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #e87234;
+  border-radius: 50%;
+  position: absolute;
+  left: 0.25rem;
+}
+.content-approche .card-approche .list-hide-approche ul li::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: rgba(232, 114, 52, 0.3);
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+}
+.content-approche .content-question-conception-accueil {
+  margin-top: 5rem;
+  background-color: #857c5a;
+  color: #f6f5f2;
+  padding: 2rem;
+  border-radius: 30px;
+  width: 90%;
+  margin-inline: auto;
+}
+.content-approche .content-question-conception-accueil h4 {
+  font-size: 36px;
+  font-family: "Playfair Display";
+  margin-bottom: 1rem;
+}
+.content-approche .content-question-conception-accueil .texte-question-conception {
+  margin-bottom: 2rem;
 }
 
 footer {

@@ -502,6 +502,61 @@ h3::before {
   margin-bottom: 2rem;
 }
 
+.content-blog-accueil {
+  background-color: #ffffff;
+  color: #462620;
+}
+.content-blog-accueil .projet-card {
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #f6f5f2;
+  width: calc(33.3333333333% - 2.7rem);
+}
+@media screen and (max-width: 1536px) {
+  .content-blog-accueil .projet-card {
+    width: calc(50% - 2rem);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .content-blog-accueil .projet-card {
+    width: 100%;
+  }
+}
+.content-blog-accueil .projet-card > div {
+  width: 100%;
+}
+.content-blog-accueil .projet-card > div img {
+  width: 100%;
+  object-fit: cover;
+  height: 350px;
+}
+.content-blog-accueil .projet-card > div .text-card {
+  padding: 2rem;
+}
+.content-blog-accueil .projet-card > div .text-card h4 {
+  font-size: 24px;
+  font-family: "Playfair Display";
+  margin-bottom: 1rem;
+}
+.content-blog-accueil .next-prev .btn-next-prev {
+  border: 2px solid #f6f5f2;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.content-blog-accueil .next-prev .indicator {
+  width: 12px;
+  height: 12px;
+  background-color: #f6f5f2;
+  border-radius: 50%;
+}
+.content-blog-accueil .next-prev .indicator.active-card-indicator {
+  background-color: #e87234;
+}
+
 footer {
   background-color: #462620;
   color: #f3efea;

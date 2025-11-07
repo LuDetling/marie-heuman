@@ -133,9 +133,9 @@
         $card_4_approche_accueil = get_field('card_4_approche_accueil');
         ?>
 
-        <div class="tag-home"><?= $tag_approche_accueil ?></div>
+        <span class="tag-home"><?= $tag_approche_accueil ?></span>
         <?= $titre_approche_accueil ?>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12 items-start">
             <?php
             for ($i = 1; $i <= 4; $i++) {
                 $card_approche_accueil = get_field('card_' . $i . '_approche_accueil');
@@ -165,6 +165,79 @@
         </div>
     </section>
     <!-- END APPROCHE & PHILOSOPHIE -->
+
+
+    <!-- BLOG -->
+    <section class="content-blog-accueil">
+        <?php
+        $tag_blog_accueil = get_field("tag_blog_accueil");
+        $titre_blog_accueil = get_field("titre_blog_accueil");
+        ?>
+
+        <span class="tag-home"><?= $tag_blog_accueil ?></span>
+        <?= $titre_blog_accueil ?>
+
+
+        <?php
+        $args = [
+            'post_type' => 'blog', // <-- le slug de ton CPT
+            'posts_per_page' => 10,    // nombre d'éléments à afficher
+            'post_status' => 'publish'
+        ];
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()):
+            $index = 0;
+            $index_btn = 0;
+            ?>
+            <div class="projets-grid carousel space-x-16">
+                <?php while ($query->have_posts()):
+                    $query->the_post();
+                    $image_blog = get_field("image_principale_blog");
+                    $index++;
+                    ?>
+                    <article id="card-blog<?= $index ?>"
+                        class="projet-card carousel-item<?= $index == 1 ? ' active-card' : '' ?>">
+                        <div>
+                            <?php if ($image_blog): ?>
+                                <img src="<?= esc_url($image_blog['url']); ?>" alt="<?= esc_attr($image_blog['alt']); ?>"
+                                    width="<?= esc_attr($image_blog['width']); ?>" height="<?= esc_attr($image_blog['height']); ?>">
+                            <?php endif; ?>
+                            <div class="text-card">
+                                <h4><?php the_title(); ?></h4>
+                                <p class="blog-meta">
+                                    <?php echo get_the_date('F o'); ?> •
+                                    <?php the_field('temps_de_lecture_blog'); ?> de lecture
+                                </p>
+
+                                <a href="<?php the_permalink(); ?>" class="more mt-4">Lire l'article</a>
+                            </div>
+                        </div>
+                    </article>
+                <?php endwhile; ?>
+            </div>
+            <div class="flex w-full items-center justify-center gap-2 py-2 mt-4 next-prev">
+                <a href="#card-blog1" class="btn-next-prev btn-prev mr-8">❮</a>
+                <div class="content-indicator">
+                    <!-- au click l'id change sur le précédent si il existe -->
+                    <?php while ($query->have_posts()):
+                        $query->the_post();
+                        $image_blog = get_field("image_principale_blog");
+                        $index_btn++;
+                        ?>
+                        <a href="#card-blog<?= $index_btn ?>"
+                            class="indicator<?= $index_btn == 1 ? ' active-card-indicator' : '' ?>"></a>
+                    <?php endwhile; ?>
+                </div>
+                <!-- au click l'id change sur le prochain si il exite -->
+                <a href="#card-blog3" class="btn-next-prev btn-next ml-8">❯</a>
+            </div>
+            <?php
+        endif;
+        wp_reset_postdata();
+        ?>
+    </section>
+    <!-- END BLOG -->
 
 
     <!-- CONTENT LINKS -->

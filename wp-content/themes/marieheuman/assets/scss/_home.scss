@@ -320,6 +320,7 @@ h3 {
             position: relative;
             border-top: 1px solid $marron;
             padding-top: 1rem;
+
             ul {
                 li {
                     position: relative;
@@ -374,3 +375,71 @@ h3 {
 }
 
 // END APPROCHE & PHILOSOPHIE 
+
+// BLOG
+.content-blog-accueil {
+    background-color: #ffffff;
+    color: $marron;
+
+    .projet-card {
+        border-radius: 30px;
+        overflow: hidden;
+        background-color: $beige;
+        width: calc(100% / 3 - 2.7rem);
+
+
+
+        @media screen and (max-width: 1536px) {
+            width: calc(100% / 2 - 2rem);
+        }
+
+        @media screen and (max-width: 1024px) {
+            width: 100%;
+        }
+
+        >div {
+            width: 100%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                height: 350px;
+            }
+
+            .text-card {
+                padding: 2rem;
+
+                h4 {
+                    font-size: 24px;
+                    font-family: "Playfair Display";
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .next-prev {
+        .btn-next-prev {
+            border: 2px solid $beige;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            background-color: $beige;
+            border-radius: 50%;
+
+            &.active-card-indicator {
+                background-color: $orange;
+            }
+        }
+    }
+}
+
+// END BLOG

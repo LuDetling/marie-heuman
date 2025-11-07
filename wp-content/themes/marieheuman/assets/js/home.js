@@ -13,7 +13,6 @@ function afficherContenu(numero) {
     // Activer le bouton cliqué
     boutons[numero - 1].classList.add('actif');
 }
-console.log('home.js loaded');
 
 let serviceButtons = document.querySelectorAll('.service-button')
 
@@ -36,3 +35,30 @@ serviceButtons.forEach((button, index) => {
 
     })
 });
+
+function carouselBlogAccueil() {
+    let contentIndicator = document.querySelectorAll('.content-indicator a');
+    contentIndicator.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            contentIndicator.forEach((btn, btnindex) => {
+                if (btnindex === index) {
+                    btn.classList.add('active-card-indicator')
+                } else {
+                    btn.classList.remove('active-card-indicator')
+                }
+            })
+        })
+    })
+
+    let btnNext = document.querySelector('.content-blog-accueil .btn-next')
+    let btnPrev = document.querySelector('.content-blog-accueil .btn-prev')
+
+    btnNext.addEventListener('click', () => {
+        contentIndicator.forEach((e, index) => {
+            console.log(index);
+
+        })
+    })
+}
+
+carouselBlogAccueil()

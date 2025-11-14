@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "PlayFair Display";
   src: url("../assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf");
@@ -103,98 +104,102 @@
 
 header {
   display: flex;
+}
+
+.content-header {
+  display: flex;
   background-color: #462620;
   left: 0;
-  padding: 0 25px;
   position: fixed;
   top: 100vh;
   transform: rotate(-90deg);
   transform-origin: top left;
   width: 100vh;
-  height: 5rem;
+  height: 80px;
   z-index: 5;
 }
-header > nav {
-  width: 100%;
-}
-header .menu-menu-principal-container {
-  width: 100%;
-}
-header #menu-menu-principal {
-  width: 100%;
-  padding: 0;
-  flex-direction: row-reverse;
+.content-header > nav {
   justify-content: space-between;
-  gap: 1rem;
+  width: 100%;
 }
-header #menu-menu-principal > .current-menu-item a {
-  color: #e87234 !important;
-}
-header #menu-menu-principal > .current-menu-item a::before {
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png") !important;
-}
-header #menu-menu-principal > li:first-child a {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 1rem;
-  padding-right: 3.5rem !important;
-}
-header #menu-menu-principal > li:first-child a::before {
-  transform: rotate(90deg);
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: inline;
-  position: absolute;
-  width: 30px;
-  height: 40px;
-  right: 0;
-  content: "";
-  transition: 0.2s;
-}
-header #menu-menu-principal > li:first-child a:hover::before {
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png");
-}
-header #menu-menu-principal > li:last-child a {
-  width: 56px;
-  font-size: 0;
-  padding: 0;
-}
-header #menu-menu-principal > li:last-child a::after {
-  font-family: "FontAwesome";
-  content: "\f133";
-  transform: rotate(90deg);
-  background-color: #e87234;
-  border-radius: 50%;
-  font-size: 2rem;
-  width: 56px;
-  height: 56px;
+.content-header > nav .content-logo-menu {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  bottom: 0;
-  transition: 0.2s;
+  height: 80px;
+  width: 80px;
+  border-left: 1px solid #e87234;
 }
-header #menu-menu-principal > li:last-child a:hover {
-  background: none;
+.content-header > nav .content-logo-menu #menu-toggle {
+  padding-left: 19px;
+  width: 100%;
+  height: 100%;
 }
-header #menu-menu-principal > li:last-child a:hover::after {
-  background-color: #f6f5f2;
-  color: #e87234;
+.content-header > nav .content-logo-menu #menu-toggle img {
+  transform: rotate(90deg);
+  width: 40px;
 }
-header #menu-menu-principal li:not(:last-child) a {
-  padding: 1rem;
-  font-size: 1rem;
-  transition: 0.2s;
-  color: #f6f5f2;
-  text-transform: uppercase;
+.content-header > nav .logo-menu-home {
+  width: 115px;
+}
+.content-header > nav .calendly {
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  transform: rotate(90deg);
+  border-radius: 50%;
+  fill: #f6f5f2;
+}
+.content-header .menu-menu-principal-container {
+  width: 100%;
+}
+
+.menu-plied {
+  position: fixed;
+  z-index: 1;
+  top: 0;
   background-color: #462620;
-  border-radius: 50px;
+  height: 100%;
+  border-left: 1px solid #e87234;
+  transform: translateX(-321px);
+  max-width: 400px;
+  transition: 0.5s;
+  opacity: 0;
 }
-header #menu-menu-principal li:not(:last-child) a:hover {
+.menu-plied.menu-open {
+  transform: translateX(80px);
+  opacity: 1;
+}
+.menu-plied #menu-menu-principal {
+  padding: 0;
+}
+.menu-plied #menu-menu-principal > li {
+  justify-content: center;
+  height: 79px;
+}
+.menu-plied #menu-menu-principal > li:not(:first-child) {
+  border-top: 1px solid #e87234;
+}
+.menu-plied #menu-menu-principal > li:last-child {
+  border-bottom: 1px solid #e87234;
+}
+.menu-plied #menu-menu-principal > li.current-menu-item a {
   color: #e87234;
-  transform: rotate(45deg) translateX(50px);
+}
+.menu-plied #menu-menu-principal > li > a {
+  font-size: 18px;
+  padding: 0.5rem 3rem;
+  text-transform: uppercase;
+}
+.menu-plied #menu-menu-principal > li .sub-menu::before {
+  display: none;
+}
+.menu-plied #menu-menu-principal > li .sub-menu li a {
+  padding: 0.5rem 3rem;
+}
+.menu-plied #menu-menu-principal a:hover {
+  background: none;
+  color: #e87234;
 }
 
 section {
@@ -216,8 +221,9 @@ section {
   position: relative;
 }
 .more::after {
-  font-family: "FontAwesome";
-  content: "\f061";
+  font-family: "Font Awesome 6 Free";
+  content: "\f178";
+  font-weight: 900;
   transition: 0.3s;
   position: absolute;
   right: -2rem;
@@ -552,9 +558,173 @@ h3::before {
   height: 12px;
   background-color: #f6f5f2;
   border-radius: 50%;
+  transition: 0.3s;
 }
 .content-blog-accueil .next-prev .indicator.active-card-indicator {
   background-color: #e87234;
+}
+
+/* Container du carousel */
+.projets-grid.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.projets-grid.carousel::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+/* Cards du carousel */
+.carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  opacity: 0.5;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.carousel-item.active-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-item {
+    max-width: 90%;
+  }
+  .btn-next-prev {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  .btn-prev {
+    margin-right: 1rem;
+  }
+  .btn-next {
+    margin-left: 1rem;
+  }
+}
+/* Animation au chargement */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.carousel-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.content-ro-accueil {
+  background-color: #f6f5f2;
+  color: #462620;
+}
+.content-ro-accueil .card-ro-accueil {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 30px;
+}
+.content-ro-accueil .card-ro-accueil::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f15c";
+  font-size: 30px;
+  color: #e87234;
+  background-color: #f6f5f2;
+  min-width: 45px;
+  min-height: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .title-icon h4 {
+  font-size: 24px;
+  font-family: "Playfair Display";
+}
+.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .pages {
+  color: #857c5a;
+  margin-block: 0.5rem;
+}
+.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .pages::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f02d";
+  font-weight: 900;
+  margin-right: 0.3rem;
+}
+.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .pages .type-file {
+  text-transform: uppercase;
+}
+.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .pages .type-file::before {
+  content: "•";
+  margin-inline: 0.3rem;
+}
+.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .download {
+  color: #e87234;
+  margin-top: 0.7rem;
+}
+.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .download a::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f019";
+  font-weight: 900;
+  margin-right: 0.5rem;
+}
+.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .download a::after {
+  content: "⮕";
+  display: inline;
+  margin-left: 0.3rem;
+}
+
+.contact-accueil {
+  background-color: #857c5a;
+  color: #f6f5f2;
+}
+.contact-accueil .tag-home {
+  color: #f6f5f2;
+}
+.contact-accueil h2,
+.contact-accueil h3 {
+  color: #f6f5f2;
+}
+.contact-accueil h2::before,
+.contact-accueil h3::before {
+  background-color: #f6f5f2;
+}
+.contact-accueil .content-groupe-contact-accueil {
+  text-align: center;
+}
+.contact-accueil .content-groupe-contact-accueil .dashicons {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(246, 245, 242, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 0.5rem;
+}
+.contact-accueil .content-groupe-contact-accueil h4 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.contact-accueil .content-groupe-contact-accueil .description {
+  font-size: 14px;
 }
 
 footer {

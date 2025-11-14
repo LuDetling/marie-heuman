@@ -230,7 +230,7 @@
                     <?php endwhile; ?>
                 </div>
                 <!-- au click l'id change sur le prochain si il exite -->
-                <a href="#card-blog3" class="btn-next-prev btn-next ml-8">❯</a>
+                <a href="" class="btn-next-prev btn-next ml-8">❯</a>
             </div>
             <?php
         endif;
@@ -239,24 +239,94 @@
     </section>
     <!-- END BLOG -->
 
-
-    <!-- CONTENT LINKS -->
-    <div class="content-links py-25 px-50">
+    <!-- RESSOURCES OFFERTES -->
+    <section class="content-ro-accueil">
         <?php
-        $content = get_field('content');
-        $content_button1 = get_field('lien_1');
-        $content_button2 = get_field('lien_2');
+        $tag_ressources_offertes_accueil = get_field('tag_ressources_offertes_accueil');
+        $titre_ressources_offertes_accueil = get_field('titre_ressources_offertes_accueil');
         ?>
-        <div class="content">
-            <?= $content; ?>
-            <div class="flex gap-4 mt-12">
-                <a href="<?= esc_url($content_button1['url']) ?>"
-                    class="marron-button"><?= esc_html($content_button1['title']) ?></a>
-                <a href="<?= esc_url($content_button2['url']) ?>"
-                    class="secondary-button"><?= esc_html($content_button2['title']) ?></a>
-            </div>
+        <span class="tag-home"><?= $tag_ressources_offertes_accueil ?></span>
+        <?= $titre_ressources_offertes_accueil ?>
+        <div class="flex gap-20 justify-between">
+            <?php for ($i = 0; $i < 2; $i++) {
+                // $fichier_ressources_offertes_accueil = get_field('fichier_1_ressources_offertes_accueil');
+                $fichier_ressources_offertes_accueil = get_field('fichier_' . $i . '_ressources_offertes_accueil');
+                ?>
+                <?php if ($fichier_ressources_offertes_accueil) {
+                    ?>
+                    <div class="card-ro-accueil flex gap-8">
+                        <div class="content-card-ro-accueil">
+
+                            <div class="flex gap-4 title-icon">
+                                <h4><?= $fichier_ressources_offertes_accueil['titre'] ?></h4>
+                            </div>
+
+
+                            <div class="pages">
+                                <?php
+                                $pdf_path = get_attached_file($fichier_ressources_offertes_accueil['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
+                        
+                                // Lire le contenu du PDF
+                                $content = file_get_contents($pdf_path);
+
+                                // Compter les occurrences de '/Page' dans le fichier
+                                if ($content && $fichier_ressources_offertes_accueil['fichier']['subtype'] === 'pdf') {
+                                    preg_match_all("/\/Page\W/", $content, $matches);
+                                    $page_count = count($matches[0]);
+                                    ?>
+                                    <span><?= $page_count ?> pages</span>
+                                    <?php
+                                }
+                                ?>
+                                <span class="type-file">
+                                    <?= $fichier_ressources_offertes_accueil['fichier']['subtype'] ?>
+                                </span>
+                            </div>
+                            <p>
+                                <?= $fichier_ressources_offertes_accueil['description'] ?>
+                            </p>
+                            <div class="download">
+                                <a href="<?= $fichier_ressources_offertes_accueil['fichier']['url'] ?>"> Téléchargez</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php }
+            } ?>
         </div>
-    </div>
+    </section>
+    <!-- END RESSOURCES OFFERTES -->
+    <!-- CONTACT -->
+
+    <section class="contact-accueil">
+        <?php
+        $tag_contact_accueil = get_field("tag_contact_accueil");
+        $titre_contact_accueil = get_field("titre_contact_accueil");
+        ?>
+        <span class="tag-home"><?= $tag_contact_accueil ?></span>
+        <?= $titre_contact_accueil ?>
+        <div class="flex gap-16 justify-center">
+            <?php
+            for ($i = 1; $i < 4; $i++) {
+                $groupe_contact_accueil = get_field('groupe_' . $i . '_contact_accueil');
+                ?>
+                <div class="content-groupe-contact-accueil">
+                    <?php if (!empty($groupe_contact_accueil['icone'])): ?>
+                        <span class="dashicons <?php echo esc_attr($groupe_contact_accueil['icone']); ?>"></span>
+                    <?php endif; ?>
+                    <h4>
+                        <?= $groupe_contact_accueil['titre'] ?>
+                    </h4>
+                    <p class="description">
+                        <?= $groupe_contact_accueil['description'] ?>
+                    </p>
+                </div>
+            <?php }
+            ?>
+        </div>
+    </section>
+
+    <!-- END CONTACT -->
+
 </main>
 
 <?php get_footer(); ?>

@@ -23,16 +23,19 @@ function marieheuman_setup()
     // Déclare ton menu principal
     register_nav_menus([
         'main_menu' => 'Menu principal',
-        'contact_menu' => 'Collaborer',
+        'second_menu' => 'Second menu',
     ]);
 }
 function add_fontawesome()
 {
     wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
 }
+function theme_enqueue_dashicons()
+{
+    wp_enqueue_style('dashicons');
+}
 
-
-
+add_action('wp_enqueue_scripts', 'theme_enqueue_dashicons');
 add_action('wp_enqueue_scripts', 'add_fontawesome');
 add_action('after_setup_theme', 'marieheuman_setup');
 add_action('wp_enqueue_scripts', 'marieheuman_enqueue_scripts');

@@ -2,124 +2,129 @@
 
 header {
     display: flex;
+}
+
+.content-header {
+    display: flex;
     background-color: $marron;
     left: 0;
-    padding: 0 25px;
+    // padding: 0 25px;
     position: fixed;
     top: 100vh;
     transform: rotate(-90deg);
     transform-origin: top left;
     width: 100vh;
-    height: 5rem;
+    height: 80px;
     z-index: 5;
 
     >nav {
+        justify-content: space-between;
         width: 100%;
+
+        .content-logo-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            width: 80px;
+            border-left: 1px solid $orange;
+
+            #menu-toggle {
+                padding-left: 19px;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    transform: rotate(90deg);
+                    width: 40px;
+                }
+            }
+        }
+
+        .logo-menu-home {
+            width: 115px;
+        }
+
+        .calendly {
+            width: 50px;
+            height: 50px;
+            font-size: 2rem;
+            transform: rotate(90deg);
+            border-radius: 50%;
+            fill: $beige;
+        }
     }
 
     //MENU
     .menu-menu-principal-container {
         width: 100%;
     }
+}
+
+.menu-plied {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: $marron;
+    height: 100%;
+    border-left: 1px solid $orange;
+    // padding-block: 79px;
+    transform: translateX(-321px);
+    max-width: 400px;
+    transition: .5s;
+    opacity: 0;
+
+    &.menu-open {
+        transform: translateX(80px);
+        opacity: 1;
+    }
+
+    .menu-menu-principal-container {}
 
     #menu-menu-principal {
-        width: 100%;
         padding: 0;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        gap: 1rem;
 
-        &>.current-menu-item {
-            a {
-                color: $orange !important;
+        >li {
+            justify-content: center;
+            height: 79px;
 
-                &::before {
-                    background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png') !important;
-                }
+            &:not(:first-child) {
+                border-top: 1px solid $orange;
             }
-        }
 
-        >li:first-child {
 
-            a {
-                display: flex;
-                flex-direction: row-reverse;
-                gap: 1rem;
-                padding-right: 3.5rem !important;
-                // font-size: 0;
-
-                &::before {
-                    transform: rotate(90deg);
-                    background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png');
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    display: inline;
-                    position: absolute;
-                    width: 30px;
-                    height: 40px;
-                    right: 0;
-                    content: "";
-                    transition: .2s;
-                }
-
-                &:hover {
-                    &::before {
-                        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png');
-                    }
-                }
+            &:last-child {
+                border-bottom: 1px solid $orange;
             }
-        }
 
-        >li:last-child {
-
-            a {
-                width: 56px;
-                font-size: 0;
-                padding: 0;
-
-                &::after {
-                    font-family: "FontAwesome";
-                    content: "\f133";
-                    transform: rotate(90deg);
-                    background-color: $orange;
-                    border-radius: 50%;
-                    font-size: 2rem;
-                    width: 56px;
-                    height: 56px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: absolute;
-                    bottom: 0;
-                    transition: .2s;
-                }
-
-                &:hover {
-                    background: none;
-
-                    &::after {
-                        background-color: $beige;
-                        color: $orange;
-                    }
-                }
-            }
-        }
-
-        li:not(:last-child) {
-            a {
-                padding: 1rem;
-                font-size: 1rem;
-                transition: .2s;
-                color: $beige;
-                text-transform: uppercase;
-                background-color: $marron;
-                border-radius: 50px;
-
-                &:hover {
+            &.current-menu-item {
+                a {
                     color: $orange;
-                    transform: rotate(45deg) translateX(50px);
                 }
             }
+
+            >a {
+                font-size: 18px;
+                padding: .5rem 3rem;
+                text-transform: uppercase;
+            }
+
+            .sub-menu {
+                &::before {
+                    display: none;
+                }
+
+                li {
+                    a {
+                        padding: .5rem 3rem;
+                    }
+                }
+            }
+        }
+
+        a:hover {
+            background: none;
+            color: $orange;
         }
     }
 }

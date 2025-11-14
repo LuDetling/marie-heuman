@@ -8,7 +8,6 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --spacing: 0.25rem;
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1283,13 +1282,6 @@
   .z-2 {
     z-index: 2;
   }
-  .drawer-content {
-    @layer daisyui.component {
-      grid-column-start: 2;
-      grid-row-start: 1;
-      min-width: calc(0.25rem * 0);
-    }
-  }
   .filter {
     @layer daisyui.component {
       display: flex;
@@ -1486,25 +1478,14 @@
   .grid {
     display: grid;
   }
+  .inline {
+    display: inline;
+  }
   .table {
     display: table;
   }
-  .btn-circle {
-    @layer daisyui.modifier {
-      border-radius: calc(infinity * 1px);
-      padding-inline: calc(0.25rem * 0);
-      width: var(--size);
-      height: var(--size);
-    }
-  }
   .h-6 {
     height: calc(var(--spacing) * 6);
-  }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
-  .w-1\/2 {
-    width: calc(1/2 * 100%);
   }
   .w-6 {
     width: calc(var(--spacing) * 6);
@@ -1537,6 +1518,9 @@
         animation: skeleton 1.8s ease-in-out infinite;
       }
     }
+  }
+  .cursor-pointer {
+    cursor: pointer;
   }
   .resize {
     resize: both;
@@ -1580,15 +1564,11 @@
   .gap-16 {
     gap: calc(var(--spacing) * 16);
   }
+  .gap-20 {
+    gap: calc(var(--spacing) * 20);
+  }
   .gap-x-20 {
     column-gap: calc(var(--spacing) * 20);
-  }
-  .space-x-8 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
-    }
   }
   .space-x-16 {
     :where(& > :not(:last-child)) {
@@ -1643,17 +1623,6 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
-  }
-  .ease-out {
-    --tw-ease: var(--ease-out);
-    transition-timing-function: var(--ease-out);
-  }
-  .btn-xs {
-    @layer daisyui.modifier {
-      --fontsize: 0.6875rem;
-      --btn-p: 0.5rem;
-      --size: calc(var(--size-field, 0.25rem) * 6);
-    }
   }
   .md\:hidden {
     @media (width >= 48rem) {

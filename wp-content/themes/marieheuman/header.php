@@ -8,31 +8,42 @@
 </head>
 
 <body>
-    <header class="">
-        <!-- <nav class="flex items-center p-8 flex-row-reverse gap-8"> -->
-        <nav class="flex items-center flex-row-reverse gap-8">
-            <!-- Logo -->
-            <!-- <a href="<?= home_url() ?>" class="logo flex flex-row-reverse gap-4">
-                <span class="block">MH</span>
-                menu
-                <img src=" <?= get_template_directory_uri(); ?>/assets/images/logo.webp"
-                    alt="<?php bloginfo('name'); ?>" class="">
-            </a> -->
-            <!-- Bouton mobile -->
-            <button id=" menu-toggle" class="md:hidden p-2 rounded border" aria-expanded="false"
-                aria-controls="main-menu">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <!-- Menu principal -->
 
+    <header>
+        <div class="content-header">
+            <nav class="flex items-center flex-row-reverse gap-8">
+                <!-- Menu -->
+                <div class="content-logo-menu">
+                    <button id="menu-toggle" class="cursor-pointer" aria-expanded="false" aria-controls="main-menu">
+                        <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png"
+                            alt="logo menu" class="logo-menu">
+                    </button>
+                </div>
+
+                <!-- Accueil -->
+                <a href="<?= home_url() ?>">
+                    <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-logo-clair.png"
+                        alt="logo menu" class="logo-menu-home"></a>
+
+                <!-- calendly -->
+                <a href="https://calendly.com/marieheuman/appeldecouverte" class="calendly" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path
+                            d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM480 496C488.8 496 496 488.8 496 480L496 416L408 416L408 496L480 496zM496 368L496 288L408 288L408 368L496 368zM360 368L360 288L280 288L280 368L360 368zM232 368L232 288L144 288L144 368L232 368zM144 416L144 480C144 488.8 151.2 496 160 496L232 496L232 416L144 416zM280 416L280 496L360 496L360 416L280 416zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176z" />
+                    </svg>
+                </a>
+
+        </div>
+        <nav class="menu-plied">
             <?php
             wp_nav_menu([
                 'theme_location' => 'main_menu'
-            ]) ?>
-            <!-- <?php
-            wp_nav_menu(['theme_location' => 'contact_menu']); ?> -->
-
+            ]);
+            wp_nav_menu([
+                'theme_location' => 'second_menu'
+            ]);
+            
+            ?>
+        </nav>
     </header>

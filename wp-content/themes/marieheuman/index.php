@@ -1,3 +1,5 @@
 <?php get_header(); ?>
-<?php the_content(); ?>
+<main class="ml-20">
+    <?php the_content(); ?>
+</main>
 <?php get_footer(); ?>

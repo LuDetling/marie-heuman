@@ -11,7 +11,7 @@ get_header();
         $header_expertise_accompagnement = get_field("header_expertise_accompagnement");
         ?>
         <?= $header_expertise_accompagnement['titre'] ?>
-        <div class="flex gap-8">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap">
             <a href="<?= esc_url($header_expertise_accompagnement['lien_1']['url']) ?>"
                 class="orange-button"><?= esc_html($header_expertise_accompagnement['lien_1']['title']) ?>
             </a>
@@ -37,7 +37,7 @@ get_header();
             // $champ = $cinq_champs_expertise_accompagnement['champ_2_accompagnement'];
             if ($champ) {
                 ?>
-                <div class="flex gap-8 accompagnement">
+                <div class="flex gap-8 accompagnement flex-wrap lg:flex-nowrap">
                     <!-- <?= var_dump($champ) ?> -->
                     <div class="lg:w-5/12 left-accompagnement">
                         <span class="index"><?= $i ?></span>

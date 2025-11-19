@@ -93,7 +93,6 @@
 
                     li {
                         position: relative;
-                        display: flex;
                         align-items: center;
                         padding-left: 2rem;
                         margin-bottom: .5rem;
@@ -106,6 +105,7 @@
                             border-radius: 50%;
                             position: absolute;
                             left: 0;
+                            top: 0;
                         }
 
                         &::after {
@@ -116,6 +116,7 @@
                             border-radius: 50%;
                             position: absolute;
                             left: 6px;
+                            top: 6px;
                         }
                     }
                 }

@@ -278,7 +278,7 @@ h3 {
   color: #462620;
   font-size: 20px;
   gap: 13px;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 h3::before {
   content: "";
@@ -911,6 +911,177 @@ h3::before {
   border-radius: 50%;
   position: absolute;
   left: 6px;
+}
+
+.engagements {
+  background-color: white;
+  color: #462620;
+}
+.engagements .card-engagement {
+  border-radius: 30px;
+  background-color: #f6f5f2;
+  padding: 3rem;
+}
+.engagements .card-engagement .dashicons {
+  color: #857c5a;
+  background-color: rgba(133, 124, 90, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.engagements .card-engagement .titre-description h4 {
+  font-family: "Playfair Display";
+  font-size: 24px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.collaboration {
+  background-color: #f6f5f2;
+  color: #462620;
+}
+.collaboration > p {
+  margin-left: 63px;
+}
+.collaboration .selector-slide {
+  color: #462620;
+  border: 1px solid #462620;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  width: 57px;
+  height: 57px;
+  position: relative;
+  border-radius: 50%;
+  margin-block: 3rem;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.collaboration .selector-slide.active-border-marron-button {
+  color: #f6f5f2;
+}
+.collaboration .selector-slide:hover {
+  background-color: #462620;
+  color: #f6f5f2;
+}
+.collaboration .selector-slide:not(:last-child)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #462620;
+  display: block;
+  position: absolute;
+  right: -37px;
+  border-radius: 50%;
+  cursor: initial;
+}
+.collaboration .card-collaboration {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 30px;
+  width: 90%;
+  margin: auto;
+  display: none;
+  transition: 0.3s;
+  margin-bottom: 4rem;
+}
+.collaboration .card-collaboration.active-collaboration {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.collaboration .card-collaboration .dashicons {
+  background-color: rgba(232, 114, 52, 0.3);
+  color: #e87234;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 57px;
+  min-width: 57px;
+  height: 57px;
+  border-radius: 50%;
+  font-size: 2rem;
+}
+.collaboration .card-collaboration h4 {
+  font-family: "Playfair Display";
+  font-size: 24px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.collaboration .card-collaboration .offre {
+  color: #857c5a;
+  margin-bottom: 1.5rem;
+  font-size: 18px;
+  display: block;
+}
+.collaboration .reservation {
+  width: 90%;
+  margin: auto;
+  padding: 2rem 3rem;
+  background-color: #857c5a;
+  border-radius: 30px;
+  color: #f6f5f2;
+}
+.collaboration .reservation h2 {
+  margin-bottom: 1.5rem;
+  color: #f6f5f2;
+}
+.collaboration .reservation p {
+  margin-bottom: 2.5rem;
+}
+
+.ressources {
+  background-color: white;
+  color: #462620;
+}
+.ressources .card-ressource {
+  background-color: #f6f5f2;
+  border-radius: 30px;
+  padding: 2rem 3rem;
+}
+.ressources .card-ressource .dashicons {
+  background-color: white;
+  width: 57px;
+  min-width: 57px;
+  height: 57px;
+  color: #e87234;
+  font-size: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ressources .card-ressource h4 {
+  font-family: "Playfair Display";
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+.ressources .card-ressource a {
+  color: #e87234;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-size: 18px;
+}
+.ressources .card-ressource a::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f019";
+  font-weight: 900;
 }
 
 footer {

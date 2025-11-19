@@ -8,6 +8,7 @@ function marieheuman_js()
 {
     wp_enqueue_script('menu-js', get_template_directory_uri() . '/assets/js/menu.js', [], false, true);
     wp_enqueue_script('home-js', get_template_directory_uri() . '/assets/js/home.js', [], false, true);
+    wp_enqueue_script('page-js', get_template_directory_uri() . '/assets/js/page.js', [], false, true);
 }
 function marieheuman_enqueue_scripts()
 {

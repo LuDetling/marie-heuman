@@ -311,7 +311,7 @@
                 ?>
                 <div class="content-groupe-contact-accueil">
                     <?php if (!empty($groupe_contact_accueil['icone'])): ?>
-                        <span class="dashicons <?php echo esc_attr($groupe_contact_accueil['icone']); ?>"></span>
+                        <span class="dashicons <?= $groupe_contact_accueil['icone']; ?>"></span>
                     <?php endif; ?>
                     <h4>
                         <?= $groupe_contact_accueil['titre'] ?>

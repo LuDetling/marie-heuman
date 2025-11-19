@@ -123,3 +123,208 @@
         }
     }
 }
+
+// ENGAGEMENTS
+.engagements {
+    background-color: white;
+    color: $marron;
+
+    .card-engagement {
+        border-radius: 30px;
+        background-color: $beige;
+        padding: 3rem;
+
+        .dashicons {
+            color: $secondary;
+            background-color: rgba($color: $secondary, $alpha: .3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .titre-description {
+            h4 {
+                font-family: "Playfair Display";
+                font-size: 24px;
+                margin-bottom: 1rem;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// END ENGAGEMENTS
+
+// COLLBORATION
+.collaboration {
+    background-color: $beige;
+    color: $marron;
+
+    >p {
+        margin-left: 63px;
+    }
+
+    .selector-slide {
+        color: $marron;
+        border: 1px solid $marron;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        width: 57px;
+        height: 57px;
+        position: relative;
+        border-radius: 50%;
+        margin-block: 3rem;
+        padding: 0;
+        cursor: pointer;
+        transition: .3s;
+
+        &.active-border-marron-button {
+            color: $beige;
+        }
+
+        &:hover {
+            background-color: $marron;
+            color: $beige;
+        }
+
+        &:not(:last-child)::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: $marron;
+            display: block;
+            position: absolute;
+            right: -37px;
+            border-radius: 50%;
+            cursor: initial;
+        }
+    }
+
+    .card-collaboration {
+        background-color: white;
+        padding: 2rem 3rem;
+        border-radius: 30px;
+        width: 90%;
+        margin: auto;
+        display: none;
+        transition: .3s;
+        margin-bottom: 4rem;
+
+        &.active-collaboration {
+            display: block;
+            animation: fadeIn .5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .dashicons {
+            background-color: rgba($color: $orange, $alpha: .3);
+            color: $orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 57px;
+            min-width: 57px;
+            height: 57px;
+            border-radius: 50%;
+            font-size: 2rem;
+        }
+
+        h4 {
+            font-family: 'Playfair Display';
+            font-size: 24px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .offre {
+            color: $secondary;
+            margin-bottom: 1.5rem;
+            font-size: 18px;
+            display: block;
+        }
+    }
+
+    .reservation {
+        width: 90%;
+        margin: auto;
+        padding: 2rem 3rem;
+        background-color: $secondary;
+        border-radius: 30px;
+        color: $beige;
+
+        h2 {
+            margin-bottom: 1.5rem;
+            color: $beige;
+        }
+
+        p {
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+// END COLLABORATION
+
+// RESSOURCES
+.ressources {
+    background-color: white;
+    color: $marron;
+
+    .card-ressource {
+        background-color: $beige;
+        border-radius: 30px;
+        padding: 2rem 3rem;
+
+        .dashicons {
+            background-color: white;
+            width: 57px;
+            min-width: 57px;
+            height: 57px;
+            color: $orange;
+            font-size: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h4 {
+            font-family: 'Playfair Display';
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: $orange;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            font-size: 18px;
+
+            &::before {
+                font-family: 'Font Awesome 6 Free';
+                content: "\f019";
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+// END RESSOURCES

@@ -37,57 +37,6 @@ serviceButtons.forEach((button, index) => {
 });
 
 function carouselBlogAccueil() {
-    // let contentIndicator = document.querySelectorAll('.content-indicator a');
-    // let maxSlide = contentIndicator.length
-    // let nextSlide = 2;
-    // let prevSlide = 0;
-
-    // contentIndicator.forEach((button, index) => {
-    //     button.addEventListener('click', () => {
-    //         contentIndicator.forEach((btn, btnindex) => {
-    //             if (btnindex === index) {
-    //                 btn.classList.add('active-card-indicator')
-    //             } else {
-    //                 btn.classList.remove('active-card-indicator')
-    //             }
-    //         })
-    //     })
-    // })
-
-    // let btnNext = document.querySelector('.content-blog-accueil .btn-next')
-    // let btnPrev = document.querySelector('.content-blog-accueil .btn-prev')
-
-    // if (window.innerWidth < 1024) {
-    //     btnNext.href = "#card-blog2"
-    //     nextSlide = 2;
-    // } else if (window.innerWidth > 1024 && window.innerWidth < 1537) {
-    //     btnNext.href = "#card-blog3"
-    //     nextSlide = 3;
-    // } else {
-    //     btnNext.href = "#card-blog4"
-    //     nextSlide = 4;
-    // }
-
-    // btnNext.addEventListener('click', () => {
-    //     if (nextSlide + 1 > maxSlide + 1) return
-    //     btnNext.href = "#card-blog" + nextSlide++
-    //     btnPrev.href = "#card-blog" + prevSlide++
-    //     console.log(nextSlide)
-    //     console.log(prevSlide)
-    // })
-
-    // btnPrev.addEventListener('click', () => {
-    //     if (prevSlide - 1 < 0) return
-    //     btnNext.href = "#card-blog" + nextSlide--
-    //     btnPrev.href = "#card-blog" + prevSlide--
-    //     console.log(nextSlide)
-    //     console.log(prevSlide)
-    // })
-
-    // const updateSlide = () => {
-
-    // }
-
     document.addEventListener('DOMContentLoaded', function () {
         const carousel = document.querySelector('.projets-grid.carousel');
         const cards = document.querySelectorAll('.carousel-item');

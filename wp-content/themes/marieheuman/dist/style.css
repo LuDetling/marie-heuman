@@ -1709,6 +1709,24 @@
       }
     }
   }
+  .link {
+    @layer daisyui.component {
+      cursor: pointer;
+      text-decoration-line: underline;
+      &:focus {
+        --tw-outline-style: none;
+        outline-style: none;
+        @media (forced-colors: active) {
+          outline: 2px solid transparent;
+          outline-offset: 2px;
+        }
+      }
+      &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+      }
+    }
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -1717,6 +1735,9 @@
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .flex-row-reverse {
     flex-direction: row-reverse;
@@ -1756,6 +1777,12 @@
   }
   .gap-20 {
     gap: calc(var(--spacing) * 20);
+  }
+  .gap-24 {
+    gap: calc(var(--spacing) * 24);
+  }
+  .gap-32 {
+    gap: calc(var(--spacing) * 32);
   }
   .gap-x-20 {
     column-gap: calc(var(--spacing) * 20);
@@ -1806,14 +1833,14 @@
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
   }
+  .lg\:w-1\/2 {
+    @media (width >= 64rem) {
+      width: calc(1/2 * 100%);
+    }
+  }
   .lg\:w-4\/10 {
     @media (width >= 64rem) {
       width: calc(4/10 * 100%);
-    }
-  }
-  .lg\:w-4\/12 {
-    @media (width >= 64rem) {
-      width: calc(4/12 * 100%);
     }
   }
   .lg\:w-5\/12 {
@@ -1824,16 +1851,6 @@
   .lg\:w-6\/10 {
     @media (width >= 64rem) {
       width: calc(6/10 * 100%);
-    }
-  }
-  .lg\:w-7\/12 {
-    @media (width >= 64rem) {
-      width: calc(7/12 * 100%);
-    }
-  }
-  .lg\:w-8\/12 {
-    @media (width >= 64rem) {
-      width: calc(8/12 * 100%);
     }
   }
   .lg\:w-fit {

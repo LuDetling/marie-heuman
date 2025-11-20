@@ -1,0 +1,14 @@
+@use "globals" as *;
+@use "mixins" as *;
+
+.fas {
+    @include fas;
+}
+
+.far {
+    @include far;
+}
+
+.fab {
+    @include fab;
+}

@@ -156,7 +156,7 @@ header {
 
 .menu-plied {
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   background-color: #462620;
   height: 100%;
@@ -743,72 +743,9 @@ h3::before {
   font-size: 14px;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-.blog-filters {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.blog-filters input,
-.blog-filters select {
-  padding: 8px;
-}
-
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.blog-card {
-  border: 1px solid #eee;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-  transition: 0.2s;
-}
-
-.blog-card:hover {
-  transform: translateY(-5px);
-}
-
-.blog-card .thumb img {
-  width: 100%;
-  display: block;
-}
-
-.blog-card .content {
-  padding: 15px;
-}
-
-.blog-card .category {
-  background: #222;
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 5px;
-  font-size: 12px;
-}
-
-.blog-card h2 {
-  margin: 10px 0;
-  font-size: 20px;
-}
-
-.blog-card .meta {
-  font-size: 13px;
-  color: #777;
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 10px;
-  font-weight: bold;
+.articles {
+  background-color: #f6f5f2;
+  color: #462620;
 }
 
 .header-content {
@@ -1085,14 +1022,156 @@ h3::before {
   font-weight: 900;
 }
 
+.fas, footer .contact ul li.tel a::before, footer .contact ul li.loca a::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.far, footer .contact ul li.mail a::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+}
+
+.fab, footer .instagram a::before, footer #menu-reseaux .instagram a::before, footer #menu-reseaux .linkedin a::before, footer #menu-reseaux .facebook a::before, footer #menu-reseaux .pinterest a::before {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+
 footer {
   background-color: #462620;
   color: #f3efea;
   padding: 4rem 120px;
 }
+footer img {
+  max-width: 190px;
+  display: block;
+  margin-bottom: 2rem;
+}
+footer p {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+footer h2 {
+  font-weight: bold;
+  color: #f6f5f2;
+  font-family: "Roboto";
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+footer .instagram a::before {
+  content: "\f16d";
+}
+footer #menu-reseaux {
+  flex-direction: row;
+  padding: 0;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+footer #menu-reseaux a {
+  padding: 0;
+  font-size: 0;
+  display: block;
+}
+footer #menu-reseaux a:hover {
+  background: none;
+}
+footer #menu-reseaux a:hover::before {
+  border-color: #e87234;
+}
+footer #menu-reseaux a::before {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(246, 245, 242, 0.3);
+  border-radius: 50%;
+  border: 1px solid rgba(246, 245, 242, 0.3);
+  transition: 0.3s;
+}
+footer #menu-reseaux .instagram a::before {
+  content: "\f16d";
+}
+footer #menu-reseaux .linkedin a::before {
+  content: "\f0e1";
+}
+footer #menu-reseaux .facebook a::before {
+  content: "\f39e";
+}
+footer #menu-reseaux .pinterest a::before {
+  content: "\f231";
+}
+footer #menu-navigation {
+  padding: 0;
+}
+footer #menu-navigation a {
+  padding: 0;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+footer #menu-navigation a:hover {
+  background: none;
+  color: #e87234;
+}
+footer .contact ul li {
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+footer .contact ul li a:hover {
+  color: #e87234;
+}
+footer .contact ul li a {
+  transition: 0.3s;
+}
+footer .contact ul li.mail a::before {
+  margin-right: 0.5rem;
+  font-size: 18px;
+  content: "\f0e0";
+}
+footer .contact ul li.tel a::before {
+  margin-right: 0.5rem;
+  font-size: 18px;
+  content: "\f095";
+}
+footer .contact ul li.loca a::before {
+  margin-right: 0.5rem;
+  font-size: 18px;
+  content: "\f3c5";
+}
+footer .footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(246, 245, 242, 0.3);
+}
 
 * {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.header-content {
+  background-color: white;
+  color: #462620;
+}
+.header-content h1 {
+  font-size: 48px;
+  font-family: "Playfair Display";
+  color: #462620;
+}
+.header-content h2 {
+  font-family: "Roboto";
+  display: flex;
+  align-items: center;
+  color: #462620;
+  font-size: 20px;
+  gap: 13px;
+  margin-bottom: 3.5rem;
+}
+.header-content h2::before {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background-color: #462620;
 }
 
 /*# sourceMappingURL=main.css.map */

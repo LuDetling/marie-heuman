@@ -304,7 +304,7 @@
         ?>
         <span class="tag-home"><?= $tag_contact_accueil ?></span>
         <?= $titre_contact_accueil ?>
-        <div class="flex gap-16 justify-center">
+        <div class="flex flex-wrap gap-16 justify-center">
             <?php
             for ($i = 1; $i < 4; $i++) {
                 $groupe_contact_accueil = get_field('groupe_' . $i . '_contact_accueil');

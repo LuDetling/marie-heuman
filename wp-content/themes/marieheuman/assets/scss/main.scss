@@ -2,10 +2,38 @@
 @use "buttons";
 @use "menu";
 @use "home";
-@use "blogs";
+@use "blog";
 @use "page";
 @use "footer";
 
 * {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.header-content {
+    background-color: white;
+    color: $marron;
+
+    h1 {
+        font-size: 48px;
+        font-family: 'Playfair Display';
+        color: $marron;
+    }
+
+    h2 {
+        font-family: 'Roboto';
+        display: flex;
+        align-items: center;
+        color: $marron;
+        font-size: 20px;
+        gap: 13px;
+        margin-bottom: 3.5rem;
+
+        &::before {
+            content: "";
+            width: 50px;
+            height: 1px;
+            background-color: $marron;
+        }
+    }
 }

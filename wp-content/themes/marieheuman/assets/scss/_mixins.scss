@@ -87,3 +87,19 @@
         color: $beige;
     }
 }
+
+// FONTAWESOME
+@mixin fas {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+@mixin far {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 400;
+}
+
+@mixin fab {
+    font-family: 'Font Awesome 6 Brands';
+    font-weight: 400;
+}

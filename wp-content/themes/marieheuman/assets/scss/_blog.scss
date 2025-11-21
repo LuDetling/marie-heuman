@@ -1,4 +1,6 @@
 @use "globals" as *;
+@use "buttons";
+@use "fontawesome";
 // HEADER
 
 
@@ -7,6 +9,78 @@
 .articles {
   background-color: $beige;
   color: $marron;
+
+  .blog-filters {
+    margin-bottom: 3rem;
+
+    li:not(:last-child) {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      &::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: $marron;
+        border-radius: 50%;
+        display: block;
+      }
+    }
+
+    .filter-btn {
+      @extend .border-marron-button;
+
+      &.active {
+        @extend .marron-button;
+
+        &:hover {
+          background-color: $marron;
+        }
+      }
+    }
+  }
+
+  .card-article {
+    border-radius: 30px;
+    background-color: white;
+
+    img {
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+
+    .text-card {
+      padding: 2rem 3rem;
+
+      h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        margin-bottom: 1rem;
+      }
+
+      .blog-meta {
+        color: $secondary;
+        margin-bottom: 1rem;
+
+        &::before {
+          @extend .far;
+          content: '\f073';
+          margin-right: .3rem;
+        }
+
+        .date {
+          display: inline-block;
+
+          &::first-letter {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+
+  
 }
 
 // END LIST

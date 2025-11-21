@@ -37,3 +37,34 @@
         }
     }
 }
+
+.pagination {
+    margin-block: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+
+    .page-btn:not(.next):not(.prev) {
+        width: 25px;
+        min-width: 25px;
+        height: 25px;
+        border: 1px solid $marron;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .3s;
+
+        &.active,
+        &:hover {
+            background-color: $marron;
+            color: $beige;
+        }
+
+    }
+
+    .page-btn {
+        cursor: pointer;
+    }
+}

@@ -1,52 +1,128 @@
-jQuery(document).ready(function($) {
-    console.log("ici");
+/**
+ * ===========================================
+ * 3. JS/BLOG-AJAX.JS - JavaScript
+ * ===========================================
+ */
+(function ($) {
+    'use strict';
 
-    // 1. Cible et écouteur d'événement
-    // Cible tous les liens de filtre dans la liste de taxonomie (assurez-vous que cette classe est sur vos liens)
-    $('.taxonomy-list a.filter-item').on('click', function(e) {
-        
-        // Empêche le navigateur de suivre le lien et de recharger toute la page
-        e.preventDefault(); 
-        
-        const filterLink = $(this);
-        
-        // Récupère le slug stocké dans l'attribut data-slug du lien HTML
-        const catSlug = filterLink.data('slug'); 
-        
-        // Conteneur où les nouveaux articles seront affichés.
-        // C'est le <div> qui enveloppe la liste des articles.
-        const resultsContainer = $('.blog-list-container');
-        
-        // 2. Feedback Visuel
-        // Optionnel : Ajoute une classe 'loading' au conteneur pendant la requête
-        resultsContainer.addClass('loading-state');
-        // Met à jour la classe 'active' pour styliser le filtre actuellement sélectionné
-        $('.taxonomy-list a.filter-item').removeClass('active');
-        filterLink.addClass('active');
+    const Blog = {
+        page: 1,
+        category: '',
+        maxPages: 1,
+        isLoading: false,
 
-        // 3. Préparation des données POST
-        const data = {
-            'action': 'filter_blog_posts', // DOIT CORRESPONDRE au hook wp_ajax_filter_blog_posts dans functions.php
-            'cat_slug': catSlug,          // La clé PHP $_POST['cat_slug'] que nous lisons dans functions.php
-            'nonce': blog_ajax_object.nonce // Le jeton de sécurité transmis depuis PHP
-        };
+        init() {
+            this.grid = $('#blog-grid');
+            this.pagination = $('#blog-pagination');
+            this.loader = $('#blog-loader');
 
-        // 4. Requête AJAX
-        $.post(blog_ajax_object.ajax_url, data, function(response) {
-            
-            // Si la requête réussit :
-            // Remplace le contenu du conteneur par le HTML renvoyé par la fonction PHP
-            resultsContainer.html(response);
-            
-        }).fail(function() {
-            // Gestion des erreurs (par exemple, si le serveur ne répond pas)
-            resultsContainer.html('<p class="error-message">Erreur : Impossible de charger les articles.</p>');
-        }).always(function() {
-            // Exécuté dans tous les cas (succès ou échec)
-            // Retire la classe 'loading'
-            resultsContainer.removeClass('loading-state');
-        });
+            this.loadPosts();
+            this.bindEvents();
+        },
 
-    });
+        bindEvents() {
+            // Filtres catégories
+            $('.filter-btn').on('click', (e) => {
+                const $btn = $(e.currentTarget);
+                $('.filter-btn').removeClass('active');
+                $btn.addClass('active');
+                this.category = $btn.data('category');
+                this.page = 1;
+                this.loadPosts();
+            });
 
-});
+            // Pagination
+            this.pagination.on('click', '.page-btn', (e) => {
+                const newPage = $(e.currentTarget).data('page');
+                if (newPage !== this.page) {
+                    this.page = newPage;
+                    this.loadPosts();
+                    $('html, body').animate({ scrollTop: this.grid.offset().top - 100 }, 300);
+                }
+            });
+        },
+
+        loadPosts() {
+            if (this.isLoading) return;
+            this.isLoading = true;
+
+            this.loader.show();
+            this.grid.addClass('loading');
+
+            $.ajax({
+                url: blogAjax.ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'load_blog_posts',
+                    nonce: blogAjax.nonce,
+                    page: this.page,
+                    category: this.category
+                },
+                success: (response) => {
+                    if (response.success) {
+                        this.grid.html(response.data.html);
+                        this.maxPages = response.data.max_pages;
+                        this.renderPagination();
+                    }
+                },
+                error: (xhr, status, error) => {
+                    console.log('=== ERREUR AJAX ===');
+                    console.log('Status:', status);
+                    console.log('Error:', error);
+                    console.log('Response:', xhr.responseText);
+                    this.grid.html('<p class="error">Erreur: ' + error + '</p>');
+                },
+                complete: () => {
+                    this.isLoading = false;
+                    this.loader.hide();
+                    this.grid.removeClass('loading');
+                }
+            });
+        },
+
+        renderPagination() {
+            if (this.maxPages <= 1) {
+                this.pagination.empty();
+                return;
+            }
+
+            let html = '';
+
+            // Bouton précédent
+            if (this.page > 1) {
+                html += `<button class="page-btn prev" data-page="${this.page - 1}">←</button>`;
+            }
+
+            // Numéros de pages
+            const range = 2;
+            const start = Math.max(1, this.page - range);
+            const end = Math.min(this.maxPages, this.page + range);
+
+            if (start > 1) {
+                html += '<button class="page-btn" data-page="1">1</button>';
+                if (start > 2) html += '<span class="dots">...</span>';
+            }
+
+            for (let i = start; i <= end; i++) {
+                const active = i === this.page ? 'active' : '';
+                html += `<button class="page-btn ${active}" data-page="${i}">${i}</button>`;
+            }
+
+            if (end < this.maxPages) {
+                if (end < this.maxPages - 1) html += '<span class="dots">...</span>';
+                html += `<button class="page-btn" data-page="${this.maxPages}">${this.maxPages}</button>`;
+            }
+
+            // Bouton suivant
+            if (this.page < this.maxPages) {
+                html += `<button class="page-btn next" data-page="${this.page + 1}">→</button>`;
+            }
+
+            this.pagination.html(html);
+        }
+    };
+
+    $(document).ready(() => Blog.init());
+
+})(jQuery);

@@ -21,7 +21,7 @@
   font-style: 300;
   font-display: swap;
 }
-.marron-button {
+.marron-button, .articles .blog-filters .filter-btn.active {
   color: #f3efea;
   background-color: #462620;
   padding: 10px 30px;
@@ -30,7 +30,7 @@
   border-radius: 50px;
   display: inline-block;
 }
-.marron-button:hover {
+.marron-button:hover, .articles .blog-filters .filter-btn.active:hover {
   border: 1px solid #857c5a;
   background-color: #857c5a;
 }
@@ -78,7 +78,7 @@
   color: #f6f5f2;
 }
 
-.border-marron-button {
+.border-marron-button, .articles .blog-filters .filter-btn {
   color: #462620;
   background-color: transparent;
   padding: 10px 30px;
@@ -88,7 +88,7 @@
   cursor: pointer;
   display: inline-block;
 }
-.border-marron-button:hover {
+.border-marron-button:hover, .articles .blog-filters .filter-btn:hover {
   background-color: #462620;
   color: #f3efea;
 }
@@ -116,7 +116,7 @@ header {
   transform-origin: top left;
   width: 100vh;
   height: 80px;
-  z-index: 5;
+  z-index: 1001;
 }
 .content-header > nav {
   justify-content: space-between;
@@ -743,9 +743,73 @@ h3::before {
   font-size: 14px;
 }
 
+.fas, footer .contact ul li.tel a::before, footer .contact ul li.loca a::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.far, footer .contact ul li.mail a::before, .articles .card-article .text-card .blog-meta::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+}
+
+.fab, footer .instagram a::before, footer #menu-reseaux .instagram a::before, footer #menu-reseaux .linkedin a::before, footer #menu-reseaux .facebook a::before, footer #menu-reseaux .pinterest a::before {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+
 .articles {
   background-color: #f6f5f2;
   color: #462620;
+}
+.articles .blog-filters {
+  margin-bottom: 3rem;
+}
+.articles .blog-filters li:not(:last-child) {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.articles .blog-filters li:not(:last-child)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #462620;
+  border-radius: 50%;
+  display: block;
+}
+.articles .blog-filters .filter-btn.active:hover {
+  background-color: #462620;
+}
+.articles .card-article {
+  border-radius: 30px;
+  background-color: white;
+}
+.articles .card-article img {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.articles .card-article .text-card {
+  padding: 2rem 3rem;
+}
+.articles .card-article .text-card h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+.articles .card-article .text-card .blog-meta {
+  color: #857c5a;
+  margin-bottom: 1rem;
+}
+.articles .card-article .text-card .blog-meta::before {
+  content: "\f073";
+  margin-right: 0.3rem;
+}
+.articles .card-article .text-card .blog-meta .date {
+  display: inline-block;
+}
+.articles .card-article .text-card .blog-meta .date::first-letter {
+  text-transform: uppercase;
 }
 
 .header-content {
@@ -1022,21 +1086,6 @@ h3::before {
   font-weight: 900;
 }
 
-.fas, footer .contact ul li.tel a::before, footer .contact ul li.loca a::before {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-}
-
-.far, footer .contact ul li.mail a::before {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 400;
-}
-
-.fab, footer .instagram a::before, footer #menu-reseaux .instagram a::before, footer #menu-reseaux .linkedin a::before, footer #menu-reseaux .facebook a::before, footer #menu-reseaux .pinterest a::before {
-  font-family: "Font Awesome 6 Brands";
-  font-weight: 400;
-}
-
 footer {
   background-color: #462620;
   color: #f3efea;
@@ -1172,6 +1221,32 @@ footer .footer-bottom {
   width: 50px;
   height: 1px;
   background-color: #462620;
+}
+
+.pagination {
+  margin-block: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.pagination .page-btn:not(.next):not(.prev) {
+  width: 25px;
+  min-width: 25px;
+  height: 25px;
+  border: 1px solid #462620;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.pagination .page-btn:not(.next):not(.prev).active, .pagination .page-btn:not(.next):not(.prev):hover {
+  background-color: #462620;
+  color: #f6f5f2;
+}
+.pagination .page-btn {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -60,99 +60,69 @@ function register_blog_categories()
 
 
 // AJAX BLOG
-// 1. Enqueue (Chargement) du Script AJAX
-function blog_filter_enqueue_scripts()
+function blog_ajax_scripts()
 {
-    // Vérifie si la librairie jQuery est disponible (WordPress la charge par défaut)
-    wp_enqueue_script('jquery');
-
-    // Enregistre et charge votre fichier JavaScript (nous le créerons à l'étape suivante)
-    // Le fichier est supposé être dans le dossier /js/ de votre thème
-    wp_enqueue_script(
-        'blog-ajax-script',
-        get_template_directory_uri() . '/assets/js/blog-ajax.js',
-        ['jquery'], // Dépendance : assure que jQuery est chargé avant
-        filemtime(get_template_directory() . '/assets/js/blog-ajax.js'), // Version dynamique pour éviter le cache
-        true // Charge le script dans le pied de page (footer)
-    );
-
-    // Transmet des variables PHP essentielles au script JavaScript
-    wp_localize_script('blog-ajax-script', 'blog_ajax_object', [
-        'ajax_url' => admin_url('admin-ajax.php'), // L'URL standard de WordPress pour toutes les requêtes AJAX
-        'nonce' => wp_create_nonce('blog_filter_nonce'), // Un jeton de sécurité unique (Nonce)
-    ]);
+    if (is_page_template('page-blog.php')) {
+        wp_enqueue_script('blog-ajax', get_template_directory_uri() . '/assets/js/blog-ajax.js', ['jquery'], '1.0', true);
+        wp_localize_script('blog-ajax', 'blogAjax', [
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('blog_ajax_nonce')
+        ]);
+    }
 }
-add_action('wp_enqueue_scripts', 'blog_filter_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'blog_ajax_scripts');
 
+// Handler AJAX
+function load_blog_posts()
+{
+    check_ajax_referer('blog_ajax_nonce', 'nonce');
 
-// 2. Fonction de Traitement PHP de la requête AJAX
-function render_blog_posts($tax_slug = 'all')
-{ // Accepte 'all' par défaut
+    $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+    $per_page = 12;
 
-    // Arguments de base de la WP_Query (votre CPT est 'blog')
-    $args = array(
+    $args = [
         'post_type' => 'blog',
-        'posts_per_page' => 10,
-        'orderby' => 'date',
-        'order' => 'DESC',
-    );
+        'posts_per_page' => $per_page,
+        'paged' => $paged,
+        'post_status' => 'publish'
+    ];
 
-    // Si le slug n'est pas 'all', ajouter les arguments de taxonomie
-    if ($tax_slug !== 'all') {
-        $args['tax_query'] = array(
-            array(
-                'taxonomy' => 'blog_category', // Votre taxonomie
+    if (!empty($category)) {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'blog_category',
                 'field' => 'slug',
-                'terms' => $tax_slug,
-            ),
-        );
+                'terms' => $category
+            ]
+        ];
     }
 
-    // Exécuter la requête
     $query = new WP_Query($args);
+    $html = '';
 
-    // Boucle pour générer le HTML des articles
     if ($query->have_posts()) {
+        ob_start();
         while ($query->have_posts()) {
             $query->the_post();
-            // Affiche le titre comme dans votre template
-            ?>
-            <div><?= the_title() ?></div>
-            <?php
+            get_template_part('template-parts/card', 'blog');
         }
+        $html = ob_get_clean();
     } else {
-        echo '<p class="no-results">Désolé, aucun article trouvé dans cette sélection.</p>';
+        $html = '<p class="no-posts">Aucun article trouvé.</p>';
     }
 
     wp_reset_postdata();
+
+    wp_send_json_success([
+        'html' => $html,
+        'max_pages' => $query->max_num_pages,
+        'current' => $paged
+    ]);
 }
+add_action('wp_ajax_load_blog_posts', 'load_blog_posts');
+add_action('wp_ajax_nopriv_load_blog_posts', 'load_blog_posts');
 
-
-/**
- * Fonction de Traitement AJAX (Celle-ci contient wp_die())
- */
-function filter_blog_posts_ajax()
-{
-
-    // 1. Vérification de la sécurité (indispensable pour AJAX)
-    check_ajax_referer('blog_filter_nonce', 'nonce');
-
-    // 2. Récupérer le slug de la catégorie envoyé par JavaScript
-    $tax_slug = isset($_POST['cat_slug']) ? sanitize_text_field($_POST['cat_slug']) : 'all';
-
-    // 3. Appeler la fonction de rendu
-    render_blog_posts($tax_slug);
-
-    wp_die(); // UN SEUL wp_die() DANS CETTE FONCTION
-}
-
-// 3. Raccrochage de la fonction PHP aux hooks AJAX de WordPress
-
-// Pour les utilisateurs non connectés (visiteurs)
-add_action('wp_ajax_nopriv_filter_blog_posts', 'filter_blog_posts_ajax');
-
-// Pour les utilisateurs connectés (administrateurs, éditeurs, etc.)
-add_action('wp_ajax_filter_blog_posts', 'filter_blog_posts_ajax');
 // END AJAX BLOG
 
 add_action('init', 'register_blog_categories');

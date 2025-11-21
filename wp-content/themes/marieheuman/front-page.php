@@ -193,21 +193,22 @@
             <div class="projets-grid carousel space-x-16">
                 <?php while ($query->have_posts()):
                     $query->the_post();
-                    $image_blog = get_field("image_principale_blog");
+                    $blog = get_field("contenu_page_blog");
                     $index++;
                     ?>
                     <article id="card-blog<?= $index ?>"
                         class="projet-card carousel-item<?= $index == 1 ? ' active-card' : '' ?>">
                         <div>
-                            <?php if ($image_blog): ?>
-                                <img src="<?= esc_url($image_blog['url']); ?>" alt="<?= esc_attr($image_blog['alt']); ?>"
-                                    width="<?= esc_attr($image_blog['width']); ?>" height="<?= esc_attr($image_blog['height']); ?>">
+                            <?php if ($blog['image']): ?>
+                                <img src="<?= esc_url($blog['image']['url']); ?>" alt="<?= esc_attr($blog['image']['alt']); ?>"
+                                    width="<?= esc_attr($blog['image']['width']); ?>"
+                                    height="<?= esc_attr($blog['image']['height']); ?>">
                             <?php endif; ?>
                             <div class="text-card">
                                 <h4><?php the_title(); ?></h4>
                                 <p class="blog-meta">
                                     <?php echo get_the_date('F o'); ?> •
-                                    <?php the_field('temps_de_lecture_blog'); ?> de lecture
+                                    <?= $blog['temps_de_lecture']?> de lecture
                                 </p>
 
                                 <a href="<?php the_permalink(); ?>" class="more mt-4">Lire l'article</a>
@@ -222,7 +223,7 @@
                     <!-- au click l'id change sur le précédent si il existe -->
                     <?php while ($query->have_posts()):
                         $query->the_post();
-                        $image_blog = get_field("image_principale_blog");
+                        $blog['image'] = get_field("image_principale_blog");
                         $index_btn++;
                         ?>
                         <a href="#card-blog<?= $index_btn ?>"

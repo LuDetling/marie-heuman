@@ -17,49 +17,47 @@ get_header();
         </div>
     </section>
     <!-- END HEADER -->
-    <section class="articles">
 
-        <?php
-        // 🚨 CORRECTION 1 : Récupérer les termes de la taxonomie 'blog_category'
-        $terms = get_terms([
-            'taxonomy' => 'blog_category',
-            'hide_empty' => true,
-        ]);
+    <!-- ARTICLES -->
+    <section class="blog-section articles">
 
-        // 2. Définir le slug du filtre actuellement actif (lu depuis l'URL)
-        // NOTE: Cette ligne n'est pas utilisée par AJAX, mais utile pour le style initial
-        $current_filter_slug = isset($_GET['cat_slug']) ? sanitize_text_field($_GET['cat_slug']) : 'all';
-        ?>
-
+        <!-- Filtres par catégorie -->
         <div class="blog-filters">
-            <ul class="taxonomy-list">
-                <li><a href="#" class="filter-item all <?= $current_filter_slug === 'all' ? 'active' : ''; ?>"
-                        data-slug="all">Tous les Articles</a></li>
+            <ul class="flex gap-8 flex-wrap justify-center">
+                <li>
+                    <button class="filter-btn active" data-category="">Tous</button>
+                </li>
+                <?php
+                $categories = get_terms([
+                    'taxonomy' => 'blog_category',
+                    'hide_empty' => true
+                ]);
+                if ($categories && !is_wp_error($categories)) {
+                    foreach ($categories as $cat) {
+                        ?>
 
-                <?php if (!is_wp_error($terms) && !empty($terms)): ?>
-                    <?php foreach ($terms as $term): ?>
-                        <li>
-                            <a href="#" class="filter-item <?= $current_filter_slug === $term->slug ? 'active' : ''; ?>"
-                                data-slug="<?= esc_attr($term->slug); ?>">
-                                <?= esc_html($term->name); ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                        <?php
+                        echo '<li><button class="filter-btn" data-category="' . esc_attr($cat->slug) . '">' . esc_html($cat->name) . '</button></li>';
+                    }
+                }
+                ?>
             </ul>
         </div>
 
-        <div class="blog-list-container">
-            <?php
-            // Appelle la nouvelle fonction de rendu pour afficher la liste complète au chargement de la page
-            if (function_exists('render_blog_posts')) {
-                render_blog_posts('all'); // Affiche 'Tous les articles' au chargement initial
-            } else {
-                echo '<p>Erreur critique de configuration.</p>';
-            }
-            ?>
+        <!-- Grille des articles -->
+        <div class="grid lg:grid-cols-2 gap-x-32 gap-y-12" id="blog-grid">
+            <!-- Articles chargés en AJAX -->
         </div>
+
+        <!-- Loader -->
+        <div class="blog-loader" id="blog-loader" style="display:none;">
+            <span class="spinner"></span>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="blog-pagination"></div>
     </section>
+    <!-- END ARTICLES -->
 
 </main>
 <?php

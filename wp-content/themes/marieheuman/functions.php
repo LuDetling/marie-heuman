@@ -57,6 +57,41 @@ function register_blog_categories()
         ]
     );
 }
+// STYLE WYSIWYG
+add_filter('mce_buttons_2', function ($buttons) {
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+});
+
+add_filter('tiny_mce_before_init', function ($settings) {
+
+    $style_formats = [
+        [
+            'title' => 'Bloc blanc',
+            'block' => 'div',
+            'classes' => 'white-block',
+            'wrapper' => true,
+        ],
+    ];
+
+    $settings['style_formats'] = json_encode($style_formats);
+
+    return $settings;
+});
+
+add_action('admin_enqueue_scripts', function () {
+    wp_enqueue_style('custom-editor-styles', get_stylesheet_directory_uri() . '/dist/main.css');
+});
+
+add_filter('tiny_mce_before_init', function ($settings) {
+
+    // Charger ton CSS dans l'iframe TinyMCE
+    $settings['content_css'] = get_stylesheet_directory_uri() . '/dist/main.css';
+
+    return $settings;
+});
+
+// END STYLE WYSIWYG
 
 
 // AJAX BLOG

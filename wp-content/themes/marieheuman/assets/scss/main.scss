@@ -14,6 +14,16 @@
     background-color: white;
     color: $marron;
 
+}
+
+.white-block {
+    background-color: white;
+    border-radius: 30px;
+    padding: 1.5rem;
+}
+
+main:not(.front-page) {
+
     h1 {
         font-size: 48px;
         font-family: 'Playfair Display';
@@ -67,4 +77,24 @@
     .page-btn {
         cursor: pointer;
     }
+}
+
+.btn.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2c6bed;
+    color: white;
+    border-radius: 6px;
+}
+
+.highlight-text {
+    background: yellow;
+    padding: 2px 4px;
+}
+
+.boxed-block {
+    border: 2px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    background: #fafafa;
 }

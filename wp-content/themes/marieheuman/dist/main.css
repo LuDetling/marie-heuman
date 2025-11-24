@@ -748,7 +748,7 @@ h3::before {
   font-weight: 900;
 }
 
-.far, footer .contact ul li.mail a::before, .articles .card-article .text-card .blog-meta::before {
+.far, footer .contact ul li.mail a::before, .articles .card-article .text-card .blog-meta::before, main .left-content .header-content-blog .blog-meta::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 400;
 }
@@ -810,6 +810,62 @@ h3::before {
 }
 .articles .card-article .text-card .blog-meta .date::first-letter {
   text-transform: uppercase;
+}
+
+main {
+  background-color: #f6f5f2;
+  color: #462620;
+}
+main .left-content {
+  padding-right: 0;
+}
+main .left-content .header-content-blog .blog-meta {
+  color: #857c5a;
+  margin-block: 1.5rem;
+}
+main .left-content .header-content-blog .blog-meta::before {
+  content: "\f073";
+  margin-right: 0.3rem;
+}
+main .left-content .header-content-blog .description {
+  margin-top: 1rem;
+  font-size: 18px;
+  color: #462620;
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 1rem;
+}
+main .left-content .header-content-blog .description::before {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background-color: #462620;
+  position: absolute;
+  left: 0;
+  top: 11px;
+}
+main .left-content .header-content-blog img {
+  border-radius: 30px;
+  margin-bottom: 4rem;
+}
+main .left-content .content h2 {
+  margin-top: 4rem;
+  font-size: 2rem;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 2rem;
+}
+main .left-content .content h2::before {
+  display: none;
+}
+main .left-content .content p {
+  margin-bottom: 1rem;
+}
+main .right-content {
+  margin-top: 4rem;
+  margin-right: 120px;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 30px;
 }
 
 .header-content {
@@ -1202,12 +1258,19 @@ footer .footer-bottom {
   background-color: white;
   color: #462620;
 }
-.header-content h1 {
+
+.white-block {
+  background-color: white;
+  border-radius: 30px;
+  padding: 1.5rem;
+}
+
+main:not(.front-page) h1 {
   font-size: 48px;
   font-family: "Playfair Display";
   color: #462620;
 }
-.header-content h2 {
+main:not(.front-page) h2 {
   font-family: "Roboto";
   display: flex;
   align-items: center;
@@ -1216,7 +1279,7 @@ footer .footer-bottom {
   gap: 13px;
   margin-bottom: 3.5rem;
 }
-.header-content h2::before {
+main:not(.front-page) h2::before {
   content: "";
   width: 50px;
   height: 1px;
@@ -1247,6 +1310,26 @@ footer .footer-bottom {
 }
 .pagination .page-btn {
   cursor: pointer;
+}
+
+.btn.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #2c6bed;
+  color: white;
+  border-radius: 6px;
+}
+
+.highlight-text {
+  background: yellow;
+  padding: 2px 4px;
+}
+
+.boxed-block {
+  border: 2px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+  background: #fafafa;
 }
 
 /*# sourceMappingURL=main.css.map */

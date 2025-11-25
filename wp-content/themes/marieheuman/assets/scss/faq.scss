@@ -1,0 +1,93 @@
+@use 'globals' as *;
+@use 'buttons';
+@use 'fontawesome';
+
+// FAQ SEARCH
+.search {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    &::after {
+        @extend .fas;
+        content: '\f002';
+        position: absolute;
+        right: 1rem;
+        color: $orange;
+    }
+
+    #faq-search {
+        border: 2px solid $orange;
+        color: $orange;
+        border-radius: 40px;
+        padding: 1rem;
+        padding-right: 3rem;
+        display: block;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+            border-color: $marron;
+        }
+
+    }
+}
+
+// ENDFAQ SEARCH
+
+// FAQ CATEGORIES
+#faq-categories {
+    li {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        &:not(:last-child)::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: $marron;
+            border-radius: 50%;
+            display: block;
+        }
+    }
+
+    button.active {
+        @extend .marron-button;
+
+        &:hover {
+            background-color: $marron;
+        }
+    }
+}
+
+// END FAQ CATEGORIES
+// FAQ LIST
+#faq-list {
+    margin-top: 4rem;
+
+    .faq-category-block {
+        .faq-item {
+
+            background-color: white;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+
+            .collapse-title {
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            .collapse-content {
+                p {
+                    font-size: 1rem;
+                    margin-bottom: .5rem;
+                }
+            }
+        }
+    }
+}
+
+// END FAQ LIST

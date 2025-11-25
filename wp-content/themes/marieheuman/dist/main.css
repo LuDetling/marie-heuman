@@ -21,7 +21,7 @@
   font-style: 300;
   font-display: swap;
 }
-.marron-button, .articles .blog-filters .filter-btn.active {
+.marron-button, #faq-categories button.active, .articles .blog-filters .filter-btn.active {
   color: #f3efea;
   background-color: #462620;
   padding: 10px 30px;
@@ -30,7 +30,7 @@
   border-radius: 50px;
   display: inline-block;
 }
-.marron-button:hover, .articles .blog-filters .filter-btn.active:hover {
+.marron-button:hover, #faq-categories button.active:hover, .articles .blog-filters .filter-btn.active:hover {
   border: 1px solid #857c5a;
   background-color: #857c5a;
 }
@@ -743,7 +743,7 @@ h3::before {
   font-size: 14px;
 }
 
-.fas, footer .contact ul li.tel a::before, footer .contact ul li.loca a::before {
+.fas, footer .contact ul li.tel a::before, footer .contact ul li.loca a::before, .search::after, main .sidebar form button::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
 }
@@ -860,12 +860,146 @@ main .left-content .content h2::before {
 main .left-content .content p {
   margin-bottom: 1rem;
 }
-main .right-content {
+main .sidebar {
   margin-top: 4rem;
   margin-right: 120px;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: white;
   border-radius: 30px;
+}
+main .sidebar h3,
+main .sidebar h2 {
+  display: block !important;
+}
+main .sidebar h3::before,
+main .sidebar h2::before {
+  display: none;
+}
+main .sidebar h2 {
+  text-align: center;
+  margin-bottom: 2rem !important;
+}
+main .sidebar h3 {
+  text-transform: uppercase;
+  color: #857c5a;
+  font-size: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+main .sidebar h3::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #e87234;
+  display: block;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+main .sidebar form label {
+  color: #857c5a;
+  margin-bottom: 1rem;
+  display: block;
+}
+main .sidebar form input {
+  border-radius: 30px;
+  background-color: #f6f5f2;
+  color: #462620;
+  padding: 0.3rem 0.9rem;
+  width: 100%;
+}
+main .sidebar form button::before {
+  content: "\f002";
+  cursor: pointer;
+  width: 33.59px;
+  height: 33.59px;
+  transition: 0.3s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6f5f2;
+  font-size: 12px;
+  border: 1px solid #f6f5f2;
+}
+main .sidebar form button:hover::before {
+  color: #e87234;
+  border-color: #e87234;
+}
+main .informations img {
+  border-radius: 30px;
+  display: block;
+  margin-bottom: 1rem;
+}
+main .accompagnements {
+  background: none;
+}
+main p {
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+main .more {
+  margin-top: 1rem;
+}
+
+.search {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.search::after {
+  content: "\f002";
+  position: absolute;
+  right: 1rem;
+  color: #e87234;
+}
+.search #faq-search {
+  border: 2px solid #e87234;
+  color: #e87234;
+  border-radius: 40px;
+  padding: 1rem;
+  padding-right: 3rem;
+  display: block;
+  width: 100%;
+}
+.search #faq-search:focus {
+  outline: none;
+  border-color: #462620;
+}
+
+#faq-categories li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+#faq-categories li:not(:last-child)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #462620;
+  border-radius: 50%;
+  display: block;
+}
+#faq-categories button.active:hover {
+  background-color: #462620;
+}
+
+#faq-list {
+  margin-top: 4rem;
+}
+#faq-list .faq-category-block .faq-item {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+#faq-list .faq-category-block .faq-item .collapse-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+#faq-list .faq-category-block .faq-item .collapse-content p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .header-content {

@@ -9,6 +9,7 @@ function marieheuman_js()
     wp_enqueue_script('menu-js', get_template_directory_uri() . '/assets/js/menu.js', [], false, true);
     wp_enqueue_script('home-js', get_template_directory_uri() . '/assets/js/home.js', [], false, true);
     wp_enqueue_script('page-js', get_template_directory_uri() . '/assets/js/page.js', [], false, true);
+    wp_enqueue_script('faq-js', get_template_directory_uri() . '/assets/js/faq.js', [], false, true);
 }
 function marieheuman_enqueue_scripts()
 {
@@ -39,7 +40,7 @@ function theme_enqueue_dashicons()
     wp_enqueue_style('dashicons');
 }
 
-function register_blog_categories()
+function register_categories()
 {
 
     register_taxonomy(
@@ -56,7 +57,32 @@ function register_blog_categories()
 
         ]
     );
+
+    register_taxonomy(
+        'faq_category',
+        'faq',
+        [
+            'label' => 'Catégories de Faq',
+            'hierarchical' => true, // true = comme les catégories classiques
+            'public' => true,
+            'rewrite' => ['slug' => 'categorie-faq'],
+            'show_admin_column' => true,
+            'show_ui' => true,
+            'show_in_rest' => true, // ← Obligatoire pour Gutenberg !!!
+
+        ]
+    );
 }
+
+
+function only_search_posts($query)
+{
+    if ($query->is_search && !is_admin()) {
+        $query->set('post_type', ['post', 'blog']);
+    }
+}
+add_action('pre_get_posts', 'only_search_posts');
+
 // STYLE WYSIWYG
 add_filter('mce_buttons_2', function ($buttons) {
     array_unshift($buttons, 'styleselect');
@@ -160,7 +186,7 @@ add_action('wp_ajax_nopriv_load_blog_posts', 'load_blog_posts');
 
 // END AJAX BLOG
 
-add_action('init', 'register_blog_categories');
+add_action('init', 'register_categories');
 add_action('wp_enqueue_scripts', 'theme_enqueue_dashicons');
 add_action('wp_enqueue_scripts', 'add_fontawesome');
 add_action('after_setup_theme', 'marieheuman_setup');

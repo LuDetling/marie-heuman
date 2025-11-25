@@ -147,13 +147,114 @@ main {
     }
   }
 
-  .right-content {
+  // SIDEBAR
+  .sidebar {
     margin-top: 4rem;
     margin-right: 120px;
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: white;
     border-radius: 30px;
+
+    h3,
+    h2 {
+      display: block !important;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem !important;
+    }
+
+    h3 {
+      text-transform: uppercase;
+      color: $secondary;
+      font-size: 1rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: $orange;
+        display: block;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+    }
+
+    //RECHERCHE
+    form {
+      label {
+        color: $secondary;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      input {
+        border-radius: 30px;
+        background-color: $beige;
+        color: $marron;
+        padding: .3rem .9rem;
+        width: 100%;
+      }
+
+      button {
+
+        &::before {
+          @extend .fas;
+          content: '\f002';
+          cursor: pointer;
+          width: 33.59px;
+          height: 33.59px;
+          transition: .3s;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $beige;
+          font-size: 12px;
+          border: 1px solid $beige;
+        }
+
+        &:hover {
+          &::before {
+            color: $orange;
+            border-color: $orange;
+          }
+        }
+      }
+    }
+
+    //END RECHERCHE
   }
+
+  //INFORMATIONS
+  .informations {
+    img {
+      border-radius: 30px;
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .accompagnements {
+    background: none;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: .5rem;
+  }
+  .more {
+    margin-top: 1rem;
+  }
+
+  //END INFORMATIONS
 }
 
 // END BLOG SINGLE

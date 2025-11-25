@@ -47,6 +47,7 @@ function carouselBlogAccueil() {
         if (!carousel || cards.length === 0) return;
 
         let currentIndex = 0;
+        let activeScroll = 0
         const totalCards = cards.length;
 
         // Fonction pour mettre à jour le carousel
@@ -64,7 +65,9 @@ function carouselBlogAccueil() {
             btnNext.href = `#card-blog${index === totalCards - 1 ? 1 : index + 2}`;
 
             // Scroller vers la carte active
-            cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            if (activeScroll !== 0) {
+                cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
 
             currentIndex = index;
         }
@@ -80,6 +83,9 @@ function carouselBlogAccueil() {
         btnNext.addEventListener('click', function (e) {
             e.preventDefault();
             const newIndex = currentIndex === totalCards - 1 ? 0 : currentIndex + 1;
+            if (activeScroll === 0) {
+                activeScroll = 1;
+            }
             updateCarousel(newIndex);
         });
 

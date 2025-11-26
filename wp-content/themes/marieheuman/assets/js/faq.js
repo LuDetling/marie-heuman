@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function filterFAQ() {
         const searchValue = searchInput.value.toLowerCase();
-
         faqItems.forEach(item => {
             const itemCats = item.dataset.category.split(" ");
             const itemText =

@@ -9,7 +9,9 @@ function marieheuman_js()
     wp_enqueue_script('menu-js', get_template_directory_uri() . '/assets/js/menu.js', [], false, true);
     wp_enqueue_script('home-js', get_template_directory_uri() . '/assets/js/home.js', [], false, true);
     wp_enqueue_script('page-js', get_template_directory_uri() . '/assets/js/page.js', [], false, true);
-    wp_enqueue_script('faq-js', get_template_directory_uri() . '/assets/js/faq.js', [], false, true);
+    if (is_page_template('page-faq.php')) {
+        wp_enqueue_script('faq-js', get_template_directory_uri() . '/assets/js/faq.js', [], false, true);
+    }
 }
 function marieheuman_enqueue_scripts()
 {
@@ -120,30 +122,48 @@ add_filter('tiny_mce_before_init', function ($settings) {
 // END STYLE WYSIWYG
 
 
-// AJAX BLOG
-function blog_ajax_scripts()
+// AJAX
+function ajax_scripts()
 {
-    if (is_page_template('page-blog.php')) {
-        wp_enqueue_script('blog-ajax', get_template_directory_uri() . '/assets/js/blog-ajax.js', ['jquery'], '1.0', true);
-        wp_localize_script('blog-ajax', 'blogAjax', [
+    if (is_page_template('page-blog.php') || is_page_template('page-projets.php')) {
+        // Ajouter un paramètre post_type en fonction de la page
+        if (is_page_template('page-blog.php')) {
+            $post_type = 'blog';
+            $template = 'template-parts/card-blog';
+            $taxonomy = 'blog_category';
+        } elseif (is_page_template('page-projets.php')) {
+            $post_type = 'post';
+            $template = 'template-parts/card-projet';
+            $taxonomy = 'category';
+        }
+
+        wp_enqueue_script('ajax', get_template_directory_uri() . '/assets/js/ajax.js', ['jquery'], '1.0', true);
+        wp_localize_script('ajax', 'ajax', [
             'ajaxurl' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('blog_ajax_nonce')
+            'nonce' => wp_create_nonce('ajax_nonce'),
+            'postType' => $post_type,
+            'template' => $template,
+            'taxonomy' => $taxonomy,
         ]);
     }
 }
-add_action('wp_enqueue_scripts', 'blog_ajax_scripts');
+add_action('wp_enqueue_scripts', 'ajax_scripts');
 
 // Handler AJAX
-function load_blog_posts()
+function load_posts()
 {
-    check_ajax_referer('blog_ajax_nonce', 'nonce');
+    check_ajax_referer('ajax_nonce', 'nonce');
 
     $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+    $post_type = isset($_POST['postType']) ? sanitize_text_field($_POST['postType']) : '';
+    $template = isset($_POST['template']) ? sanitize_text_field($_POST['template']) : '';
+    $taxonomy = isset($_POST['taxonomy']) ? sanitize_text_field($_POST['taxonomy']) : '';
+
     $per_page = 12;
 
     $args = [
-        'post_type' => 'blog',
+        'post_type' => $post_type,
         'posts_per_page' => $per_page,
         'paged' => $paged,
         'post_status' => 'publish'
@@ -152,7 +172,7 @@ function load_blog_posts()
     if (!empty($category)) {
         $args['tax_query'] = [
             [
-                'taxonomy' => 'blog_category',
+                'taxonomy' => $taxonomy,
                 'field' => 'slug',
                 'terms' => $category
             ]
@@ -166,7 +186,7 @@ function load_blog_posts()
         ob_start();
         while ($query->have_posts()) {
             $query->the_post();
-            get_template_part('template-parts/card', 'blog');
+            get_template_part($template, 'list');
         }
         $html = ob_get_clean();
     } else {
@@ -181,8 +201,8 @@ function load_blog_posts()
         'current' => $paged
     ]);
 }
-add_action('wp_ajax_load_blog_posts', 'load_blog_posts');
-add_action('wp_ajax_nopriv_load_blog_posts', 'load_blog_posts');
+add_action('wp_ajax_load_posts', 'load_posts');
+add_action('wp_ajax_nopriv_load_posts', 'load_posts');
 
 // END AJAX BLOG
 

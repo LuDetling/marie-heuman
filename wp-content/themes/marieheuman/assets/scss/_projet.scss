@@ -1,0 +1,75 @@
+@use "globals" as *;
+@use "buttons";
+@use "fontawesome";
+
+
+// LIST PROJETS
+#list-projets {
+    .blog-filters {
+        margin-top: 3rem;
+    }
+
+    .titre {
+
+        h3 {
+            font-size: 36px;
+            font-family: 'Playfair Display';
+
+            &::before {
+                display: none;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+            position: relative;
+            padding-left: 63px;
+
+            &::before {
+                content: "";
+                width: 50px;
+                height: 1px;
+                background-color: $marron;
+                position: absolute;
+                left: 0;
+                top: 11px;
+            }
+        }
+    }
+
+    .card-article {
+        position: relative;
+        overflow: hidden;
+        border-radius: 30px;
+
+        &:hover {
+            .text-card {
+                transform: translateY(0);
+            }
+
+            img {
+                border-bottom-left-radius: 35px;
+                border-bottom-right-radius: 35px;
+            }
+        }
+
+        img {
+            border-radius: 30px;
+            min-height: 650px;
+            object-fit: cover;
+            transition: .3s;
+        }
+
+        .text-card {
+            padding: 2rem 3rem;
+            position: absolute;
+            bottom: 0;
+            background-color: white;
+            width: 100%;
+            transform: translateY(100%);
+            transition: .3s;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+    }
+}

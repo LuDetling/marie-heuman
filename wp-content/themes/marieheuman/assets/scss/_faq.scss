@@ -3,6 +3,26 @@
 @use 'fontawesome';
 
 // FAQ SEARCH
+.faq-button a {
+    width: 46px;
+    height: 46px;
+    background-color: $secondary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $beige;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    transition: .3s;
+    z-index: 200;
+    &:hover {
+        background-color: $marron;
+    }
+}
+
 .search {
     position: relative;
     width: 90%;

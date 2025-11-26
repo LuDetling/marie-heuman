@@ -5,7 +5,7 @@ get_header();
 <main class="ml-20">
     <section class="header-content">
         <?php
-        $header = get_field('header_faq');
+        $header = get_field('header_content');
         ?>
         <?= $header['titre'] ?>
 

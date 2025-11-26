@@ -5,6 +5,7 @@
 @use "blog";
 @use "faq";
 @use "page";
+@use "projet";
 @use "footer";
 
 * {
@@ -45,6 +46,37 @@ main:not(.front-page) {
             width: 50px;
             height: 1px;
             background-color: $marron;
+        }
+    }
+}
+
+.blog-filters {
+    margin-bottom: 3rem;
+
+    li:not(:last-child) {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: $marron;
+            border-radius: 50%;
+            display: block;
+        }
+    }
+
+    .filter-btn {
+        @extend .border-marron-button;
+
+        &.active {
+            @extend .marron-button;
+
+            &:hover {
+                background-color: $marron;
+            }
         }
     }
 }

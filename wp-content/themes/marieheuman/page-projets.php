@@ -1,14 +1,15 @@
 <?php
-/* Template Name: Page Blog */
+/* Template Name: Page Projets */
 get_header();
 ?>
-<main class="ml-20">
-    <!-- HEADER -->
+<main class="ml-20" id="list-projets">
     <section class="header-content">
         <?php
         $header = get_field("header_content");
         ?>
-        <?= $header['titre'] ?>
+        <div class="titre">
+            <?= $header['titre'] ?>
+        </div>
         <div class="flex gap-8 flex-wrap lg:flex-nowrap">
             <a href="<?= $header['lien_1']['url'] ?>" <?= $header['lien_1']['target'] ?>
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
@@ -16,10 +17,14 @@ get_header();
                 class="border-orange-button"><?= $header['lien_2']['title'] ?></a>
         </div>
     </section>
-    <!-- END HEADER -->
-
-    <!-- ARTICLES -->
-    <section class="blog-section articles">
+    <?php
+    $content = get_field("page_projets")
+        ?>
+    <section class="portfolio">
+        <span class="tag-home"><?= $content['portfolio']['tag'] ?></span>
+        <div class="titre">
+            <?= $content['portfolio']['titre'] ?>
+        </div>
 
         <!-- Filtres par catégorie -->
         <div class="blog-filters">
@@ -29,13 +34,12 @@ get_header();
                 </li>
                 <?php
                 $categories = get_terms([
-                    'taxonomy' => 'blog_category',
+                    'taxonomy' => 'category',
                     'hide_empty' => true
                 ]);
                 if ($categories && !is_wp_error($categories)) {
                     foreach ($categories as $cat) {
                         ?>
-
                         <?php
                         echo '<li><button class="filter-btn" data-category="' . esc_attr($cat->slug) . '">' . esc_html($cat->name) . '</button></li>';
                     }
@@ -44,9 +48,9 @@ get_header();
             </ul>
         </div>
 
-        <!-- Grille des articles -->
+        <!-- Grille des projes -->
         <div class="grid lg:grid-cols-2 gap-x-32 gap-y-12" id="ajax-grid">
-            <!-- Articles chargés en AJAX -->
+            <!-- Projets chargés en AJAX -->
         </div>
 
         <!-- Loader -->
@@ -56,10 +60,19 @@ get_header();
 
         <!-- Pagination -->
         <div class="pagination" id="ajax-pagination"></div>
+        <!-- ajax list des projets -->
     </section>
-    <!-- END ARTICLES -->
-
+    <section class="temoignages">
+        <span class="tag-home"><?= $content['temoignages']['tag'] ?></span>
+        <div class="titre">
+            <?= $content['temoignages']['titre'] ?>
+        </div>
+    </section>
+    <section class="accompagnements">
+        <div class="titre">
+            <?= $content['accompagnements']['titre'] ?>
+        </div>
+    </section>
 </main>
-<?php
-get_footer();
-?>
+
+<?php get_footer(); ?>

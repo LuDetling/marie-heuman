@@ -6,7 +6,7 @@
 (function ($) {
     'use strict';
 
-    const Blog = {
+    const Posts = {
         page: 1,
         category: '',
         maxPages: 1,
@@ -28,6 +28,7 @@
                 $('.filter-btn').removeClass('active');
                 $btn.addClass('active');
                 this.category = $btn.data('category');
+
                 this.page = 1;
                 this.loadPosts();
             });
@@ -46,17 +47,18 @@
         loadPosts() {
             if (this.isLoading) return;
             this.isLoading = true;
-
-            this.loader.show();
             this.grid.addClass('loading');
             $.ajax({
-                url: blogAjax.ajaxurl,
+                url: ajax.ajaxurl,
                 type: 'POST',
                 data: {
                     action: 'load_posts',
-                    nonce: blogAjax.nonce,
+                    nonce: ajax.nonce,
                     page: this.page,
-                    category: this.category
+                    category: this.category,
+                    postType: ajax.postType,
+                    template: ajax.template,
+                    taxonomy: ajax.taxonomy,
                 },
                 success: (response) => {
                     if (response.success) {
@@ -122,6 +124,6 @@
         }
     };
 
-    $(document).ready(() => Blog.init());
+    $(document).ready(() => Posts.init());
 
 })(jQuery);

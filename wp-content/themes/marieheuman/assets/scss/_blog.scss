@@ -10,37 +10,6 @@
   background-color: $beige;
   color: $marron;
 
-  .blog-filters {
-    margin-bottom: 3rem;
-
-    li:not(:last-child) {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-
-      &::after {
-        content: "";
-        width: 10px;
-        height: 10px;
-        background-color: $marron;
-        border-radius: 50%;
-        display: block;
-      }
-    }
-
-    .filter-btn {
-      @extend .border-marron-button;
-
-      &.active {
-        @extend .marron-button;
-
-        &:hover {
-          background-color: $marron;
-        }
-      }
-    }
-  }
-
   .card-article {
     border-radius: 30px;
     background-color: white;
@@ -187,6 +156,10 @@ main {
       }
     }
 
+    p {
+      font-size: 14px;
+    }
+
     //RECHERCHE
     form {
       label {
@@ -247,9 +220,9 @@ main {
   }
 
   p {
-    font-size: 14px;
     margin-bottom: .5rem;
   }
+
   .more {
     margin-top: 1rem;
   }

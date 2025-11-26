@@ -21,7 +21,7 @@
   font-style: 300;
   font-display: swap;
 }
-.marron-button, #faq-categories button.active, .articles .blog-filters .filter-btn.active {
+.marron-button, .blog-filters .filter-btn.active, #faq-categories button.active {
   color: #f3efea;
   background-color: #462620;
   padding: 10px 30px;
@@ -30,7 +30,7 @@
   border-radius: 50px;
   display: inline-block;
 }
-.marron-button:hover, #faq-categories button.active:hover, .articles .blog-filters .filter-btn.active:hover {
+.marron-button:hover, .blog-filters .filter-btn.active:hover, #faq-categories button.active:hover {
   border: 1px solid #857c5a;
   background-color: #857c5a;
 }
@@ -78,7 +78,7 @@
   color: #f6f5f2;
 }
 
-.border-marron-button, .articles .blog-filters .filter-btn {
+.border-marron-button, .blog-filters .filter-btn {
   color: #462620;
   background-color: transparent;
   padding: 10px 30px;
@@ -88,7 +88,7 @@
   cursor: pointer;
   display: inline-block;
 }
-.border-marron-button:hover, .articles .blog-filters .filter-btn:hover {
+.border-marron-button:hover, .blog-filters .filter-btn:hover {
   background-color: #462620;
   color: #f3efea;
 }
@@ -762,25 +762,6 @@ h3::before {
   background-color: #f6f5f2;
   color: #462620;
 }
-.articles .blog-filters {
-  margin-bottom: 3rem;
-}
-.articles .blog-filters li:not(:last-child) {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.articles .blog-filters li:not(:last-child)::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  background-color: #462620;
-  border-radius: 50%;
-  display: block;
-}
-.articles .blog-filters .filter-btn.active:hover {
-  background-color: #462620;
-}
 .articles .card-article {
   border-radius: 30px;
   background-color: white;
@@ -895,6 +876,9 @@ main .sidebar h3::before {
   border-radius: 50%;
   margin-bottom: 1rem;
 }
+main .sidebar p {
+  font-size: 14px;
+}
 main .sidebar form label {
   color: #857c5a;
   margin-bottom: 1rem;
@@ -934,11 +918,30 @@ main .accompagnements {
   background: none;
 }
 main p {
-  font-size: 14px;
   margin-bottom: 0.5rem;
 }
 main .more {
   margin-top: 1rem;
+}
+
+.faq-button a {
+  width: 46px;
+  height: 46px;
+  background-color: #857c5a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f6f5f2;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  transition: 0.3s;
+  z-index: 200;
+}
+.faq-button a:hover {
+  background-color: #462620;
 }
 
 .search {
@@ -1276,6 +1279,60 @@ main .more {
   font-weight: 900;
 }
 
+#list-projets .blog-filters {
+  margin-top: 3rem;
+}
+#list-projets .titre h3 {
+  font-size: 36px;
+  font-family: "Playfair Display";
+}
+#list-projets .titre h3::before {
+  display: none;
+}
+#list-projets .titre p {
+  font-size: 1rem;
+  position: relative;
+  padding-left: 63px;
+}
+#list-projets .titre p::before {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background-color: #462620;
+  position: absolute;
+  left: 0;
+  top: 11px;
+}
+#list-projets .card-article {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+}
+#list-projets .card-article:hover .text-card {
+  transform: translateY(0);
+}
+#list-projets .card-article:hover img {
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+#list-projets .card-article img {
+  border-radius: 30px;
+  min-height: 650px;
+  object-fit: cover;
+  transition: 0.3s;
+}
+#list-projets .card-article .text-card {
+  padding: 2rem 3rem;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  width: 100%;
+  transform: translateY(100%);
+  transition: 0.3s;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
 footer {
   background-color: #462620;
   color: #f3efea;
@@ -1417,6 +1474,26 @@ main:not(.front-page) h2::before {
   content: "";
   width: 50px;
   height: 1px;
+  background-color: #462620;
+}
+
+.blog-filters {
+  margin-bottom: 3rem;
+}
+.blog-filters li:not(:last-child) {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.blog-filters li:not(:last-child)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #462620;
+  border-radius: 50%;
+  display: block;
+}
+.blog-filters .filter-btn.active:hover {
   background-color: #462620;
 }
 

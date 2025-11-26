@@ -934,6 +934,65 @@
   .visible {
     visibility: visible;
   }
+  .list {
+    @layer daisyui.component {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.875rem;
+      .list-row {
+        --list-grid-cols: minmax(0, auto) 1fr;
+        position: relative;
+        display: grid;
+        grid-auto-flow: column;
+        gap: calc(0.25rem * 4);
+        border-radius: var(--radius-box);
+        padding: calc(0.25rem * 4);
+        word-break: break-word;
+        grid-template-columns: var(--list-grid-cols);
+      }
+      & > :not(:last-child) {
+        &.list-row, .list-row {
+          &:after {
+            content: "";
+            border-bottom: var(--border) solid;
+            inset-inline: var(--radius-box);
+            position: absolute;
+            bottom: calc(0.25rem * 0);
+            border-color: var(--color-base-content);
+            @supports (color: color-mix(in lab, red, red)) {
+              border-color: color-mix(in oklab, var(--color-base-content) 5%, transparent);
+            }
+          }
+        }
+      }
+    }
+    @layer daisyui.modifier {
+      .list-row {
+        &:has(.list-col-grow:nth-child(1)) {
+          --list-grid-cols: 1fr;
+        }
+        &:has(.list-col-grow:nth-child(2)) {
+          --list-grid-cols: minmax(0, auto) 1fr;
+        }
+        &:has(.list-col-grow:nth-child(3)) {
+          --list-grid-cols: minmax(0, auto) minmax(0, auto) 1fr;
+        }
+        &:has(.list-col-grow:nth-child(4)) {
+          --list-grid-cols: minmax(0, auto) minmax(0, auto) minmax(0, auto) 1fr;
+        }
+        &:has(.list-col-grow:nth-child(5)) {
+          --list-grid-cols: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto) 1fr;
+        }
+        &:has(.list-col-grow:nth-child(6)) {
+          --list-grid-cols: minmax(0, auto) minmax(0, auto) minmax(0, auto) minmax(0, auto)
+          minmax(0, auto) 1fr;
+        }
+        :not(.list-col-wrap) {
+          grid-row-start: 1;
+        }
+      }
+    }
+  }
   .toast {
     @layer daisyui.component {
       position: fixed;
@@ -1855,6 +1914,9 @@
       }
     }
   }
+  .my-8 {
+    margin-block: calc(var(--spacing) * 8);
+  }
   .label {
     @layer daisyui.component {
       display: inline-flex;
@@ -1905,6 +1967,9 @@
   }
   .mr-8 {
     margin-right: calc(var(--spacing) * 8);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
   }
   .mb-12 {
     margin-bottom: calc(var(--spacing) * 12);
@@ -2083,24 +2148,6 @@
       }
     }
   }
-  .link {
-    @layer daisyui.component {
-      cursor: pointer;
-      text-decoration-line: underline;
-      &:focus {
-        --tw-outline-style: none;
-        outline-style: none;
-        @media (forced-colors: active) {
-          outline: 2px solid transparent;
-          outline-offset: 2px;
-        }
-      }
-      &:focus-visible {
-        outline: 2px solid currentColor;
-        outline-offset: 2px;
-      }
-    }
-  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -2175,12 +2222,6 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-base-300 {
-    border-color: var(--color-base-300);
-  }
-  .bg-base-100 {
-    background-color: var(--color-base-100);
-  }
   .mask-repeat {
     mask-repeat: repeat;
   }
@@ -2192,14 +2233,6 @@
   }
   .pb-20 {
     padding-bottom: calc(var(--spacing) * 20);
-  }
-  .text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
-  }
-  .font-semibold {
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
   }
   .text-wrap {
     text-wrap: wrap;
@@ -2233,29 +2266,9 @@
       --btn-fg: var(--color-primary-content);
     }
   }
-  .lg\:w-1\/5 {
-    @media (width >= 64rem) {
-      width: calc(1/5 * 100%);
-    }
-  }
-  .lg\:w-2\/6 {
-    @media (width >= 64rem) {
-      width: calc(2/6 * 100%);
-    }
-  }
   .lg\:w-2\/8 {
     @media (width >= 64rem) {
       width: calc(2/8 * 100%);
-    }
-  }
-  .lg\:w-4\/5 {
-    @media (width >= 64rem) {
-      width: calc(4/5 * 100%);
-    }
-  }
-  .lg\:w-4\/6 {
-    @media (width >= 64rem) {
-      width: calc(4/6 * 100%);
     }
   }
   .lg\:w-4\/10 {
@@ -2637,10 +2650,6 @@
   inherits: false;
   initial-value: solid;
 }
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-outline-style {
   syntax: "*";
   inherits: false;
@@ -2713,7 +2722,6 @@
       --tw-skew-y: initial;
       --tw-space-x-reverse: 0;
       --tw-border-style: solid;
-      --tw-font-weight: initial;
       --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;

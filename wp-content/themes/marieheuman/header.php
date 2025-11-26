@@ -43,7 +43,11 @@
             wp_nav_menu([
                 'theme_location' => 'second_menu'
             ]);
-            
+
             ?>
         </nav>
     </header>
+    <div class="faq-button">
+        <a href="<?= site_url("foire-aux-questions") ?>">
+            ?</a>
+    </div>

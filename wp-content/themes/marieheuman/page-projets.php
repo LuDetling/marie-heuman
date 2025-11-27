@@ -49,7 +49,7 @@ get_header();
         </div>
 
         <!-- Grille des projes -->
-        <div class="grid lg:grid-cols-2 gap-x-32 gap-y-12" id="ajax-grid">
+        <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-x-16 gap-y-12" id="ajax-grid">
             <!-- Projets chargés en AJAX -->
         </div>
 
@@ -67,10 +67,57 @@ get_header();
         <div class="titre">
             <?= $content['temoignages']['titre'] ?>
         </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <?php
+                $avis = new WP_Query([
+                    'post_type' => 'avis',
+                    'posts_per_page' => -1,
+                ]);
+                if ($avis->have_posts()):
+                    while ($avis->have_posts()):
+                        $avis->the_post();
+                        $avi = get_field("avis_contenu");
+                        ?>
+
+                        <div class="swiper-slide">
+                            <div class="rating">
+                                <?php
+                                for ($i = 1; $i <= 5; $i++) {
+                                    if ($i <= intval($avi['note'])) {
+                                        echo '<span class="star full">★</span>';
+                                    } else {
+                                        echo '<span class="star empty">☆</span>';
+                                    }
+                                }
+                                ?>
+                            </div>
+                            <div class="description"><?= $avi['description'] ?></div>
+                            <div class="nom"><?= the_title() ?></div>
+                        </div>
+                        <?php
+                    endwhile;
+                    wp_reset_postdata();
+                endif; ?>
+            </div>
+        </div>
+        <div class="flex gap-8 swiper-navigation justify-center items-center">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </section>
     <section class="accompagnements">
         <div class="titre">
             <?= $content['accompagnements']['titre'] ?>
+            <div class="flex gap-8 mt-12">
+                <a href="<?= $content['accompagnements']['lien_1']['url'] ?>"
+                    target="<?= $content['accompagnements']['lien_1']['target'] ?>"
+                    class="orange-button"><?= $content['accompagnements']['lien_1']['title'] ?></a>
+                <a href="<?= $content['accompagnements']['lien_2']['url'] ?>"
+                    target="<?= $content['accompagnements']['lien_2']['target'] ?>"
+                    class="border-beige-button"><?= $content['accompagnements']['lien_2']['title'] ?></a>
+            </div>
         </div>
     </section>
 </main>

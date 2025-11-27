@@ -17,6 +17,14 @@
     @include border-orange-button;
 }
 
+.beige-button {
+    @include beige-button;
+}
+
+.border-beige-button {
+    @include border-beige-button;
+}
+
 .border-marron-button {
     @include border-marron-button;
 }

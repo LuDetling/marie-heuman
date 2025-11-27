@@ -13,9 +13,6 @@
         <section class="content-img-header relative">
             <img src="<?= esc_url($image_header['url']); ?>" alt="<?= esc_attr($image_header['alt']); ?>"
                 width="<?= esc_attr($image_header['width']); ?>" height="<?= esc_attr($image_header['height']); ?>">
-            <img src="<?= esc_url($logo_header['url']); ?>" alt="<?= esc_attr($logo_header['alt']); ?>"
-                width="<?= esc_attr($logo_header['width']); ?>" height="<?= esc_attr($logo_header['height']); ?>"
-                class="logo-header absolute top-4 left-30 z-2">
             <div class="absolute bottom-30 left-30 z-2">
                 <div class="text-img-header">
                     <?= $text_image_header; ?>

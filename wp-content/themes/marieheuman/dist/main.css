@@ -78,6 +78,36 @@
   color: #f6f5f2;
 }
 
+.beige-button {
+  color: #f6f5f2;
+  background-color: #e87234;
+  border: 2px solid #e87234;
+  padding: 1rem 3rem;
+  border-radius: 100px;
+  font-size: 18px;
+  transition: 0.3s;
+  display: inline-block;
+}
+.beige-button:hover {
+  background-color: #462620;
+  border-color: #462620;
+}
+
+.border-beige-button {
+  color: #f6f5f2;
+  background-color: transparent;
+  border: 2px solid #f6f5f2;
+  padding: 1rem 3rem;
+  border-radius: 100px;
+  font-size: 18px;
+  transition: 0.3s;
+  display: inline-block;
+}
+.border-beige-button:hover {
+  background-color: #f6f5f2;
+  color: #e87234;
+}
+
 .border-marron-button, .blog-filters .filter-btn {
   color: #462620;
   background-color: transparent;
@@ -300,8 +330,9 @@ h3::before {
   background-color: rgba(70, 38, 32, 0.64);
   z-index: 1;
 }
-.content-img-header .logo-header {
-  width: 20%;
+.content-img-header img {
+  height: 100vh;
+  object-fit: cover;
 }
 .content-img-header h1 {
   font-size: 48px;
@@ -1285,12 +1316,13 @@ main .more {
 #list-projets .titre h3 {
   font-size: 36px;
   font-family: "Playfair Display";
+  margin-bottom: 1rem;
 }
 #list-projets .titre h3::before {
   display: none;
 }
 #list-projets .titre p {
-  font-size: 1rem;
+  font-size: 18px;
   position: relative;
   padding-left: 63px;
 }
@@ -1312,8 +1344,7 @@ main .more {
   transform: translateY(0);
 }
 #list-projets .card-article:hover img {
-  border-bottom-left-radius: 35px;
-  border-bottom-right-radius: 35px;
+  transform: scale(1.2);
 }
 #list-projets .card-article img {
   border-radius: 30px;
@@ -1329,8 +1360,38 @@ main .more {
   width: 100%;
   transform: translateY(100%);
   transition: 0.3s;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+}
+#list-projets .temoignages {
+  background-color: white;
+}
+#list-projets .temoignages .swiper {
+  width: 90%;
+  max-width: 900px;
+  margin-top: 3rem;
+}
+#list-projets .temoignages .swiper .swiper-slide {
+  background-color: #f6f5f2;
+  border-radius: 30px;
+  padding: 3rem;
+}
+#list-projets .temoignages .swiper .swiper-slide .nom {
+  margin-top: 1.5rem;
+  color: #857c5a;
+  margin-left: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid #857c5a;
+  width: fit-content;
+}
+#list-projets .accompagnements {
+  background-color: #857c5a;
+  color: #f6f5f2;
+}
+#list-projets .accompagnements .titre h3,
+#list-projets .accompagnements .titre p {
+  color: #f6f5f2;
+}
+#list-projets .accompagnements .titre p::before {
+  background-color: #f6f5f2;
 }
 
 footer {
@@ -1475,6 +1536,65 @@ main:not(.front-page) h2::before {
   width: 50px;
   height: 1px;
   background-color: #462620;
+}
+
+.rating {
+  margin-bottom: 1rem;
+}
+.rating .star {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  background: none;
+}
+.rating .star.full {
+  color: #e87234;
+  opacity: 1;
+}
+
+.swiper-navigation {
+  margin-top: 1.5rem;
+}
+.swiper-navigation > div {
+  position: relative;
+  height: auto;
+  width: auto;
+  margin: 0;
+  bottom: auto !important;
+  top: auto !important;
+}
+.swiper-navigation > div svg {
+  color: #462620;
+}
+.swiper-navigation > div.swiper-pagination {
+  width: auto;
+}
+.swiper-navigation > div.swiper-pagination .swiper-pagination-bullet {
+  transition: 0.3s;
+}
+.swiper-navigation > div.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #e87234;
+}
+.swiper-navigation > div.swiper-pagination .swiper-pagination-bullet:hover {
+  background-color: #e87234;
+  opacity: 1;
+}
+.swiper-navigation > div.swiper-button-next, .swiper-navigation > div.swiper-button-prev {
+  border: 2px solid #f6f5f2;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.swiper-navigation > div.swiper-button-next:hover, .swiper-navigation > div.swiper-button-prev:hover {
+  border-color: #e87234;
+}
+.swiper-navigation > div.swiper-button-next svg, .swiper-navigation > div.swiper-button-prev svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 .blog-filters {

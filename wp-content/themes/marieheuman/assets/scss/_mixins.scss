@@ -88,6 +88,38 @@
     }
 }
 
+@mixin beige-button {
+    color: $beige;
+    background-color: $orange;
+    border: 2px solid $orange;
+    padding: 1rem 3rem;
+    border-radius: 100px;
+    font-size: 18px;
+    transition: .3s;
+    display: inline-block;
+
+    &:hover {
+        background-color: $marron;
+        border-color: $marron;
+    }
+}
+
+@mixin border-beige-button {
+    color: $beige;
+    background-color: transparent;
+    border: 2px solid $beige;
+    padding: 1rem 3rem;
+    border-radius: 100px;
+    font-size: 18px;
+    transition: .3s;
+    display: inline-block;
+
+    &:hover {
+        background-color: $beige;
+        color: $orange;
+    }
+}
+
 // FONTAWESOME
 @mixin fas {
     font-family: 'Font Awesome 6 Free';

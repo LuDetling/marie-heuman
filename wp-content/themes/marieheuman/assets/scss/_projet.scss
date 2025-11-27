@@ -3,6 +3,7 @@
 @use "fontawesome";
 
 
+
 // LIST PROJETS
 #list-projets {
     .blog-filters {
@@ -14,6 +15,7 @@
         h3 {
             font-size: 36px;
             font-family: 'Playfair Display';
+            margin-bottom: 1rem;
 
             &::before {
                 display: none;
@@ -21,7 +23,7 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: 18px;
             position: relative;
             padding-left: 63px;
 
@@ -48,8 +50,7 @@
             }
 
             img {
-                border-bottom-left-radius: 35px;
-                border-bottom-right-radius: 35px;
+                transform: scale(1.2);
             }
         }
 
@@ -68,8 +69,53 @@
             width: 100%;
             transform: translateY(100%);
             transition: .3s;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
+        }
+    }
+
+
+    // AVIS
+    .temoignages {
+        background-color: white;
+
+        .swiper {
+            width: 90%;
+            max-width: 900px;
+            margin-top: 3rem;
+
+            .swiper-slide {
+                background-color: $beige;
+                border-radius: 30px;
+                padding: 3rem;
+
+                .nom {
+                    margin-top: 1.5rem;
+                    color: $secondary;
+                    margin-left: auto;
+                    padding-top: .5rem;
+                    border-top: 1px solid $secondary;
+                    width: fit-content;
+                }
+            }
+        }
+    }
+
+    // END AVIS
+    .accompagnements {
+        background-color: $secondary;
+        color: $beige;
+
+        .titre {
+
+            h3,
+            p {
+                color: $beige;
+            }
+
+            p {
+                &::before {
+                    background-color: $beige;
+                }
+            }
         }
     }
 }

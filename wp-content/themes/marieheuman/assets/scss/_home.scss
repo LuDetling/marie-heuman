@@ -92,8 +92,9 @@ h3 {
         z-index: 1;
     }
 
-    .logo-header {
-        width: 20%;
+    img {
+        height: 100vh;
+        object-fit: cover;
     }
 
     h1 {

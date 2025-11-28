@@ -388,17 +388,6 @@ h3 {
         border-radius: 30px;
         overflow: hidden;
         background-color: $beige;
-        width: calc(100% / 3 - 2.7rem);
-
-
-
-        @media screen and (max-width: 1536px) {
-            width: calc(100% / 2 - 2rem);
-        }
-
-        @media screen and (max-width: 1024px) {
-            width: 100%;
-        }
 
         >div {
             width: 100%;
@@ -446,76 +435,76 @@ h3 {
     }
 }
 
-/* Container du carousel */
-.projets-grid.carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE/Edge */
-}
+// /* Container du carousel */
+// .projets-grid.carousel {
+//     display: flex;
+//     overflow-x: auto;
+//     scroll-behavior: smooth;
+//     scroll-snap-type: x mandatory;
+//     scrollbar-width: none;
+//     /* Firefox */
+//     -ms-overflow-style: none;
+//     /* IE/Edge */
+// }
 
-.projets-grid.carousel::-webkit-scrollbar {
-    display: none;
-    /* Chrome/Safari */
-}
+// .projets-grid.carousel::-webkit-scrollbar {
+//     display: none;
+//     /* Chrome/Safari */
+// }
 
-/* Cards du carousel */
-.carousel-item {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-    opacity: 0.5;
-    transform: scale(0.9);
-    transition: all 0.4s ease;
-    width: 100%;
-    max-width: 400px;
-}
+// /* Cards du carousel */
+// .carousel-item {
+//     flex: 0 0 auto;
+//     scroll-snap-align: center;
+//     opacity: 0.5;
+//     transform: scale(0.9);
+//     transition: all 0.4s ease;
+//     width: 100%;
+//     max-width: 400px;
+// }
 
-.carousel-item.active-card {
-    opacity: 1;
-    transform: scale(1);
-}
+// .carousel-item.active-card {
+//     opacity: 1;
+//     transform: scale(1);
+// }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .carousel-item {
-        max-width: 90%;
-    }
+// /* Responsive */
+// @media (max-width: 768px) {
+//     .carousel-item {
+//         max-width: 90%;
+//     }
 
-    .btn-next-prev {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
+//     .btn-next-prev {
+//         width: 40px;
+//         height: 40px;
+//         font-size: 16px;
+//     }
 
-    .btn-prev {
-        margin-right: 1rem;
-    }
+//     .btn-prev {
+//         margin-right: 1rem;
+//     }
 
-    .btn-next {
-        margin-left: 1rem;
-    }
-}
+//     .btn-next {
+//         margin-left: 1rem;
+//     }
+// }
 
-/* Animation au chargement */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+// /* Animation au chargement */
+// @keyframes fadeInUp {
+//     from {
+//         opacity: 0;
+//         transform: translateY(30px);
+//     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+//     to {
+//         opacity: 1;
+//         transform: translateY(0);
+//     }
+// }
 
-.carousel-item {
-    animation: fadeInUp 0.6s ease-out;
-}
+// .carousel-item {
+//     animation: fadeInUp 0.6s ease-out;
+// }
 
 // END BLOG
 // RESSOURCES OFFERTES

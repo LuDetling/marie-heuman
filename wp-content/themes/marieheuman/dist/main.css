@@ -563,17 +563,6 @@ h3::before {
   border-radius: 30px;
   overflow: hidden;
   background-color: #f6f5f2;
-  width: calc(33.3333333333% - 2.7rem);
-}
-@media screen and (max-width: 1536px) {
-  .content-blog-accueil .projet-card {
-    width: calc(50% - 2rem);
-  }
-}
-@media screen and (max-width: 1024px) {
-  .content-blog-accueil .projet-card {
-    width: 100%;
-  }
 }
 .content-blog-accueil .projet-card > div {
   width: 100%;
@@ -609,71 +598,6 @@ h3::before {
 }
 .content-blog-accueil .next-prev .indicator.active-card-indicator {
   background-color: #e87234;
-}
-
-/* Container du carousel */
-.projets-grid.carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE/Edge */
-}
-
-.projets-grid.carousel::-webkit-scrollbar {
-  display: none;
-  /* Chrome/Safari */
-}
-
-/* Cards du carousel */
-.carousel-item {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-  opacity: 0.5;
-  transform: scale(0.9);
-  transition: all 0.4s ease;
-  width: 100%;
-  max-width: 400px;
-}
-
-.carousel-item.active-card {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .carousel-item {
-    max-width: 90%;
-  }
-  .btn-next-prev {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-  .btn-prev {
-    margin-right: 1rem;
-  }
-  .btn-next {
-    margin-left: 1rem;
-  }
-}
-/* Animation au chargement */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.carousel-item {
-  animation: fadeInUp 0.6s ease-out;
 }
 
 .content-ro-accueil {
@@ -1391,6 +1315,108 @@ main .more {
   color: #f6f5f2;
 }
 #list-projets .accompagnements .titre p::before {
+  background-color: #f6f5f2;
+}
+
+#histoire h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin-bottom: 2.5rem;
+}
+#histoire h2::before {
+  display: none;
+}
+#histoire img {
+  border-radius: 30px;
+  object-fit: cover;
+}
+#histoire .texte {
+  padding: 3rem 0;
+}
+#histoire .philosophie {
+  background-color: white;
+}
+#histoire .univers .swiper-slide {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 30px;
+}
+#histoire .univers .swiper-slide .dashicons {
+  color: #e87234;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(232, 114, 52, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+#histoire .univers .swiper-slide h4 {
+  font-family: "Playfair Display";
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+}
+#histoire .univers .swiper-slide .texte {
+  padding: 0;
+}
+#histoire .univers .swiper-navigation .swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+#histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet {
+  background: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #462620;
+  color: #462620;
+  transition: 0.3s;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+}
+#histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet:not(:last-child)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: block;
+  background-color: #462620;
+  border-radius: 50%;
+  position: absolute;
+  right: -29px;
+}
+#histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active, #histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet:hover {
+  background-color: #462620;
+  color: #f6f5f2;
+}
+#histoire .contrib {
+  background-color: white;
+}
+#histoire .contrib .content-contrib {
+  background-color: #f6f5f2;
+  border-radius: 30px;
+  padding: 3rem;
+}
+#histoire .contrib .content-contrib .description {
+  color: #857c5a;
+}
+#histoire .contrib .content-contrib .description p {
+  margin-bottom: 1rem;
+}
+#histoire .accompagnement {
+  background-color: #857c5a;
+}
+#histoire .accompagnement h2,
+#histoire .accompagnement h3 {
+  color: #f6f5f2;
+}
+#histoire .accompagnement h3::before {
   background-color: #f6f5f2;
 }
 

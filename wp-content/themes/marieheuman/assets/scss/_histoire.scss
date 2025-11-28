@@ -1,0 +1,151 @@
+@use "globals" as *;
+@use "buttons";
+@use "fontawesome";
+
+#histoire {
+
+    // PERSO
+    h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        margin-bottom: 2.5rem;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    img {
+        border-radius: 30px;
+        object-fit: cover;
+    }
+
+    .texte {
+        padding: 3rem 0;
+    }
+
+    .perso {}
+
+    // END PERSO
+
+    // PHILOSOPHIE
+    .philosophie {
+        background-color: white;
+    }
+
+    // END PHILOSOPHIE
+
+    // UNIVERS
+    .univers {
+        .swiper-slide {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 30px;
+
+            .dashicons {
+                color: $orange;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba($color: $orange, $alpha: .3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 2rem;
+            }
+
+            h4 {
+                font-family: 'Playfair Display';
+                font-weight: bold;
+                font-size: 24px;
+                margin-bottom: 1.5rem;
+            }
+
+            .texte {
+                padding: 0;
+            }
+        }
+
+        .swiper-navigation {
+            .swiper-pagination {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+
+                .swiper-pagination-bullet {
+                    background: none;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid $marron;
+                    color: $marron;
+                    transition: .3s;
+                    opacity: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0;
+                    position: relative;
+
+                    &:not(:last-child)::after {
+                        content: "";
+                        width: 10px;
+                        height: 10px;
+                        display: block;
+                        background-color: $marron;
+                        border-radius: 50%;
+                        position: absolute;
+                        right: -29px;
+                    }
+
+                    &.swiper-pagination-bullet-active,
+                    &:hover {
+                        background-color: $marron;
+                        color: $beige;
+                    }
+                }
+
+            }
+        }
+    }
+
+    // END UNIVERS
+
+    // CONTRIB
+    .contrib {
+        background-color: white;
+
+        .content-contrib {
+            background-color: $beige;
+            border-radius: 30px;
+            padding: 3rem;
+
+            .description {
+                color: $secondary;
+
+                p {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    // END CONTRIB
+
+    // ACCOMPAGNEMENT
+    .accompagnement {
+        background-color: $secondary;
+
+        h2,
+        h3 {
+            color: $beige;
+        }
+        h3 {
+            &::before {
+                background-color: $beige;
+            }
+        }
+    }
+
+    // END ACCOMPAGNEMENT
+}

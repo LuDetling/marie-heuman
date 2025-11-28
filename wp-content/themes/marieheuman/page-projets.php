@@ -67,7 +67,7 @@ get_header();
         <div class="titre">
             <?= $content['temoignages']['titre'] ?>
         </div>
-        <div class="swiper mySwiper">
+        <div class="swiper swiperAvis">
             <div class="swiper-wrapper">
                 <?php
                 $avis = new WP_Query([

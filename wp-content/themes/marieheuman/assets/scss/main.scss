@@ -6,6 +6,7 @@
 @use "faq";
 @use "page";
 @use "projet";
+@use "histoire";
 @use "footer";
 
 * {
@@ -67,7 +68,7 @@ main:not(.front-page) {
 
 .swiper-navigation {
     margin-top: 1.5rem;
-
+    
     >div {
         position: relative;
         height: auto;

@@ -173,67 +173,51 @@
 
         <span class="tag-home"><?= $tag_blog_accueil ?></span>
         <?= $titre_blog_accueil ?>
-
-
-        <?php
-        $args = [
-            'post_type' => 'blog', // <-- le slug de ton CPT
-            'posts_per_page' => 10,    // nombre d'éléments à afficher
-            'post_status' => 'publish'
-        ];
-        $query = new WP_Query($args);
-
-        if ($query->have_posts()):
-            $index = 0;
-            $index_btn = 0;
-            ?>
-            <div class="projets-grid carousel space-x-16">
-                <?php while ($query->have_posts()):
-                    $query->the_post();
-                    $blog = get_field("contenu_page_blog");
-                    $index++;
-                    ?>
-                    <article id="card-blog<?= $index ?>"
-                        class="projet-card carousel-item<?= $index == 1 ? ' active-card' : '' ?>">
-                        <div>
-                            <?php if ($blog['image']): ?>
-                                <img src="<?= esc_url($blog['image']['url']); ?>" alt="<?= esc_attr($blog['image']['alt']); ?>"
-                                    width="<?= esc_attr($blog['image']['width']); ?>"
-                                    height="<?= esc_attr($blog['image']['height']); ?>">
-                            <?php endif; ?>
-                            <div class="text-card">
-                                <h4><?php the_title(); ?></h4>
-                                <p class="blog-meta">
-                                    <?php echo get_the_date('F o'); ?> •
-                                    <?= $blog['temps_de_lecture']?> de lecture
-                                </p>
-
-                                <a href="<?php the_permalink(); ?>" class="more mt-4">Lire l'article</a>
-                            </div>
-                        </div>
-                    </article>
-                <?php endwhile; ?>
-            </div>
-            <div class="flex w-full items-center justify-center gap-2 py-2 mt-4 next-prev">
-                <a href="#card-blog1" class="btn-next-prev btn-prev mr-8">❮</a>
-                <div class="content-indicator">
-                    <!-- au click l'id change sur le précédent si il existe -->
-                    <?php while ($query->have_posts()):
-                        $query->the_post();
-                        $blog['image'] = get_field("image_principale_blog");
-                        $index_btn++;
+        </div>
+        <div class="swiper swiperHomeBlog">
+            <div class="swiper-wrapper">
+                <?php
+                $posts = new WP_Query([
+                    'post_type' => 'blog',
+                    'posts_per_page' => 10,
+                ]);
+                if ($posts->have_posts()):
+                    while ($posts->have_posts()):
+                        $posts->the_post();
+                        $blog = get_field("contenu_page_blog");
                         ?>
-                        <a href="#card-blog<?= $index_btn ?>"
-                            class="indicator<?= $index_btn == 1 ? ' active-card-indicator' : '' ?>"></a>
-                    <?php endwhile; ?>
-                </div>
-                <!-- au click l'id change sur le prochain si il exite -->
-                <a href="" class="btn-next-prev btn-next ml-8">❯</a>
+                        <div class="swiper-slide">
+                            <article id="card-blog" class="projet-card carousel-item">
+                                <div>
+                                    <?php if ($blog['image']): ?>
+                                        <img src="<?= esc_url($blog['image']['url']); ?>"
+                                            alt="<?= esc_attr($blog['image']['alt']); ?>"
+                                            width="<?= esc_attr($blog['image']['width']); ?>"
+                                            height="<?= esc_attr($blog['image']['height']); ?>">
+                                    <?php endif; ?>
+                                    <div class="text-card">
+                                        <h4><?php the_title(); ?></h4>
+                                        <p class="blog-meta">
+                                            <?php echo get_the_date('F o'); ?> •
+                                            <?= $blog['temps_de_lecture'] ?> de lecture
+                                        </p>
+
+                                        <a href="<?php the_permalink(); ?>" class="more mt-4">Lire l'article</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <?php
+                    endwhile;
+                    wp_reset_postdata();
+                endif; ?>
             </div>
-            <?php
-        endif;
-        wp_reset_postdata();
-        ?>
+        </div>
+        <div class="flex gap-8 swiper-navigation justify-center items-center">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </section>
     <!-- END BLOG -->
 

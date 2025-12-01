@@ -1318,6 +1318,124 @@ main .more {
   background-color: #f6f5f2;
 }
 
+#page-contact h2 {
+  font-family: "Playfair Display";
+  font-size: 36px;
+  margin-bottom: 1rem;
+}
+#page-contact h2::before {
+  display: none;
+}
+#page-contact .decouverte {
+  background-color: #857c5a;
+  color: #f6f5f2;
+}
+#page-contact .decouverte h2,
+#page-contact .decouverte h3,
+#page-contact .decouverte .tag-home {
+  color: #f6f5f2;
+}
+#page-contact .decouverte h3::before {
+  background-color: #f6f5f2;
+}
+#page-contact .content-icone-texte .dashicons {
+  font-size: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(246, 245, 242, 0.2);
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+#page-contact .calendly-inline-widget {
+  margin-top: 3rem;
+}
+#page-contact .swiper-slide {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 30px;
+}
+#page-contact .swiper-slide .dashicons {
+  color: #e87234;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(232, 114, 52, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+#page-contact .swiper-slide h4 {
+  font-family: "Playfair Display";
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+}
+#page-contact .swiper-slide .infos {
+  color: #857c5a;
+  margin-bottom: 1rem;
+  font-size: 18px;
+}
+#page-contact .swiper-slide .texte {
+  padding: 0;
+}
+#page-contact .swiper-navigation {
+  margin-bottom: 2rem;
+}
+#page-contact .swiper-navigation .swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+#page-contact .swiper-navigation .swiper-pagination .swiper-pagination-bullet {
+  background: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #462620;
+  color: #462620;
+  transition: 0.3s;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+}
+#page-contact .swiper-navigation .swiper-pagination .swiper-pagination-bullet:not(:last-child)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: block;
+  background-color: #462620;
+  border-radius: 50%;
+  position: absolute;
+  right: -29px;
+}
+#page-contact .swiper-navigation .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active, #page-contact .swiper-navigation .swiper-pagination .swiper-pagination-bullet:hover {
+  background-color: #462620;
+  color: #f6f5f2;
+}
+#page-contact .soutiens {
+  background-color: white;
+}
+#page-contact .soutiens .content-soutiens {
+  border-radius: 30px;
+  background-color: #f6f5f2;
+  padding: 3rem;
+}
+#page-contact .soutiens .content-soutiens p {
+  color: #857c5a;
+}
+#page-contact .faq {
+  background-color: white;
+}
+
 #histoire h2 {
   font-family: "Playfair Display", serif;
   font-size: 36px;
@@ -1344,6 +1462,7 @@ main .more {
 #histoire .univers .swiper-slide .dashicons {
   color: #e87234;
   width: 40px;
+  min-width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: rgba(232, 114, 52, 0.3);
@@ -1532,15 +1651,33 @@ footer .footer-bottom {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
+.white-block {
+  background-color: white;
+  border-radius: 30px;
+  padding: 1.5rem;
+}
+
+.orange-list-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.orange-list-container li {
+  color: #e87234;
+  background-color: rgba(232, 114, 52, 0.3);
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  display: inline-block;
+}
+
 .header-content {
   background-color: white;
   color: #462620;
 }
 
-.white-block {
-  background-color: white;
-  border-radius: 30px;
-  padding: 1.5rem;
+.container {
+  max-width: 1200px;
+  margin: auto;
 }
 
 main:not(.front-page) h1 {

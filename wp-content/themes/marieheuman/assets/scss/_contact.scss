@@ -1,0 +1,152 @@
+@use "globals" as *;
+@use "buttons";
+@use "fontawesome";
+
+#page-contact {
+    h2 {
+        font-family: 'Playfair Display';
+        font-size: 36px;
+        margin-bottom: 1rem;
+
+        &::before {
+            display: none;
+        }
+    }
+
+
+    .decouverte {
+        background-color: $secondary;
+        color: $beige;
+
+        h2,
+        h3,
+        .tag-home {
+            color: $beige;
+        }
+
+        h3 {
+            &::before {
+                background-color: $beige;
+            }
+        }
+
+    }
+
+    .content-icone-texte {
+        .dashicons {
+            font-size: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba($color: $beige, $alpha: 0.2);
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            margin-bottom: 1rem;
+        }
+    }
+
+
+    .calendly-inline-widget {
+        margin-top: 3rem;
+    }
+
+    .swiper-slide {
+        background-color: white;
+        padding: 3rem;
+        border-radius: 30px;
+
+        .dashicons {
+            color: $orange;
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba($color: $orange, $alpha: .3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        h4 {
+            font-family: 'Playfair Display';
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 1.5rem;
+        }
+
+        .infos {
+            color: $secondary;
+            margin-bottom: 1rem;
+            font-size: 18px;
+        }
+
+        .texte {
+            padding: 0;
+        }
+    }
+
+    .swiper-navigation {
+        margin-bottom: 2rem;
+
+        .swiper-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+
+            .swiper-pagination-bullet {
+                background: none;
+                width: 40px;
+                height: 40px;
+                border: 1px solid $marron;
+                color: $marron;
+                transition: .3s;
+                opacity: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                position: relative;
+
+                &:not(:last-child)::after {
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    display: block;
+                    background-color: $marron;
+                    border-radius: 50%;
+                    position: absolute;
+                    right: -29px;
+                }
+
+                &.swiper-pagination-bullet-active,
+                &:hover {
+                    background-color: $marron;
+                    color: $beige;
+                }
+            }
+
+        }
+    }
+
+    .soutiens {
+        background-color: white;
+
+        .content-soutiens {
+            border-radius: 30px;
+            background-color: $beige;
+            padding: 3rem;
+
+            p {
+                color: $secondary;
+            }
+        }
+    }
+
+    .faq {
+        background-color: white;
+    }
+}

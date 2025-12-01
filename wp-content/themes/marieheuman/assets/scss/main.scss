@@ -6,6 +6,7 @@
 @use "faq";
 @use "page";
 @use "projet";
+@use "contact";
 @use "histoire";
 @use "footer";
 
@@ -13,16 +14,39 @@
     font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
+// STYLE WYSIWYG
+.white-block {
+    background-color: white;
+    border-radius: 30px;
+    padding: 1.5rem;
+}
+
+
+
+.orange-list-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    li {
+        color: $orange;
+        background-color: rgba($color: $orange, $alpha: .3);
+        border-radius: 30px;
+        padding: .5rem 1.5rem;
+        display: inline-block;
+    }
+}
+
+// END STYLE WYSIWYG
 .header-content {
     background-color: white;
     color: $marron;
 
 }
 
-.white-block {
-    background-color: white;
-    border-radius: 30px;
-    padding: 1.5rem;
+.container {
+    max-width: 1200px;
+    margin: auto;
 }
 
 main:not(.front-page) {
@@ -53,6 +77,7 @@ main:not(.front-page) {
 
 .rating {
     margin-bottom: 1rem;
+
     .star {
         width: auto;
         height: auto;
@@ -68,7 +93,7 @@ main:not(.front-page) {
 
 .swiper-navigation {
     margin-top: 1.5rem;
-    
+
     >div {
         position: relative;
         height: auto;

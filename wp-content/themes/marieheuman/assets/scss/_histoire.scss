@@ -45,6 +45,7 @@
             .dashicons {
                 color: $orange;
                 width: 40px;
+                min-width: 40px;
                 height: 40px;
                 border-radius: 50%;
                 background-color: rgba($color: $orange, $alpha: .3);
@@ -61,6 +62,7 @@
                 margin-bottom: 1.5rem;
             }
 
+          
             .texte {
                 padding: 0;
             }
@@ -140,6 +142,7 @@
         h3 {
             color: $beige;
         }
+
         h3 {
             &::before {
                 background-color: $beige;

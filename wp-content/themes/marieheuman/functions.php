@@ -102,25 +102,26 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'classes' => 'white-block',
             'wrapper' => true,
         ],
+        [
+            'title' => 'Liste Orange (Conteneur)',
+            'selector' => 'ul', // Cible spécifiquement la balise UL
+            'classes' => 'orange-list-container', // La nouvelle classe
+        ],
     ];
 
     $settings['style_formats'] = json_encode($style_formats);
 
     return $settings;
 });
-
-add_action('admin_enqueue_scripts', function () {
-    wp_enqueue_style('custom-editor-styles', get_stylesheet_directory_uri() . '/dist/main.css');
-});
-
-add_filter('tiny_mce_before_init', function ($settings) {
-
-    // Charger ton CSS dans l'iframe TinyMCE
-    $settings['content_css'] = get_stylesheet_directory_uri() . '/dist/main.css';
-
-    return $settings;
-});
-
+/**
+ * Méthode Standard pour charger le CSS dans l'éditeur TinyMCE
+ */
+function mon_theme_add_editor_styles()
+{
+    // Le chemin doit être relatif à la racine du thème
+    add_editor_style('dist/main.css');
+}
+add_action('admin_init', 'mon_theme_add_editor_styles');
 // END STYLE WYSIWYG
 
 

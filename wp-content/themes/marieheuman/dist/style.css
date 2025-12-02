@@ -8,7 +8,6 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --spacing: 0.25rem;
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1856,13 +1855,6 @@
   .z-2 {
     z-index: 2;
   }
-  .drawer-content {
-    @layer daisyui.component {
-      grid-column-start: 2;
-      grid-row-start: 1;
-      min-width: calc(0.25rem * 0);
-    }
-  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -1880,6 +1872,39 @@
     @media (width >= 96rem) {
       max-width: 96rem;
     }
+  }
+  .divider {
+    @layer daisyui.component {
+      display: flex;
+      height: calc(0.25rem * 4);
+      flex-direction: row;
+      align-items: center;
+      align-self: stretch;
+      white-space: nowrap;
+      margin: var(--divider-m, 1rem 0);
+      --divider-color: var(--color-base-content);
+      @supports (color: color-mix(in lab, red, red)) {
+        --divider-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+      }
+      &:before, &:after {
+        content: "";
+        height: calc(0.25rem * 0.5);
+        width: 100%;
+        flex-grow: 1;
+        background-color: var(--divider-color);
+      }
+      @media print {
+        &:before, &:after {
+          border: 0.5px solid;
+        }
+      }
+      &:not(:empty) {
+        gap: calc(0.25rem * 4);
+      }
+    }
+  }
+  .m-auto {
+    margin: auto;
   }
   .filter {
     @layer daisyui.component {
@@ -1925,6 +1950,9 @@
         }
       }
     }
+  }
+  .mx-auto {
+    margin-inline: auto;
   }
   .label {
     @layer daisyui.component {
@@ -2099,14 +2127,17 @@
   .grid {
     display: grid;
   }
-  .inline {
-    display: inline;
+  .hidden {
+    display: none;
   }
   .table {
     display: table;
   }
   .flex-shrink {
     flex-shrink: 1;
+  }
+  .flex-grow {
+    flex-grow: 1;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -2234,10 +2265,6 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
-  }
-  .ease-out {
-    --tw-ease: var(--ease-out);
-    transition-timing-function: var(--ease-out);
   }
   .btn-primary {
     @layer daisyui.modifier.color {

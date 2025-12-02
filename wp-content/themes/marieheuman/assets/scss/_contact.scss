@@ -149,4 +149,136 @@
     .faq {
         background-color: white;
     }
+
+    // Calendly
+
+    #custom-booking-app {
+        background-color: white;
+        padding: 3rem;
+        border-radius: 30px;
+        color: $marron;
+
+        .step-title {
+            color: $marron;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .calendar-card {
+            border: 2px solid $marron;
+            border-radius: 15px;
+            overflow: hidden;
+
+            .date-header {
+                background-color: $marron;
+                padding: 1rem 3rem;
+                color: $beige;
+                font-weight: bold;
+                margin-bottom: 1rem;
+            }
+
+            .time-slots-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                row-gap: 1rem;
+                column-gap: 3rem;
+                padding-inline: 3rem;
+
+                .time-btn {
+                    background-color: $beige;
+                    transition: .3s;
+                    cursor: pointer;
+                    padding: 1rem 2rem;
+                    border-radius: 15px;
+
+                    &.selected,
+                    &:hover {
+                        background-color: $marron;
+                        color: $beige;
+                    }
+                }
+
+            }
+
+            .trait {
+                content: '';
+                width: 80%;
+                display: block;
+                margin: auto;
+                height: 1px;
+                background-color: $marron;
+                margin: 2rem auto;
+            }
+
+            .meeting-type-selector {
+                display: flex;
+                gap: 2rem;
+                padding-inline: 3rem;
+                margin-bottom: 1rem;
+
+                .type-option {
+                    border-radius: 15px;
+                    background-color: $beige;
+                    padding: 20px;
+                    width: 100%;
+                    transition: .3s;
+                    cursor: pointer;
+
+                    &.active,
+                    &:hover {
+                        background-color: $marron;
+                        color: $beige;
+                    }
+
+                    input {
+                        display: none;
+                    }
+
+                    .option-content {
+                        * {
+                            display: block;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .other-days {
+            margin-top: 2rem;
+
+            .day-row {
+                padding: 1rem 3rem;
+                background-color: $beige;
+                border-radius: 15px;
+                margin-bottom: 1.5rem;
+                cursor: pointer;
+                transition: .3s;
+
+                &:hover {
+                    background-color: $marron;
+                    color: $beige;
+                }
+
+                &.active {
+                    display: none;
+                }
+
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .action-area {
+            margin: auto;
+            width: fit-content;
+
+            button {
+                min-width: 350px;
+            }
+        }
+    }
 }

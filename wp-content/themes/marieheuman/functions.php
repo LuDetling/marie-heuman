@@ -13,7 +13,6 @@ function marieheuman_js()
     if (is_page_template('page-faq.php')) {
         wp_enqueue_script('faq-js', get_template_directory_uri() . '/assets/js/faq.js', [], false, true);
     }
-
 }
 function marieheuman_enqueue_scripts()
 {
@@ -232,6 +231,68 @@ add_action('wp_ajax_load_posts', 'load_posts');
 add_action('wp_ajax_nopriv_load_posts', 'load_posts');
 
 // END AJAX BLOG
+
+// calendly
+/* * Ajout d'un endpoint AJAX pour sécuriser l'appel Calendly 
+ */
+
+// On autorise l'appel pour les visiteurs non connectés (nopriv) et connectés
+add_action('wp_ajax_nopriv_get_calendly_slots', 'proxy_calendly_api');
+add_action('wp_ajax_get_calendly_slots', 'proxy_calendly_api');
+
+function enqueue_calendly_script()
+{
+    // Assurez-vous que ce script est chargé là où vous en avez besoin
+    if (is_page_template('page-contact.php')) {
+        wp_enqueue_script('calendly-proxy', get_template_directory_uri() . '/assets/js/contact.js', ['jquery'], 1.0, true);
+        // Passe la variable ajaxurl au JavaScript
+        wp_localize_script('calendly-proxy', 'calendly_vars', [
+            'ajaxurl' => admin_url('admin-ajax.php')
+        ]);
+    }
+}
+// Assurez-vous d'appeler cette fonction au bon moment (par exemple, wp_enqueue_scripts)
+add_action('wp_enqueue_scripts', 'enqueue_calendly_script');
+
+function proxy_calendly_api()
+{
+    // 1. TA CONFIGURATION SECRÈTE
+    $api_token = CALENDLY_API_TOKEN; // Lire la constante définie dans wp-config.php
+    $event_uuid = CALENDLY_EVENT_UUID; // Lire la constante définie dans wp-config.php
+    
+    // 2. Récupération des dates envoyées par le JS
+    $start_time = sanitize_text_field($_GET['start_time']);
+    $end_time = sanitize_text_field($_GET['end_time']);
+
+    if (empty($start_time) || empty($end_time)) {
+        wp_send_json_error('Dates manquantes');
+    }
+
+    // 3. Appel vers Calendly (C'est WordPress qui appelle, pas le navigateur du client)
+    $url = "https://api.calendly.com/event_type_available_times?event_type=https://api.calendly.com/event_types/{$event_uuid}&start_time={$start_time}&end_time={$end_time}";
+    // $url = "https://api.calendly.com/event_types/{$event_uuid}";
+
+    $args = array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $api_token,
+            'Content-Type' => 'application/json'
+        )
+    );
+
+    $response = wp_remote_get($url, $args);
+
+    // 4. Gestion des erreurs et renvoi au JS
+    if (is_wp_error($response)) {
+        wp_send_json_error('Erreur de connexion à Calendly');
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body);
+
+    wp_send_json_success($data); // Renvoie le JSON propre au Javascript
+}
+
+// end calendly
 
 add_action('init', 'register_categories');
 add_action('wp_enqueue_scripts', 'theme_enqueue_dashicons');

@@ -48,48 +48,8 @@ get_header();
                 <div id="step-1" class="booking-step active">
 
                     <h4 class="step-title">Sélectionnez une date et une heure</h4>
-
-                    <div class="calendar-card">
-
-                        <div class="date-header">
-                            <span></span>
-                        </div>
-
-                        <div class="time-slots-grid">
-                            <!-- <button class="time-btn">09:00</button>
-                            <button class="time-btn">09:30</button>
-                            <button class="time-btn">11:00</button>
-                            <button class="time-btn">11:30</button>
-                            <button class="time-btn">11:30</button>
-                            <button class="time-btn">16:00</button>
-                            <button class="time-btn selected">17:00</button>
-                            <button class="time-btn">17:30</button> -->
-                        </div>
-
-                        <hr class="trait">
-
-                        <div class="meeting-type-selector">
-                            <label class="type-option active">
-                                <input type="radio" name="meeting_type" value="google_meet" checked>
-                                <div class="option-content">
-                                    <span class="icon">📹</span>
-                                    <strong>Visioconférence</strong>
-                                    <small>Google Meet</small>
-                                </div>
-                            </label>
-
-                            <label class="type-option">
-                                <input type="radio" name="meeting_type" value="phone">
-                                <div class="option-content">
-                                    <span class="icon">📞</span>
-                                    <strong>Téléphone</strong>
-                                    <small>Appel téléphonique</small>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="other-days">
+                    <!-- Boucle sur calendar cards qui ouvre un accordeon -->
+                    <div class="calendar-cards">
                     </div>
 
                     <div class="action-area">
@@ -98,59 +58,20 @@ get_header();
                     </div>
                 </div>
 
+                <div id="" class="">
                 <div id="step-2" class="booking-step hidden">
-
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Prénom*</label>
-                            <input type="text" name="prenom" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Nom*</label>
-                            <input type="text" name="nom" required>
+                    <form action="" class="form-calendly">
+                        <div>
+                            <label for=""></label>
+                            <input type="text">
                         </div>
 
-                        <div class="form-group">
-                            <label>Société</label>
-                            <input type="text" name="societe">
-                        </div>
-                        <div class="form-group">
-                            <label>SIRET</label>
-                            <input type="text" name="siret">
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label>Décrivez-moi votre projet*</label>
-                            <textarea rows="5"></textarea>
-                        </div>
-
-                        <div class="upload-section full-width">
-                            <div class="upload-item">
-                                <strong>Photos</strong>
-                                <span class="upload-link">📥 Téléchargez</span>
-                            </div>
-                            <div class="upload-item">
-                                <strong>Plans</strong>
-                                <span class="upload-link">📥 Téléchargez</span>
-                            </div>
-                            <div class="upload-item">
-                                <strong>Autres documents</strong>
-                                <span class="upload-link">📥 Téléchargez</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group full-width checkbox-group">
-                            <input type="checkbox" id="legal">
-                            <label for="legal">J'accepte d'être contactée par Marie Heuman concernant mon
-                                projet...</label>
-                        </div>
-                    </div>
+                    </form>
 
                     <div class="action-area">
                         <button class="main-btn">Envoyer ma demande</button>
                         <button id="back-to-step-1" class="link-btn">Retour</button>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -169,13 +169,13 @@
             border: 2px solid $marron;
             border-radius: 15px;
             overflow: hidden;
+            margin-bottom: 2rem;
 
             .date-header {
                 background-color: $marron;
                 padding: 1rem 3rem;
                 color: $beige;
                 font-weight: bold;
-                margin-bottom: 1rem;
             }
 
             .time-slots-grid {
@@ -184,7 +184,7 @@
                 row-gap: 1rem;
                 column-gap: 3rem;
                 padding-inline: 3rem;
-
+                padding-top: 1rem;
                 .time-btn {
                     background-color: $beige;
                     transition: .3s;

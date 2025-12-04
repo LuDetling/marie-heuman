@@ -237,8 +237,8 @@ add_action('wp_ajax_nopriv_load_posts', 'load_posts');
  */
 
 // On autorise l'appel pour les visiteurs non connectés (nopriv) et connectés
-add_action('wp_ajax_nopriv_get_calendly_slots', 'proxy_calendly_api');
-add_action('wp_ajax_get_calendly_slots', 'proxy_calendly_api');
+add_action('wp_ajax_nopriv_get_calendly_slots', 'get_calendly_spots');
+add_action('wp_ajax_get_calendly_slots', 'get_calendly_spots');
 
 function enqueue_calendly_script()
 {
@@ -254,12 +254,12 @@ function enqueue_calendly_script()
 // Assurez-vous d'appeler cette fonction au bon moment (par exemple, wp_enqueue_scripts)
 add_action('wp_enqueue_scripts', 'enqueue_calendly_script');
 
-function proxy_calendly_api()
+function get_calendly_spots()
 {
     // 1. TA CONFIGURATION SECRÈTE
     $api_token = CALENDLY_API_TOKEN; // Lire la constante définie dans wp-config.php
     $event_uuid = CALENDLY_EVENT_UUID; // Lire la constante définie dans wp-config.php
-    
+
     // 2. Récupération des dates envoyées par le JS
     $start_time = sanitize_text_field($_GET['start_time']);
     $end_time = sanitize_text_field($_GET['end_time']);
@@ -270,14 +270,13 @@ function proxy_calendly_api()
 
     // 3. Appel vers Calendly (C'est WordPress qui appelle, pas le navigateur du client)
     $url = "https://api.calendly.com/event_type_available_times?event_type=https://api.calendly.com/event_types/{$event_uuid}&start_time={$start_time}&end_time={$end_time}";
-    // $url = "https://api.calendly.com/event_types/{$event_uuid}";
 
-    $args = array(
-        'headers' => array(
+    $args = [
+        'headers' => [
             'Authorization' => 'Bearer ' . $api_token,
             'Content-Type' => 'application/json'
-        )
-    );
+        ]
+    ];
 
     $response = wp_remote_get($url, $args);
 
@@ -291,6 +290,39 @@ function proxy_calendly_api()
 
     wp_send_json_success($data); // Renvoie le JSON propre au Javascript
 }
+
+function get_calendly_form()
+{
+    // 1. TA CONFIGURATION SECRÈTE
+    $api_token = CALENDLY_API_TOKEN; // Lire la constante définie dans wp-config.php
+    $event_uuid = CALENDLY_EVENT_UUID; // Lire la constante définie dans wp-config.php
+
+    // 3. Appel vers Calendly (C'est WordPress qui appelle, pas le navigateur du client)
+    $url = "https://api.calendly.com/event_types/{$event_uuid}";
+
+    $args = [
+        'headers' => [
+            'Authorization' => 'Bearer ' . $api_token,
+            'Content-Type' => 'application/json'
+        ]
+    ];
+
+    $response = wp_remote_get($url, $args);
+
+    // 4. Gestion des erreurs et renvoi au JS
+    if (is_wp_error($response)) {
+        wp_send_json_error('Erreur de connexion à Calendly');
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body);
+
+    wp_send_json_success($data); // Renvoie le JSON propre au Javascript
+}
+
+add_action('wp_ajax_nopriv_get_calendly_form', 'get_calendly_form');
+add_action('wp_ajax_get_calendly_form', 'get_calendly_form');
+
 
 // end calendly
 

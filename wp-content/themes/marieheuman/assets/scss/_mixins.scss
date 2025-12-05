@@ -10,6 +10,7 @@
     border: 1px solid $marron;
     border-radius: 50px;
     display: inline-block;
+    cursor: pointer;
 
     &:hover {
         border: 1px solid $secondary;
@@ -49,6 +50,7 @@
     transition: .3s;
     border: 1px solid $marron;
     display: inline-block;
+    cursor: pointer;
 
     &:hover {
         background-color: $marron;
@@ -82,6 +84,7 @@
     font-size: 18px;
     transition: .3s;
     display: inline-block;
+    cursor: pointer;
 
     &:hover {
         background-color: $orange;
@@ -98,6 +101,7 @@
     font-size: 18px;
     transition: .3s;
     display: inline-block;
+    cursor: pointer;
 
     &:hover {
         background-color: $marron;
@@ -114,6 +118,7 @@
     font-size: 18px;
     transition: .3s;
     display: inline-block;
+    cursor: pointer;
 
     &:hover {
         background-color: $beige;

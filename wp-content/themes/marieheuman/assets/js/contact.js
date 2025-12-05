@@ -197,18 +197,95 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function renderForm(data) {
-        const form = document.querySelector('.form-calendly');
-        console.log(data);
-        data.forEach((input, index) => {
-            const row = document.createElement('div');
-            row.textContent = `
-            <label for="${input.name}" class="${input.required ? "required" : ""}">${input.name}</label>
-            `
+    // FORMULAIRE 
+    const form = document.querySelector('.form-calendly');
 
+    function renderForm(datas) {
+        console.log(datas);
+
+        datas.forEach((data, index) => {
+            const row = document.createElement('div');
+
+            if (data.answer_choices.length > 0 && data.type === "multi_select") {
+                const title = document.createElement('div');
+                if (data.required) {
+                    title.classList.add('required')
+                }
+                title.textContent = data.name;
+                row.appendChild(title);
+
+            } else {
+                const title = document.createElement('label');
+                title.setAttribute('for', data.name);
+                if (data.required) {
+                    title.classList.add('required')
+                } title.textContent = data.name;
+                row.appendChild(title);
+            }
+
+            if (data.answer_choices.length > 0 && data.type === "single_select") {
+                const select = document.createElement('select');
+                select.setAttribute('id', data.name);
+                select.setAttribute('name', data.name);
+
+                data.answer_choices.forEach(choice => {
+                    const option = document.createElement('option');
+                    option.value = choice;
+                    option.textContent = choice;
+                    select.appendChild(option);
+                })
+
+                row.appendChild(select);
+
+            }
+            else if (data.answer_choices.length > 0 && data.type === "multi_select") {
+                const fieldset = document.createElement('fieldset');
+                fieldset.setAttribute('id', data.name);
+                fieldset.setAttribute('name', data.name);
+
+                data.answer_choices.forEach(choice => {
+                    const div = document.createElement('div');
+
+                    const input = document.createElement('input');
+                    input.setAttribute('type', 'checkbox');
+                    input.setAttribute('id', choice);
+                    div.appendChild(input);
+
+                    const label = document.createElement('label');
+                    label.setAttribute('for', choice)
+                    label.textContent = choice;
+                    div.appendChild(label);
+
+                    fieldset.appendChild(div);
+                })
+
+                row.appendChild(fieldset);
+
+            }
+            else if (data.type === "text") {
+                row.classList.add('textarea-content')
+                const textarea = document.createElement('textarea');
+                textarea.setAttribute('id', data.name);
+                textarea.setAttribute('name', data.name);
+                row.appendChild(textarea);
+
+            }
+            else if (data.answer_choices.length === 0) {
+                const input = document.createElement('input');
+                input.setAttribute('id', data.name);
+                input.setAttribute('name', data.name);
+                row.appendChild(input);
+
+            } else if (data.answer_choices.length === 1) {
+                const input = document.createElement('input');
+                input.setAttribute('type', 'checkbox');
+                input.setAttribute('id', data.name);
+                input.setAttribute('name', data.name);
+                row.appendChild(input);
+
+            }
             form.appendChild(row)
         })
-
     }
 
     // Lancer la recherche au chargement de la page

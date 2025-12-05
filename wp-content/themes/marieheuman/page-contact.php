@@ -53,29 +53,44 @@ get_header();
                     </div>
 
                     <div class="action-area">
-                        <button id="go-to-step-2" class="orange-button">Suivant</button>
+                        <a id="go-to-step-2" href="#custom-booking-app" class="orange-button">Suivant</a>
                         <p class="summary-text"></p>
                     </div>
                 </div>
 
                 <div id="" class="">
-                <div id="step-2" class="booking-step hidden">
-                    <form action="" class="form-calendly">
-                        <div>
-                            <label for=""></label>
-                            <input type="text">
+                    <div id="step-2" class="booking-step hidden">
+                        <form action="" class="form-calendly" id="form-calendly">
+                            <div>
+                                <label for="lastname" class="required">Nom</label>
+                                <input id="lastname" name="lastname" type="text">
+                            </div>
+                            <div>
+                                <label for="firstname" class="required">Prénom</label>
+                                <input id="firstname" name="firstname" type="text">
+                            </div>
+                            <div>
+                                <label for="email" class="required">Email</label>
+                                <input id="email" name="email" type="text">
+                            </div>
+                            <div>
+                                <label for="phone" class="required">Téléphone</label>
+                                <input id="phone" name="phone" type="text">
+                            </div>
+                        </form>
+
+                        <div class="action-area flex gap-16">
+                            <div class="w-1/2">
+                                <a id="back-to-step-1" href="#custom-booking-app" class="marron-button">Retour</a>
+                            </div>
+                            <div class="w-1/2">
+                                <button class="orange-button">Envoyer ma demande</button>
+                            </div>
                         </div>
-
-                    </form>
-
-                    <div class="action-area">
-                        <button class="main-btn">Envoyer ma demande</button>
-                        <button id="back-to-step-1" class="link-btn">Retour</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- END CALENDLY -->
+            <!-- END CALENDLY -->
 
     </section>
     <section class="collaboration">

@@ -53,14 +53,17 @@ get_header();
                     </div>
 
                     <div class="action-area">
-                        <a id="go-to-step-2" href="#custom-booking-app" class="orange-button">Suivant</a>
+                        <a id="go-to-step-2" href="#custom-booking-app" class="orange-button locked"
+                            disabled>Suivant</a>
                         <p class="summary-text"></p>
+                        <p class="call"></p>
+                        <p class="error"></p>
                     </div>
                 </div>
 
                 <div id="" class="">
-                    <div id="step-2" class="booking-step hidden">
-                        <form action="" class="form-calendly" id="form-calendly">
+                    <div id="step-2" class="booking-step">
+                        <form action="POST" class="form-calendly" id="form-calendly">
                             <div>
                                 <label for="lastname" class="required">Nom</label>
                                 <input id="lastname" name="lastname" type="text">
@@ -84,7 +87,7 @@ get_header();
                                 <a id="back-to-step-1" href="#custom-booking-app" class="marron-button">Retour</a>
                             </div>
                             <div class="w-1/2">
-                                <button class="orange-button">Envoyer ma demande</button>
+                                <button class="orange-button" form="form-calendly">Envoyer ma demande</button>
                             </div>
                         </div>
                     </div>

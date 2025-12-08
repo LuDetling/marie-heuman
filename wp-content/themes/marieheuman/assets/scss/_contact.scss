@@ -221,10 +221,14 @@
                 .type-option {
                     border-radius: 15px;
                     background-color: $beige;
-                    padding: 20px;
                     width: 100%;
+                    padding: 20px;
                     transition: .3s;
                     cursor: pointer;
+
+                    * {
+                        cursor: pointer;
+                    }
 
                     &.active,
                     &:hover {
@@ -237,6 +241,7 @@
                     }
 
                     .option-content {
+
                         * {
                             display: block;
                             text-align: center;
@@ -273,6 +278,32 @@
             }
         }
 
+        .summary-text {
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 0;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        .call {
+            text-align: center;
+        }
+
+        .error {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #go-to-step-2 {
+            &.locked {
+                cursor: not-allowed;
+                background-color: grey;
+                border-color: grey;
+            }
+        }
     }
 
     .action-area {

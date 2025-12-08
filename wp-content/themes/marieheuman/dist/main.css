@@ -1502,9 +1502,12 @@ main .more {
 #page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option {
   border-radius: 15px;
   background-color: #f6f5f2;
-  padding: 20px;
   width: 100%;
+  padding: 20px;
   transition: 0.3s;
+  cursor: pointer;
+}
+#page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option * {
   cursor: pointer;
 }
 #page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option.active, #page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option:hover {
@@ -1538,6 +1541,26 @@ main .more {
 }
 #page-contact #custom-booking-app .other-days .day-row span {
   font-weight: bold;
+}
+#page-contact #custom-booking-app .summary-text {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+#page-contact #custom-booking-app .summary-text::first-letter {
+  text-transform: uppercase;
+}
+#page-contact #custom-booking-app .call {
+  text-align: center;
+}
+#page-contact #custom-booking-app .error {
+  text-align: center;
+  font-weight: bold;
+}
+#page-contact #custom-booking-app #go-to-step-2.locked {
+  cursor: not-allowed;
+  background-color: grey;
+  border-color: grey;
 }
 #page-contact .action-area {
   margin-top: 3rem;

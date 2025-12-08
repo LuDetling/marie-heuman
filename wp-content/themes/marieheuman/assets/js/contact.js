@@ -2,10 +2,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // URL Ajax de WordPress (Standard)
     const ajaxUrl = calendly_vars.ajaxurl;
+    let dateSelected = ""
+    let typeCall = ""
+
+
+    const invitee = {
+        "event_type": "https://api.calendly.com/event_types/07357e4f-138c-4b3b-bc93-daa67883f28d",
+        "start_time": dateSelected,
+        "invitee": {
+            "name": "Lucas Detling",
+            "first_name": "Lucas",
+            "last_name": "Detling",
+            "email": "test@example.com",
+            "timezone": "America/New_York",
+            "text_reminder_number": "+1 888-888-8888"
+        },
+        "location": {
+            "kind": typeCall,
+            "location": "+33668372876"
+        },
+        "questions_and_answers": [
+
+        ],
+        "tracking": {
+            "utm_campaign": "string",
+            "utm_source": "string",
+            "utm_medium": "string",
+            "utm_content": "string",
+            "utm_term": "string",
+            "salesforce_uuid": "string"
+        },
+        "event_guests": [
+            "janedoe@calendly.com"
+        ]
+    }
 
     // Fonction pour récupérer les créneaux
     async function fetchSlots() {
-
 
         /// 1. Définir la date de début : 1 minute dans le futur
         // const now = new Date();
@@ -95,50 +128,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
                 <hr class="trait">
                 <div class="meeting-type-selector">
-                    <label class="type-option active">
-                        <input type="radio" name="meeting_type" value="google_meet" checked>
-                        <div class="option-content">
+                    <div class="type-option">
+                        <input type="radio" name="meeting_type" value="google_conference" checked>
+                        <label class="option-content" for="google_conference">
                             <span class="icon">📹</span>
                             <strong>Visioconférence</strong>
                             <small>Google Meet</small>
-                        </div>
-                    </label>
+                        </label>
+                    </div>
 
-                    <label class="type-option">
-                        <input type="radio" name="meeting_type" value="phone">
-                        <div class="option-content">
+                    <div class="type-option">
+                        <input type="radio" name="meeting_type" value="outbound_call">
+                        <label class="option-content" for="outbound_call">
                             <span class="icon">📞</span>
                             <strong>Téléphone</strong>
                             <small>Appel téléphonique</small>
-                        </div>
-                    </label>
+                        </label>
+                    </div>
                 </div>
             </div>
-            
         `;
-
+            row.querySelector("summary").addEventListener('click', () => {
+                resetSelectedStep1()
+            })
 
 
             // Ajouter le gestionnaire de clic pour changer de jour
-            // row.addEventListener('click', () => {
-            //     // Mettre à jour les classes actives
-            //     document.querySelectorAll('.day-row').forEach(r => r.classList.remove('active'));
-            //     row.classList.add('active');
-
-            //     // Mettre à jour l'en-tête et la grille
-            //     // displayTimeSlots(groupedSlots[dateKey]); // Afficher les créneaux de ce jour
-            // });
             calendarCards.appendChild(row)
             afficherCreneauxDate(groupedSlots[dateKey], row)
+            selectTypeCall(row)
 
         });
-
-        // --- B. Afficher les créneaux du premier jour par défaut ---
-        // displayTimeSlots(groupedSlots[firstDayKey]);
     }
 
     function afficherCreneauxDate(creneauxDate, row) {
         const grid = row.querySelector('.time-slots-grid')
+
         creneauxDate.forEach(creneauDate => {
 
             const dateObj = new Date(creneauDate.start_time);
@@ -154,21 +179,97 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Logique de sélection (un seul bouton actif)
                 document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('selected'));
                 this.classList.add('selected');
+                dateSelected = creneauDate.start_time;
+                document.querySelector('.error').textContent = ""
 
                 // Mettre à jour le résumé (facultatif, mais utile)
-                const fullDate = dateObj.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
-                document.querySelector('.summary-text').innerHTML = `Sélectionné : ${fullDate} à ${timeString}`;
+                const fullDate = dateObj.toLocaleDateString('fr-FR', {
+                    weekday: 'long', day: 'numeric', month: 'long', year: "numeric",
+                });
+                document.querySelector('.summary-text').textContent = `${fullDate} à ${timeString}`;
+                if (typeCall === "google_conference") {
+                    document.querySelector('.call').textContent = "en visioconférence"
+                } else if (typeCall === "outbound_call") {
+                    document.querySelector('.call').textContent = "en appel téléphonique"
+                }
+                if (typeCall && dateSelected) {
+                    if (document.querySelector('.locked')) {
+                        document.querySelector('.locked').classList.remove('locked')
+                    }
+                }
             });
-            // console.log(timeString)
 
         });
     }
+
+    function selectTypeCall(row) {
+        row.addEventListener('click', (e) => {
+            // 2. Utilisez .closest() pour trouver l'élément parent le plus proche qui a la classe 'type-option'
+            //    Cela permet de s'assurer que vous ciblez le bon bloc, peu importe si l'utilisateur
+            //    a cliqué sur l'icône, le texte, ou la radio.
+            const optionClicked = e.target.closest('.type-option');
+
+            if (optionClicked) {
+                // 3. Utilisez querySelector sur l'élément cliqué pour trouver l'input radio à l'intérieur
+                const radioInput = optionClicked.querySelector('input[type="radio"]');
+
+                if (row.querySelector('.type-option.active')) {
+                    row.querySelector('.type-option.active').classList.remove('active')
+                }
+                optionClicked.classList.add('active')
+
+                if (radioInput) {
+                    // 4. Vous avez maintenant la valeur !
+                    const selectedValue = radioInput.value;
+
+                    // Si vous souhaitez également le sélectionner (cocher le radio), faites :
+                    radioInput.checked = true;
+
+                    typeCall = selectedValue
+                    if (typeCall === "google_conference") {
+                        document.querySelector('.call').textContent = "en visioconférence"
+                    } else if (typeCall === "outbound_call") {
+                        document.querySelector('.call').textContent = "en appel téléphonique"
+                    }
+                    document.querySelector('.error').textContent = ""
+
+                    if (typeCall && dateSelected) {
+                        if (document.querySelector('.locked')) {
+                            document.querySelector('.locked').classList.remove('locked')
+                        }
+                    }
+                    // Ajoutez ici votre logique pour mettre à jour 'dateSelected' ou autre
+                }
+            }
+        });
+
+    }
+
+    function resetSelectedStep1() {
+        dateSelected = "";
+        typeCall = ""
+        document.querySelector('.summary-text').textContent = "";
+        document.querySelector('.call').textContent = ""
+        document.querySelector('.error').textContent = ""
+        document.querySelector('#go-to-step-2').classList.add('locked')
+
+        if (document.querySelector('.time-btn.selected')) {
+            document.querySelector('.time-btn.selected').classList.remove('selected')
+        }
+        if (document.querySelector('.type-option.active')) {
+            document.querySelector('.type-option.active').classList.remove('active')
+        }
+    }
+
     // Gestion du bouton "Suivant" (Passage Étape 1 -> Étape 2)
     document.getElementById('go-to-step-2').addEventListener('click', function () {
-        // if (!document.querySelector('.time-btn.selected')) {
-        //     alert("Veuillez sélectionner une heure avant de continuer.");
-        //     return;
-        // }
+        console.log(dateSelected);
+        console.log(typeCall);
+
+        if (!dateSelected || !typeCall) {
+            document.querySelector('.error').textContent = "Vous devez choisir un horaire et le type de rendez-vous pour continuer."
+            return;
+        }
         document.getElementById('step-1').classList.add('hidden');
         document.getElementById('step-2').classList.remove('hidden');
     });
@@ -198,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // FORMULAIRE 
-    const form = document.querySelector('.form-calendly');
+    const formElement = document.querySelector('#form-calendly');
 
     function renderForm(datas) {
         console.log(datas);
@@ -227,6 +328,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const select = document.createElement('select');
                 select.setAttribute('id', data.name);
                 select.setAttribute('name', data.name);
+                select.setAttribute('position', data.position)
 
                 data.answer_choices.forEach(choice => {
                     const option = document.createElement('option');
@@ -242,6 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const fieldset = document.createElement('fieldset');
                 fieldset.setAttribute('id', data.name);
                 fieldset.setAttribute('name', data.name);
+                fieldset.setAttribute('position', data.position);
 
                 data.answer_choices.forEach(choice => {
                     const div = document.createElement('div');
@@ -249,6 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const input = document.createElement('input');
                     input.setAttribute('type', 'checkbox');
                     input.setAttribute('id', choice);
+                    input.setAttribute('name', choice);
                     div.appendChild(input);
 
                     const label = document.createElement('label');
@@ -267,12 +371,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 const textarea = document.createElement('textarea');
                 textarea.setAttribute('id', data.name);
                 textarea.setAttribute('name', data.name);
+                textarea.setAttribute('position', data.position);
                 row.appendChild(textarea);
 
             }
             else if (data.answer_choices.length === 0) {
                 const input = document.createElement('input');
                 input.setAttribute('id', data.name);
+                input.setAttribute('position', data.position);
                 input.setAttribute('name', data.name);
                 row.appendChild(input);
 
@@ -280,13 +386,106 @@ document.addEventListener('DOMContentLoaded', function () {
                 const input = document.createElement('input');
                 input.setAttribute('type', 'checkbox');
                 input.setAttribute('id', data.name);
+                input.setAttribute('position', data.position);
                 input.setAttribute('name', data.name);
                 row.appendChild(input);
 
             }
-            form.appendChild(row)
+            formElement.appendChild(row)
         })
     }
+
+    formElement.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = this;
+
+        // Le tableau final dans le format souhaité
+        const donneesFormulaireTableau = [];
+
+        // On utilise FormData pour récupérer les valeurs textuelles et select
+        const formData = new FormData(form);
+
+        // 1. Traitement des champs simples (texte, email, phone, select, textarea)
+        //    Ces champs apparaissent normalement une seule fois dans formData.
+        for (const [name, value] of formData.entries()) {
+            // Trouver l'élément original pour récupérer la position et le libellé
+            const element = form.querySelector(`[name="${name}"]`);
+
+            // Assurez-vous que l'élément a été trouvé et qu'il n'est pas une checkbox
+            // On traite les checkboxes dans la section 2 pour éviter les doublons/erreurs.
+            if (element && element.type !== 'checkbox') {
+                const questionLabel = form.querySelector(`label[for="${element.id}"]`)
+                    ? form.querySelector(`label[for="${element.id}"]`).textContent.trim()
+                    : name; // Utilise le name si pas de label 'for' correspondant
+
+                // Récupère la position de l'attribut 'position' (s'il existe)
+                const positionValue = element.getAttribute('position') || '';
+
+                donneesFormulaireTableau.push({
+                    question: questionLabel,
+                    answer: value,
+                    position: positionValue
+                });
+            }
+        }
+
+
+        // 2. Traitement spécifique des CHECKBOXES (Question "Quelle prestation vous intéresse ?")
+
+        const clePrestation = "Quelle prestation vous intéresse ?";
+        const prestationFieldset = form.querySelector(`fieldset[name="${clePrestation}"]`);
+
+        if (prestationFieldset) {
+            // Récupère toutes les checkboxes dans ce fieldset
+            const prestationCheckboxes = prestationFieldset.querySelectorAll('input[type="checkbox"]');
+
+            const reponsesCochees = [];
+            let positionPrestation = '';
+
+            prestationCheckboxes.forEach(checkbox => {
+                // Toutes les checkboxes de ce groupe ont un nom unique (ex: "Audit / diagnostic")
+                if (checkbox.checked) {
+                    // Le nom de la checkbox devient la réponse cochée
+                    reponsesCochees.push(checkbox.name);
+                }
+                // On récupère la position une seule fois pour le groupe
+                if (!positionPrestation) {
+                    positionPrestation = checkbox.getAttribute('position') || '';
+                }
+            });
+
+            // Ajout de l'entrée unique pour le groupe de checkboxes
+            if (reponsesCochees.length > 0) {
+                donneesFormulaireTableau.push({
+                    question: clePrestation,
+                    answer: reponsesCochees.join(', '), // Les réponses sont regroupées dans une chaîne
+                    position: positionPrestation
+                });
+            }
+        }
+
+
+        // 3. Traitement de la checkbox CGV (Condition Générale de Vente)
+        const cgvCheckbox = form.querySelector('input[name="J’ai lu et j’accepte les Conditions Générales de Vente et la Politique de Confidentialité"]');
+        if (cgvCheckbox) {
+            const questionCgv = "J’ai lu et j’accepte les Conditions Générales de Vente et la Politique de Confidentialité";
+            const reponseCgv = cgvCheckbox.checked ? 'Oui' : 'Non';
+            const positionCgv = cgvCheckbox.getAttribute('position') || '';
+
+            donneesFormulaireTableau.push({
+                question: questionCgv,
+                answer: reponseCgv,
+                position: positionCgv
+            });
+        }
+
+
+        // 4. Affichage du résultat final (Vous pouvez trier par 'position' ici si nécessaire)
+        donneesFormulaireTableau.sort((a, b) => a.position - b.position);
+
+        console.log("Tableau de données final :", donneesFormulaireTableau);
+
+    })
 
     // Lancer la recherche au chargement de la page
     fetchForm();

@@ -10,12 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
         "event_type": "https://api.calendly.com/event_types/07357e4f-138c-4b3b-bc93-daa67883f28d",
         "start_time": dateSelected,
         "invitee": {
-            "name": "Lucas Detling",
-            "first_name": "Lucas",
-            "last_name": "Detling",
-            "email": "test@example.com",
-            "timezone": "America/New_York",
-            "text_reminder_number": "+1 888-888-8888"
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "timezone": "Europe/Paris"
         },
         "location": {
             "kind": typeCall,
@@ -23,17 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         "questions_and_answers": [
 
-        ],
-        "tracking": {
-            "utm_campaign": "string",
-            "utm_source": "string",
-            "utm_medium": "string",
-            "utm_content": "string",
-            "utm_term": "string",
-            "salesforce_uuid": "string"
-        },
-        "event_guests": [
-            "janedoe@calendly.com"
         ]
     }
 
@@ -302,7 +289,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const formElement = document.querySelector('#form-calendly');
 
     function renderForm(datas) {
-        console.log(datas);
 
         datas.forEach((data, index) => {
             const row = document.createElement('div');
@@ -424,73 +410,57 @@ document.addEventListener('DOMContentLoaded', function () {
                 donneesFormulaireTableau.push({
                     question: questionLabel,
                     answer: value,
-                    position: positionValue
+                    position: parseInt(positionValue)
                 });
             }
         }
 
-
-        // 2. Traitement spécifique des CHECKBOXES (Question "Quelle prestation vous intéresse ?")
-
-        const clePrestation = "Quelle prestation vous intéresse ?";
-        const prestationFieldset = form.querySelector(`fieldset[name="${clePrestation}"]`);
-
-        if (prestationFieldset) {
-            // Récupère toutes les checkboxes dans ce fieldset
-            const prestationCheckboxes = prestationFieldset.querySelectorAll('input[type="checkbox"]');
-
-            const reponsesCochees = [];
-            let positionPrestation = '';
-
-            prestationCheckboxes.forEach(checkbox => {
-                // Toutes les checkboxes de ce groupe ont un nom unique (ex: "Audit / diagnostic")
-                if (checkbox.checked) {
-                    // Le nom de la checkbox devient la réponse cochée
-                    reponsesCochees.push(checkbox.name);
-                }
-                // On récupère la position une seule fois pour le groupe
-                if (!positionPrestation) {
-                    positionPrestation = checkbox.getAttribute('position') || '';
-                }
-            });
-
-            // Ajout de l'entrée unique pour le groupe de checkboxes
-            if (reponsesCochees.length > 0) {
-                donneesFormulaireTableau.push({
-                    question: clePrestation,
-                    answer: reponsesCochees.join(', '), // Les réponses sont regroupées dans une chaîne
-                    position: positionPrestation
-                });
-            }
-        }
-
-
-        // 3. Traitement de la checkbox CGV (Condition Générale de Vente)
-        const cgvCheckbox = form.querySelector('input[name="J’ai lu et j’accepte les Conditions Générales de Vente et la Politique de Confidentialité"]');
-        if (cgvCheckbox) {
-            const questionCgv = "J’ai lu et j’accepte les Conditions Générales de Vente et la Politique de Confidentialité";
-            const reponseCgv = cgvCheckbox.checked ? 'Oui' : 'Non';
-            const positionCgv = cgvCheckbox.getAttribute('position') || '';
+        const fieldsets = form.querySelectorAll('fieldset');
+        fieldsets.forEach(fieldset => {
+            let dataFieldset = [];
+            fieldset.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+                dataFieldset.push(checkbox.name);
+            })
 
             donneesFormulaireTableau.push({
-                question: questionCgv,
-                answer: reponseCgv,
-                position: positionCgv
-            });
-        }
-
+                question: fieldset.name,
+                answer: dataFieldset.join(', '),
+                position: parseInt(fieldset.getAttribute('position'))
+            })
+        })
 
         // 4. Affichage du résultat final (Vous pouvez trier par 'position' ici si nécessaire)
         donneesFormulaireTableau.sort((a, b) => a.position - b.position);
 
         console.log("Tableau de données final :", donneesFormulaireTableau);
-
+        parseDatas(donneesFormulaireTableau)
     })
 
     // Lancer la recherche au chargement de la page
     fetchForm();
     fetchSlots();
+
+
+    function parseDatas(donneesFormulaireTableau) {
+        invitee.start_time = dateSelected;
+        invitee.first_name = donneesFormulaireTableau.find(value => value.question === "Prénom").answer
+        invitee.last_name = donneesFormulaireTableau.find(value => value.question === "Nom").answer
+
+        if (typeCall === "google_conference") {
+            invitee.location.kind = "google_conference"
+            delete invitee.location.location
+        } else if (typeCall === "outbound_call") {
+            invitee.location.kind = "outbound_call"
+            invitee.location.location = donneesFormulaireTableau.find(value => value.question === "Téléphone").answer
+        }
+
+        const datas = donneesFormulaireTableau.filter(value => Number.isFinite(value.position))
+        invitee.questions_and_answers = datas
+        console.log(invitee)
+
+    }
 });
+
 
 
 function groupSlotsByDay(slots) {

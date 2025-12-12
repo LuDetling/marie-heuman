@@ -247,7 +247,8 @@ function enqueue_calendly_script()
         wp_enqueue_script('calendly-proxy', get_template_directory_uri() . '/assets/js/contact.js', ['jquery'], 1.0, true);
         // Passe la variable ajaxurl au JavaScript
         wp_localize_script('calendly-proxy', 'calendly_vars', [
-            'ajaxurl' => admin_url('admin-ajax.php')
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('calendly_nonce_action'),
         ]);
     }
 }
@@ -319,9 +320,61 @@ function get_calendly_form()
 
     wp_send_json_success($data); // Renvoie le JSON propre au Javascript
 }
-
 add_action('wp_ajax_nopriv_get_calendly_form', 'get_calendly_form');
 add_action('wp_ajax_get_calendly_form', 'get_calendly_form');
+
+function post_calendly_invitee()
+{
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'calendly_nonce_action')) {
+        wp_send_json_error('Nonce invalide');
+    }
+
+    $api_token = CALENDLY_API_TOKEN; // Lire la constante définie dans wp-config.php
+    $url = "https://api.calendly.com/invitees";
+
+
+    if (empty($_POST['datas'])) {
+        wp_send_json_error('Données invitee manquantes.');
+    }
+
+    $datas = wp_unslash($_POST['datas']);
+
+    $args = [
+        'method' => 'POST',
+        'headers' => [
+            'Authorization' => 'Bearer ' . $api_token,
+            'Content-Type' => 'application/json'
+        ],
+        'body' => $datas
+    ];
+    $response = wp_remote_post($url, $args);
+
+    // 4. Traiter la réponse et la renvoyer au JavaScript
+    if (is_wp_error($response)) {
+        wp_send_json_error($response->get_error_message());
+    } else {
+        // Obtenir le corps de la réponse de Calendly
+        $body = wp_remote_retrieve_body($response);
+
+        // Gérer les codes de statut HTTP de Calendly (ex: 400, 401, etc.)
+        $status_code = wp_remote_retrieve_response_code($response);
+
+        if ($status_code >= 400) {
+            // Si Calendly renvoie une erreur (4xx ou 5xx), on la renvoie au client.
+            $error_details = json_decode($body);
+            wp_send_json_error(['status' => $status_code, 'message' => 'Erreur API Calendly', 'details' => $error_details]);
+        } else {
+            // Succès (généralement 201 Created pour Calendly)
+            wp_send_json_success(json_decode($body));
+        }
+    }
+
+    // Termine la requête AJAX
+    wp_die();
+}
+
+add_action('wp_ajax_nopriv_post_calendly_invitee', 'post_calendly_invitee');
+add_action('wp_ajax_post_calendly_invitee', 'post_calendly_invitee');
 
 
 // end calendly

@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // URL Ajax de WordPress (Standard)
     const ajaxUrl = calendly_vars.ajaxurl;
+    const nonce = calendly_vars.nonce;
     let dateSelected = ""
     let typeCall = ""
 
@@ -441,10 +442,11 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchSlots();
 
 
-    function parseDatas(donneesFormulaireTableau) {
+    async function parseDatas(donneesFormulaireTableau) {
         invitee.start_time = dateSelected;
-        invitee.first_name = donneesFormulaireTableau.find(value => value.question === "Prénom").answer
-        invitee.last_name = donneesFormulaireTableau.find(value => value.question === "Nom").answer
+        invitee.invitee.first_name = donneesFormulaireTableau.find(value => value.question === "Prénom").answer
+        invitee.invitee.last_name = donneesFormulaireTableau.find(value => value.question === "Nom").answer
+        invitee.invitee.email = donneesFormulaireTableau.find(value => value.question === "Email").answer
 
         if (typeCall === "google_conference") {
             invitee.location.kind = "google_conference"
@@ -454,10 +456,28 @@ document.addEventListener('DOMContentLoaded', function () {
             invitee.location.location = donneesFormulaireTableau.find(value => value.question === "Téléphone").answer
         }
 
-        const datas = donneesFormulaireTableau.filter(value => Number.isFinite(value.position))
+        const datas = donneesFormulaireTableau.filter(value => Number.isFinite(value.position)).filter(value => value.answer !== "")
         invitee.questions_and_answers = datas
-        console.log(invitee)
 
+        const formData = new FormData();
+        formData.append('action', 'post_calendly_invitee'); // L'action est obligatoire
+        formData.append('nonce', nonce);
+        formData.append('datas', JSON.stringify(invitee));
+
+        try {
+            // Appel à TON serveur WordPress (action = nom de la fonction PHP)
+            const response = await fetch(ajaxUrl, {
+                method: "POST",
+                body: formData
+            });
+            const result = await response.json();
+
+            console.log(result);
+
+
+        } catch (error) {
+            console.error("Erreur JS:", error);
+        }
     }
 });
 

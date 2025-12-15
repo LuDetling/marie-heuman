@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const nonce = calendly_vars.nonce;
     let dateSelected = ""
     let typeCall = ""
+    let daySelected = 1
 
 
     const invitee = {
@@ -18,36 +19,68 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         "location": {
             "kind": typeCall,
-            "location": "+33668372876"
+            "location": ""
         },
         "questions_and_answers": [
 
         ]
     }
 
+    function getDateFromNow({
+        days = 0,
+        hours = 0,
+        minutes = 0,
+        seconds = 60, // 60 secondes par défaut
+    } = {}) {
+        const date = new Date();
+
+        date.setSeconds(date.getSeconds() + seconds);
+        date.setMinutes(date.getMinutes() + minutes);
+        date.setHours(date.getHours() + hours);
+        date.setDate(date.getDate() + days);
+
+        return date;
+    }
+
+    function nextDate() {
+        daySelected += 7;
+        fetchSlots(daySelected, daySelected + 7)
+        if (daySelected > 1) {
+            buttonPreviousDate.classList.remove('hidden')
+        }
+    }
+
+    function previousDate() {
+        daySelected -= 7;
+        fetchSlots(daySelected, daySelected + 7)
+        if (daySelected == 1) {
+            buttonPreviousDate.classList.add('hidden')
+            return;
+        }
+    }
+
+    const buttonNextDate = document.querySelector('#next-date')
+    const buttonPreviousDate = document.querySelector('#previous-date')
+
+    buttonNextDate.addEventListener('click', () => {
+        nextDate()
+    })
+
+    buttonPreviousDate.addEventListener('click', () => {
+        previousDate()
+    })
+
     // Fonction pour récupérer les créneaux
-    async function fetchSlots() {
+    async function fetchSlots(dayStart, dayEnd) {
 
-        /// 1. Définir la date de début : 1 minute dans le futur
-        // const now = new Date();
-        // // Ajoutez 60 secondes pour être sûr que l'heure de début est dans le futur
-        // const futureStart = new Date(now.getTime() + 60000);
+        // / 1. Définir la date de début : 1 minute dans le futur
 
-        // // 2. Définir la date de fin : 7 jours à partir de la date de début
-        // // (Utilisez 'futureStart' comme base pour le calcul de l'heure de fin)
-        // const end = new Date(futureStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+        // Ajoutez 60 secondes pour être sûr que l'heure de début est dans le futur
+        const futureStart = getDateFromNow({ days: dayStart })
 
-        // Durée de 7 jours en millisecondes
-        const sevenDaysInMs = 7 * 24 * 60 * 60 * 1000;
-
-        // 1. Calculer la date de début : 7 jours plus tard (+ 1 minute de sécurité)
-        const now = new Date();
-
-        // La date de début est (aujourd'hui + 7 jours) + 1 minute (pour être sûr d'être dans le futur)
-        const futureStart = new Date(now.getTime() + sevenDaysInMs);
-
-        // 2. Calculer la date de fin : 7 jours APRÈS la nouvelle date de début (donc 14 jours au total)
-        const end = new Date(futureStart.getTime() + sevenDaysInMs);
+        // 2. Définir la date de fin : 7 jours à partir de la date de début
+        // (Utilisez 'futureStart' comme base pour le calcul de l'heure de fin)
+        const end = getDateFromNow({ days: dayEnd })
 
         // Conversion au format ISO 8601 requis par l'API Calendly
         const start = futureStart.toISOString();
@@ -80,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const availableDates = Object.keys(groupedSlots).sort(); // Trier les jours
 
         const calendarCards = document.querySelector('.calendar-cards');
+        calendarCards.textContent = "";
         // Vider les conteneurs existants
 
         if (availableDates.length === 0) {
@@ -108,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
             row.className = 'collapse calendar-card';
             row.setAttribute('data-date', dateKey);
             row.setAttribute('name', 'my-accordion-day')
-            // if (index === 0) { row.setAttribute('open', 'true') }
             row.innerHTML = `
             <summary class="collapse-title date-header">${displayDate}</summary>
             <div class="collapse-content">
@@ -288,6 +321,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // FORMULAIRE 
     const formElement = document.querySelector('#form-calendly');
+    const formContact = document.querySelector('#form-contact');
 
     function renderForm(datas) {
 
@@ -379,7 +413,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             }
             formElement.appendChild(row)
+            formContact.appendChild(row.cloneNode(true));
+
         })
+        suffixFormIds(formContact, 'contact');
     }
 
     formElement.addEventListener('submit', function (e) {
@@ -434,15 +471,72 @@ document.addEventListener('DOMContentLoaded', function () {
         donneesFormulaireTableau.sort((a, b) => a.position - b.position);
 
         console.log("Tableau de données final :", donneesFormulaireTableau);
-        parseDatas(donneesFormulaireTableau)
+        parseDatasCalendly(donneesFormulaireTableau)
+    })
+
+    function suffixFormIds(form, suffix) {
+        // Inputs, textarea, select, etc.
+        form.querySelectorAll('[id]').forEach(el => {
+            el.id = `${el.id}-${suffix}`;
+        });
+
+        // Labels
+        form.querySelectorAll('label[for]').forEach(label => {
+            label.htmlFor = `${label.htmlFor}-${suffix}`;
+        });
+    }
+
+    formContact.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = this;
+
+        // Le tableau final dans le format souhaité
+        const donneesFormulaireTableau = [];
+
+        // On utilise FormData pour récupérer les valeurs textuelles et select
+        const formData = new FormData(form);
+
+        // 1. Traitement des champs simples (texte, email, phone, select, textarea)
+        //    Ces champs apparaissent normalement une seule fois dans formData.
+        for (const [name, value] of formData.entries()) {
+            const element = form.querySelector(`[name="${name}"]`);
+
+            // Assurez-vous que l'élément a été trouvé et qu'il n'est pas une checkbox
+            // On traite les checkboxes dans la section 2 pour éviter les doublons/erreurs.
+            if (element && element.type !== 'checkbox') {
+                const questionLabel = form.querySelector(`label[for="${element.id}"]`)
+                    ? form.querySelector(`label[for="${element.id}"]`).textContent.trim()
+                    : name; // Utilise le name si pas de label 'for' correspondant
+
+                donneesFormulaireTableau.push({
+                    question: questionLabel,
+                    answer: value,
+                });
+            }
+        }
+
+        const fieldsets = form.querySelectorAll('fieldset');
+        fieldsets.forEach(fieldset => {
+            let dataFieldset = [];
+            fieldset.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+                dataFieldset.push(checkbox.name);
+            })
+
+            donneesFormulaireTableau.push({
+                question: fieldset.name,
+                answer: dataFieldset.join(', '),
+            })
+        })
+
+        console.log("Tableau de données final :", donneesFormulaireTableau);
     })
 
     // Lancer la recherche au chargement de la page
     fetchForm();
-    fetchSlots();
+    fetchSlots(1, 7);
 
 
-    async function parseDatas(donneesFormulaireTableau) {
+    async function parseDatasCalendly(donneesFormulaireTableau) {
         invitee.start_time = dateSelected;
         invitee.invitee.first_name = donneesFormulaireTableau.find(value => value.question === "Prénom").answer
         invitee.invitee.last_name = donneesFormulaireTableau.find(value => value.question === "Nom").answer

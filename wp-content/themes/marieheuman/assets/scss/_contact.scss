@@ -157,12 +157,33 @@
         padding: 3rem;
         border-radius: 30px;
         color: $marron;
+        margin-top: 3rem;
 
-        .step-title {
-            color: $marron;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 2rem;
+        .header-form-calendly {
+            >div {
+                width: 50px;
+
+                >a {
+                    &::before {
+                        @extend .fas;
+                    }
+
+                    &#previous-date::before {
+                        content: "\f053";
+                    }
+
+                    &#next-date::before {
+                        content: "\f054";
+                    }
+                }
+            }
+
+            .step-title {
+                color: $marron;
+                text-align: center;
+                font-weight: bold;
+                margin-bottom: 2rem;
+            }
         }
 
         .calendar-card {
@@ -306,6 +327,10 @@
         }
     }
 
+    .contact {
+        background-color: white;
+    }
+
     .action-area {
         margin-top: 3rem;
 
@@ -318,7 +343,8 @@
         }
     }
 
-    #form-calendly {
+    #form-calendly,
+    #form-contact {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         row-gap: 3rem;

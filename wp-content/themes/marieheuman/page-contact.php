@@ -46,54 +46,118 @@ get_header();
             <div id="custom-booking-app">
 
                 <div id="step-1" class="booking-step active">
-
-                    <h4 class="step-title">Sélectionnez une date et une heure</h4>
+                    <div class="flex gap-4 justify-between header-form-calendly">
+                        <div>
+                            <a href="#custom-booking-app" id="previous-date" class="hidden"></a>
+                        </div>
+                        <h4 class="step-title">Sélectionnez une date et une heure</h4>
+                        <div>
+                            <a href="#custom-booking-app" id="next-date"></a>
+                        </div>
+                    </div>
                     <!-- Boucle sur calendar cards qui ouvre un accordeon -->
                     <div class="calendar-cards">
                     </div>
 
                     <div class="action-area">
-                        <a id="go-to-step-2" href="#custom-booking-app" class="orange-button locked"
-                            disabled>Suivant</a>
+                        <div class="flex gap-4">
+                            <a id="go-to-step-2" href="#custom-booking-app" class="orange-button locked"
+                                disabled>Suivant</a>
+
+                        </div>
                         <p class="summary-text"></p>
                         <p class="call"></p>
                         <p class="error"></p>
                     </div>
                 </div>
 
-                <div id="" class="">
-                    <div id="step-2" class="booking-step">
-                        <form action="POST" class="form-calendly" id="form-calendly">
-                            <div>
-                                <label for="lastname" class="required">Nom</label>
-                                <input id="lastname" name="lastname" type="text">
-                            </div>
-                            <div>
-                                <label for="firstname" class="required">Prénom</label>
-                                <input id="firstname" name="firstname" type="text">
-                            </div>
-                            <div>
-                                <label for="email" class="required">Email</label>
-                                <input id="email" name="email" type="text">
-                            </div>
-                            <div>
-                                <label for="phone" class="required">Téléphone</label>
-                                <input id="phone" name="phone" type="text">
-                            </div>
-                        </form>
+                <div id="step-2" class="booking-step hidden">
+                    <form action="POST" class="form-calendly" id="form-calendly">
+                        <div>
+                            <label for="lastname" class="required">Nom</label>
+                            <input id="lastname" name="lastname" type="text">
+                        </div>
+                        <div>
+                            <label for="firstname" class="required">Prénom</label>
+                            <input id="firstname" name="firstname" type="text">
+                        </div>
+                        <div>
+                            <label for="email" class="required">Email</label>
+                            <input id="email" name="email" type="text">
+                        </div>
+                        <div>
+                            <label for="phone" class="required">Téléphone</label>
+                            <input id="phone" name="phone" type="text">
+                        </div>
+                    </form>
 
-                        <div class="action-area flex gap-16">
-                            <div class="w-1/2">
-                                <a id="back-to-step-1" href="#custom-booking-app" class="marron-button">Retour</a>
-                            </div>
-                            <div class="w-1/2">
-                                <button class="orange-button" form="form-calendly">Envoyer ma demande</button>
-                            </div>
+                    <div class="action-area flex gap-16">
+                        <div class="w-1/2">
+                            <a id="back-to-step-1" href="#custom-booking-app" class="marron-button">Retour</a>
+                        </div>
+                        <div class="w-1/2">
+                            <button class="orange-button" form="form-calendly">Envoyer ma demande</button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- END CALENDLY -->
+
+    </section>
+
+    <section class="contact">
+
+        <form action="POST" class="form-calendly" id="form-contact">
+            <?php wp_nonce_field('contact_form_action', 'contact_nonce'); ?>
+
+            <div>
+                <label for="lastname-contact" class="required">Nom</label>
+                <input id="lastname-contact" name="lastname" type="text">
+            </div>
+            <div>
+                <label for="firstname-contact" class="required">Prénom</label>
+                <input id="firstname-contact" name="firstname" type="text">
+            </div>
+            <div>
+                <label for="email-contact" class="required">Email</label>
+                <input id="email-contact" name="email" type="text">
+            </div>
+            <div>
+                <label for="phone-contact" class="required">Téléphone</label>
+                <input id="phone-contact" name="phone" type="text">
+            </div>
+        </form>
+        <button type="submit" class="orange-button" name="contact_submit" form="form-contact">Envoyer ma
+            demande</button>
+        <?php
+        if (
+            isset($_POST['contact_submit']) &&
+            isset($_POST['contact_nonce']) &&
+            wp_verify_nonce($_POST['contact_nonce'], 'contact_form_action')
+        ) {
+            $name = sanitize_text_field($_POST['name']);
+            $email = sanitize_email($_POST['email']);
+            $message = sanitize_textarea_field($_POST['message']);
+
+            $to = 'contact@tonsite.fr';
+            $subject = 'Nouveau message de contact';
+
+            $headers = [
+                'Content-Type: text/html; charset=UTF-8',
+                'From: Site <contact@tonsite.fr>',
+                'Reply-To: ' . $email
+            ];
+
+            $body = "
+    <strong>Nom :</strong> {$name}<br>
+    <strong>Email :</strong> {$email}<br><br>
+    <strong>Message :</strong><br>
+    {$message}
+  ";
+
+            wp_mail($to, $subject, $body, $headers);
+        } ?>
+
 
     </section>
     <section class="collaboration">

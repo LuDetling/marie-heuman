@@ -322,6 +322,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // FORMULAIRE 
     const formElement = document.querySelector('#form-calendly');
     const formContact = document.querySelector('#form-contact');
+    const fromCalendly = document.querySelector('.from-calendly');
 
     function renderForm(datas) {
 
@@ -413,10 +414,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             }
             formElement.appendChild(row)
-            formContact.appendChild(row.cloneNode(true));
+            if (data.name !== "Conditions Générales de Vente et Politique de Confidentialité. (Liens disponibles dans la description et le site web)") {
+                fromCalendly.appendChild(row.cloneNode(true));
+            }
 
         })
-        suffixFormIds(formContact, 'contact');
+        suffixFormIds(fromCalendly, 'contact');
     }
 
     formElement.addEventListener('submit', function (e) {
@@ -486,50 +489,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    formContact.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const form = this;
+    // formContact.addEventListener('submit', function (e) {
+    //     e.preventDefault();
+    //     const form = this;
 
-        // Le tableau final dans le format souhaité
-        const donneesFormulaireTableau = [];
+    //     // Le tableau final dans le format souhaité
+    //     const donneesFormulaireTableau = [];
 
-        // On utilise FormData pour récupérer les valeurs textuelles et select
-        const formData = new FormData(form);
+    //     // On utilise FormData pour récupérer les valeurs textuelles et select
+    //     const formData = new FormData(form);
 
-        // 1. Traitement des champs simples (texte, email, phone, select, textarea)
-        //    Ces champs apparaissent normalement une seule fois dans formData.
-        for (const [name, value] of formData.entries()) {
-            const element = form.querySelector(`[name="${name}"]`);
+    //     // 1. Traitement des champs simples (texte, email, phone, select, textarea)
+    //     //    Ces champs apparaissent normalement une seule fois dans formData.
+    //     for (const [name, value] of formData.entries()) {
+    //         const element = form.querySelector(`[name="${name}"]`);
 
-            // Assurez-vous que l'élément a été trouvé et qu'il n'est pas une checkbox
-            // On traite les checkboxes dans la section 2 pour éviter les doublons/erreurs.
-            if (element && element.type !== 'checkbox') {
-                const questionLabel = form.querySelector(`label[for="${element.id}"]`)
-                    ? form.querySelector(`label[for="${element.id}"]`).textContent.trim()
-                    : name; // Utilise le name si pas de label 'for' correspondant
+    //         // Assurez-vous que l'élément a été trouvé et qu'il n'est pas une checkbox
+    //         // On traite les checkboxes dans la section 2 pour éviter les doublons/erreurs.
+    //         if (element && element.type !== 'checkbox') {
+    //             const questionLabel = form.querySelector(`label[for="${element.id}"]`)
+    //                 ? form.querySelector(`label[for="${element.id}"]`).textContent.trim()
+    //                 : name; // Utilise le name si pas de label 'for' correspondant
 
-                donneesFormulaireTableau.push({
-                    question: questionLabel,
-                    answer: value,
-                });
-            }
-        }
+    //             donneesFormulaireTableau.push({
+    //                 question: questionLabel,
+    //                 answer: value,
+    //             });
+    //         }
+    //     }
 
-        const fieldsets = form.querySelectorAll('fieldset');
-        fieldsets.forEach(fieldset => {
-            let dataFieldset = [];
-            fieldset.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
-                dataFieldset.push(checkbox.name);
-            })
+    //     const fieldsets = form.querySelectorAll('fieldset');
+    //     fieldsets.forEach(fieldset => {
+    //         let dataFieldset = [];
+    //         fieldset.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+    //             dataFieldset.push(checkbox.name);
+    //         })
 
-            donneesFormulaireTableau.push({
-                question: fieldset.name,
-                answer: dataFieldset.join(', '),
-            })
-        })
+    //         donneesFormulaireTableau.push({
+    //             question: fieldset.name,
+    //             answer: dataFieldset.join(', '),
+    //         })
+    //     })
 
-        console.log("Tableau de données final :", donneesFormulaireTableau);
-    })
+    //     console.log("Tableau de données final :", donneesFormulaireTableau);
+    // })
 
     // Lancer la recherche au chargement de la page
     fetchForm();

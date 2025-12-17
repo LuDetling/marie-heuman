@@ -379,6 +379,83 @@ add_action('wp_ajax_post_calendly_invitee', 'post_calendly_invitee');
 
 // end calendly
 
+// Formulaire de contact
+
+add_action('init', 'handle_contact_form');
+
+function handle_contact_form()
+{
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        return;
+    }
+
+    if (
+        !isset($_POST['contact_nonce']) ||
+        !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_action')
+    ) {
+        return;
+    }
+
+    // 🛑 Honeypot anti-spam
+    if (!empty($_POST['website'])) {
+        return;
+    }
+
+    // 🧼 Champs simples
+    $lastname = sanitize_text_field($_POST['lastname'] ?? '');
+    $firstname = sanitize_text_field($_POST['firstname'] ?? '');
+    $email = sanitize_email($_POST['email'] ?? '');
+    $phone = sanitize_text_field($_POST['phone'] ?? '');
+
+    if (empty($lastname) || empty($firstname) || empty($email)) {
+        return;
+    }
+
+    // 🧾 Récupération dynamique des champs complexes
+    $body = "NOUVELLE DEMANDE DE CONTACT\n\n";
+    $body .= "Nom : $lastname\n";
+    $body .= "Prénom : $firstname\n";
+    $body .= "Email : $email\n";
+    $body .= "Téléphone : $phone\n\n";
+
+    foreach ($_POST as $key => $value) {
+        if (in_array($key, ['contact_nonce', '_wp_http_referer', 'lastname', 'firstname', 'email', 'phone', 'website'])) {
+            continue;
+        }
+
+        is_array($value) ? implode(', ', array_map('sanitize_text_field', $value)) : sanitize_textarea_field($value);
+
+        $body .= ucfirst($key) . " : " . $value . "\n";
+    }
+
+    // 📎 Gestion des fichiers
+    $attachments = [];
+
+    $file_fields = ['photos', 'plans', 'otherFiles'];
+
+    foreach ($file_fields as $field) {
+        if (!empty($_FILES[$field]['name'][0])) {
+            if ($_FILES[$field]['error'] === 0) {
+                var_dump($_FILES[$field]);
+            }
+        }
+    }
+
+    // 📧 Envoi mail (IONOS)
+    $to = 'contact@marieheuman.com';
+    $subject = 'Nouvelle demande – Formulaire site';
+
+    $headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Site Web <contact@marieheuman.com>', // OBLIGATOIRE IONOS
+        'Reply-To: ' . $email,
+    ];
+
+    // wp_mail($to, $subject, $body, $headers, $attachments);
+}
+
+// END Formulaire de contact
+
 add_action('init', 'register_categories');
 add_action('wp_enqueue_scripts', 'theme_enqueue_dashicons');
 add_action('wp_enqueue_scripts', 'add_fontawesome');

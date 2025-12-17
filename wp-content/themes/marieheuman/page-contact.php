@@ -72,7 +72,7 @@ get_header();
                 </div>
 
                 <div id="step-2" class="booking-step hidden">
-                    <form action="POST" class="form-calendly" id="form-calendly">
+                    <form method="POST" class="form-calendly" id="form-calendly">
                         <div>
                             <label for="lastname" class="required">Nom</label>
                             <input id="lastname" name="lastname" type="text">
@@ -104,62 +104,67 @@ get_header();
             <!-- END CALENDLY -->
 
     </section>
-
+    <!-- CONTACT -->
     <section class="contact">
+        <div class="container">
+            <?php
+            $contact_form = $contact["contact"];
+            ?>
+            <span class="tag-home"><?= $contact_form['tag'] ?></span>
+            <?= $contact_form['titre'] ?>
+            <form method="post" class="form-contact" id="form-contact" enctype="multipart/form-data">
+                <?php wp_nonce_field('contact_form_action', 'contact_nonce'); ?>
 
-        <form action="POST" class="form-calendly" id="form-contact">
-            <?php wp_nonce_field('contact_form_action', 'contact_nonce'); ?>
+                <!-- Honeypot anti-spam -->
+                <input type="text" name="website" style="display:none">
 
-            <div>
-                <label for="lastname-contact" class="required">Nom</label>
-                <input id="lastname-contact" name="lastname" type="text">
-            </div>
-            <div>
-                <label for="firstname-contact" class="required">Prénom</label>
-                <input id="firstname-contact" name="firstname" type="text">
-            </div>
-            <div>
-                <label for="email-contact" class="required">Email</label>
-                <input id="email-contact" name="email" type="text">
-            </div>
-            <div>
-                <label for="phone-contact" class="required">Téléphone</label>
-                <input id="phone-contact" name="phone" type="text">
-            </div>
-        </form>
-        <button type="submit" class="orange-button" name="contact_submit" form="form-contact">Envoyer ma
-            demande</button>
-        <?php
-        if (
-            isset($_POST['contact_submit']) &&
-            isset($_POST['contact_nonce']) &&
-            wp_verify_nonce($_POST['contact_nonce'], 'contact_form_action')
-        ) {
-            $name = sanitize_text_field($_POST['name']);
-            $email = sanitize_email($_POST['email']);
-            $message = sanitize_textarea_field($_POST['message']);
-
-            $to = 'contact@tonsite.fr';
-            $subject = 'Nouveau message de contact';
-
-            $headers = [
-                'Content-Type: text/html; charset=UTF-8',
-                'From: Site <contact@tonsite.fr>',
-                'Reply-To: ' . $email
-            ];
-
-            $body = "
-    <strong>Nom :</strong> {$name}<br>
-    <strong>Email :</strong> {$email}<br><br>
-    <strong>Message :</strong><br>
-    {$message}
-  ";
-
-            wp_mail($to, $subject, $body, $headers);
-        } ?>
-
-
+                <div>
+                    <label for="lastname-contact" class="required">Nom</label>
+                    <input id="lastname-contact" name="lastname" type="text" value="Detling">
+                </div>
+                <div>
+                    <label for="firstname-contact" class="required">Prénom</label>
+                    <input id="firstname-contact" name="firstname" type="text" value="Lucas">
+                </div>
+                <div>
+                    <label for="email-contact" class="required">Email</label>
+                    <input id="email-contact" name="email" type="text" value="lucas.detling@gmail.com">
+                </div>
+                <div>
+                    <label for="phone-contact" class="required">Téléphone</label>
+                    <input id="phone-contact" name="phone" type="text">
+                </div>
+                <div class="from-calendly"></div>
+                <div class="flex gap-4 files">
+                    <div>
+                        <label for="photos">Photos</label>
+                        <input type="file" name="photos" id="photos" multiple>
+                    </div>
+                    <div>
+                        <label for="plans">Plans</label>
+                        <input type="file" name="plans" id="plans" multiple>
+                    </div>
+                    <div>
+                        <label for="otherFiles">Autres</label>
+                        <input type="file" name="otherFiles" id="otherFiles" multiple>
+                    </div>
+                </div>
+                <fieldset class="ccga flex gap-4 items-start">
+                    <div>
+                        <input type="checkbox" name="ccga" id="ccga">
+                        <label for="ccga">J'accepte d'être contactée par Marie Heuman concernant mon projet
+                            d'architecture
+                            d'intérieur. Mes données seront traitées conformément à la politique de
+                            confidentialité.</label>
+                    </div>
+                </fieldset>
+            </form>
+            <button type="submit" class="orange-button" name="contact_submit" form="form-contact">Envoyer ma
+                demande</button>
+        </div>
     </section>
+    <!-- END CONTACT -->
+
     <section class="collaboration">
         <div class="container">
 

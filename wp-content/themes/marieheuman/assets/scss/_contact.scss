@@ -329,6 +329,12 @@
 
     .contact {
         background-color: white;
+
+        button {
+            display: block;
+            margin-inline: auto;
+            margin-top: 2rem;
+        }
     }
 
     .action-area {
@@ -506,4 +512,51 @@
             }
         }
     }
+
+    #form-contact {
+        background-color: $beige;
+        padding: 3rem;
+        border-radius: 30px;
+
+        input,
+        textarea,
+        select,
+        option {
+            background-color: white !important;
+        }
+
+        option:checked,
+        input:checked {
+            background-color: $marron !important;
+        }
+
+        option:hover {
+            background-color: $marron !important;
+        }
+
+        .from-calendly {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 3rem;
+            column-gap: 5rem;
+            grid-column: 1 / 3;
+
+        }
+
+        .textarea-content,
+        .files,
+        .ccga {
+            grid-column: 1 / 3;
+        }
+
+        .files {
+            input {
+                cursor: pointer;
+            }
+        }
+
+
+    }
+
+
 }

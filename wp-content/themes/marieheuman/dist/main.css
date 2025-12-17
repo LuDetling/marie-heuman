@@ -1575,6 +1575,11 @@ main .more {
 #page-contact .contact {
   background-color: white;
 }
+#page-contact .contact button {
+  display: block;
+  margin-inline: auto;
+  margin-top: 2rem;
+}
 #page-contact .action-area {
   margin-top: 3rem;
 }
@@ -1743,6 +1748,39 @@ main .more {
   padding: 0.7rem 1.5rem;
   width: 100%;
   min-height: 120px;
+}
+#page-contact #form-contact {
+  background-color: #f6f5f2;
+  padding: 3rem;
+  border-radius: 30px;
+}
+#page-contact #form-contact input,
+#page-contact #form-contact textarea,
+#page-contact #form-contact select,
+#page-contact #form-contact option {
+  background-color: white !important;
+}
+#page-contact #form-contact option:checked,
+#page-contact #form-contact input:checked {
+  background-color: #462620 !important;
+}
+#page-contact #form-contact option:hover {
+  background-color: #462620 !important;
+}
+#page-contact #form-contact .from-calendly {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3rem;
+  column-gap: 5rem;
+  grid-column: 1/3;
+}
+#page-contact #form-contact .textarea-content,
+#page-contact #form-contact .files,
+#page-contact #form-contact .ccga {
+  grid-column: 1/3;
+}
+#page-contact #form-contact .files input {
+  cursor: pointer;
 }
 
 #histoire h2 {

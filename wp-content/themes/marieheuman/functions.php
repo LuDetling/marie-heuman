@@ -428,30 +428,75 @@ function handle_contact_form()
         $body .= ucfirst($key) . " : " . $value . "\n";
     }
 
-    // 📎 Gestion des fichiers
-    $attachments = [];
-
-    $file_fields = ['photos', 'plans', 'otherFiles'];
-
-    foreach ($file_fields as $field) {
-        if (!empty($_FILES[$field]['name'][0])) {
-            if ($_FILES[$field]['error'] === 0) {
-                var_dump($_FILES[$field]);
-            }
-        }
-    }
-
-    // 📧 Envoi mail (IONOS)
-    $to = 'contact@marieheuman.com';
-    $subject = 'Nouvelle demande – Formulaire site';
-
+    $to = "contact@marieheuman.com";
+    $subject = 'Nouveau message – fichiers joints';
+    $message = 'Un nouveau formulaire a été envoyé avec des fichiers joints.';
     $headers = [
         'Content-Type: text/plain; charset=UTF-8',
         'From: Site Web <contact@marieheuman.com>', // OBLIGATOIRE IONOS
         'Reply-To: ' . $email,
     ];
 
-    // wp_mail($to, $subject, $body, $headers, $attachments);
+    $attachments = [];
+
+    // Tes inputs file
+    $file_inputs = ['photos', 'plans', 'otherFiles'];
+
+    // Extensions autorisées
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'pdf', 'docx'];
+
+    foreach ($file_inputs as $input) {
+
+        if (!isset($_FILES[$input])) {
+            continue;
+        }
+
+        $files = $_FILES[$input];
+
+        // Normalisation si un seul fichier
+        if (!is_array($files['name'])) {
+            foreach ($files as $key => $value) {
+                $files[$key] = [$value];
+            }
+        }
+
+        foreach ($files['name'] as $index => $filename) {
+
+            if ($files['error'][$index] !== UPLOAD_ERR_OK) {
+                continue;
+            }
+
+            $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+            if (!in_array($extension, $allowed_extensions)) {
+                continue;
+            }
+
+            if (!is_uploaded_file($files['tmp_name'][$index])) {
+                continue;
+            }
+
+            // ✅ Upload WordPress SAFE
+            $upload = wp_upload_bits(
+                sanitize_file_name($filename),
+                null,
+                file_get_contents($files['tmp_name'][$index])
+            );
+
+            if (!$upload['error']) {
+                $attachments[] = $upload['file'];
+            }
+        }
+    }
+
+
+    // Envoi du mail
+    wp_mail($to, $subject, $body, $headers, $attachments);
+
+    // Nettoyage des fichiers uploadés
+    foreach ($attachments as $file) {
+        @unlink($file);
+    }
 }
 
 // END Formulaire de contact

@@ -138,15 +138,15 @@ get_header();
                 <div class="flex gap-4 files">
                     <div>
                         <label for="photos">Photos</label>
-                        <input type="file" name="photos" id="photos" multiple>
+                        <input type="file" name="photos[]" id="photos" multiple>
                     </div>
                     <div>
                         <label for="plans">Plans</label>
-                        <input type="file" name="plans" id="plans" multiple>
+                        <input type="file" name="plans[]" id="plans" multiple>
                     </div>
                     <div>
                         <label for="otherFiles">Autres</label>
-                        <input type="file" name="otherFiles" id="otherFiles" multiple>
+                        <input type="file" name="otherFiles[]" id="otherFiles" multiple>
                     </div>
                 </div>
                 <fieldset class="ccga flex gap-4 items-start">

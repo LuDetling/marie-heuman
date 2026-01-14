@@ -296,8 +296,8 @@ section {
 .tag-home::before,
 .tag-page::before {
   content: "";
-  width: 1rem;
-  height: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
   background-color: #e87234;
   border-radius: 50%;
 }
@@ -1324,6 +1324,100 @@ main .more {
   background-color: #f6f5f2;
 }
 
+.left-projet {
+  background-color: #f6f5f2;
+  padding: 2rem;
+  border-radius: 30px;
+}
+.left-projet li:not(:last-child) {
+  margin-bottom: 0.7rem;
+}
+.left-projet li::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 8px;
+}
+.left-projet .date::before {
+  content: "\f133";
+}
+.left-projet .localisation::before {
+  content: "\f3c5";
+}
+.left-projet .surface::before {
+  content: "\f424";
+}
+.left-projet .type::before {
+  content: "\f0b1";
+}
+.left-projet .tarifs::before {
+  content: "\f153";
+}
+
+.swiperProjectPage,
+.avant-apres .swiper {
+  border-radius: 30px;
+}
+.swiperProjectPage .swiper-wrapper .swiper-slide,
+.avant-apres .swiper .swiper-wrapper .swiper-slide {
+  max-width: 80%;
+  height: auto;
+  width: auto;
+}
+.swiperProjectPage .swiper-wrapper .swiper-slide img,
+.avant-apres .swiper .swiper-wrapper .swiper-slide img {
+  border-radius: 30px;
+  height: 100%;
+  max-height: 70vh;
+  width: auto;
+  object-fit: cover;
+}
+
+.page-projet .section-white {
+  padding-top: 0;
+}
+.page-projet .parti-pris {
+  padding: 0 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+.page-projet .parti-pris p {
+  margin-bottom: 1rem;
+}
+.page-projet .avant-apres {
+  background-color: white;
+}
+.page-projet .avant-apres .content-avant-apres {
+  display: none;
+}
+.page-projet .avant-apres .active-avant-apres {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.page-projet .votre-projet {
+  background-color: #857c5a;
+  color: #f6f5f2;
+}
+.page-projet .votre-projet h2 {
+  font-size: 36px;
+  font-family: "Playfair Display";
+  color: #f6f5f2;
+  margin-bottom: 1rem;
+}
+.page-projet .votre-projet h2::before {
+  display: none;
+}
+.page-projet .votre-projet p {
+  margin-bottom: 2rem;
+}
+
 #page-contact h2 {
   font-family: "Playfair Display";
   font-size: 36px;
@@ -2005,6 +2099,10 @@ footer .footer-bottom {
   padding: 1.5rem;
 }
 
+.mce-content-body .swiper-wrapper img {
+  width: 150px;
+}
+
 .orange-list-container {
   display: flex;
   gap: 1rem;
@@ -2021,6 +2119,10 @@ footer .footer-bottom {
 .header-content {
   background-color: white;
   color: #462620;
+}
+
+.section-white {
+  background-color: white;
 }
 
 .container {

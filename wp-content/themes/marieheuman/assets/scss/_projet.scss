@@ -119,3 +119,133 @@
         }
     }
 }
+
+// PROJET SINGLE
+
+.left-projet {
+    background-color: $beige;
+    padding: 2rem;
+    border-radius: 30px;
+
+    li {
+        &:not(:last-child) {
+            margin-bottom: .7rem;
+        }
+
+        &::before {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 8px;
+        }
+    }
+
+    .date {
+        &::before {
+            content: "\f133";
+        }
+    }
+
+    .localisation {
+        &::before {
+            content: "\f3c5";
+        }
+    }
+
+    .surface {
+        &::before {
+            content: "\f424";
+        }
+    }
+
+    .type {
+        &::before {
+            content: "\f0b1";
+        }
+    }
+
+    .tarifs {
+        &::before {
+            content: "\f153";
+        }
+    }
+}
+
+.swiperProjectPage,
+.avant-apres .swiper {
+    border-radius: 30px;
+
+    .swiper-wrapper {
+
+        .swiper-slide {
+            max-width: 80%;
+            height: auto;
+            width: auto;
+
+            img {
+                border-radius: 30px;
+                height: 100%;
+                max-height: 70vh;
+                width: auto;
+                // margin: auto;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.page-projet {
+    .section-white {
+        padding-top: 0;
+    }
+
+    .parti-pris {
+        padding: 0 2rem;
+        max-width: 1000px;
+        margin: auto;
+
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .avant-apres {
+        background-color: white;
+
+        .content-avant-apres {
+            display: none;
+        }
+
+        .active-avant-apres {
+            display: block;
+            animation: fadeIn .5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    }
+
+    .votre-projet {
+        background-color: $secondary;
+        color: $beige;
+
+        h2 {
+            font-size: 36px;
+            font-family: 'Playfair Display';
+            color: $beige;
+            margin-bottom: 1rem;
+            &::before {
+                display: none;
+            }
+        }
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+}

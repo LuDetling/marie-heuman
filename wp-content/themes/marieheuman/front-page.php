@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="ml-20 front-page">
+<main class="sm:ml-20 front-page">
     <!-- IMAGE HEADER -->
     <?php
     $image_header = get_field('image_header');

@@ -2,7 +2,7 @@
 /* Template Name: Page Histoire */
 get_header();
 ?>
-<main class="ml-20" id="histoire">
+<main class="sm:ml-20" id="histoire">
     <section class="header-content">
         <?php
         $header = get_field("header_content");

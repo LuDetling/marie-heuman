@@ -50,3 +50,37 @@ const contactSwiper = new Swiper('.contactSwiper', {
         },
     }
 });
+
+const projectSwiper = new Swiper('.swiperProjectPage', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    mousewheel: {
+    },
+});
+
+for (let i = 0; i < 3; i++) {
+    new Swiper('.swiperProjectAvantApres-' + i, {
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination-" + i,
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next-" + i,
+            prevEl: ".swiper-button-prev-" + i,
+        },
+        mousewheel: {
+        },
+    });
+}

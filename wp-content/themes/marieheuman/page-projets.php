@@ -2,7 +2,7 @@
 /* Template Name: Page Projets */
 get_header();
 ?>
-<main class="ml-20" id="list-projets">
+<main class="sm:ml-20" id="list-projets">
     <section class="header-content">
         <?php
         $header = get_field("header_content");

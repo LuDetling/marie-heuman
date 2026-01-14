@@ -2,7 +2,7 @@
 /* Template Name: Page Blog */
 get_header();
 ?>
-<main class="ml-20">
+<main class="sm:ml-20">
     <!-- HEADER -->
     <section class="header-content">
         <?php

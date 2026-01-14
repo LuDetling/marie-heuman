@@ -10,6 +10,7 @@ function marieheuman_js()
     wp_enqueue_script('home-js', get_template_directory_uri() . '/assets/js/home.js', [], false, true);
     wp_enqueue_script('page-js', get_template_directory_uri() . '/assets/js/page.js', [], false, true);
     wp_enqueue_script('carousel-js', get_template_directory_uri() . '/assets/js/carousel.js', [], false, true);
+    wp_enqueue_script('single-js', get_template_directory_uri() . '/assets/js/projet.js', [], false, true);
     if (is_page_template('page-faq.php')) {
         wp_enqueue_script('faq-js', get_template_directory_uri() . '/assets/js/faq.js', [], false, true);
     }
@@ -103,8 +104,14 @@ add_filter('tiny_mce_before_init', function ($settings) {
         ],
         [
             'title' => 'Liste Orange (Conteneur)',
-            'selector' => 'ul', // Cible spécifiquement la balise UL
+            'block' => 'ul', // Cible spécifiquement la balise UL
             'classes' => 'orange-list-container', // La nouvelle classe
+        ],
+        [
+            'title' => 'Transformer en Slides',
+            'selector' => 'p > img',    // CIBLE chaque image individuellement
+            'block' => 'div',       // REMPLACE ou ENVELOPPE par une div
+            'classes' => 'swiper-wrapper',
         ],
     ];
 
@@ -112,13 +119,14 @@ add_filter('tiny_mce_before_init', function ($settings) {
 
     return $settings;
 });
+
 /**
  * Méthode Standard pour charger le CSS dans l'éditeur TinyMCE
  */
 function mon_theme_add_editor_styles()
 {
-    // Le chemin doit être relatif à la racine du thème
-    add_editor_style('dist/main.css');
+    // On récupère la date de modification du fichier pour casser le cache à chaque changement
+    add_editor_style('/dist/main.css');
 }
 add_action('admin_init', 'mon_theme_add_editor_styles');
 // END STYLE WYSIWYG

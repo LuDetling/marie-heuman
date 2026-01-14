@@ -22,7 +22,13 @@
     padding: 1.5rem;
 }
 
-
+.mce-content-body {
+    .swiper-wrapper {
+        img {
+            width: 150px;
+        }
+    }
+}
 
 .orange-list-container {
     display: flex;
@@ -43,6 +49,10 @@
     background-color: white;
     color: $marron;
 
+}
+
+.section-white {
+    background-color: white;
 }
 
 .container {

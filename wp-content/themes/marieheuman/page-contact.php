@@ -2,7 +2,7 @@
 /* Template Name: Page Contact */
 get_header();
 ?>
-<main class="ml-20" id="page-contact">
+<main class="sm:ml-20" id="page-contact">
     <section class="header-content">
         <div class="container">
             <?php

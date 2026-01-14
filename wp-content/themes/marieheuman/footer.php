@@ -1,4 +1,4 @@
-<footer class="ml-20">
+<footer class="sm:ml-20">
     <div class="flex flex-wrap gap-16 justify-between mb-12">
         <div>
             <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-logo-clair.png"

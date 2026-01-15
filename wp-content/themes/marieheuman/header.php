@@ -15,8 +15,9 @@
                 <!-- Menu -->
                 <div class="content-logo-menu">
                     <button id="menu-toggle" class="cursor-pointer" aria-expanded="false" aria-controls="main-menu">
-                        <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png"
-                            alt="logo menu" class="logo-menu">
+                        <div class="img-menu"></div>
+                        <!-- <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png"
+                            alt="logo menu" class="logo-menu"> -->
                     </button>
                 </div>
 

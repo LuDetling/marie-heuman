@@ -7,6 +7,7 @@
         font-family: 'Playfair Display';
         font-size: 36px;
         margin-bottom: 1rem;
+        line-height: 36px;
 
         &::before {
             display: none;
@@ -73,6 +74,8 @@
         h4 {
             font-family: 'Playfair Display';
             font-weight: bold;
+            line-height: 24px;
+
             font-size: 24px;
             margin-bottom: 1.5rem;
         }

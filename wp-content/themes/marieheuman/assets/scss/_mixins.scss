@@ -3,7 +3,7 @@
 //BUTTONS
 
 @mixin marron-button {
-    color: $light;
+    color: $white;
     background-color: $marron;
     padding: 10px 30px;
     transition: .3s;
@@ -30,12 +30,12 @@
 
     &:hover {
         background-color: $marron;
-        color: $light;
+        color: $white;
     }
 }
 
 @mixin active-border-marron-button {
-    color: $light;
+    color: $white;
     background-color: $marron;
     padding: 10px 30px;
     transition: .3s;
@@ -54,7 +54,7 @@
 
     &:hover {
         background-color: $marron;
-        color: $light;
+        color: $white;
     }
 }
 
@@ -62,16 +62,17 @@
     color: $beige;
     background-color: $orange;
     border: 2px solid $orange;
-    padding: 1rem 3rem;
-    border-radius: 100px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: 15px;
     font-size: 18px;
     transition: .3s;
     display: inline-block;
     cursor: pointer;
 
     &:hover {
-        background-color: $marron;
-        border-color: $marron;
+        background-color: $caramel;
+        border-color: $caramel;
     }
 }
 
@@ -79,8 +80,9 @@
     color: $orange;
     background-color: transparent;
     border: 2px solid $orange;
-    padding: 1rem 3rem;
-    border-radius: 100px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: 15px;
     font-size: 18px;
     transition: .3s;
     display: inline-block;
@@ -96,8 +98,9 @@
     color: $beige;
     background-color: $orange;
     border: 2px solid $orange;
-    padding: 1rem 3rem;
-    border-radius: 100px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: 15px;
     font-size: 18px;
     transition: .3s;
     display: inline-block;
@@ -113,8 +116,9 @@
     color: $beige;
     background-color: transparent;
     border: 2px solid $beige;
-    padding: 1rem 3rem;
-    border-radius: 100px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: 15px;
     font-size: 18px;
     transition: .3s;
     display: inline-block;
@@ -123,6 +127,30 @@
     &:hover {
         background-color: $beige;
         color: $orange;
+    }
+}
+
+@mixin second-link {
+    font-size: 20px;
+    display: block;
+    color: $beige;
+    border-bottom: 1px solid $beige;
+    transition: .3s;
+
+    &:hover {
+        color: $white;
+        border-color: $white;
+    }
+}
+
+@mixin second-link-orange {
+    @include second-link;
+    color: $orange;
+    border-color: $orange;
+
+    &:hover {
+        color: $caramel;
+        border-color: $caramel;
     }
 }
 

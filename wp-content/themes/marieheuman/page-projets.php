@@ -10,11 +10,11 @@ get_header();
         <div class="titre">
             <?= $header['titre'] ?>
         </div>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap">
+        <div class="flex items-center gap-8 flex-wrap lg:flex-nowrap">
             <a href="<?= $header['lien_1']['url'] ?>" <?= $header['lien_1']['target'] ?>
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" <?= $header['lien_2']['target'] ?>
-                class="border-orange-button"><?= $header['lien_2']['title'] ?></a>
+                class="second-link-orange"><?= $header['lien_2']['title'] ?></a>
         </div>
     </section>
     <?php
@@ -28,9 +28,9 @@ get_header();
 
         <!-- Filtres par catégorie -->
         <div class="blog-filters">
-            <ul class="flex gap-4 flex-wrap justify-center">
+            <ul class="flex gap-4 flex-wrap">
                 <li>
-                    <button class="filter-btn active" data-category="">Tous</button>
+                    <button class="filter-btn active" data-category="">Tous les projets</button>
                 </li>
                 <?php
                 $categories = get_terms([
@@ -62,7 +62,7 @@ get_header();
         <div class="pagination" id="ajax-pagination"></div>
         <!-- ajax list des projets -->
     </section>
-    <section class="temoignages">
+    <section class="temoignages section-white">
         <span class="tag-home"><?= $content['temoignages']['tag'] ?></span>
         <div class="titre">
             <?= $content['temoignages']['titre'] ?>
@@ -110,13 +110,13 @@ get_header();
     <section class="accompagnements">
         <div class="titre">
             <?= $content['accompagnements']['titre'] ?>
-            <div class="flex gap-8 mt-12">
+            <div class="flex gap-8 mt-12 items-center">
                 <a href="<?= $content['accompagnements']['lien_1']['url'] ?>"
                     target="<?= $content['accompagnements']['lien_1']['target'] ?>"
                     class="orange-button"><?= $content['accompagnements']['lien_1']['title'] ?></a>
                 <a href="<?= $content['accompagnements']['lien_2']['url'] ?>"
                     target="<?= $content['accompagnements']['lien_2']['target'] ?>"
-                    class="border-beige-button"><?= $content['accompagnements']['lien_2']['title'] ?></a>
+                    class="second-link"><?= $content['accompagnements']['lien_2']['title'] ?></a>
             </div>
         </div>
     </section>

@@ -3,7 +3,7 @@
 
 footer {
     background-color: $marron;
-    color: $light;
+    color: $white;
     padding: 4rem 120px;
 
     img {
@@ -13,7 +13,6 @@ footer {
     }
 
     p {
-        margin-bottom: 20px;
         font-size: 14px;
     }
 
@@ -24,7 +23,7 @@ footer {
         color: $beige;
         font-family: 'Roboto';
         font-size: 1rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .instagram {
@@ -37,6 +36,7 @@ footer {
     }
 
     #menu-reseaux {
+        margin-top: 2rem;
         flex-direction: row;
         padding: 0;
         gap: .5rem;
@@ -63,8 +63,8 @@ footer {
                 width: 40px;
                 height: 40px;
                 background-color: rgba($color: $beige, $alpha: .3);
-                border-radius: 50%;
                 border: 1px solid rgba($color: $beige, $alpha: .3);
+                border-radius: 50%;
                 transition: .3s;
             }
         }
@@ -111,10 +111,9 @@ footer {
 
         a {
             padding: 0;
-            margin-bottom: 20px;
             transition: .3s;
             font-size: 14px;
-
+            margin-bottom: .5rem;
             &:hover {
                 background: none;
                 color: $orange;
@@ -126,7 +125,7 @@ footer {
         ul {
             li {
                 font-size: 14px;
-                margin-bottom: 1rem;
+                margin-bottom: .5rem;
 
                 a:hover {
                     color: $orange;
@@ -174,6 +173,6 @@ footer {
 
     .footer-bottom {
         padding-top: 1.5rem;
-        border-top: 1px solid rgba($color: $beige, $alpha: .3);
+        border-top: 1px solid $orange;
     }
 }

@@ -6,7 +6,8 @@
 .faq-button a {
     width: 46px;
     height: 46px;
-    background-color: $secondary;
+    background-color: $light-secondary;
+    border: 1px solid $light-secondary;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -18,8 +19,9 @@
     font-size: 2rem;
     transition: .3s;
     z-index: 200;
+
     &:hover {
-        background-color: $marron;
+        background-color: $secondary;
     }
 }
 

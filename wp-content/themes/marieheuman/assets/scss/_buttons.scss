@@ -32,3 +32,10 @@
 .active-border-marron-button {
     @include active-border-marron-button;
 }
+
+.second-link {
+    @include second-link;
+}
+.second-link-orange {
+    @include second-link-orange;
+}

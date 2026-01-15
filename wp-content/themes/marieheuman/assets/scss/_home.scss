@@ -1,38 +1,21 @@
 @use "globals" as *;
 
 
-section {
-    padding: 4rem 120px;
 
-    @media screen and (max-width: 1200px) {
-        padding: 4rem 60px;
-
-    }
-}
 
 .more {
-    color: $orange;
+    color: $light-secondary;
     display: inline-flex;
     align-items: center;
     gap: 1rem;
     font-size: 18px;
-    border-bottom: 1px solid $orange;
+    border-bottom: 1px solid $light-secondary;
     position: relative;
-
-    &::after {
-        font-family: "Font Awesome 6 Free";
-        content: '\f178';
-        font-weight: 900;
-        transition: .3s;
-        position: absolute;
-        right: -2rem;
-        z-index: 12;
-    }
+    transition: .3s;
 
     &:hover {
-        &::after {
-            transform: translateX(.5rem);
-        }
+        color: $secondary;
+        border-color: $secondary;
     }
 }
 
@@ -58,6 +41,7 @@ section {
 h2 {
     font-family: "Playfair Display", serif;
     font-size: 36px;
+    line-height: 36px;
     color: $marron;
 }
 
@@ -88,39 +72,48 @@ h3 {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba($color: $marron, $alpha: .64);
+        // background-color: rgba($color: $marron, $alpha: .64);
         z-index: 1;
     }
 
     img {
         height: 100vh;
+        width: 100%;
         object-fit: cover;
     }
 
-    h1 {
-        font-size: 48px;
-        font-family: "Playfair Display", serif;
-        color: $beige;
-    }
+    .text-img-header {
+        background-color: rgba($color: $marron, $alpha: .9);
+        padding: 2rem;
+        border-radius: 15px;
 
-    h2 {
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        gap: 13px;
-        color: $beige;
-        margin-top: 1rem;
-
-        &::before {
-            content: '';
-            height: 1px;
-            width: 50px;
-            background-color: $beige;
+        h1 {
+            font-size: 48px;
+            font-family: "Playfair Display", serif;
+            color: $beige;
+            line-height: 48px;
         }
-    }
 
-    .border-orange-button {
-        color: $beige;
+        h2 {
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: $beige;
+            margin-top: 1rem;
+            font-family: "Roboto";
+
+            &::before {
+                content: '';
+                height: 1px;
+                width: 50px;
+                background-color: $beige;
+            }
+        }
+
+        .border-orange-button {
+            color: $beige;
+        }
     }
 }
 
@@ -134,6 +127,7 @@ h3 {
         color: black;
         font-family: 'Playfair Display', serif;
         font-size: 52px;
+        line-height: 52;
     }
 
     h2 {
@@ -154,12 +148,11 @@ h3 {
 
 
 .content-ma-vision {
-    background-color: $beige;
 
     img {
         height: 100%;
         object-fit: cover;
-        border-radius: 30px;
+        border-radius: 15px;
     }
 
     .texte-ma-vision {
@@ -178,9 +171,6 @@ h3 {
 
 // SERVICES ACCUEIL
 .content-services-accueil {
-    background-color: white;
-    color: $marron;
-
     .selector-services {
         margin-bottom: 56px;
 
@@ -220,7 +210,7 @@ h3 {
 
     .left-service {
         img {
-            border-radius: 30px;
+            border-radius: 15px;
             object-fit: cover;
             height: 100%;
         }
@@ -238,6 +228,7 @@ h3 {
             font-size: 24px;
             font-family: "Playfair Display", serif;
             font-weight: bold;
+            line-height: 24px;
             margin-bottom: 1rem;
         }
 
@@ -281,18 +272,20 @@ h3 {
 
 // APPROCHE & PHILOSOPHIE 
 .content-approche {
-    background-color: $beige;
+    background-color: $white;
     color: $marron;
 
     .card-approche {
         background-color: white;
-        border-radius: 30px;
+        border-radius: 15px;
         padding: 2rem;
 
         h4 {
             font-size: 24px;
             font-family: "Playfair Display", serif;
             font-weight: bold;
+            line-height: 24px;
+
             margin-bottom: 1rem;
         }
 
@@ -319,10 +312,19 @@ h3 {
             overflow: hidden;
             transition: 1s;
             display: block;
-            margin-top: 1rem;
+            // margin-top: 1rem;
             position: relative;
-            border-top: 1px solid $marron;
-            padding-top: 1rem;
+            // padding-top: 1rem;
+
+            &::before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: $marron;
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+            }
 
             ul {
                 li {
@@ -357,22 +359,29 @@ h3 {
     }
 
     .content-question-conception-accueil {
-        margin-top: 5rem;
+        margin-top: 4rem;
         background-color: $secondary;
         color: $beige;
         padding: 2rem;
-        border-radius: 30px;
+        border-radius: 15px;
         width: 90%;
+        max-width: 1000px;
         margin-inline: auto;
 
         h4 {
             font-size: 36px;
             font-family: "Playfair Display";
+            line-height: 36px;
+
             margin-bottom: 1rem;
         }
 
         .texte-question-conception {
             margin-bottom: 2rem;
+
+            p {
+                margin-bottom: 0;
+            }
         }
     }
 }
@@ -385,9 +394,9 @@ h3 {
     color: $marron;
 
     .projet-card {
-        border-radius: 30px;
+        border-radius: 15px;
         overflow: hidden;
-        background-color: $beige;
+        background-color: $white;
 
         >div {
             width: 100%;
@@ -404,7 +413,9 @@ h3 {
                 h4 {
                     font-size: 24px;
                     font-family: "Playfair Display";
-                    margin-bottom: 1rem;
+                    line-height: 24px;
+
+                    margin-bottom: .5rem;
                 }
             }
         }
@@ -412,7 +423,7 @@ h3 {
 
     .next-prev {
         .btn-next-prev {
-            border: 2px solid $beige;
+            border: 2px solid $white;
             width: 3rem;
             height: 3rem;
             display: flex;
@@ -424,7 +435,7 @@ h3 {
         .indicator {
             width: 12px;
             height: 12px;
-            background-color: $beige;
+            background-color: $white;
             border-radius: 50%;
             transition: .3s;
 
@@ -515,7 +526,7 @@ h3 {
     .card-ro-accueil {
         background-color: white;
         padding: 2rem;
-        border-radius: 30px;
+        border-radius: 15px;
 
         &::before {
             font-family: 'Font Awesome 6 Free';
@@ -524,6 +535,7 @@ h3 {
             color: $orange;
             background-color: $beige;
             min-width: 45px;
+            width: 45px;
             min-height: 45px;
             height: 45px;
             border-radius: 50%;
@@ -533,12 +545,14 @@ h3 {
         }
 
         .content-card-ro-accueil {
+            padding-right: 45px;
 
             .title-icon {
 
                 h4 {
                     font-size: 24px;
                     font-family: 'Playfair Display';
+                    line-height: 24px;
                 }
             }
 
@@ -546,39 +560,12 @@ h3 {
                 color: $secondary;
                 margin-block: .5rem;
 
-                &::before {
-                    font-family: 'Font Awesome 6 Free';
-                    content: "\f02d";
-                    font-weight: 900;
-                    margin-right: .3rem;
-                }
-
                 .type-file {
                     text-transform: uppercase;
 
                     &::before {
                         content: '•';
                         margin-inline: .3rem;
-                    }
-                }
-            }
-
-            .download {
-                color: $orange;
-                margin-top: .7rem;
-
-                a {
-                    &::before {
-                        font-family: 'Font Awesome 6 Free';
-                        content: '\f019';
-                        font-weight: 900;
-                        margin-right: .5rem;
-                    }
-
-                    &::after {
-                        content: '⮕';
-                        display: inline;
-                        margin-left: .3rem;
                     }
                 }
             }
@@ -616,6 +603,7 @@ h3 {
             height: 50px;
             border-radius: 50%;
             background-color: rgba($color: $beige, $alpha: .2);
+            border: 1px solid rgba($color: $beige, $alpha: .2);
             display: flex;
             align-items: center;
             justify-content: center;

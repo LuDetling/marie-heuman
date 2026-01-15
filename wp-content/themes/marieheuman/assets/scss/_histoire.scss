@@ -9,6 +9,7 @@
         font-family: "Playfair Display", serif;
         font-size: 36px;
         margin-bottom: 2.5rem;
+        line-height: 36px;
 
         &::before {
             display: none;
@@ -16,7 +17,7 @@
     }
 
     img {
-        border-radius: 30px;
+        border-radius: 15px;
         object-fit: cover;
     }
 
@@ -38,9 +39,9 @@
     // UNIVERS
     .univers {
         .swiper-slide {
-            background-color: white;
+            background-color: $beige;
             padding: 3rem;
-            border-radius: 30px;
+            border-radius: 15px;
 
             .dashicons {
                 color: $orange;
@@ -59,10 +60,11 @@
                 font-family: 'Playfair Display';
                 font-weight: bold;
                 font-size: 24px;
+                line-height: 24px;
                 margin-bottom: 1.5rem;
             }
 
-          
+
             .texte {
                 padding: 0;
             }
@@ -118,8 +120,8 @@
         background-color: white;
 
         .content-contrib {
-            background-color: $beige;
-            border-radius: 30px;
+            background-color: $white;
+            border-radius: 15px;
             padding: 3rem;
 
             .description {

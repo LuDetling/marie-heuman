@@ -16,11 +16,11 @@
             <div class="absolute bottom-30 left-30 z-2">
                 <div class="text-img-header">
                     <?= $text_image_header; ?>
-                    <div class="flex gap-8 mt-12">
+                    <div class="flex items-center gap-8 mt-12">
                         <a href="<?= esc_url($lien_1_image_header['url']) ?>"
                             class="orange-button"><?= esc_html($lien_1_image_header['title']) ?></a>
                         <a href="<?= esc_url($lien_2_image_header['url']) ?>"
-                            class="border-orange-button"><?= esc_html($lien_2_image_header['title']) ?></a>
+                            class="second-link"><?= esc_html($lien_2_image_header['title']) ?></a>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
     $plus_ma_vision = get_field('plus_ma_vision');
     ?>
 
-    <section class="content-ma-vision">
+    <section class="content-ma-vision section-beige">
         <span class="tag-home"><?= $tag_ma_vision ?></span>
         <?= $titres_ma_vision ?>
         <div class="flex flex-wrap lg:flex-nowrap items-stretch gap-16">
@@ -67,10 +67,10 @@
     $lien_1_services_accueil = get_field('lien_1_services_accueil');
     $lien_2_services_accueil = get_field('lien_2_services_accueil');
     ?>
-    <section class="content-services-accueil">
+    <section class="content-services-accueil bg-grain section-white">
         <span class="tag-home"><?= $tag_services_accueil ?></span>
         <?= $titres_services_accueil ?>
-        <div class="flex gap-4 justify-center selector-services">
+        <div class="flex gap-4 selector-services">
             <?php
             for ($i = 1; $i <= 3; $i++) {
 
@@ -109,18 +109,21 @@
 
         <?php } ?>
 
-        <div class="flex justify-end gap-4 mt-12">
-            <a href="<?= esc_url($lien_1_services_accueil['url']) ?>"
-                class="orange-button"><?= esc_html($lien_1_services_accueil['title']) ?></a>
-            <a href="<?= esc_url($lien_2_services_accueil['url']) ?>"
-                class="border-orange-button"><?= esc_html($lien_2_services_accueil['title']) ?></a>
+        <div class="flex gap-16">
+            <div class="lg:w-4/10" aria-hidden="true"></div>
+            <div class="lg:w-6/10 flex gap-8 mt-12 ml-auto items-center">
+                <a href="<?= esc_url($lien_1_services_accueil['url']) ?>"
+                    class="orange-button"><?= esc_html($lien_1_services_accueil['title']) ?></a>
+                <a href="<?= esc_url($lien_2_services_accueil['url']) ?>"
+                    class="second-link-orange"><?= esc_html($lien_2_services_accueil['title']) ?></a>
+            </div>
         </div>
     </section>
     <!-- END SERIVCES -->
 
 
     <!-- APPROCHE & PHILOSOPHIE -->
-    <section class="content-approche">
+    <section class="content-approche section-beige">
         <?php
         $tag_approche_accueil = get_field('tag_approche_accueil');
         $titre_approche_accueil = get_field('titre_approche_accueil');
@@ -165,7 +168,7 @@
 
 
     <!-- BLOG -->
-    <section class="content-blog-accueil">
+    <section class="content-blog-accueil section-white">
         <?php
         $tag_blog_accueil = get_field("tag_blog_accueil");
         $titre_blog_accueil = get_field("titre_blog_accueil");
@@ -222,37 +225,36 @@
     <!-- END BLOG -->
 
     <!-- RESSOURCES OFFERTES -->
-    <section class="content-ro-accueil">
+    <section class="content-ro-accueil section-beige">
         <?php
         $tag_ressources_offertes_accueil = get_field('tag_ressources_offertes_accueil');
         $titre_ressources_offertes_accueil = get_field('titre_ressources_offertes_accueil');
         ?>
         <span class="tag-home"><?= $tag_ressources_offertes_accueil ?></span>
         <?= $titre_ressources_offertes_accueil ?>
-        <div class="flex gap-20 justify-between">
-            <?php for ($i = 0; $i < 2; $i++) {
-                // $fichier_ressources_offertes_accueil = get_field('fichier_1_ressources_offertes_accueil');
-                $fichier_ressources_offertes_accueil = get_field('fichier_' . $i . '_ressources_offertes_accueil');
-                ?>
-                <?php if ($fichier_ressources_offertes_accueil) {
+        <div class="flex gap-20 justify-between flex-wrap lg:flex-nowrap">
+            <?php
+            $fichier_ressources = get_field('fichiers_ressources_accueil');
+            if ($fichier_ressources) {
+                foreach ($fichier_ressources as $fichier) {
                     ?>
-                    <div class="card-ro-accueil flex gap-8">
+                    <div class="card-ro-accueil gap-8 flex w-full">
                         <div class="content-card-ro-accueil">
 
                             <div class="flex gap-4 title-icon">
-                                <h4><?= $fichier_ressources_offertes_accueil['titre'] ?></h4>
+                                <h4><?= $fichier['titre'] ?></h4>
                             </div>
 
 
                             <div class="pages">
                                 <?php
-                                $pdf_path = get_attached_file($fichier_ressources_offertes_accueil['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
+                                $pdf_path = get_attached_file($fichier['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
                         
                                 // Lire le contenu du PDF
                                 $content = file_get_contents($pdf_path);
 
                                 // Compter les occurrences de '/Page' dans le fichier
-                                if ($content && $fichier_ressources_offertes_accueil['fichier']['subtype'] === 'pdf') {
+                                if ($content && $fichier['fichier']['subtype'] === 'pdf') {
                                     preg_match_all("/\/Page\W/", $content, $matches);
                                     $page_count = count($matches[0]);
                                     ?>
@@ -261,19 +263,20 @@
                                 }
                                 ?>
                                 <span class="type-file">
-                                    <?= $fichier_ressources_offertes_accueil['fichier']['subtype'] ?>
+                                    <?= $fichier['fichier']['subtype'] ?>
                                 </span>
                             </div>
                             <p>
-                                <?= $fichier_ressources_offertes_accueil['description'] ?>
+                                <?= $fichier['description'] ?>
                             </p>
-                            <div class="download">
-                                <a href="<?= $fichier_ressources_offertes_accueil['fichier']['url'] ?>"> Téléchargez</a>
-                            </div>
+                            <a href="<?= $fichier['fichier']['url'] ?>" class="more">
+                                Téléchargez</a>
                         </div>
                     </div>
-                <?php }
-            } ?>
+                    <?php
+                }
+            }
+            ?>
         </div>
     </section>
     <!-- END RESSOURCES OFFERTES -->

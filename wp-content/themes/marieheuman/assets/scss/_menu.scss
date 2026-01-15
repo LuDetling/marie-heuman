@@ -16,6 +16,7 @@ header {
     width: 100vh;
     height: 80px;
     z-index: 1001;
+    border-bottom: 1px solid $orange;
 
     >nav {
         justify-content: space-between;
@@ -34,8 +35,23 @@ header {
                 width: 100%;
                 height: 100%;
 
-                img {
+                .img-menu {
+                    width: 40px;
+                    height: inherit;
+                    background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png');
+                    background-size: contain;
                     transform: rotate(90deg);
+                    transition: .3s;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    &:hover,
+                    &.img-menu-open {
+                        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png');
+
+                    }
+                }
+
+                img {
                     width: 40px;
                 }
             }
@@ -67,7 +83,7 @@ header {
     top: 0;
     background-color: $marron;
     height: 100%;
-    border-left: 1px solid $orange;
+    // border-left: 1px solid $orange;
     transform: translateX(-321px);
     max-width: 400px;
     transition: .5s;
@@ -137,6 +153,7 @@ header {
             padding: 0.5rem 3rem;
             background: none;
             text-transform: uppercase;
+
             &:hover {
                 color: $orange;
             }

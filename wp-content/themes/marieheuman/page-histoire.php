@@ -10,14 +10,14 @@ get_header();
         <div class="titre">
             <?= $header['titre'] ?>
         </div>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center">
             <a href="<?= $header['lien_1']['url'] ?>" target="<?= $header['lien_1']['target'] ?>"
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" target="<?= $header['lien_2']['target'] ?>"
-                class="border-orange-button"><?= $header['lien_2']['title'] ?></a>
+                class="second-link-orange"><?= $header['lien_2']['title'] ?></a>
         </div>
     </section>
-    <section class="perso">
+    <section class="perso section-beige">
         <?php
         $perso = get_field("page_histoire")['perso']
             ?>
@@ -34,7 +34,7 @@ get_header();
             </div>
         </div>
     </section>
-    <section class="philosophie">
+    <section class="philosophie section-white">
         <?php
         $philosophie = get_field("page_histoire")['philosophie']
             ?>
@@ -51,7 +51,7 @@ get_header();
                 class=" lg:w-5/12" />
         </div>
     </section>
-    <section class="univers">
+    <section class="univers section-beige">
         <?php
         $univers = get_field("page_histoire")['univers']
             ?>
@@ -75,7 +75,7 @@ get_header();
             <div class="swiper-pagination"></div>
         </div>
     </section>
-    <section class="contrib">
+    <section class="contrib section-white">
         <div class="content-contrib">
 
             <?php
@@ -92,11 +92,11 @@ get_header();
     <section class="accompagnement">
         <?php $accompagnement = get_field("page_histoire")['accompagnement'] ?>
         <?= $accompagnement['titre_description'] ?>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center">
             <a href="<?= $accompagnement['lien_1']['url'] ?>" target="<?= $accompagnement['lien_1']['target'] ?>"
                 class="orange-button"><?= $accompagnement['lien_1']['title'] ?></a>
             <a href="<?= $accompagnement['lien_2']['url'] ?>" target="<?= $accompagnement['lien_2']['target'] ?>"
-                class="border-beige-button"><?= $accompagnement['lien_2']['title'] ?></a>
+                class="second-link"><?= $accompagnement['lien_2']['title'] ?></a>
         </div>
     </section>
 </main>

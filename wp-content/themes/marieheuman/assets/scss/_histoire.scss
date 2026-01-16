@@ -5,14 +5,15 @@
 #histoire {
 
     // PERSO
-    h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 36px;
-        margin-bottom: 2.5rem;
-        line-height: 36px;
+    section:not(.header-content) {
+        h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 36px;
+            margin-bottom: 0;
 
-        &::before {
-            display: none;
+            &::before {
+                display: none;
+            }
         }
     }
 
@@ -25,10 +26,6 @@
         padding: 3rem 0;
     }
 
-    .perso {}
-
-    // END PERSO
-
     // PHILOSOPHIE
     .philosophie {
         background-color: white;
@@ -38,29 +35,32 @@
 
     // UNIVERS
     .univers {
+        .universSwiper {
+            max-width: 1000px;
+        }
+
         .swiper-slide {
-            background-color: $beige;
             padding: 3rem;
             border-radius: 15px;
 
             .dashicons {
                 color: $orange;
-                width: 40px;
-                min-width: 40px;
-                height: 40px;
+                width: 48px;
+                min-width: 48px;
+                height: 48px;
+                font-size: 1.5rem;
                 border-radius: 50%;
-                background-color: rgba($color: $orange, $alpha: .3);
+                background-color: $white;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
             }
 
             h4 {
                 font-family: 'Playfair Display';
                 font-weight: bold;
                 font-size: 24px;
-                line-height: 24px;
                 margin-bottom: 1.5rem;
             }
 
@@ -71,6 +71,8 @@
         }
 
         .swiper-navigation {
+            margin-bottom: 3rem;
+
             .swiper-pagination {
                 display: flex;
                 align-items: center;
@@ -79,8 +81,8 @@
 
                 .swiper-pagination-bullet {
                     background: none;
-                    width: 40px;
-                    height: 40px;
+                    width: 46px;
+                    height: 46px;
                     border: 1px solid $marron;
                     color: $marron;
                     transition: .3s;
@@ -123,13 +125,11 @@
             background-color: $white;
             border-radius: 15px;
             padding: 3rem;
+            max-width: 1000px;
+            margin: auto;
 
-            .description {
-                color: $secondary;
-
-                p {
-                    margin-bottom: 1rem;
-                }
+            h2 {
+                margin-bottom: 1rem;
             }
         }
     }

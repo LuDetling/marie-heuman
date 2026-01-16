@@ -1,6 +1,6 @@
 const swiper = new Swiper('.swiperAvis', {
     slidesPerView: 1,
-    spaceBetween: 30,
+    spaceBetween: 80,
     loop: true,
     pagination: {
         el: ".swiper-pagination",
@@ -14,7 +14,7 @@ const swiper = new Swiper('.swiperAvis', {
 
 const swiperHomeBlog = new Swiper('.swiperHomeBlog', {
     slidesPerView: 2,
-    spaceBetween: 110,
+    spaceBetween: 80,
     loop: true,
     pagination: {
         el: ".swiper-pagination",
@@ -53,10 +53,10 @@ const contactSwiper = new Swiper('.contactSwiper', {
 
 const projectSwiper = new Swiper('.swiperProjectPage', {
     slidesPerView: 'auto',
-    spaceBetween: 30,
+    spaceBetween: 80,
     loop: true,
     pagination: {
-        el: ".swiper-pagination",
+        el: ".swiper-pagination-projet",
         clickable: true,
     },
     navigation: {
@@ -70,7 +70,7 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
 for (let i = 0; i < 3; i++) {
     new Swiper('.swiperProjectAvantApres-' + i, {
         slidesPerView: 'auto',
-        spaceBetween: 30,
+        spaceBetween: 80,
         loop: true,
         pagination: {
             el: ".swiper-pagination-" + i,

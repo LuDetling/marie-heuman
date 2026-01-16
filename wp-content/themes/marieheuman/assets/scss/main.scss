@@ -16,10 +16,10 @@
 }
 
 section {
-    padding: 4rem 120px;
+    padding: 5rem 160px;
 
     @media screen and (max-width: 1200px) {
-        padding: 4rem 60px;
+        padding: 5rem 60px;
 
     }
 
@@ -27,36 +27,68 @@ section {
     position: relative;
     overflow: hidden;
 
-    &.section-white {
+}
 
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+.section-white {
+    position: relative;
+    background-color: $beige;
 
-            /* L'image JPEG de votre grain */
-            background-image: url('../assets/images/grain-3.jpeg');
-            opacity: 0.1;
-            background-repeat: repeat;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
 
-            /* RÉGLAGES DE LÉGÈRETÉ */
-            /* Entre 0.02 et 0.05 pour un effet quasi invisible mais présent */
-            mix-blend-mode: multiply;
-            /* Fusionne parfaitement le grain avec le beige */
-            z-index: 0;
-            pointer-events: none;
-            /* Important : permet de cliquer sur les boutons en dessous */
-        }
+        /* L'image JPEG de votre grain */
+        background-image: url('../assets/images/grain-3.jpeg');
+        opacity: 0.1;
+        background-repeat: repeat;
 
-        >* {
-            position: relative;
-            z-index: 1;
-            /* Place le contenu au-dessus du grain */
-        }
+        /* RÉGLAGES DE LÉGÈRETÉ */
+        /* Entre 0.02 et 0.05 pour un effet quasi invisible mais présent */
+        mix-blend-mode: multiply;
+        /* Fusionne parfaitement le grain avec le beige */
+        z-index: 0;
+        pointer-events: none;
+        /* Important : permet de cliquer sur les boutons en dessous */
     }
+
+    >*,
+    &::after {
+        position: relative;
+        z-index: 1;
+        /* Place le contenu au-dessus du grain */
+    }
+}
+
+.img-under-header {
+    width: 100%;
+    height: 150px;
+    background-image: url('../assets/images/rayure-1.jpeg');
+    background-attachment: fixed;
+    // background-repeat: no-repeat;
+    /* On empêche la répétition */
+    // background-size: cover;
+    /* L'image s'étire pour remplir tout l'espace */
+    background-position: center;
+}
+
+.img-under-header-2 {
+    width: 100%;
+    height: 150px;
+    background-image: url('../assets/images/rayure-2.jpeg');
+    background-attachment: fixed;
+    // background-repeat: no-repeat;
+    /* On empêche la répétition */
+    // background-size: cover;
+    /* L'image s'étire pour remplir tout l'espace */
+    background-position: bottom;
+}
+
+.loading {
+    // background-color: red;
 }
 
 // STYLE WYSIWYG
@@ -82,7 +114,7 @@ section {
 
     li {
         color: $orange;
-        background-color: rgba($color: $orange, $alpha: .3);
+        background-color: $white;
         border-radius: 30px;
         padding: .5rem 1.5rem;
         display: inline-block;
@@ -90,16 +122,12 @@ section {
 }
 
 // END STYLE WYSIWYG
-.header-content {
-    // background-color: white;
-    // color: $marron;
-    @extend .section-white;
 
-}
 
 .section-beige {
     background-color: $white;
     color: $marron;
+    position: relative;
 
     &::before {
         display: none;
@@ -118,8 +146,6 @@ main:not(.front-page) {
     h1 {
         font-size: 48px;
         font-family: 'Playfair Display';
-        line-height: 48px;
-
         color: $marron;
     }
 

@@ -1,7 +1,7 @@
 <?php
 $blog = get_field('contenu_page_blog');
 ?>
-<div class="card-article">
+<div class="card-article section-white">
     <?php if ($blog['image']): ?>
         <img src="<?= esc_url($blog['image']['url']); ?>" alt="<?= esc_attr($blog['image']['alt']); ?>"
             width="<?= esc_attr($blog['image']['width']); ?>" height="<?= esc_attr($blog['image']['height']); ?>">

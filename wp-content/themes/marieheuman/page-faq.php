@@ -3,7 +3,7 @@
 get_header();
 ?>
 <main class="sm:ml-20">
-    <section class="header-content">
+    <section class="header-content section-white">
         <?php
         $header = get_field('header_content');
         ?>
@@ -14,11 +14,14 @@ get_header();
             <input type="text" id="faq-search" placeholder="Rechercher une question..." />
         </div>
     </section>
-    <section class="faq-wrapper">
+    <div class="img-under-header"></div>
+
+    <section class="faq-wrapper section-beige">
 
 
         <!-- FILTRES -->
         <ul id="faq-categories" class="flex gap-4 flex-wrap justify-center">
+            <li><button data-category="all" class="border-marron-button active">Toutes</button></li>
             <?php
             $terms = get_terms([
                 'taxonomy' => 'faq_category',
@@ -32,7 +35,6 @@ get_header();
                             class="border-marron-button"><?= esc_html($term->name); ?></button>
                     </li>
                 <?php endif; endforeach; ?>
-            <li><button data-category="all" class="border-marron-button active">Toutes</button></li>
 
         </ul>
 
@@ -65,7 +67,7 @@ get_header();
                             $faqs->the_post();
                             $faq = get_field('faq') ?>
 
-                            <div class="faq-item" data-category="<?= $term->slug; ?>"
+                            <div class="faq-item section-white" data-category="<?= $term->slug; ?>"
                                 data-title="<?= strtolower(get_the_title()); ?>"
                                 data-content="<?= strtolower(strip_tags(get_the_content())); ?>">
                                 <details class="collapse" name="my-accordion-det-1">

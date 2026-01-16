@@ -3,7 +3,7 @@
 get_header();
 ?>
 <main class="sm:ml-20" id="list-projets">
-    <section class="header-content">
+    <section class="header-content section-white">
         <?php
         $header = get_field("header_content");
         ?>
@@ -17,10 +17,11 @@ get_header();
                 class="second-link-orange"><?= $header['lien_2']['title'] ?></a>
         </div>
     </section>
+    <div class="img-under-header"></div>
     <?php
     $content = get_field("page_projets")
         ?>
-    <section class="portfolio">
+    <section class="portfolio section-beige">
         <span class="tag-home"><?= $content['portfolio']['tag'] ?></span>
         <div class="titre">
             <?= $content['portfolio']['titre'] ?>
@@ -49,7 +50,7 @@ get_header();
         </div>
 
         <!-- Grille des projes -->
-        <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-x-16 gap-y-12" id="ajax-grid">
+        <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-20" id="ajax-grid">
             <!-- Projets chargés en AJAX -->
         </div>
 
@@ -107,7 +108,7 @@ get_header();
             <div class="swiper-button-next"></div>
         </div>
     </section>
-    <section class="accompagnements">
+    <section class="accompagnements section-beige">
         <div class="titre">
             <?= $content['accompagnements']['titre'] ?>
             <div class="flex gap-8 mt-12 items-center">

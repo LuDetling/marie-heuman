@@ -194,6 +194,7 @@ function load_posts()
     $template = isset($_POST['template']) ? sanitize_text_field($_POST['template']) : '';
     $taxonomy = isset($_POST['taxonomy']) ? sanitize_text_field($_POST['taxonomy']) : '';
 
+    // nombre de post par page
     $per_page = 12;
 
     $args = [
@@ -251,7 +252,7 @@ add_action('wp_ajax_get_calendly_slots', 'get_calendly_spots');
 function enqueue_calendly_script()
 {
     // Assurez-vous que ce script est chargé là où vous en avez besoin
-    if (is_page_template('page-contact.php')) {
+    if (is_page_template('page-contact.php') || is_front_page()) {
         wp_enqueue_script('calendly-proxy', get_template_directory_uri() . '/assets/js/contact.js', ['jquery'], 1.0, true);
         // Passe la variable ajaxurl au JavaScript
         wp_localize_script('calendly-proxy', 'calendly_vars', [

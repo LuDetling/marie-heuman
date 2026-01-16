@@ -3,7 +3,7 @@
 get_header();
 ?>
 <main class="sm:ml-20" id="histoire">
-    <section class="header-content">
+    <section class="header-content section-white">
         <?php
         $header = get_field("header_content");
         ?>
@@ -17,6 +17,7 @@ get_header();
                 class="second-link-orange"><?= $header['lien_2']['title'] ?></a>
         </div>
     </section>
+    <div class="img-under-header"></div>
     <section class="perso section-beige">
         <?php
         $perso = get_field("page_histoire")['perso']
@@ -25,9 +26,11 @@ get_header();
         <h2>
             <?= $perso['titre'] ?>
         </h2>
-        <div class="flex gap-16 flex-wrap lg:flex-nowrap mt-8">
-            <img src="<?= $perso['image']['url'] ?>" alt="<?= $perso['image']['alt'] ?>" class=" lg:w-5/12" />
-            <div class="texte lg:w-7/12">
+        <div class="flex gap-20 flex-wrap lg:flex-nowrap mt-8">
+            <div class=" lg:w-4/10">
+                <img src="<?= $perso['image']['url'] ?>" alt="<?= $perso['image']['alt'] ?>" />
+            </div>
+            <div class="texte lg:w-6/10">
                 <?= $perso['description'] ?>
                 <a href="<?= $perso['lien']['url'] ?>" class="more"><?= $perso['lien']['title'] ?></a>
 
@@ -42,13 +45,14 @@ get_header();
         <h2>
             <?= $philosophie['titre'] ?>
         </h2>
-        <div class="flex gap-16 flex-wrap lg:flex-nowrap mt-8">
-            <div class="texte lg:w-7/12">
+        <div class="flex gap-20 flex-wrap lg:flex-nowrap mt-8">
+            <div class="texte lg:w-6/10">
                 <?= $philosophie['description'] ?>
                 <a href="<?= $philosophie['lien']['url'] ?>" class="more"><?= $philosophie['lien']['title'] ?></a>
             </div>
-            <img src="<?= $philosophie['image']['url'] ?>" alt="<?= $philosophie['image']['alt'] ?>"
-                class=" lg:w-5/12" />
+            <div class=" lg:w-4/10">
+                <img src="<?= $philosophie['image']['url'] ?>" alt="<?= $philosophie['image']['alt'] ?>" />
+            </div>
         </div>
     </section>
     <section class="univers section-beige">
@@ -57,13 +61,16 @@ get_header();
             ?>
         <span class="tag-home"><?= $univers['tag'] ?></span>
         <?= $univers['titre'] ?>
+        <div class="swiper-navigation">
+            <div class="swiper-pagination"></div>
+        </div>
         <div class="swiper universSwiper">
             <div class="swiper-wrapper">
                 <?php
                 for ($i = 1; $i <= 6; $i++):
                     $bloc = $univers['bloc_' . $i];
                     ?>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide section-white">
                         <span class="dashicons <?= $bloc['icone']; ?>"></span>
                         <h4><?= $bloc['titre'] ?></h4>
                         <div class="texte"><?= $bloc['description'] ?></div>
@@ -71,9 +78,7 @@ get_header();
                 <?php endfor; ?>
             </div>
         </div>
-        <div class="swiper-navigation">
-            <div class="swiper-pagination"></div>
-        </div>
+        
     </section>
     <section class="contrib section-white">
         <div class="content-contrib">

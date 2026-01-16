@@ -337,7 +337,6 @@ header {
 h2 {
   font-family: "Playfair Display", serif;
   font-size: 36px;
-  line-height: 36px;
   color: #462620;
 }
 
@@ -358,15 +357,8 @@ h3::before {
 
 .content-img-header {
   padding: 0;
-}
-.content-img-header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  display: flex;
+  align-items: center;
 }
 .content-img-header img {
   height: 100vh;
@@ -374,7 +366,6 @@ h3::before {
   object-fit: cover;
 }
 .content-img-header .text-img-header {
-  background-color: rgba(70, 38, 32, 0.9);
   padding: 2rem;
   border-radius: 15px;
 }
@@ -382,7 +373,7 @@ h3::before {
   font-size: 48px;
   font-family: "Playfair Display", serif;
   color: #f6f5f2;
-  line-height: 48px;
+  text-shadow: 0px 3px 15px black;
 }
 .content-img-header .text-img-header h2 {
   font-size: 30px;
@@ -392,6 +383,7 @@ h3::before {
   color: #f6f5f2;
   margin-top: 1rem;
   font-family: "Roboto";
+  text-shadow: 0px 3px 15px black;
 }
 .content-img-header .text-img-header h2::before {
   content: "";
@@ -402,6 +394,9 @@ h3::before {
 .content-img-header .text-img-header .border-orange-button {
   color: #f6f5f2;
 }
+.content-img-header .text-img-header .second-link {
+  text-shadow: 0px 3px 15px black;
+}
 
 .content-links {
   background-color: #f3efea;
@@ -410,7 +405,6 @@ h3::before {
   color: black;
   font-family: "Playfair Display", serif;
   font-size: 52px;
-  line-height: 52;
 }
 .content-links h2 {
   color: #462620;
@@ -485,7 +479,6 @@ h3::before {
   font-size: 24px;
   font-family: "Playfair Display", serif;
   font-weight: bold;
-  line-height: 24px;
   margin-bottom: 1rem;
 }
 .content-services-accueil .right-service p {
@@ -530,7 +523,6 @@ h3::before {
   font-size: 24px;
   font-family: "Playfair Display", serif;
   font-weight: bold;
-  line-height: 24px;
   margin-bottom: 1rem;
 }
 .content-approche .card-approche .tag-card {
@@ -538,7 +530,7 @@ h3::before {
   font-size: 18px;
   margin-bottom: 1rem;
 }
-.content-approche .card-approche .text-card p {
+.content-approche .card-approche .text-card p:not(:last-child) {
   margin-bottom: 1rem;
 }
 .content-approche .card-approche:hover .list-hide-approche {
@@ -586,7 +578,7 @@ h3::before {
   left: 0;
 }
 .content-approche .content-question-conception-accueil {
-  margin-top: 4rem;
+  margin-top: 5rem;
   background-color: #3f5e5a;
   color: #f6f5f2;
   padding: 2rem;
@@ -598,7 +590,6 @@ h3::before {
 .content-approche .content-question-conception-accueil h4 {
   font-size: 36px;
   font-family: "Playfair Display";
-  line-height: 36px;
   margin-bottom: 1rem;
 }
 .content-approche .content-question-conception-accueil .texte-question-conception {
@@ -631,8 +622,11 @@ h3::before {
 .content-blog-accueil .projet-card > div .text-card h4 {
   font-size: 24px;
   font-family: "Playfair Display";
-  line-height: 24px;
   margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.content-blog-accueil .projet-card > div .text-card .blog-meta::first-letter {
+  text-transform: uppercase;
 }
 .content-blog-accueil .next-prev .btn-next-prev {
   border: 2px solid #ece7dd;
@@ -658,42 +652,44 @@ h3::before {
   background-color: #f6f5f2;
   color: #462620;
 }
-.content-ro-accueil .card-ro-accueil {
+
+.card-ro-accueil {
   background-color: white;
   padding: 2rem;
   border-radius: 15px;
 }
-.content-ro-accueil .card-ro-accueil::before {
+.card-ro-accueil::after {
   font-family: "Font Awesome 6 Free";
   content: "\f15c";
-  font-size: 30px;
+  font-size: 1.5rem;
   color: #d86a3d;
-  background-color: #f6f5f2;
-  min-width: 45px;
-  width: 45px;
-  min-height: 45px;
-  height: 45px;
+  background-color: #ece7dd;
+  min-width: 48px;
+  width: 48px;
+  min-height: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  order: 0;
 }
-.content-ro-accueil .card-ro-accueil .content-card-ro-accueil {
+.card-ro-accueil .content-card-ro-accueil {
   padding-right: 45px;
+  order: 1;
 }
-.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .title-icon h4 {
+.card-ro-accueil .content-card-ro-accueil .title-icon h4 {
   font-size: 24px;
   font-family: "Playfair Display";
-  line-height: 24px;
 }
-.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .pages {
+.card-ro-accueil .content-card-ro-accueil .pages {
   color: #3f5e5a;
   margin-block: 0.5rem;
 }
-.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .pages .type-file {
+.card-ro-accueil .content-card-ro-accueil .pages .type-file {
   text-transform: uppercase;
 }
-.content-ro-accueil .card-ro-accueil .content-card-ro-accueil .pages .type-file::before {
+.card-ro-accueil .content-card-ro-accueil .pages .type-file::before {
   content: "•";
   margin-inline: 0.3rem;
 }
@@ -737,12 +733,12 @@ h3::before {
   font-size: 14px;
 }
 
-.fas, footer .contact ul li.tel a::before, footer .contact ul li.loca a::before, #page-contact #custom-booking-app .header-form-calendly > div > a::before, .search::after, main .sidebar form button::before {
+.fas, footer .contact ul li.tel a::before, footer .contact ul li.loca a::before, .search::after, main .sidebar form button::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
 }
 
-.far, footer .contact ul li.mail a::before, .articles .card-article .text-card .blog-meta::before, main .left-content .header-content-blog .blog-meta::before {
+.far, footer .contact ul li.mail a::before, main .left-content .header-content-blog .blog-meta::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 400;
 }
@@ -758,7 +754,6 @@ h3::before {
 }
 .articles .card-article {
   border-radius: 30px;
-  background-color: white;
 }
 .articles .card-article img {
   border-top-left-radius: 30px;
@@ -771,15 +766,11 @@ h3::before {
   font-family: "Playfair Display", serif;
   font-size: 24px;
   margin-bottom: 1rem;
-  line-height: 24px;
+  font-weight: bold;
 }
 .articles .card-article .text-card .blog-meta {
   color: #3f5e5a;
   margin-bottom: 1rem;
-}
-.articles .card-article .text-card .blog-meta::before {
-  content: "\f073";
-  margin-right: 0.3rem;
 }
 .articles .card-article .text-card .blog-meta .date {
   display: inline-block;
@@ -822,14 +813,13 @@ main .left-content .header-content-blog .description::before {
 }
 main .left-content .header-content-blog img {
   border-radius: 30px;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 main .left-content .content h2 {
-  margin-top: 4rem;
+  margin-top: 5rem;
   font-size: 2rem;
   font-family: "Playfair Display", serif;
   margin-bottom: 2rem;
-  line-height: 2rem;
 }
 main .left-content .content h2::before {
   display: none;
@@ -838,7 +828,7 @@ main .left-content .content p {
   margin-bottom: 1rem;
 }
 main .sidebar {
-  margin-top: 4rem;
+  margin-top: 5rem;
   margin-right: 120px;
   padding: 1.5rem;
   background-color: white;
@@ -910,10 +900,7 @@ main .informations img {
   display: block;
   margin-bottom: 1rem;
 }
-main .accompagnements {
-  background: none;
-}
-main p {
+main p:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 main .more {
@@ -944,6 +931,7 @@ main .more {
 .search {
   position: relative;
   width: 90%;
+  max-width: 1000px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -955,7 +943,7 @@ main .more {
   color: #d86a3d;
 }
 .search #faq-search {
-  border: 2px solid #d86a3d;
+  border: 1px solid #d86a3d;
   color: #d86a3d;
   border-radius: 40px;
   padding: 1rem;
@@ -986,16 +974,21 @@ main .more {
 }
 
 #faq-list {
-  margin-top: 4rem;
+  margin-top: 5rem;
+  max-width: 1000px;
+  margin-inline: auto;
 }
 #faq-list .faq-category-block .faq-item {
-  background-color: white;
   border-radius: 20px;
   margin-bottom: 2rem;
 }
 #faq-list .faq-category-block .faq-item .collapse-title {
   font-weight: bold;
   font-size: 18px;
+  padding: 1rem 2rem;
+}
+#faq-list .faq-category-block .faq-item .collapse-content {
+  padding: 1rem 2rem;
 }
 #faq-list .faq-category-block .faq-item .collapse-content p {
   font-size: 1rem;
@@ -1009,7 +1002,6 @@ main .more {
 .header-content h1 {
   font-size: 48px;
   font-family: "Playfair Display";
-  line-height: 48px;
   color: #462620;
 }
 .header-content h2 {
@@ -1032,11 +1024,14 @@ main .more {
   background-color: #f6f5f2;
   color: #462620;
 }
-.accompagnements .titre-description {
+.accompagnements .titre-description-top {
   margin-bottom: 3rem;
 }
+.accompagnements .titre-description-top p {
+  max-width: 1000px;
+}
 .accompagnements .accompagnement {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 .accompagnements .accompagnement:nth-child(even) {
   flex-direction: row-reverse;
@@ -1073,9 +1068,11 @@ main .more {
 .accompagnements .accompagnement .right-accompagnement .titre-description h4 {
   font-family: "Playfair Display";
   font-size: 24px;
-  line-height: 24px;
   margin-bottom: 1.2rem;
   font-weight: bold;
+}
+.accompagnements .accompagnement .right-accompagnement .titre-description p {
+  max-width: 1000px;
 }
 .accompagnements .accompagnement .right-accompagnement .titre-description ul {
   margin-top: 2rem;
@@ -1088,23 +1085,23 @@ main .more {
 }
 .accompagnements .accompagnement .right-accompagnement .titre-description ul li::before {
   content: "";
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1rem;
+  height: 1rem;
   background-color: rgba(63, 94, 90, 0.3);
   border-radius: 50%;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 0.25rem;
 }
 .accompagnements .accompagnement .right-accompagnement .titre-description ul li::after {
   content: "";
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
   background-color: #3f5e5a;
   border-radius: 50%;
   position: absolute;
-  left: 6px;
-  top: 6px;
+  left: 0.25rem;
+  top: 0.5rem;
 }
 
 .engagements {
@@ -1113,7 +1110,6 @@ main .more {
 }
 .engagements .card-engagement {
   border-radius: 30px;
-  background-color: #f6f5f2;
   padding: 3rem;
 }
 .engagements .card-engagement .dashicons {
@@ -1122,26 +1118,31 @@ main .more {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 .engagements .card-engagement .titre-description h4 {
   font-family: "Playfair Display";
   font-size: 24px;
-  line-height: 24px;
   margin-bottom: 1rem;
   font-weight: bold;
+}
+.engagements .card-engagement .titre-description p:last-child {
+  margin-bottom: 0;
 }
 
 .collaboration {
   background-color: #f6f5f2;
   color: #462620;
 }
+.collaboration h3 {
+  font-size: 20px;
+}
 .collaboration > p {
-  margin-left: 63px;
+  max-width: 1000px;
 }
 .collaboration .selector-slide {
   color: #462620;
@@ -1149,9 +1150,9 @@ main .more {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  width: 57px;
-  height: 57px;
+  font-size: 1rem;
+  width: 46px;
+  height: 46px;
   position: relative;
   border-radius: 50%;
   margin-block: 3rem;
@@ -1178,14 +1179,14 @@ main .more {
   cursor: initial;
 }
 .collaboration .card-collaboration {
-  background-color: white;
   padding: 2rem 3rem;
   border-radius: 30px;
   width: 90%;
+  max-width: 1000px;
   margin: auto;
   display: none;
   transition: 0.3s;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 .collaboration .card-collaboration.active-collaboration {
   display: block;
@@ -1200,21 +1201,20 @@ main .more {
   }
 }
 .collaboration .card-collaboration .dashicons {
-  background-color: rgba(216, 106, 61, 0.3);
+  background-color: #ece7dd;
   color: #d86a3d;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 57px;
-  min-width: 57px;
-  height: 57px;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
   border-radius: 50%;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .collaboration .card-collaboration h4 {
   font-family: "Playfair Display";
   font-size: 24px;
-  line-height: 24px;
   margin-bottom: 1rem;
   font-weight: bold;
 }
@@ -1226,6 +1226,7 @@ main .more {
 }
 .collaboration .reservation {
   width: 90%;
+  max-width: 1000px;
   margin: auto;
   padding: 2rem 3rem;
   background-color: #3f5e5a;
@@ -1235,59 +1236,39 @@ main .more {
 .collaboration .reservation h2 {
   margin-bottom: 1.5rem;
   color: #f6f5f2;
+  font-size: 36px;
+  font-family: "Playfair Display";
 }
 .collaboration .reservation p {
   margin-bottom: 2.5rem;
 }
 
 .ressources {
-  background-color: white;
   color: #462620;
 }
-.ressources .card-ressource {
+.ressources .card-ro-accueil {
+  background-color: #ece7dd;
+}
+.ressources .card-ro-accueil::after {
   background-color: #f6f5f2;
-  border-radius: 30px;
-  padding: 2rem 3rem;
-}
-.ressources .card-ressource .dashicons {
-  background-color: white;
-  width: 57px;
-  min-width: 57px;
-  height: 57px;
-  color: #d86a3d;
-  font-size: 2rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ressources .card-ressource h4 {
-  font-family: "Playfair Display";
-  font-size: 24px;
-  line-height: 24px;
-  margin-bottom: 1rem;
-}
-.ressources .card-ressource a {
-  color: #d86a3d;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  font-size: 18px;
-}
-.ressources .card-ressource a::before {
-  font-family: "Font Awesome 6 Free";
-  content: "\f019";
-  font-weight: 900;
 }
 
+#expertise section:not(.header-content) h2 {
+  margin-bottom: 0.5rem;
+}
+#expertise section:not(.header-content) h2::before {
+  display: none;
+}
+#expertise h2 {
+  font-size: 36px;
+  font-family: "Playfair Display";
+}
 #list-projets .blog-filters {
   margin-top: 3rem;
 }
 #list-projets .titre h3 {
   font-size: 36px;
   font-family: "Playfair Display";
-  line-height: 36px;
   margin-bottom: 1rem;
 }
 #list-projets .titre h3::before {
@@ -1328,31 +1309,37 @@ main .more {
   padding: 2rem 3rem;
   position: absolute;
   bottom: 0;
-  background-color: white;
+  background-color: #f6f5f2;
   width: 100%;
   transform: translateY(100%);
   transition: 0.3s;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
+#list-projets .card-article .text-card h4 {
+  font-family: "Playfair Display";
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
 #list-projets .temoignages {
   background-color: white;
 }
-#list-projets .temoignages .swiper {
+#list-projets .temoignages .swiperAvis {
   width: 90%;
   max-width: 900px;
   margin-top: 3rem;
 }
-#list-projets .temoignages .swiper .swiper-slide {
-  background-color: #f6f5f2;
+#list-projets .temoignages .swiperAvis .swiper-slide {
+  background-color: #ece7dd;
   border-radius: 15px;
   padding: 3rem;
 }
-#list-projets .temoignages .swiper .swiper-slide .nom {
+#list-projets .temoignages .swiperAvis .swiper-slide .nom {
   margin-top: 1.5rem;
   color: #3f5e5a;
   margin-left: auto;
-  padding-top: 0.5rem;
+  padding-top: 0.2rem;
   border-top: 1px solid #3f5e5a;
   width: fit-content;
 }
@@ -1369,7 +1356,6 @@ main .more {
 }
 
 .left-projet {
-  background-color: #f6f5f2;
   padding: 2rem;
   border-radius: 15px;
 }
@@ -1416,19 +1402,30 @@ main .more {
   object-fit: cover;
 }
 
-.page-projet .section-white, .page-projet .header-content {
-  padding-top: 0;
-}
 .page-projet .parti-pris {
-  padding: 0 2rem;
+  padding: 2rem;
   max-width: 1000px;
   margin: auto;
+  border-radius: 15px;
 }
-.page-projet .parti-pris p {
+.page-projet .parti-pris p:not(:last-child) {
   margin-bottom: 1rem;
 }
-.page-projet .avant-apres {
-  background-color: white;
+.page-projet .avant-apres .selectors {
+  margin-bottom: 3rem;
+}
+.page-projet .avant-apres .selectors ul li:not(:last-child) {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.page-projet .avant-apres .selectors ul li:not(:last-child)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #462620;
+  border-radius: 50%;
+  display: block;
 }
 .page-projet .avant-apres .content-avant-apres {
   display: none;
@@ -1452,7 +1449,6 @@ main .more {
 .page-projet .votre-projet h2 {
   font-size: 36px;
   font-family: "Playfair Display";
-  line-height: 36px;
   color: #f6f5f2;
   margin-bottom: 1rem;
 }
@@ -1463,13 +1459,12 @@ main .more {
   margin-bottom: 2rem;
 }
 
-#page-contact h2 {
+#page-contact section:not(.header-content) h2 {
   font-family: "Playfair Display";
   font-size: 36px;
-  margin-bottom: 1rem;
-  line-height: 36px;
+  margin-bottom: 0;
 }
-#page-contact h2::before {
+#page-contact section:not(.header-content) h2::before {
   display: none;
 }
 #page-contact .decouverte {
@@ -1491,6 +1486,7 @@ main .more {
   align-items: center;
   justify-content: center;
   background-color: rgba(246, 245, 242, 0.2);
+  border: 1px solid rgba(246, 245, 242, 0.2);
   width: 50px;
   height: 50px;
   margin: auto;
@@ -1499,18 +1495,22 @@ main .more {
 #page-contact .calendly-inline-widget {
   margin-top: 3rem;
 }
+#page-contact .contactSwiper {
+  max-width: 1000px;
+  margin: auto;
+}
 #page-contact .swiper-slide {
-  background-color: white;
   padding: 3rem;
-  border-radius: 30px;
+  border-radius: 15px;
 }
 #page-contact .swiper-slide .dashicons {
   color: #d86a3d;
-  width: 40px;
-  min-width: 40px;
-  height: 40px;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
   border-radius: 50%;
-  background-color: rgba(216, 106, 61, 0.3);
+  background-color: #ece7dd;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1519,7 +1519,6 @@ main .more {
 #page-contact .swiper-slide h4 {
   font-family: "Playfair Display";
   font-weight: bold;
-  line-height: 24px;
   font-size: 24px;
   margin-bottom: 1.5rem;
 }
@@ -1542,8 +1541,8 @@ main .more {
 }
 #page-contact .swiper-navigation .swiper-pagination .swiper-pagination-bullet {
   background: none;
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   border: 1px solid #462620;
   color: #462620;
   transition: 0.3s;
@@ -1568,150 +1567,17 @@ main .more {
   background-color: #462620;
   color: #f6f5f2;
 }
-#page-contact .soutiens {
-  background-color: white;
-}
 #page-contact .soutiens .content-soutiens {
-  border-radius: 30px;
-  background-color: #f6f5f2;
+  border-radius: 15px;
   padding: 3rem;
+  max-width: 1000px;
+  margin: auto;
 }
-#page-contact .soutiens .content-soutiens p {
-  color: #3f5e5a;
+#page-contact .soutiens .content-soutiens h2 {
+  margin-bottom: 1rem;
 }
 #page-contact .faq {
   background-color: white;
-}
-#page-contact #custom-booking-app {
-  background-color: white;
-  padding: 3rem;
-  border-radius: 30px;
-  color: #462620;
-  margin-top: 3rem;
-}
-#page-contact #custom-booking-app .header-form-calendly > div {
-  width: 50px;
-}
-#page-contact #custom-booking-app .header-form-calendly > div > a#previous-date::before {
-  content: "\f053";
-}
-#page-contact #custom-booking-app .header-form-calendly > div > a#next-date::before {
-  content: "\f054";
-}
-#page-contact #custom-booking-app .header-form-calendly .step-title {
-  color: #462620;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
-#page-contact #custom-booking-app .calendar-card {
-  border: 2px solid #462620;
-  border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 2rem;
-}
-#page-contact #custom-booking-app .calendar-card .date-header {
-  background-color: #462620;
-  padding: 1rem 3rem;
-  color: #f6f5f2;
-  font-weight: bold;
-}
-#page-contact #custom-booking-app .calendar-card .time-slots-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  row-gap: 1rem;
-  column-gap: 3rem;
-  padding-inline: 3rem;
-  padding-top: 1rem;
-}
-#page-contact #custom-booking-app .calendar-card .time-slots-grid .time-btn {
-  background-color: #f6f5f2;
-  transition: 0.3s;
-  cursor: pointer;
-  padding: 1rem 2rem;
-  border-radius: 15px;
-}
-#page-contact #custom-booking-app .calendar-card .time-slots-grid .time-btn.selected, #page-contact #custom-booking-app .calendar-card .time-slots-grid .time-btn:hover {
-  background-color: #462620;
-  color: #f6f5f2;
-}
-#page-contact #custom-booking-app .calendar-card .trait {
-  content: "";
-  width: 80%;
-  display: block;
-  margin: auto;
-  height: 1px;
-  background-color: #462620;
-  margin: 2rem auto;
-}
-#page-contact #custom-booking-app .calendar-card .meeting-type-selector {
-  display: flex;
-  gap: 2rem;
-  padding-inline: 3rem;
-  margin-bottom: 1rem;
-}
-#page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option {
-  border-radius: 15px;
-  background-color: #f6f5f2;
-  width: 100%;
-  padding: 20px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-#page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option * {
-  cursor: pointer;
-}
-#page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option.active, #page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option:hover {
-  background-color: #462620;
-  color: #f6f5f2;
-}
-#page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option input {
-  display: none;
-}
-#page-contact #custom-booking-app .calendar-card .meeting-type-selector .type-option .option-content * {
-  display: block;
-  text-align: center;
-}
-#page-contact #custom-booking-app .other-days {
-  margin-top: 2rem;
-}
-#page-contact #custom-booking-app .other-days .day-row {
-  padding: 1rem 3rem;
-  background-color: #f6f5f2;
-  border-radius: 15px;
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-#page-contact #custom-booking-app .other-days .day-row:hover {
-  background-color: #462620;
-  color: #f6f5f2;
-}
-#page-contact #custom-booking-app .other-days .day-row.active {
-  display: none;
-}
-#page-contact #custom-booking-app .other-days .day-row span {
-  font-weight: bold;
-}
-#page-contact #custom-booking-app .summary-text {
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 0;
-}
-#page-contact #custom-booking-app .summary-text::first-letter {
-  text-transform: uppercase;
-}
-#page-contact #custom-booking-app .call {
-  text-align: center;
-}
-#page-contact #custom-booking-app .error {
-  text-align: center;
-  font-weight: bold;
-}
-#page-contact #custom-booking-app #go-to-step-2.locked {
-  cursor: not-allowed;
-  background-color: grey;
-  border-color: grey;
 }
 #page-contact .contact {
   background-color: white;
@@ -1721,138 +1587,131 @@ main .more {
   margin-inline: auto;
   margin-top: 2rem;
 }
-#page-contact .action-area {
-  margin-top: 3rem;
-}
-#page-contact .action-area button,
-#page-contact .action-area a {
-  margin: auto;
-  display: block;
-  padding: 1rem 3rem;
-  width: fit-content;
-}
-#page-contact #form-calendly,
-#page-contact #form-contact {
+
+#form-calendly,
+#form-contact {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 3rem;
   column-gap: 5rem;
+  max-width: 1000px;
+  margin: auto;
 }
-#page-contact #form-calendly label,
-#page-contact #form-contact label {
+#form-calendly label,
+#form-contact label {
   display: block;
   font-weight: bold;
   margin-bottom: 1rem;
 }
-#page-contact #form-calendly .required::after,
-#page-contact #form-contact .required::after {
+#form-calendly .required::after,
+#form-contact .required::after {
   content: " *";
-  color: red;
+  color: #d86a3d;
 }
-#page-contact #form-calendly input,
-#page-contact #form-calendly select,
-#page-contact #form-contact input,
-#page-contact #form-contact select {
-  background-color: #f6f5f2;
+#form-calendly input,
+#form-calendly select,
+#form-contact input,
+#form-contact select {
+  background-color: #ece7dd;
   border-radius: 15px;
   width: 100%;
   padding: 0.7rem 1.5rem;
 }
-#page-contact #form-calendly select,
-#page-contact #form-calendly ::picker(select),
-#page-contact #form-contact select,
-#page-contact #form-contact ::picker(select) {
+#form-calendly select,
+#form-calendly ::picker(select),
+#form-contact select,
+#form-contact ::picker(select) {
   appearance: base-select;
 }
-#page-contact #form-calendly select,
-#page-contact #form-contact select {
+#form-calendly select,
+#form-contact select {
   flex: 1;
 }
-#page-contact #form-calendly select,
-#page-contact #form-contact select {
-  background: #f6f5f2;
+#form-calendly select,
+#form-contact select {
+  background: #ece7dd;
   transition: 0.4s;
 }
-#page-contact #form-calendly select::picker-icon,
-#page-contact #form-contact select::picker-icon {
+#form-calendly select::picker-icon,
+#form-contact select::picker-icon {
   color: #999999;
   transition: 0.4s rotate;
 }
-#page-contact #form-calendly select:open::picker-icon,
-#page-contact #form-contact select:open::picker-icon {
+#form-calendly select:open::picker-icon,
+#form-contact select:open::picker-icon {
   rotate: 180deg;
 }
-#page-contact #form-calendly ::picker(select),
-#page-contact #form-contact ::picker(select) {
+#form-calendly ::picker(select),
+#form-contact ::picker(select) {
   border: none;
 }
-#page-contact #form-calendly option,
-#page-contact #form-contact option {
+#form-calendly option,
+#form-contact option {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
   border: 2px solid #dddddd;
-  background: #f6f5f2;
+  background: #ece7dd;
   padding: 0.7rem 1.5rem;
   transition: 0.4s;
   color: #462620;
 }
-#page-contact #form-calendly option::checkmark,
-#page-contact #form-contact option::checkmark {
+#form-calendly option::checkmark,
+#form-contact option::checkmark {
   display: none;
 }
-#page-contact #form-calendly option:hover, #page-contact #form-calendly option:checked,
-#page-contact #form-contact option:hover,
-#page-contact #form-contact option:checked {
+#form-calendly option:hover, #form-calendly option:checked,
+#form-contact option:hover,
+#form-contact option:checked {
   background-color: #462620;
-  color: #f6f5f2;
+  color: #ece7dd;
 }
-#page-contact #form-calendly option:first-of-type,
-#page-contact #form-contact option:first-of-type {
+#form-calendly option:first-of-type,
+#form-contact option:first-of-type {
   border-radius: 15px 15px 0 0;
 }
-#page-contact #form-calendly option:last-of-type,
-#page-contact #form-contact option:last-of-type {
+#form-calendly option:last-of-type,
+#form-contact option:last-of-type {
   border-radius: 0 0 15px 15px;
 }
-#page-contact #form-calendly option:not(option:last-of-type),
-#page-contact #form-contact option:not(option:last-of-type) {
+#form-calendly option:not(option:last-of-type),
+#form-contact option:not(option:last-of-type) {
   border-bottom: none;
 }
-#page-contact #form-calendly ::picker(select),
-#page-contact #form-contact ::picker(select) {
+#form-calendly ::picker(select),
+#form-contact ::picker(select) {
   border-radius: 15px;
 }
-#page-contact #form-calendly > div > div,
-#page-contact #form-contact > div > div {
+#form-calendly > div > div,
+#form-contact > div > div {
   margin-bottom: 1rem;
   font-weight: bold;
 }
-#page-contact #form-calendly fieldset > div,
-#page-contact #form-contact fieldset > div {
+#form-calendly fieldset > div,
+#form-contact fieldset > div {
   display: flex;
   align-items: center;
 }
-#page-contact #form-calendly fieldset > div label,
-#page-contact #form-contact fieldset > div label {
+#form-calendly fieldset > div label,
+#form-contact fieldset > div label {
   font-weight: 400;
 }
-#page-contact #form-calendly fieldset > div input,
-#page-contact #form-contact fieldset > div input {
+#form-calendly fieldset > div input,
+#form-contact fieldset > div input {
   width: auto;
   margin-right: 1rem;
-  background-color: #f6f5f2;
+  background-color: #ece7dd;
 }
-#page-contact #form-calendly fieldset > div input:checked,
-#page-contact #form-contact fieldset > div input:checked {
+#form-calendly fieldset > div input:checked,
+#form-contact fieldset > div input:checked {
   accent-color: #6aa842;
 }
-#page-contact #form-calendly fieldset > div input[type=checkbox],
-#page-contact #form-contact fieldset > div input[type=checkbox] {
+#form-calendly fieldset > div input[type=checkbox],
+#form-contact fieldset > div input[type=checkbox] {
   appearance: none;
   height: 17px;
   min-width: 17px;
-  background: #f6f5f2;
+  background: #ece7dd;
   border: 1px solid #462620;
   display: flex;
   align-items: center;
@@ -1860,77 +1719,217 @@ main .more {
   padding: 0;
   border-radius: 0;
 }
-#page-contact #form-calendly fieldset > div input[type=checkbox]:checked,
-#page-contact #form-contact fieldset > div input[type=checkbox]:checked {
+#form-calendly fieldset > div input[type=checkbox]:checked,
+#form-contact fieldset > div input[type=checkbox]:checked {
   background: #462620;
   position: relative;
 }
-#page-contact #form-calendly fieldset > div input[type=checkbox]:checked:before,
-#page-contact #form-contact fieldset > div input[type=checkbox]:checked:before {
+#form-calendly fieldset > div input[type=checkbox]:checked:before,
+#form-contact fieldset > div input[type=checkbox]:checked:before {
   font-family: FontAwesome;
   content: "\f00c";
   display: block;
-  color: #f6f5f2;
+  color: #ece7dd;
   font-size: 10px;
   position: absolute;
 }
-#page-contact #form-calendly fieldset > div label,
-#page-contact #form-contact fieldset > div label {
+#form-calendly fieldset > div label,
+#form-contact fieldset > div label {
   margin-bottom: 0;
 }
-#page-contact #form-calendly .textarea-content,
-#page-contact #form-contact .textarea-content {
+#form-calendly .textarea-content,
+#form-contact .textarea-content {
   grid-column: 1/3;
 }
-#page-contact #form-calendly .textarea-content textarea,
-#page-contact #form-contact .textarea-content textarea {
+#form-calendly .textarea-content textarea,
+#form-contact .textarea-content textarea {
   border-radius: 15px;
-  background-color: #f6f5f2;
+  background-color: #ece7dd;
   padding: 0.7rem 1.5rem;
   width: 100%;
   min-height: 120px;
 }
-#page-contact #form-contact {
-  background-color: #f6f5f2;
+
+#form-contact {
   padding: 3rem;
-  border-radius: 30px;
+  border-radius: 15px;
 }
-#page-contact #form-contact input,
-#page-contact #form-contact textarea,
-#page-contact #form-contact select,
-#page-contact #form-contact option {
-  background-color: white !important;
+#form-contact input,
+#form-contact textarea,
+#form-contact select,
+#form-contact option {
+  background-color: #f6f5f2 !important;
 }
-#page-contact #form-contact option:checked,
-#page-contact #form-contact input:checked {
+#form-contact option:checked,
+#form-contact input:checked {
   background-color: #462620 !important;
 }
-#page-contact #form-contact option:hover {
+#form-contact option:hover {
   background-color: #462620 !important;
 }
-#page-contact #form-contact .from-calendly {
+#form-contact .from-calendly {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 3rem;
   column-gap: 5rem;
   grid-column: 1/3;
 }
-#page-contact #form-contact .textarea-content,
-#page-contact #form-contact .files,
-#page-contact #form-contact .ccga {
+#form-contact .textarea-content,
+#form-contact .files,
+#form-contact .ccga {
   grid-column: 1/3;
 }
-#page-contact #form-contact .files input {
+#form-contact .files input {
   cursor: pointer;
 }
+#form-contact .ccga a {
+  text-decoration: underline;
+}
 
-#histoire h2 {
+.action-area {
+  margin-top: 3rem;
+}
+.action-area button,
+.action-area a {
+  display: block;
+  width: fit-content;
+}
+
+#custom-booking-app {
+  padding: 3rem;
+  border-radius: 15px;
+  color: #462620;
+  margin-top: 3rem;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+#custom-booking-app .header-form-calendly > div {
+  width: 133px;
+  margin-top: 2px;
+  text-align: end;
+}
+#custom-booking-app .header-form-calendly .step-title {
+  color: #462620;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  font-size: 20px;
+}
+#custom-booking-app .calendar-card {
+  border: 2px solid #462620;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+#custom-booking-app .calendar-card .date-header {
+  background-color: #462620;
+  padding: 1rem 3rem;
+  color: #f6f5f2;
+  font-weight: bold;
+}
+#custom-booking-app .calendar-card .time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 1rem;
+  column-gap: 3rem;
+  padding-inline: 3rem;
+  padding-top: 1rem;
+}
+#custom-booking-app .calendar-card .time-slots-grid .time-btn {
+  background-color: #ece7dd;
+  transition: 0.3s;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+#custom-booking-app .calendar-card .time-slots-grid .time-btn.selected, #custom-booking-app .calendar-card .time-slots-grid .time-btn:hover {
+  background-color: #462620;
+  color: #f6f5f2;
+}
+#custom-booking-app .calendar-card .trait {
+  content: "";
+  display: block;
+  margin: auto;
+  height: 1px;
+  background-color: #462620;
+  margin: 2rem 48px;
+}
+#custom-booking-app .calendar-card .meeting-type-selector {
+  display: flex;
+  gap: 2rem;
+  padding-inline: 3rem;
+  margin-bottom: 1rem;
+}
+#custom-booking-app .calendar-card .meeting-type-selector .type-option {
+  border-radius: 15px;
+  background-color: #ece7dd;
+  width: 100%;
+  padding: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+#custom-booking-app .calendar-card .meeting-type-selector .type-option * {
+  cursor: pointer;
+}
+#custom-booking-app .calendar-card .meeting-type-selector .type-option.active, #custom-booking-app .calendar-card .meeting-type-selector .type-option:hover {
+  background-color: #462620;
+  color: #f6f5f2;
+}
+#custom-booking-app .calendar-card .meeting-type-selector .type-option input {
+  display: none;
+}
+#custom-booking-app .calendar-card .meeting-type-selector .type-option .option-content * {
+  display: block;
+  text-align: center;
+}
+#custom-booking-app .other-days {
+  margin-top: 2rem;
+}
+#custom-booking-app .other-days .day-row {
+  padding: 1rem 3rem;
+  background-color: #f6f5f2;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#custom-booking-app .other-days .day-row:hover {
+  background-color: #462620;
+  color: #f6f5f2;
+}
+#custom-booking-app .other-days .day-row.active {
+  display: none;
+}
+#custom-booking-app .other-days .day-row span {
+  font-weight: bold;
+}
+#custom-booking-app .summary-text {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+#custom-booking-app .summary-text::first-letter {
+  text-transform: uppercase;
+}
+#custom-booking-app .call {
+  text-align: center;
+}
+#custom-booking-app .error {
+  text-align: center;
+  font-weight: bold;
+}
+#custom-booking-app #go-to-step-2.locked {
+  cursor: not-allowed;
+  background-color: grey;
+  border-color: grey;
+}
+
+#histoire section:not(.header-content) h2 {
   font-family: "Playfair Display", serif;
   font-size: 36px;
-  margin-bottom: 2.5rem;
-  line-height: 36px;
+  margin-bottom: 0;
 }
-#histoire h2::before {
+#histoire section:not(.header-content) h2::before {
   display: none;
 }
 #histoire img {
@@ -1943,32 +1942,37 @@ main .more {
 #histoire .philosophie {
   background-color: white;
 }
+#histoire .univers .universSwiper {
+  max-width: 1000px;
+}
 #histoire .univers .swiper-slide {
-  background-color: #f6f5f2;
   padding: 3rem;
   border-radius: 15px;
 }
 #histoire .univers .swiper-slide .dashicons {
   color: #d86a3d;
-  width: 40px;
-  min-width: 40px;
-  height: 40px;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
   border-radius: 50%;
-  background-color: rgba(216, 106, 61, 0.3);
+  background-color: #ece7dd;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 #histoire .univers .swiper-slide h4 {
   font-family: "Playfair Display";
   font-weight: bold;
   font-size: 24px;
-  line-height: 24px;
   margin-bottom: 1.5rem;
 }
 #histoire .univers .swiper-slide .texte {
   padding: 0;
+}
+#histoire .univers .swiper-navigation {
+  margin-bottom: 3rem;
 }
 #histoire .univers .swiper-navigation .swiper-pagination {
   display: flex;
@@ -1978,8 +1982,8 @@ main .more {
 }
 #histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet {
   background: none;
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   border: 1px solid #462620;
   color: #462620;
   transition: 0.3s;
@@ -2011,11 +2015,10 @@ main .more {
   background-color: #ece7dd;
   border-radius: 15px;
   padding: 3rem;
+  max-width: 1000px;
+  margin: auto;
 }
-#histoire .contrib .content-contrib .description {
-  color: #3f5e5a;
-}
-#histoire .contrib .content-contrib .description p {
+#histoire .contrib .content-contrib h2 {
   margin-bottom: 1rem;
 }
 #histoire .accompagnement {
@@ -2032,7 +2035,7 @@ main .more {
 footer {
   background-color: #462620;
   color: #ece7dd;
-  padding: 4rem 120px;
+  padding: 5rem 120px;
 }
 footer img {
   max-width: 190px;
@@ -2143,11 +2146,11 @@ footer .footer-bottom {
 }
 
 section {
-  padding: 4rem 120px;
+  padding: 5rem 160px;
 }
 @media screen and (max-width: 1200px) {
   section {
-    padding: 4rem 60px;
+    padding: 5rem 60px;
   }
 }
 section {
@@ -2155,7 +2158,12 @@ section {
   position: relative;
   overflow: hidden;
 }
-section.section-white::before, section.header-content::before {
+
+.section-white {
+  position: relative;
+  background-color: #f6f5f2;
+}
+.section-white::before {
   content: "";
   position: absolute;
   top: 0;
@@ -2174,10 +2182,30 @@ section.section-white::before, section.header-content::before {
   pointer-events: none;
   /* Important : permet de cliquer sur les boutons en dessous */
 }
-section.section-white > *, section.header-content > * {
+.section-white > *, .section-white::after {
   position: relative;
   z-index: 1;
   /* Place le contenu au-dessus du grain */
+}
+
+.img-under-header {
+  width: 100%;
+  height: 150px;
+  background-image: url("../assets/images/rayure-1.jpeg");
+  background-attachment: fixed;
+  /* On empêche la répétition */
+  /* L'image s'étire pour remplir tout l'espace */
+  background-position: center;
+}
+
+.img-under-header-2 {
+  width: 100%;
+  height: 150px;
+  background-image: url("../assets/images/rayure-2.jpeg");
+  background-attachment: fixed;
+  /* On empêche la répétition */
+  /* L'image s'étire pour remplir tout l'espace */
+  background-position: bottom;
 }
 
 .white-block {
@@ -2198,7 +2226,7 @@ section.section-white > *, section.header-content > * {
 }
 .orange-list-container li {
   color: #d86a3d;
-  background-color: rgba(216, 106, 61, 0.3);
+  background-color: #ece7dd;
   border-radius: 30px;
   padding: 0.5rem 1.5rem;
   display: inline-block;
@@ -2207,6 +2235,7 @@ section.section-white > *, section.header-content > * {
 .section-beige {
   background-color: #ece7dd;
   color: #462620;
+  position: relative;
 }
 .section-beige::before {
   display: none;
@@ -2220,7 +2249,6 @@ section.section-white > *, section.header-content > * {
 main:not(.front-page) h1 {
   font-size: 48px;
   font-family: "Playfair Display";
-  line-height: 48px;
   color: #462620;
 }
 main:not(.front-page) h2 {

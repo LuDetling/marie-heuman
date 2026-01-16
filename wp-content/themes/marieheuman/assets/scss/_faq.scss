@@ -28,6 +28,7 @@
 .search {
     position: relative;
     width: 90%;
+    max-width: 1000px;
     margin: auto;
     display: flex;
     align-items: center;
@@ -41,7 +42,7 @@
     }
 
     #faq-search {
-        border: 2px solid $orange;
+        border: 1px solid $orange;
         color: $orange;
         border-radius: 40px;
         padding: 1rem;
@@ -88,21 +89,24 @@
 // END FAQ CATEGORIES
 // FAQ LIST
 #faq-list {
-    margin-top: 4rem;
+    margin-top: 5rem;
+    max-width: 1000px;
+    margin-inline: auto;
 
     .faq-category-block {
         .faq-item {
 
-            background-color: white;
             border-radius: 20px;
             margin-bottom: 2rem;
 
             .collapse-title {
                 font-weight: bold;
                 font-size: 18px;
+                padding: 1rem 2rem;
             }
 
             .collapse-content {
+                padding: 1rem 2rem;
                 p {
                     font-size: 1rem;
                     margin-bottom: .5rem;

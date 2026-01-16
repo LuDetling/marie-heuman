@@ -15,8 +15,6 @@
         h3 {
             font-size: 36px;
             font-family: 'Playfair Display';
-            line-height: 36px;
-
             margin-bottom: 1rem;
 
             &::before {
@@ -67,12 +65,19 @@
             padding: 2rem 3rem;
             position: absolute;
             bottom: 0;
-            background-color: white;
+            background-color: $beige;
             width: 100%;
             transform: translateY(100%);
             transition: .3s;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
+
+            h4 {
+                font-family: 'Playfair Display';
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: .5rem;
+            }
         }
     }
 
@@ -81,13 +86,13 @@
     .temoignages {
         background-color: white;
 
-        .swiper {
+        .swiperAvis {
             width: 90%;
             max-width: 900px;
             margin-top: 3rem;
 
             .swiper-slide {
-                background-color: $beige;
+                background-color: $white;
                 border-radius: 15px;
                 padding: 3rem;
 
@@ -95,7 +100,7 @@
                     margin-top: 1.5rem;
                     color: $secondary;
                     margin-left: auto;
-                    padding-top: .5rem;
+                    padding-top: .2rem;
                     border-top: 1px solid $secondary;
                     width: fit-content;
                 }
@@ -127,7 +132,6 @@
 // PROJET SINGLE
 
 .left-projet {
-    background-color: $beige;
     padding: 2rem;
     border-radius: 15px;
 
@@ -198,22 +202,42 @@
 }
 
 .page-projet {
-    .section-white {
-        padding-top: 0;
-    }
 
     .parti-pris {
-        padding: 0 2rem;
+        padding: 2rem;
         max-width: 1000px;
         margin: auto;
+        border-radius: 15px;
 
-        p {
+        p:not(:last-child) {
             margin-bottom: 1rem;
         }
     }
 
     .avant-apres {
-        background-color: white;
+
+        .selectors {
+            margin-bottom: 3rem;
+            ul {
+                li {
+
+                    &:not(:last-child) {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+
+                        &::after {
+                            content: "";
+                            width: 10px;
+                            height: 10px;
+                            background-color: #462620;
+                            border-radius: 50%;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
 
         .content-avant-apres {
             display: none;
@@ -242,8 +266,6 @@
         h2 {
             font-size: 36px;
             font-family: 'Playfair Display';
-            line-height: 36px;
-
             color: $beige;
             margin-bottom: 1rem;
 

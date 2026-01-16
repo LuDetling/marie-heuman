@@ -12,7 +12,6 @@
 
   .card-article {
     border-radius: 30px;
-    background-color: white;
 
     img {
       border-top-left-radius: 30px;
@@ -26,19 +25,12 @@
         font-family: 'Playfair Display', serif;
         font-size: 24px;
         margin-bottom: 1rem;
-        line-height: 24px;
+        font-weight: bold;
       }
 
       .blog-meta {
         color: $secondary;
         margin-bottom: 1rem;
-
-        &::before {
-          @extend .far;
-          content: '\f073';
-          margin-right: .3rem;
-        }
-
         .date {
           display: inline-block;
 
@@ -95,17 +87,16 @@ main {
 
       img {
         border-radius: 30px;
-        margin-bottom: 4rem;
+        margin-bottom: 5rem;
       }
     }
 
     .content {
       h2 {
-        margin-top: 4rem;
+        margin-top: 5rem;
         font-size: 2rem;
         font-family: 'Playfair Display', serif;
         margin-bottom: 2rem;
-        line-height: 2rem;
 
         &::before {
           display: none;
@@ -120,7 +111,7 @@ main {
 
   // SIDEBAR
   .sidebar {
-    margin-top: 4rem;
+    margin-top: 5rem;
     margin-right: 120px;
     padding: 1.5rem;
     background-color: white;
@@ -217,11 +208,7 @@ main {
     }
   }
 
-  .accompagnements {
-    background: none;
-  }
-
-  p {
+  p:not(:last-child) {
     margin-bottom: .5rem;
   }
 

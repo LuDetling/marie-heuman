@@ -4,22 +4,23 @@ get_header();
 ?>
 <main class="sm:ml-20">
     <!-- HEADER -->
-    <section class="header-content">
+    <section class="header-content section-white">
         <?php
         $header = get_field("header_content");
         ?>
         <?= $header['titre'] ?>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center">
             <a href="<?= $header['lien_1']['url'] ?>" <?= $header['lien_1']['target'] ?>
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" <?= $header['lien_2']['target'] ?>
-                class="border-orange-button"><?= $header['lien_2']['title'] ?></a>
+                class="second-link-orange"><?= $header['lien_2']['title'] ?></a>
         </div>
     </section>
+    <div class="img-under-header"></div>
     <!-- END HEADER -->
 
     <!-- ARTICLES -->
-    <section class="blog-section articles">
+    <section class="blog-section articles section-beige">
 
         <!-- Filtres par catégorie -->
         <div class="blog-filters">
@@ -45,7 +46,7 @@ get_header();
         </div>
 
         <!-- Grille des articles -->
-        <div class="grid lg:grid-cols-2 gap-x-32 gap-y-12" id="ajax-grid">
+        <div class="grid lg:grid-cols-2 2xl:grid-cols-3 gap-x-20 gap-y-12" id="ajax-grid">
             <!-- Articles chargés en AJAX -->
         </div>
 

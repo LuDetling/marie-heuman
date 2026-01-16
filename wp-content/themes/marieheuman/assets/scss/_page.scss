@@ -8,7 +8,6 @@
     h1 {
         font-size: 48px;
         font-family: 'Playfair Display';
-        line-height: 48px;
         color: $marron;
     }
 
@@ -30,18 +29,24 @@
     }
 }
 
+
 // END HEADER
 // ACCOMPAGNEMENT
 .accompagnements {
     background-color: $beige;
     color: $marron;
 
-    .titre-description {
+    .titre-description-top {
         margin-bottom: 3rem;
+
+        p {
+            max-width: 1000px;
+        }
+
     }
 
     .accompagnement {
-        margin-bottom: 4rem;
+        margin-bottom: 5rem;
 
         &:nth-child(even) {
             flex-direction: row-reverse;
@@ -85,10 +90,12 @@
                 h4 {
                     font-family: "Playfair Display";
                     font-size: 24px;
-                    line-height: 24px;
-
                     margin-bottom: 1.2rem;
                     font-weight: bold;
+                }
+
+                p {
+                    max-width: 1000px;
                 }
 
                 ul {
@@ -102,24 +109,24 @@
 
                         &::before {
                             content: "";
-                            width: 1.5rem;
-                            height: 1.5rem;
+                            width: 1rem;
+                            height: 1rem;
                             background-color: rgba($color: $secondary, $alpha: .3);
                             border-radius: 50%;
                             position: absolute;
                             left: 0;
-                            top: 0;
+                            top: 0.25rem;
                         }
 
                         &::after {
                             content: "";
-                            width: .75rem;
-                            height: .75rem;
+                            width: .5rem;
+                            height: .5rem;
                             background-color: $secondary;
                             border-radius: 50%;
                             position: absolute;
-                            left: 6px;
-                            top: 6px;
+                            left: .25rem;
+                            top: .5rem;
                         }
                     }
                 }
@@ -135,7 +142,7 @@
 
     .card-engagement {
         border-radius: 30px;
-        background-color: $beige;
+        // background-color: $beige;
         padding: 3rem;
 
         .dashicons {
@@ -144,21 +151,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .titre-description {
             h4 {
                 font-family: "Playfair Display";
                 font-size: 24px;
-                line-height: 24px;
-
                 margin-bottom: 1rem;
                 font-weight: bold;
+            }
+
+            p:last-child {
+                margin-bottom: 0;
             }
         }
     }
@@ -171,8 +180,12 @@
     background-color: $beige;
     color: $marron;
 
+    h3 {
+        font-size: 20px;
+    }
+
     >p {
-        margin-left: 63px;
+        max-width: 1000px;
     }
 
     .selector-slide {
@@ -181,9 +194,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.8rem;
-        width: 57px;
-        height: 57px;
+        font-size: 1rem;
+        width: 46px;
+        height: 46px;
         position: relative;
         border-radius: 50%;
         margin-block: 3rem;
@@ -214,14 +227,14 @@
     }
 
     .card-collaboration {
-        background-color: white;
         padding: 2rem 3rem;
         border-radius: 30px;
         width: 90%;
+        max-width: 1000px;
         margin: auto;
         display: none;
         transition: .3s;
-        margin-bottom: 4rem;
+        margin-bottom: 5rem;
 
         &.active-collaboration {
             display: block;
@@ -239,23 +252,21 @@
         }
 
         .dashicons {
-            background-color: rgba($color: $orange, $alpha: .3);
+            background-color: $white;
             color: $orange;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 57px;
-            min-width: 57px;
-            height: 57px;
+            width: 48px;
+            min-width: 48px;
+            height: 48px;
             border-radius: 50%;
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
         h4 {
             font-family: 'Playfair Display';
             font-size: 24px;
-            line-height: 24px;
-
             margin-bottom: 1rem;
             font-weight: bold;
         }
@@ -270,6 +281,7 @@
 
     .reservation {
         width: 90%;
+        max-width: 1000px;
         margin: auto;
         padding: 2rem 3rem;
         background-color: $secondary;
@@ -279,6 +291,8 @@
         h2 {
             margin-bottom: 1.5rem;
             color: $beige;
+            font-size: 36px;
+            font-family: "Playfair Display";
         }
 
         p {
@@ -291,50 +305,39 @@
 
 // RESSOURCES
 .ressources {
-    background-color: white;
     color: $marron;
 
-    .card-ressource {
-        background-color: $beige;
-        border-radius: 30px;
-        padding: 2rem 3rem;
+    .card-ro-accueil {
+        background-color: $white;
 
-        .dashicons {
-            background-color: white;
-            width: 57px;
-            min-width: 57px;
-            height: 57px;
-            color: $orange;
-            font-size: 2rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        h4 {
-            font-family: 'Playfair Display';
-            font-size: 24px;
-            line-height: 24px;
-
-            margin-bottom: 1rem;
-        }
-
-        a {
-            color: $orange;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            font-size: 18px;
-
-            &::before {
-                font-family: 'Font Awesome 6 Free';
-                content: "\f019";
-                font-weight: 900;
-            }
+        &::after {
+            background-color: $beige;
         }
     }
 }
 
 // END RESSOURCES
+
+#expertise {
+    section:not(.header-content) {
+        h2 {
+            margin-bottom: .5rem;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    h2 {
+        // margin-bottom: 1.5rem;
+        // color: $beige;
+        font-size: 36px;
+        font-family: "Playfair Display";
+
+    }
+
+    h3 {
+        // font-size: 1rem;
+    }
+}

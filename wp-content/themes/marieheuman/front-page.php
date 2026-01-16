@@ -13,7 +13,7 @@
         <section class="content-img-header relative">
             <img src="<?= esc_url($image_header['url']); ?>" alt="<?= esc_attr($image_header['alt']); ?>"
                 width="<?= esc_attr($image_header['width']); ?>" height="<?= esc_attr($image_header['height']); ?>">
-            <div class="absolute bottom-30 left-30 z-2">
+            <div class="absolute left-30 z-2">
                 <div class="text-img-header">
                     <?= $text_image_header; ?>
                     <div class="flex items-center gap-8 mt-12">
@@ -26,6 +26,7 @@
             </div>
         </section>
     <?php endif; ?>
+    <div class="img-under-header-2"></div>
     <!-- END IMAGE HEADER -->
 
     <!-- MA VISION -->
@@ -41,7 +42,7 @@
     <section class="content-ma-vision section-beige">
         <span class="tag-home"><?= $tag_ma_vision ?></span>
         <?= $titres_ma_vision ?>
-        <div class="flex flex-wrap lg:flex-nowrap items-stretch gap-16">
+        <div class="flex flex-wrap lg:flex-nowrap items-stretch gap-20">
             <div class="image-ma-vision lg:w-4/10">
                 <img src="<?= esc_url($image_ma_vision['url']); ?>" alt="<?= esc_attr($image_ma_vision['alt']); ?>"
                     width="<?= esc_attr($image_ma_vision['width']); ?>"
@@ -90,7 +91,7 @@
             $plus_service = get_field('plus_service_' . $i);
             ?>
             <div id="<?= "content-service-{$i}" ?>"
-                class="flex flex-wrap lg:flex-nowrap item-service gap-16<?= $i == 1 ? ' active-service' : '' ?>">
+                class="flex flex-wrap lg:flex-nowrap item-service gap-20<?= $i == 1 ? ' active-service' : '' ?>">
                 <div class="lg:w-4/10 left-service">
                     <img src="<?= esc_url($image_service['url']); ?>" alt="<?= esc_attr($image_service['alt']); ?>"
                         width="<?= esc_attr($image_service['width']); ?>"
@@ -109,7 +110,7 @@
 
         <?php } ?>
 
-        <div class="flex gap-16">
+        <div class="flex gap-20">
             <div class="lg:w-4/10" aria-hidden="true"></div>
             <div class="lg:w-6/10 flex gap-8 mt-12 ml-auto items-center">
                 <a href="<?= esc_url($lien_1_services_accueil['url']) ?>"
@@ -135,7 +136,7 @@
 
         <span class="tag-home"><?= $tag_approche_accueil ?></span>
         <?= $titre_approche_accueil ?>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <?php
             for ($i = 1; $i <= 4; $i++) {
                 $card_approche_accueil = get_field('card_' . $i . '_approche_accueil');
@@ -201,7 +202,7 @@
                                     <div class="text-card">
                                         <h4><?php the_title(); ?></h4>
                                         <p class="blog-meta">
-                                            <?php echo get_the_date('F o'); ?> •
+                                            <?= get_the_date('F o'); ?> •
                                             <?= $blog['temps_de_lecture'] ?> de lecture
                                         </p>
 
@@ -238,13 +239,12 @@
             if ($fichier_ressources) {
                 foreach ($fichier_ressources as $fichier) {
                     ?>
-                    <div class="card-ro-accueil gap-8 flex w-full">
+                    <div class="card-ro-accueil gap-8 flex w-full section-white">
                         <div class="content-card-ro-accueil">
 
                             <div class="flex gap-4 title-icon">
                                 <h4><?= $fichier['titre'] ?></h4>
                             </div>
-
 
                             <div class="pages">
                                 <?php
@@ -289,7 +289,7 @@
         ?>
         <span class="tag-home"><?= $tag_contact_accueil ?></span>
         <?= $titre_contact_accueil ?>
-        <div class="flex flex-wrap gap-16 justify-center">
+        <div class="flex flex-wrap gap-20 justify-center">
             <?php
             for ($i = 1; $i < 4; $i++) {
                 $groupe_contact_accueil = get_field('groupe_' . $i . '_contact_accueil');
@@ -308,6 +308,71 @@
             <?php }
             ?>
         </div>
+        <!-- CALENDLY -->
+
+        <div id="custom-booking-app" class="section-white">
+
+            <div id="step-1" class="booking-step active">
+                <div class="flex gap-4 justify-between header-form-calendly">
+                    <div>
+                        <a href="#custom-booking-app" id="previous-date" class="hidden">Précédentes dates</a>
+                    </div>
+                    <h4 class="step-title">Sélectionnez une date et une heure</h4>
+                    <div>
+                        <a href="#custom-booking-app" id="next-date">Prochaines dates</a>
+                    </div>
+                </div>
+                <!-- Boucle sur calendar cards qui ouvre un accordeon -->
+                <div class="calendar-cards">
+                </div>
+
+                <div class="action-area">
+                    <div class="flex gap-4 justify-center">
+                        <a id="go-to-step-2" href="#custom-booking-app" class="orange-button locked"
+                            disabled>Suivant</a>
+
+                    </div>
+                    <p class="summary-text"></p>
+                    <p class="call"></p>
+                    <p class="error"></p>
+                </div>
+            </div>
+
+            <div id="step-2" class="booking-step hidden">
+                <form method="POST" class="form-calendly" id="form-calendly">
+                    <div>
+                        <label for="lastname" class="required">Nom</label>
+                        <input id="lastname" name="lastname" type="text">
+                    </div>
+                    <div>
+                        <label for="firstname" class="required">Prénom</label>
+                        <input id="firstname" name="firstname" type="text">
+                    </div>
+                    <div>
+                        <label for="email" class="required">Email</label>
+                        <input id="email" name="email" type="text">
+                    </div>
+                    <div>
+                        <label for="phone" class="required">Téléphone</label>
+                        <input id="phone" name="phone" type="text">
+                    </div>
+                </form>
+
+                <div class="action-area flex gap-20 items-center">
+                    <div class="w-1/2">
+                        <a id="back-to-step-1" href="#custom-booking-app" class="second-link-orange">Retour</a>
+                    </div>
+                    <div class="w-1/2">
+                        <button class="orange-button" form="form-calendly">Envoyez votre demande</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END CALENDLY -->
+    </section>
+
+
+
     </section>
 
     <!-- END CONTACT -->

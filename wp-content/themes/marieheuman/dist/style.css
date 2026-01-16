@@ -9,6 +9,7 @@
       "Courier New", monospace;
     --color-black: #000;
     --spacing: 0.25rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1859,6 +1860,13 @@
   .z-2 {
     z-index: 2;
   }
+  .drawer-content {
+    @layer daisyui.component {
+      grid-column-start: 2;
+      grid-row-start: 1;
+      min-width: calc(0.25rem * 0);
+    }
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -2210,9 +2218,6 @@
   .justify-center {
     justify-content: center;
   }
-  .justify-end {
-    justify-content: flex-end;
-  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
@@ -2233,6 +2238,12 @@
   }
   .gap-24 {
     gap: calc(var(--spacing) * 24);
+  }
+  .gap-32 {
+    gap: calc(var(--spacing) * 32);
+  }
+  .gap-40 {
+    gap: calc(var(--spacing) * 40);
   }
   .gap-x-16 {
     column-gap: calc(var(--spacing) * 16);
@@ -2281,6 +2292,10 @@
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
   }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
+  }
   .btn-primary {
     @layer daisyui.modifier.color {
       --btn-color: var(--color-primary);
@@ -2312,6 +2327,11 @@
       width: calc(4/10 * 100%);
     }
   }
+  .lg\:w-5\/10 {
+    @media (width >= 64rem) {
+      width: calc(5/10 * 100%);
+    }
+  }
   .lg\:w-5\/12 {
     @media (width >= 64rem) {
       width: calc(5/12 * 100%);
@@ -2332,11 +2352,6 @@
       width: calc(7/12 * 100%);
     }
   }
-  .lg\:w-\[calc\(60\%-4rem\)\] {
-    @media (width >= 64rem) {
-      width: calc(60% - 4rem);
-    }
-  }
   .lg\:w-fit {
     @media (width >= 64rem) {
       width: fit-content;
@@ -2345,6 +2360,11 @@
   .lg\:grid-cols-2 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .lg\:grid-cols-3 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
   .lg\:flex-nowrap {
@@ -2357,9 +2377,24 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  .xl\:grid-cols-3 {
+    @media (width >= 80rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .xl\:gap-x-16 {
+    @media (width >= 80rem) {
+      column-gap: calc(var(--spacing) * 16);
+    }
+  }
   .\32 xl\:grid-cols-3 {
     @media (width >= 96rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .\32 xl\:gap-x-16 {
+    @media (width >= 96rem) {
+      column-gap: calc(var(--spacing) * 16);
     }
   }
 }

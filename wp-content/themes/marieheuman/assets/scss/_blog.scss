@@ -11,11 +11,11 @@
   color: $marron;
 
   .card-article {
-    border-radius: 30px;
+    border-radius: 15px;
 
     img {
-      border-top-left-radius: 30px;
-      border-top-right-radius: 30px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
     }
 
     .text-card {
@@ -31,6 +31,7 @@
       .blog-meta {
         color: $secondary;
         margin-bottom: 1rem;
+
         .date {
           display: inline-block;
 
@@ -67,7 +68,6 @@ main {
       }
 
       .description {
-        margin-top: 1rem;
         font-size: 18px;
         color: $marron;
         position: relative;
@@ -86,7 +86,7 @@ main {
       }
 
       img {
-        border-radius: 30px;
+        border-radius: 15px;
         margin-bottom: 5rem;
       }
     }
@@ -113,13 +113,13 @@ main {
   .sidebar {
     margin-top: 5rem;
     margin-right: 120px;
-    padding: 1.5rem;
+    padding: 2rem;
     background-color: white;
-    border-radius: 30px;
+    border-radius: 15px;
 
     h3,
     h2 {
-      display: block !important;
+      // display: block !important;
 
       &::before {
         display: none;
@@ -137,20 +137,25 @@ main {
       font-size: 1rem;
       margin-top: 3rem;
       margin-bottom: 1rem;
+      display: inline-block;
 
       &::before {
         content: "";
-        width: 10px;
-        height: 10px;
+        width: .7rem;
+        height: .7rem;
         background-color: $orange;
-        display: block;
+        display: inline-block;
         border-radius: 50%;
-        margin-bottom: 1rem;
+        margin-right: .5rem;
       }
     }
 
     p {
       font-size: 14px;
+    }
+
+    .accompagnements {
+      background: none;
     }
 
     //RECHERCHE
@@ -162,11 +167,18 @@ main {
       }
 
       input {
-        border-radius: 30px;
+        border-radius: 15px;
         background-color: $beige;
+        border: 1px solid $beige;
         color: $marron;
         padding: .3rem .9rem;
         width: 100%;
+
+        &:active,
+        &:focus {
+          border-color: $orange;
+          outline: none;
+        }
       }
 
       button {
@@ -202,7 +214,7 @@ main {
   //INFORMATIONS
   .informations {
     img {
-      border-radius: 30px;
+      border-radius: 15px;
       display: block;
       margin-bottom: 1rem;
     }

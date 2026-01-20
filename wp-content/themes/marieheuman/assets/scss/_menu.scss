@@ -17,6 +17,13 @@ header {
     height: 80px;
     z-index: 1001;
     border-bottom: 1px solid $orange;
+    transition: .3s;
+
+    @media screen and (max-width: 767px) {
+        transform: rotate(0);
+        width: 100vw;
+        top: 0;
+    }
 
     >nav {
         justify-content: space-between;
@@ -44,6 +51,11 @@ header {
                     transition: .3s;
                     background-repeat: no-repeat;
                     background-position: center;
+
+                    @media screen and (max-width: 767px) {
+                        transform: rotate(0);
+                    }
+
                     &:hover,
                     &.img-menu-open {
                         background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png');
@@ -62,12 +74,29 @@ header {
         }
 
         .calendly {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             font-size: 2rem;
             transform: rotate(90deg);
             border-radius: 50%;
             fill: $beige;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s;
+
+            &:hover {
+                fill: $orange;
+            }
+
+            @media screen and (max-width: 767px) {
+                transform: rotate(0);
+            }
+
+            svg {
+                width: 50px;
+                height: 50px;
+            }
         }
     }
 
@@ -92,12 +121,18 @@ header {
     flex-direction: column;
     justify-content: space-between;
 
+    @media screen and (max-width: 767px) {
+        transform: translateX(-100%);
+    }
+
     &.menu-open {
         transform: translateX(80px);
         opacity: 1;
-    }
 
-    .menu-menu-principal-container {}
+        @media screen and (max-width: 767px) {
+            transform: translateX(0);
+        }
+    }
 
     #menu-menu-principal {
         padding: 0;

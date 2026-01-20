@@ -2,7 +2,7 @@
 /* Template Name: Page Histoire */
 get_header();
 ?>
-<main class="sm:ml-20" id="histoire">
+<main class="md:ml-20" id="histoire">
     <section class="header-content section-white">
         <?php
         $header = get_field("header_content");
@@ -26,7 +26,7 @@ get_header();
         <h2>
             <?= $perso['titre'] ?>
         </h2>
-        <div class="flex gap-20 flex-wrap lg:flex-nowrap mt-8">
+        <div class="flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap mt-8">
             <div class=" lg:w-4/10">
                 <img src="<?= $perso['image']['url'] ?>" alt="<?= $perso['image']['alt'] ?>" />
             </div>
@@ -45,7 +45,7 @@ get_header();
         <h2>
             <?= $philosophie['titre'] ?>
         </h2>
-        <div class="flex gap-20 flex-wrap lg:flex-nowrap mt-8">
+        <div class="flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap mt-8">
             <div class="texte lg:w-6/10">
                 <?= $philosophie['description'] ?>
                 <a href="<?= $philosophie['lien']['url'] ?>" class="more"><?= $philosophie['lien']['title'] ?></a>

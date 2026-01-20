@@ -2,7 +2,7 @@
 /* Template Name: Page FAQ */
 get_header();
 ?>
-<main class="sm:ml-20">
+<main class="md:ml-20">
     <section class="header-content section-white">
         <?php
         $header = get_field('header_content');

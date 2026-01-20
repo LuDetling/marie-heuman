@@ -2,7 +2,7 @@
 /* Template Name: Page Projets */
 get_header();
 ?>
-<main class="sm:ml-20" id="list-projets">
+<main class="md:ml-20" id="list-projets">
     <section class="header-content section-white">
         <?php
         $header = get_field("header_content");
@@ -50,7 +50,7 @@ get_header();
         </div>
 
         <!-- Grille des projes -->
-        <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-20" id="ajax-grid">
+        <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-10 md:gap-20" id="ajax-grid">
             <!-- Projets chargés en AJAX -->
         </div>
 

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="sm:ml-20">
+<main class="md:ml-20">
     <section>
 
         <h1>Résultats pour : "<?php the_search_query(); ?>"</h1>

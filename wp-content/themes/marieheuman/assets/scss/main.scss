@@ -19,7 +19,7 @@ section {
     padding: 5rem 160px;
 
     @media screen and (max-width: 1200px) {
-        padding: 5rem 60px;
+        padding: 2rem 20px;
 
     }
 
@@ -93,6 +93,13 @@ section {
 
 // STYLE WYSIWYG
 .white-block {
+    background-color: $beige;
+    border-radius: 30px;
+    padding: 1.5rem;
+    color: $marron;
+}
+
+.beige-block {
     background-color: $white;
     border-radius: 30px;
     padding: 1.5rem;
@@ -147,6 +154,10 @@ main:not(.front-page) {
         font-size: 48px;
         font-family: 'Playfair Display';
         color: $marron;
+
+        @media screen and (max-width: 767px) {
+            font-size: 2rem;
+        }
     }
 
     h2 {
@@ -163,6 +174,13 @@ main:not(.front-page) {
             width: 50px;
             height: 1px;
             background-color: $marron;
+        }
+
+        @media screen and (max-width: 767px) {
+            &::before {
+                display: none;
+            }
+
         }
     }
 }

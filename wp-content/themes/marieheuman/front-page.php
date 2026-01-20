@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="sm:ml-20 front-page">
+<main class="md:ml-20 front-page">
     <!-- IMAGE HEADER -->
     <?php
     $image_header = get_field('image_header');
@@ -13,10 +13,10 @@
         <section class="content-img-header relative">
             <img src="<?= esc_url($image_header['url']); ?>" alt="<?= esc_attr($image_header['alt']); ?>"
                 width="<?= esc_attr($image_header['width']); ?>" height="<?= esc_attr($image_header['height']); ?>">
-            <div class="absolute left-30 z-2">
+            <div class="absolute md:left-30 z-2">
                 <div class="text-img-header">
                     <?= $text_image_header; ?>
-                    <div class="flex items-center gap-8 mt-12">
+                    <div class="flex items-center gap-8 mt-12 flex-wrap">
                         <a href="<?= esc_url($lien_1_image_header['url']) ?>"
                             class="orange-button"><?= esc_html($lien_1_image_header['title']) ?></a>
                         <a href="<?= esc_url($lien_2_image_header['url']) ?>"
@@ -42,7 +42,7 @@
     <section class="content-ma-vision section-beige">
         <span class="tag-home"><?= $tag_ma_vision ?></span>
         <?= $titres_ma_vision ?>
-        <div class="flex flex-wrap lg:flex-nowrap items-stretch gap-20">
+        <div class="flex flex-wrap lg:flex-nowrap items-stretch gap-10 md:gap-20">
             <div class="image-ma-vision lg:w-4/10">
                 <img src="<?= esc_url($image_ma_vision['url']); ?>" alt="<?= esc_attr($image_ma_vision['alt']); ?>"
                     width="<?= esc_attr($image_ma_vision['width']); ?>"
@@ -71,7 +71,7 @@
     <section class="content-services-accueil bg-grain section-white">
         <span class="tag-home"><?= $tag_services_accueil ?></span>
         <?= $titres_services_accueil ?>
-        <div class="flex gap-4 selector-services">
+        <div class="flex gap-4 selector-services flex-wrap">
             <?php
             for ($i = 1; $i <= 3; $i++) {
 
@@ -91,7 +91,7 @@
             $plus_service = get_field('plus_service_' . $i);
             ?>
             <div id="<?= "content-service-{$i}" ?>"
-                class="flex flex-wrap lg:flex-nowrap item-service gap-20<?= $i == 1 ? ' active-service' : '' ?>">
+                class="flex flex-wrap lg:flex-nowrap item-service gap-10 md:gap-20<?= $i == 1 ? ' active-service' : '' ?>">
                 <div class="lg:w-4/10 left-service">
                     <img src="<?= esc_url($image_service['url']); ?>" alt="<?= esc_attr($image_service['alt']); ?>"
                         width="<?= esc_attr($image_service['width']); ?>"
@@ -110,9 +110,9 @@
 
         <?php } ?>
 
-        <div class="flex gap-20">
-            <div class="lg:w-4/10" aria-hidden="true"></div>
-            <div class="lg:w-6/10 flex gap-8 mt-12 ml-auto items-center">
+        <div class="flex gap-10 md:gap-20">
+            <div class="lg:w-4/10 hidden lg:block" aria-hidden="true"></div>
+            <div class="w-full lg:w-6/10 flex gap-8 mt-12 lg:ml-auto items-center flex-wrap">
                 <a href="<?= esc_url($lien_1_services_accueil['url']) ?>"
                     class="orange-button"><?= esc_html($lien_1_services_accueil['title']) ?></a>
                 <a href="<?= esc_url($lien_2_services_accueil['url']) ?>"
@@ -136,7 +136,7 @@
 
         <span class="tag-home"><?= $tag_approche_accueil ?></span>
         <?= $titre_approche_accueil ?>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
             <?php
             for ($i = 1; $i <= 4; $i++) {
                 $card_approche_accueil = get_field('card_' . $i . '_approche_accueil');
@@ -233,13 +233,13 @@
         ?>
         <span class="tag-home"><?= $tag_ressources_offertes_accueil ?></span>
         <?= $titre_ressources_offertes_accueil ?>
-        <div class="flex gap-20 justify-between flex-wrap lg:flex-nowrap">
+        <div class="flex gap-10 md:gap-20 justify-between flex-wrap lg:flex-nowrap">
             <?php
             $fichier_ressources = get_field('fichiers_ressources_accueil');
             if ($fichier_ressources) {
                 foreach ($fichier_ressources as $fichier) {
                     ?>
-                    <div class="card-ro-accueil gap-8 flex w-full section-white">
+                    <div class="card-ro-accueil gap-4 sm:gap-8 flex w-full section-white flex-wrap sm:flex-nowrap">
                         <div class="content-card-ro-accueil">
 
                             <div class="flex gap-4 title-icon">
@@ -289,7 +289,7 @@
         ?>
         <span class="tag-home"><?= $tag_contact_accueil ?></span>
         <?= $titre_contact_accueil ?>
-        <div class="flex flex-wrap gap-20 justify-center">
+        <div class="flex flex-wrap gap-10 md:gap-20 justify-center">
             <?php
             for ($i = 1; $i < 4; $i++) {
                 $groupe_contact_accueil = get_field('groupe_' . $i . '_contact_accueil');
@@ -358,11 +358,11 @@
                     </div>
                 </form>
 
-                <div class="action-area flex gap-20 items-center">
-                    <div class="w-1/2">
+                <div class="action-area flex gap-10 md:gap-20 items-center flex-wrap md:flex-nowrap">
+                    <div class="md:w-1/2 w-full">
                         <a id="back-to-step-1" href="#custom-booking-app" class="second-link-orange">Retour</a>
                     </div>
-                    <div class="w-1/2">
+                    <div class="md:w-1/2 w-full">
                         <button class="orange-button" form="form-calendly">Envoyez votre demande</button>
                     </div>
                 </div>

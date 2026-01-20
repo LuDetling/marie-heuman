@@ -1776,9 +1776,6 @@
   .static {
     position: static;
   }
-  .bottom-30 {
-    bottom: calc(var(--spacing) * 30);
-  }
   .left-30 {
     left: calc(var(--spacing) * 30);
   }
@@ -1978,8 +1975,8 @@
   .mt-12 {
     margin-top: calc(var(--spacing) * 12);
   }
-  .mb-8 {
-    margin-bottom: calc(var(--spacing) * 8);
+  .mt-16 {
+    margin-top: calc(var(--spacing) * 16);
   }
   .mb-12 {
     margin-bottom: calc(var(--spacing) * 12);
@@ -2209,9 +2206,6 @@
   .items-stretch {
     align-items: stretch;
   }
-  .justify-around {
-    justify-content: space-around;
-  }
   .justify-between {
     justify-content: space-between;
   }
@@ -2227,32 +2221,17 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
-  }
-  .gap-16 {
-    gap: calc(var(--spacing) * 16);
   }
   .gap-20 {
     gap: calc(var(--spacing) * 20);
   }
-  .gap-24 {
-    gap: calc(var(--spacing) * 24);
-  }
-  .gap-32 {
-    gap: calc(var(--spacing) * 32);
-  }
-  .gap-40 {
-    gap: calc(var(--spacing) * 40);
-  }
-  .gap-x-16 {
-    column-gap: calc(var(--spacing) * 16);
-  }
   .gap-x-20 {
     column-gap: calc(var(--spacing) * 20);
-  }
-  .gap-x-32 {
-    column-gap: calc(var(--spacing) * 32);
   }
   .gap-y-12 {
     row-gap: calc(var(--spacing) * 12);
@@ -2263,9 +2242,6 @@
   }
   .mask-repeat {
     mask-repeat: repeat;
-  }
-  .py-8 {
-    padding-block: calc(var(--spacing) * 8);
   }
   .pb-20 {
     padding-bottom: calc(var(--spacing) * 20);
@@ -2307,9 +2283,64 @@
       margin-left: calc(var(--spacing) * 20);
     }
   }
+  .sm\:flex-nowrap {
+    @media (width >= 40rem) {
+      flex-wrap: nowrap;
+    }
+  }
+  .sm\:gap-8 {
+    @media (width >= 40rem) {
+      gap: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:left-30 {
+    @media (width >= 48rem) {
+      left: calc(var(--spacing) * 30);
+    }
+  }
+  .md\:ml-20 {
+    @media (width >= 48rem) {
+      margin-left: calc(var(--spacing) * 20);
+    }
+  }
+  .md\:ml-auto {
+    @media (width >= 48rem) {
+      margin-left: auto;
+    }
+  }
+  .md\:w-1\/2 {
+    @media (width >= 48rem) {
+      width: calc(1/2 * 100%);
+    }
+  }
+  .md\:flex-nowrap {
+    @media (width >= 48rem) {
+      flex-wrap: nowrap;
+    }
+  }
+  .md\:gap-20 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 20);
+    }
+  }
   .lg\:mt-0 {
     @media (width >= 64rem) {
       margin-top: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:ml-20 {
+    @media (width >= 64rem) {
+      margin-left: calc(var(--spacing) * 20);
+    }
+  }
+  .lg\:ml-auto {
+    @media (width >= 64rem) {
+      margin-left: auto;
+    }
+  }
+  .lg\:block {
+    @media (width >= 64rem) {
+      display: block;
     }
   }
   .lg\:flex {
@@ -2332,11 +2363,6 @@
       width: calc(5/10 * 100%);
     }
   }
-  .lg\:w-5\/12 {
-    @media (width >= 64rem) {
-      width: calc(5/12 * 100%);
-    }
-  }
   .lg\:w-6\/8 {
     @media (width >= 64rem) {
       width: calc(6/8 * 100%);
@@ -2347,24 +2373,9 @@
       width: calc(6/10 * 100%);
     }
   }
-  .lg\:w-7\/12 {
-    @media (width >= 64rem) {
-      width: calc(7/12 * 100%);
-    }
-  }
-  .lg\:w-fit {
-    @media (width >= 64rem) {
-      width: fit-content;
-    }
-  }
   .lg\:grid-cols-2 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  .lg\:grid-cols-3 {
-    @media (width >= 64rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
   .lg\:flex-nowrap {
@@ -2377,24 +2388,9 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
-  .xl\:grid-cols-3 {
-    @media (width >= 80rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .xl\:gap-x-16 {
-    @media (width >= 80rem) {
-      column-gap: calc(var(--spacing) * 16);
-    }
-  }
   .\32 xl\:grid-cols-3 {
     @media (width >= 96rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .\32 xl\:gap-x-16 {
-    @media (width >= 96rem) {
-      column-gap: calc(var(--spacing) * 16);
     }
   }
 }

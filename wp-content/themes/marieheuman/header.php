@@ -27,7 +27,7 @@
                         alt="logo menu" class="logo-menu-home"></a>
 
                 <!-- calendly -->
-                <a href="https://calendly.com/marieheuman/appeldecouverte" class="calendly" target="_blank">
+                <a href="contact-architecte-interieur-tours-blois/#custom-booking-app" class="calendly">
                     <svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                         <path

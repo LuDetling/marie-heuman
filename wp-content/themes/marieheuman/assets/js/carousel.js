@@ -13,7 +13,7 @@ const swiper = new Swiper('.swiperAvis', {
 });
 
 const swiperHomeBlog = new Swiper('.swiperHomeBlog', {
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 80,
     loop: true,
     pagination: {
@@ -24,6 +24,12 @@ const swiperHomeBlog = new Swiper('.swiperHomeBlog', {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+        },
+    }
 });
 
 const universSwiper = new Swiper('.universSwiper', {
@@ -52,7 +58,7 @@ const contactSwiper = new Swiper('.contactSwiper', {
 });
 
 const projectSwiper = new Swiper('.swiperProjectPage', {
-    slidesPerView: 'auto',
+    slidesPerView: 1,
     spaceBetween: 80,
     loop: true,
     pagination: {
@@ -65,11 +71,17 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
     },
     mousewheel: {
     },
+    breakpoints: {
+        768: {
+            slidesPerView: 'auto',
+            spaceBetween: 40,
+        },
+    }
 });
 
 for (let i = 0; i < 3; i++) {
     new Swiper('.swiperProjectAvantApres-' + i, {
-        slidesPerView: 'auto',
+        slidesPerView: 1,
         spaceBetween: 80,
         loop: true,
         pagination: {
@@ -82,5 +94,32 @@ for (let i = 0; i < 3; i++) {
         },
         mousewheel: {
         },
+        breakpoints: {
+            768: {
+                slidesPerView: "auto",
+                spaceBetween: 40,
+            },
+        }
     });
 }
+
+const swiperProjetsRecents = new Swiper('.swiperProjetsRecents', {
+    slidesPerView: 1,
+    spaceBetween: 40,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination-projet-recents",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next-projet-recents",
+        prevEl: ".swiper-button-prev-projet-recents",
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+        },
+    }    // mousewheel: {
+    // },
+});

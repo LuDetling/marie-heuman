@@ -147,8 +147,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="time-slots-grid">
                 </div>
                 <hr class="trait">
-                <div class="meeting-type-selector">
-                    <div class="type-option">
+                <div class="meeting-type-selector flex-wrap md:flex-nowrap">
+                    <div class="type-option w-full md:w-1/2">
                         <input type="radio" name="meeting_type" value="google_conference" checked>
                         <label class="option-content" for="google_conference">
                             <span class="icon">📹</span>
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </label>
                     </div>
 
-                    <div class="type-option">
+                    <div class="type-option w-full md:w-1/2">
                         <input type="radio" name="meeting_type" value="outbound_call">
                         <label class="option-content" for="outbound_call">
                             <span class="icon">📞</span>

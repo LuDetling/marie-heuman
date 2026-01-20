@@ -1,7 +1,7 @@
 <div class="img-under-header-2"></div>
 
-<footer class="sm:ml-20">
-    <div class="flex flex-wrap gap-20 justify-between mb-12">
+<footer class="md:ml-20">
+    <div class="flex flex-wrap gap-10 md:gap-20 justify-between mb-12">
         <div>
             <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-logo-clair.png"
                 alt="logo menu" class="logo-menu">

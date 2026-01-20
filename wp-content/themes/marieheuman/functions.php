@@ -103,6 +103,12 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'wrapper' => true,
         ],
         [
+            'title' => 'Bloc beige',
+            'block' => 'div',
+            'classes' => 'beige-block',
+            'wrapper' => true,
+        ],
+        [
             'title' => 'Liste Orange (Conteneur)',
             'block' => 'ul', // Cible spécifiquement la balise UL
             'classes' => 'orange-list-container', // La nouvelle classe

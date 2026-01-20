@@ -2,7 +2,7 @@
 /* Template Name: Page Contact */
 get_header();
 ?>
-<main class="sm:ml-20" id="page-contact">
+<main class="md:ml-20" id="page-contact">
     <section class="header-content section-white">
         <!-- <div class="container"> -->
         <?php
@@ -21,7 +21,7 @@ get_header();
         ?>
         <span class="tag-home"><?= $contact['tag'] ?></span>
         <?= $contact['titre'] ?>
-        <div class="flex justify-center gap-20">
+        <div class="flex justify-center gap-10 md:gap-20">
             <?php
             // On boucle de 1 à 3 pour parcourir les champs numérotés manuellement
             for ($i = 1; $i <= 3; $i++) {
@@ -92,11 +92,11 @@ get_header();
                     </div>
                 </form>
 
-                <div class="action-area flex gap-20 items-center">
-                    <div class="w-1/2">
+                <div class="action-area flex gap-10 md:gap-20 items-center flex-wrap md:flex-nowrap">
+                    <div class="w-full md:w-1/2">
                         <a id="back-to-step-1" href="#custom-booking-app" class="second-link-orange">Retour</a>
                     </div>
-                    <div class="w-1/2">
+                    <div class="w-full md:w-1/2">
                         <button class="orange-button" form="form-calendly">Envoyez votre demande</button>
                     </div>
                 </div>

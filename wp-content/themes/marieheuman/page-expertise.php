@@ -4,7 +4,7 @@
  */
 get_header();
 ?>
-<main id="expertise" class="sm:ml-20">
+<main id="expertise" class="md:ml-20">
     <!-- HEADER -->
     <section class="header-content section-white">
         <?php
@@ -39,7 +39,7 @@ get_header();
             // $champ = $cinq_champs_expertise_accompagnement['champ_2_accompagnement'];
             if ($champ) {
                 ?>
-                <div class="flex gap-20 accompagnement flex-wrap lg:flex-nowrap items-center">
+                <div class="flex gap-10 md:gap-20 accompagnement flex-wrap lg:flex-nowrap items-center">
                     <!-- <?= var_dump($champ) ?> -->
                     <div class="lg:w-5/10 left-accompagnement">
                         <span class="index"><?= $i ?></span>
@@ -66,7 +66,7 @@ get_header();
             ?>
         <span class="tag-page"><?= $engagements_methode_expertise_accompagnement['tag'] ?></span>
         <div class="titre-description"><?= $engagements_methode_expertise_accompagnement['titre'] ?></div>
-        <div class="grid lg:grid-cols-2 gap-20">
+        <div class="grid lg:grid-cols-2 gap-10 md:gap-20">
             <?php
             for ($i = 1; $i < 5; $i++) {
                 // $engagement = $engagements_methode_expertise_accompagnement['engagement_2'];
@@ -93,7 +93,7 @@ get_header();
         ?>
         <span class="tag-page"><?= $collaboration_expertise_accompagnement["tag"] ?></span>
         <?= $collaboration_expertise_accompagnement["titre_description"] ?>
-        <div class="flex gap-20 justify-center">
+        <div class="flex gap-10 md:gap-20 justify-center">
             <?php for ($i = 1; $i < 4; $i++) { ?>
                 <button class="selector-slide<?= $i == 1 ? ' active-border-marron-button' : '' ?>"><?= $i ?></button>
             <?php } ?>
@@ -130,7 +130,7 @@ get_header();
         ?>
         <span class="tag-page"><?= $ressources_expertise_accompagnement['tag'] ?></span>
         <?= $ressources_expertise_accompagnement['titre'] ?>
-        <div class="grid lg:grid-cols-2 gap-20">
+        <div class="grid lg:grid-cols-2 gap-10 md:gap-20">
             <?php
             for ($i = 1; $i < 3; $i++) {
                 $ressource = $ressources_expertise_accompagnement['ressource_' . $i];

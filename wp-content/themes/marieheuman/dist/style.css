@@ -1776,9 +1776,6 @@
   .static {
     position: static;
   }
-  .left-30 {
-    left: calc(var(--spacing) * 30);
-  }
   .textarea {
     @layer daisyui.component {
       border: var(--border) solid #0000;
@@ -1981,9 +1978,6 @@
   .mb-12 {
     margin-bottom: calc(var(--spacing) * 12);
   }
-  .ml-auto {
-    margin-left: auto;
-  }
   .carousel-item {
     @layer daisyui.component {
       box-sizing: content-box;
@@ -2144,12 +2138,6 @@
   .table {
     display: table;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
-  .w-1\/2 {
-    width: calc(1/2 * 100%);
-  }
   .w-full {
     width: 100%;
   }
@@ -2224,12 +2212,6 @@
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
-  .gap-12 {
-    gap: calc(var(--spacing) * 12);
-  }
-  .gap-20 {
-    gap: calc(var(--spacing) * 20);
-  }
   .gap-x-20 {
     column-gap: calc(var(--spacing) * 20);
   }
@@ -2242,9 +2224,6 @@
   }
   .mask-repeat {
     mask-repeat: repeat;
-  }
-  .pb-20 {
-    padding-bottom: calc(var(--spacing) * 20);
   }
   .text-wrap {
     text-wrap: wrap;
@@ -2303,9 +2282,19 @@
       margin-left: calc(var(--spacing) * 20);
     }
   }
-  .md\:ml-auto {
+  .md\:block {
     @media (width >= 48rem) {
-      margin-left: auto;
+      display: block;
+    }
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
     }
   }
   .md\:w-1\/2 {
@@ -2326,11 +2315,6 @@
   .lg\:mt-0 {
     @media (width >= 64rem) {
       margin-top: calc(var(--spacing) * 0);
-    }
-  }
-  .lg\:ml-20 {
-    @media (width >= 64rem) {
-      margin-left: calc(var(--spacing) * 20);
     }
   }
   .lg\:ml-auto {

@@ -6,6 +6,10 @@ footer {
     color: $white;
     padding: 5rem 120px;
 
+    @media screen and (max-width: 767px) {
+        padding: 2rem 20px;
+    }
+
     img {
         max-width: 190px;
         display: block;
@@ -114,6 +118,7 @@ footer {
             transition: .3s;
             font-size: 14px;
             margin-bottom: .5rem;
+
             &:hover {
                 background: none;
                 color: $orange;

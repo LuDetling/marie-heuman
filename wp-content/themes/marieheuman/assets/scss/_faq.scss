@@ -3,27 +3,8 @@
 @use 'fontawesome';
 
 // FAQ SEARCH
-.faq-button a {
-    width: 46px;
-    height: 46px;
-    background-color: $light-secondary;
-    border: 1px solid $light-secondary;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $beige;
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    font-size: 2rem;
-    transition: .3s;
-    z-index: 200;
 
-    &:hover {
-        background-color: $secondary;
-    }
-}
+
 
 .search {
     position: relative;
@@ -107,6 +88,7 @@
 
             .collapse-content {
                 padding: 1rem 2rem;
+
                 p {
                     font-size: 1rem;
                     margin-bottom: .5rem;

@@ -95,26 +95,7 @@
     .temoignages {
         background-color: white;
 
-        .swiperAvis {
-            width: 90%;
-            max-width: 900px;
-            margin-top: 3rem;
 
-            .swiper-slide {
-                background-color: $white;
-                border-radius: 15px;
-                padding: 3rem;
-
-                .nom {
-                    margin-top: 1.5rem;
-                    color: $secondary;
-                    margin-left: auto;
-                    padding-top: .2rem;
-                    border-top: 1px solid $secondary;
-                    width: fit-content;
-                }
-            }
-        }
     }
 
     // END AVIS
@@ -134,6 +115,27 @@
                     background-color: $beige;
                 }
             }
+        }
+    }
+}
+
+.swiperAvis {
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 3rem;
+
+    .swiper-slide {
+        background-color: $white;
+        border-radius: 15px;
+        padding: 3rem;
+
+        .nom {
+            margin-top: 1.5rem;
+            color: $secondary;
+            margin-left: auto;
+            padding-top: .2rem;
+            border-top: 1px solid $secondary;
+            width: fit-content;
         }
     }
 }

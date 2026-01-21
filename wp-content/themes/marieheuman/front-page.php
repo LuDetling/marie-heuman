@@ -167,9 +167,61 @@
     </section>
     <!-- END APPROCHE & PHILOSOPHIE -->
 
+    <!-- AVIS -->
+    <?php $avis = get_field('accueil_avis'); ?>
+    <section class="section-white avis-accueil">
+        <div class="tag-home">
+            <?= $avis['tag'] ?>
+        </div>
+        <?= $avis['titre'] ?>
+        <div class="swiper swiperAvis">
+            <div class="swiper-wrapper">
+                <?php
+                $avis = new WP_Query([
+                    'post_type' => 'avis',
+                    'posts_per_page' => -1,
+                ]);
+                if ($avis->have_posts()):
+                    while ($avis->have_posts()):
+                        $avis->the_post();
+                        $avi = get_field("avis_contenu");
+                        ?>
+
+                        <div class="swiper-slide section-beige">
+                            <div class="rating">
+                                <?php
+                                for ($i = 1; $i <= 5; $i++) {
+                                    if ($i <= intval($avi['note'])) {
+                                        echo '<span class="star full">★</span>';
+                                    } else {
+                                        echo '<span class="star empty">☆</span>';
+                                    }
+                                }
+                                ?>
+                            </div>
+                            <div class="description">
+                                <?= $avi['description'] ?>
+                            </div>
+                            <div class="nom">
+                                <?= the_title() ?>
+                            </div>
+                        </div>
+                        <?php
+                    endwhile;
+                    wp_reset_postdata();
+                endif; ?>
+            </div>
+        </div>
+        <div class="flex gap-8 swiper-navigation justify-center items-center">
+            <div class="swiper-button-prev-avis swiper-button-prev"></div>
+            <div class="swiper-pagination-avis swiper-pagination"></div>
+            <div class="swiper-button-next-avis swiper-button-next"></div>
+        </div>
+    </section>
+    <!-- END AVIS -->
 
     <!-- BLOG -->
-    <section class="content-blog-accueil section-white">
+    <section class="content-blog-accueil section-beige">
         <?php
         $tag_blog_accueil = get_field("tag_blog_accueil");
         $titre_blog_accueil = get_field("titre_blog_accueil");
@@ -191,7 +243,7 @@
                         $blog = get_field("contenu_page_blog");
                         ?>
                         <div class="swiper-slide">
-                            <article id="card-blog" class="projet-card carousel-item">
+                            <article id="card-blog" class="projet-card carousel-item section-white">
                                 <div>
                                     <?php if ($blog['image']): ?>
                                         <img src="<?= esc_url($blog['image']['url']); ?>"
@@ -218,15 +270,15 @@
             </div>
         </div>
         <div class="flex gap-8 swiper-navigation justify-center items-center">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev swiper-button-prev-home-blog"></div>
+            <div class="swiper-pagination swiper-pagination-home-blog"></div>
+            <div class="swiper-button-next swiper-button-next-home-blog"></div>
         </div>
     </section>
     <!-- END BLOG -->
 
     <!-- RESSOURCES OFFERTES -->
-    <section class="content-ro-accueil section-beige">
+    <section class="content-ro-accueil section-white">
         <?php
         $tag_ressources_offertes_accueil = get_field('tag_ressources_offertes_accueil');
         $titre_ressources_offertes_accueil = get_field('titre_ressources_offertes_accueil');
@@ -239,7 +291,7 @@
             if ($fichier_ressources) {
                 foreach ($fichier_ressources as $fichier) {
                     ?>
-                    <div class="card-ro-accueil gap-4 sm:gap-8 flex w-full section-white flex-wrap sm:flex-nowrap">
+                    <div class="card-ro-accueil gap-4 sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
                         <div class="content-card-ro-accueil">
 
                             <div class="flex gap-4 title-icon">

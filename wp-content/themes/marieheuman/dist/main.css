@@ -339,6 +339,39 @@ header {
   color: #d86a3d;
 }
 
+.other-buttons-header > a {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  font-size: 2rem;
+  transition: 0.3s;
+  z-index: 200;
+  bottom: 1rem;
+  right: 1rem;
+}
+.other-buttons-header .calendly-link {
+  fill: #f6f5f2;
+  background-color: #d86a3d;
+  border: 1px solid #d86a3d;
+}
+.other-buttons-header .calendly-link:hover {
+  background-color: #9c6338;
+}
+.other-buttons-header .calendly-link svg {
+  width: 2rem;
+}
+.other-buttons-header .faq-link {
+  background-color: #7a8b85;
+  border: 1px solid #7a8b85;
+  color: #f6f5f2;
+}
+.other-buttons-header .faq-link:hover {
+  background-color: #3f5e5a;
+}
+
 .more {
   color: #7a8b85;
   display: inline-flex;
@@ -368,7 +401,9 @@ header {
 .tag-page::before {
   content: "";
   width: 0.7rem;
+  min-width: 0.7rem;
   height: 0.7rem;
+  min-height: 0.7rem;
   background-color: #d86a3d;
   border-radius: 50%;
 }
@@ -658,7 +693,6 @@ h3::before {
 .content-blog-accueil .projet-card {
   border-radius: 15px;
   overflow: hidden;
-  background-color: #ece7dd;
 }
 .content-blog-accueil .projet-card > div {
   width: 100%;
@@ -963,27 +997,6 @@ main .more {
   margin-top: 1rem;
 }
 
-.faq-button a {
-  width: 46px;
-  height: 46px;
-  background-color: #7a8b85;
-  border: 1px solid #7a8b85;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f6f5f2;
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  transition: 0.3s;
-  z-index: 200;
-}
-.faq-button a:hover {
-  background-color: #3f5e5a;
-}
-
 .search {
   position: relative;
   width: 90%;
@@ -1074,6 +1087,10 @@ main .more {
   width: 50px;
   height: 1px;
   background-color: #462620;
+}
+
+.header-content-without-link h2 {
+  margin-bottom: 0 !important;
 }
 
 .accompagnements {
@@ -1319,6 +1336,29 @@ main .more {
   font-size: 36px;
   font-family: "Playfair Display";
 }
+.content .tag-home:not(:first-child) {
+  margin-top: 2rem;
+}
+.content ol {
+  list-style: lower-alpha;
+}
+.content ol > li {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.content ol > li > ul {
+  font-weight: normal;
+}
+.content ol > li > ul > li > ul > li {
+  margin-left: 1rem;
+  list-style: disc;
+}
+.content > ul > li {
+  list-style: disc;
+  margin-left: 1rem;
+}
+
 #list-projets .blog-filters {
   margin-top: 3rem;
 }
@@ -1389,24 +1429,6 @@ main .more {
 #list-projets .temoignages {
   background-color: white;
 }
-#list-projets .temoignages .swiperAvis {
-  width: 90%;
-  max-width: 900px;
-  margin-top: 3rem;
-}
-#list-projets .temoignages .swiperAvis .swiper-slide {
-  background-color: #ece7dd;
-  border-radius: 15px;
-  padding: 3rem;
-}
-#list-projets .temoignages .swiperAvis .swiper-slide .nom {
-  margin-top: 1.5rem;
-  color: #3f5e5a;
-  margin-left: auto;
-  padding-top: 0.2rem;
-  border-top: 1px solid #3f5e5a;
-  width: fit-content;
-}
 #list-projets .accompagnements {
   background-color: #3f5e5a;
   color: #f6f5f2;
@@ -1417,6 +1439,25 @@ main .more {
 }
 #list-projets .accompagnements .titre p::before {
   background-color: #f6f5f2;
+}
+
+.swiperAvis {
+  width: 90%;
+  max-width: 1000px;
+  margin-top: 3rem;
+}
+.swiperAvis .swiper-slide {
+  background-color: #ece7dd;
+  border-radius: 15px;
+  padding: 3rem;
+}
+.swiperAvis .swiper-slide .nom {
+  margin-top: 1.5rem;
+  color: #3f5e5a;
+  margin-left: auto;
+  padding-top: 0.2rem;
+  border-top: 1px solid #3f5e5a;
+  width: fit-content;
 }
 
 .left-projet {
@@ -2187,6 +2228,11 @@ footer {
   color: #ece7dd;
   padding: 5rem 120px;
 }
+@media screen and (max-width: 767px) {
+  footer {
+    padding: 2rem 20px;
+  }
+}
 footer img {
   max-width: 190px;
   display: block;
@@ -2462,20 +2508,20 @@ main:not(.front-page) h2::before {
 .swiper-navigation > div svg {
   color: #462620;
 }
-.swiper-navigation > div.swiper-pagination {
+.swiper-navigation > div[class^=swiper-pagination] {
   width: auto;
 }
-.swiper-navigation > div.swiper-pagination .swiper-pagination-bullet {
+.swiper-navigation > div[class^=swiper-pagination] .swiper-pagination-bullet {
   transition: 0.3s;
 }
-.swiper-navigation > div.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-navigation > div[class^=swiper-pagination] .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #d86a3d;
 }
-.swiper-navigation > div.swiper-pagination .swiper-pagination-bullet:hover {
+.swiper-navigation > div[class^=swiper-pagination] .swiper-pagination-bullet:hover {
   background-color: #d86a3d;
   opacity: 1;
 }
-.swiper-navigation > div.swiper-button-next, .swiper-navigation > div.swiper-button-prev {
+.swiper-navigation > div[class^=swiper-button] {
   border: 2px solid #f6f5f2;
   width: 3rem;
   height: 3rem;
@@ -2485,10 +2531,10 @@ main:not(.front-page) h2::before {
   border-radius: 50%;
   transition: 0.3s;
 }
-.swiper-navigation > div.swiper-button-next:hover, .swiper-navigation > div.swiper-button-prev:hover {
+.swiper-navigation > div[class^=swiper-button]:hover {
   border-color: #d86a3d;
 }
-.swiper-navigation > div.swiper-button-next svg, .swiper-navigation > div.swiper-button-prev svg {
+.swiper-navigation > div[class^=swiper-button] svg {
   width: 1rem;
   height: 1rem;
 }

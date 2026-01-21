@@ -103,9 +103,9 @@ get_header();
             </div>
         </div>
         <div class="flex gap-8 swiper-navigation justify-center items-center">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev swiper-button-prev-avis"></div>
+            <div class="swiper-pagination swiper-pagination-avis"></div>
+            <div class="swiper-button-next swiper-button-next-avis"></div>
         </div>
     </section>
     <section class="accompagnements section-beige">

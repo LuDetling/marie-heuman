@@ -3,38 +3,38 @@ const swiper = new Swiper('.swiperAvis', {
     spaceBetween: 80,
     loop: true,
     pagination: {
-        el: ".swiper-pagination",
+        el: ".swiper-pagination-avis",
         clickable: true,
     },
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next-avis",
+        prevEl: ".swiper-button-prev-avis",
     },
 });
 
 const swiperHomeBlog = new Swiper('.swiperHomeBlog', {
     slidesPerView: 1,
-    spaceBetween: 80,
+    spaceBetween: 40,
     loop: true,
     pagination: {
-        el: ".swiper-pagination",
+        el: ".swiper-pagination-home-blog",
         clickable: true,
     },
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next-home-blog",
+        prevEl: ".swiper-button-prev-home-blog",
     },
     breakpoints: {
         768: {
             slidesPerView: 2,
-            spaceBetween: 40,
+            spaceBetween: 80,
         },
     }
 });
 
 const universSwiper = new Swiper('.universSwiper', {
     slidesPerView: 1,
-    spaceBetween: 100,
+    spaceBetween: 80,
     loop: true,
     pagination: {
         el: ".swiper-pagination",
@@ -46,7 +46,7 @@ const universSwiper = new Swiper('.universSwiper', {
 });
 const contactSwiper = new Swiper('.contactSwiper', {
     slidesPerView: 1,
-    spaceBetween: 100,
+    spaceBetween: 80,
     loop: true,
     pagination: {
         el: ".swiper-pagination",
@@ -59,7 +59,7 @@ const contactSwiper = new Swiper('.contactSwiper', {
 
 const projectSwiper = new Swiper('.swiperProjectPage', {
     slidesPerView: 1,
-    spaceBetween: 80,
+    spaceBetween: 40,
     loop: true,
     pagination: {
         el: ".swiper-pagination-projet",
@@ -74,7 +74,7 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
     breakpoints: {
         768: {
             slidesPerView: 'auto',
-            spaceBetween: 40,
+            spaceBetween: 80,
         },
     }
 });
@@ -82,7 +82,7 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
 for (let i = 0; i < 3; i++) {
     new Swiper('.swiperProjectAvantApres-' + i, {
         slidesPerView: 1,
-        spaceBetween: 80,
+        spaceBetween: 40,
         loop: true,
         pagination: {
             el: ".swiper-pagination-" + i,
@@ -97,7 +97,7 @@ for (let i = 0; i < 3; i++) {
         breakpoints: {
             768: {
                 slidesPerView: "auto",
-                spaceBetween: 40,
+                spaceBetween: 80,
             },
         }
     });
@@ -118,7 +118,7 @@ const swiperProjetsRecents = new Swiper('.swiperProjetsRecents', {
     breakpoints: {
         768: {
             slidesPerView: 2,
-            spaceBetween: 40,
+            spaceBetween: 80,
         },
     }    // mousewheel: {
     // },

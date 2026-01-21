@@ -109,6 +109,12 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'wrapper' => true,
         ],
         [
+            'title' => 'Tag',
+            'block' => 'div',
+            'classes' => 'tag-home',
+            'wrapper' => true,
+        ],
+        [
             'title' => 'Liste Orange (Conteneur)',
             'block' => 'ul', // Cible spécifiquement la balise UL
             'classes' => 'orange-list-container', // La nouvelle classe

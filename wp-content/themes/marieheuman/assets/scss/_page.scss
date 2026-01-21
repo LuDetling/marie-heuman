@@ -29,6 +29,11 @@
     }
 }
 
+.header-content-without-link {
+    h2 {
+        margin-bottom: 0 !important;
+    }
+}
 
 // END HEADER
 // ACCOMPAGNEMENT
@@ -339,5 +344,42 @@
 
     h3 {
         // font-size: 1rem;
+    }
+}
+
+.content {
+    .tag-home:not(:first-child) {
+        margin-top: 2rem;
+    }
+
+    ol {
+        list-style: lower-alpha;
+
+        >li {
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+
+            >ul {
+                font-weight: normal;
+
+                >li {
+                    >ul {
+                        >li {
+                            margin-left: 1rem;
+                            list-style: disc;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    >ul {
+        >li {
+            list-style: disc;
+            margin-left: 1rem;
+        }
     }
 }

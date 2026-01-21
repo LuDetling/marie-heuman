@@ -32,7 +32,9 @@
     &::before {
         content: '';
         width: .7rem;
+        min-width: .7rem;
         height: .7rem;
+        min-height: .7rem;
         background-color: $orange;
         border-radius: 50%;
     }
@@ -106,6 +108,7 @@ h3 {
 
             @media screen and (max-width: 767px) {
                 font-size: 1.5rem;
+
                 &::before {
                     display: none;
                 }
@@ -389,6 +392,21 @@ h3 {
 }
 
 // END APPROCHE & PHILOSOPHIE 
+// AVIS
+// .avis-accueil {
+
+//     .swiper {
+//         max-width: 1000px;
+//         margin: auto;
+
+//         .swiper-slide {
+//             padding: 2rem;
+//             border-radius: 15px;
+//         }
+//     }
+// }
+
+//END AVIS
 
 // BLOG
 .content-blog-accueil {
@@ -398,7 +416,6 @@ h3 {
     .projet-card {
         border-radius: 15px;
         overflow: hidden;
-        background-color: $white;
 
         >div {
             width: 100%;

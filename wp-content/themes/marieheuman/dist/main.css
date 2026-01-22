@@ -148,6 +148,8 @@
   color: #f6f5f2;
   border-bottom: 1px solid #f6f5f2;
   transition: 0.3s;
+  width: fit-content;
+  text-align: left;
 }
 .second-link:hover {
   color: #ece7dd;
@@ -160,6 +162,8 @@
   color: #f6f5f2;
   border-bottom: 1px solid #f6f5f2;
   transition: 0.3s;
+  width: fit-content;
+  text-align: left;
 }
 .second-link-orange:hover {
   color: #ece7dd;
@@ -172,6 +176,28 @@
 .second-link-orange:hover {
   color: #9c6338;
   border-color: #9c6338;
+}
+
+.second-link-secondary {
+  font-size: 20px;
+  display: block;
+  color: #f6f5f2;
+  border-bottom: 1px solid #f6f5f2;
+  transition: 0.3s;
+  width: fit-content;
+  text-align: left;
+}
+.second-link-secondary:hover {
+  color: #ece7dd;
+  border-color: #ece7dd;
+}
+.second-link-secondary {
+  color: #3f5e5a;
+  border-color: #3f5e5a;
+}
+.second-link-secondary:hover {
+  color: #7a8b85;
+  border-color: #7a8b85;
 }
 
 header {
@@ -1357,6 +1383,71 @@ main .more {
 .content > ul > li {
   list-style: disc;
   margin-left: 1rem;
+}
+
+.card-presse {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.card-presse img {
+  min-height: 600px;
+  max-height: 80vh;
+  object-fit: cover;
+}
+.card-presse .on-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.card-presse .on-card h2 {
+  margin-bottom: 0;
+  font-family: "Playfair Display";
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.card-presse .on-card h2::before {
+  display: none;
+}
+.card-presse .on-card .date {
+  margin-bottom: 1rem;
+}
+.card-presse .on-card .second-link-secondary {
+  font-size: 1rem;
+}
+
+.modal-box {
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+}
+.modal-box > form {
+  z-index: 10;
+}
+.modal-box > form button {
+  cursor: pointer;
+  color: #462620;
+  position: absolute;
+  right: -19px;
+  top: -24px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+.modal-box > form button:hover {
+  color: #d86a3d;
+}
+.modal-box .swiper {
+  border-radius: 15px;
+}
+.modal-box .swiper .swiper-slide {
+  width: auto;
+}
+.modal-box .swiper img {
+  width: auto;
+  border-radius: 15px;
+  max-height: 80vh;
 }
 
 #list-projets .blog-filters {

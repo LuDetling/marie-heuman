@@ -36,6 +36,11 @@
 .second-link {
     @include second-link;
 }
+
 .second-link-orange {
     @include second-link-orange;
+}
+
+.second-link-secondary {
+    @include second-link-secondary;
 }

@@ -136,6 +136,8 @@
     color: $beige;
     border-bottom: 1px solid $beige;
     transition: .3s;
+    width: fit-content;
+    text-align: left;
 
     &:hover {
         color: $white;
@@ -151,6 +153,17 @@
     &:hover {
         color: $caramel;
         border-color: $caramel;
+    }
+}
+
+@mixin second-link-secondary {
+    @include second-link;
+    color: $secondary;
+    border-color: $secondary;
+
+    &:hover {
+        color: $light-secondary;
+        border-color: $light-secondary;
     }
 }
 

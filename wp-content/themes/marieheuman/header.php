@@ -22,7 +22,7 @@
                 </div>
 
                 <!-- Accueil -->
-                <a href="<?= home_url() ?>">
+                <a href="<?= home_url() ?>" class="block p-4">
                     <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-logo-clair.png"
                         alt="logo menu" class="logo-menu-home"></a>
 

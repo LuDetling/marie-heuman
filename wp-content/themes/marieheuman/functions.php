@@ -14,6 +14,9 @@ function marieheuman_js()
     if (is_page_template('page-faq.php')) {
         wp_enqueue_script('faq-js', get_template_directory_uri() . '/assets/js/faq.js', [], false, true);
     }
+    if (is_page_template('page-presses.php')) {
+        wp_enqueue_script('presses-js', get_template_directory_uri() . '/assets/js/presses.js', [], false, true);
+    }
 }
 function marieheuman_enqueue_scripts()
 {

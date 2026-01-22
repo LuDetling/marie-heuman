@@ -1,0 +1,79 @@
+@use "globals" as *;
+
+.card-presse {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        min-height: 600px;
+        max-height: 80vh;
+        object-fit: cover;
+    }
+
+    .on-card {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        h2 {
+            margin-bottom: 0;
+            font-family: "Playfair Display";
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        .date {
+            margin-bottom: 1rem;
+        }
+
+        .second-link-secondary {
+            font-size: 1rem;
+        }
+    }
+
+}
+
+.modal-box {
+    max-width: 1200px;
+    width: 100%;
+    padding: 2rem;
+
+    >form {
+        z-index: 10;
+
+        button {
+            cursor: pointer;
+            color: $marron;
+            position: absolute;
+            right: -19px;
+            top: -24px;
+            transition: .3s;
+            font-weight: bold;
+
+            &:hover {
+                color: $orange;
+            }
+        }
+    }
+
+    .swiper {
+        border-radius: 15px;
+
+        .swiper-slide {
+            width: auto;
+        }
+
+        img {
+            width: auto;
+            border-radius: 15px;
+            max-height: 80vh;
+        }
+    }
+}

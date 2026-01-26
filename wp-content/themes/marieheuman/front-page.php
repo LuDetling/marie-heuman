@@ -128,10 +128,6 @@
         <?php
         $tag_approche_accueil = get_field('tag_approche_accueil');
         $titre_approche_accueil = get_field('titre_approche_accueil');
-        $card_1_approche_accueil = get_field('card_1_approche_accueil');
-        $card_2_approche_accueil = get_field('card_2_approche_accueil');
-        $card_3_approche_accueil = get_field('card_3_approche_accueil');
-        $card_4_approche_accueil = get_field('card_4_approche_accueil');
         ?>
 
         <span class="tag-home"><?= $tag_approche_accueil ?></span>
@@ -139,16 +135,26 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-start">
             <?php
             for ($i = 1; $i <= 4; $i++) {
-                $card_approche_accueil = get_field('card_' . $i . '_approche_accueil');
+                $card = get_field('card_' . $i . '_approche_accueil');
                 ?>
                 <div class="card-approche">
-                    <h4><?= $card_approche_accueil['titre_card_approche_accueil'] ?></h4>
-                    <div class="tag-card"><?= $card_approche_accueil['tag_card_approche_accueil'] ?></div>
+                    <div class="icone">
+                        <?php
+                        if (!empty($card['icone'])) {
+                            $icon_path = get_attached_file($card['icone']);
+                            // Vérifie si le fichier existe et l'affiche
+                            if (file_exists($icon_path)) {
+                                echo file_get_contents($icon_path);
+                            }
+                        } ?>
+                    </div>
+                    <h4><?= $card['titre_card_approche_accueil'] ?></h4>
+                    <div class="tag-card"><?= $card['tag_card_approche_accueil'] ?></div>
                     <div class="text-card">
-                        <?= $card_approche_accueil['texte_card_approche_accueil'] ?>
+                        <?= $card['texte_card_approche_accueil'] ?>
                     </div>
                     <div class="list-hide-approche">
-                        <?= $card_approche_accueil['liste_card_approche_accueil'] ?>
+                        <?= $card['liste_card_approche_accueil'] ?>
                     </div>
                 </div>
             <?php } ?>
@@ -292,6 +298,10 @@
                 foreach ($fichier_ressources as $fichier) {
                     ?>
                     <div class="card-ro-accueil gap-4 sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
+                        <div class="icone">
+                            <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
+                            ?>
+                        </div>
                         <div class="content-card-ro-accueil">
 
                             <div class="flex gap-4 title-icon">
@@ -348,7 +358,15 @@
                 ?>
                 <div class="content-groupe-contact-accueil">
                     <?php if (!empty($groupe_contact_accueil['icone'])): ?>
-                        <span class="dashicons <?= $groupe_contact_accueil['icone']; ?>"></span>
+                        <div class="dashicons">
+                            <?php
+                            $icon_path = get_attached_file($groupe_contact_accueil['icone']);
+                            // Vérifie si le fichier existe et l'affiche
+                            if (file_exists($icon_path)) {
+                                echo file_get_contents($icon_path);
+                            }
+                            ?>
+                        </div>
                     <?php endif; ?>
                     <h4>
                         <?= $groupe_contact_accueil['titre'] ?>

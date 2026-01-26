@@ -2,9 +2,9 @@
 /* Template Name: Artcicle Blog */
 get_header();
 ?>
-<main class="md:ml-20 flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap items-stretch">
+<main class="md:ml-20 pb-10 flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap items-stretch section-white">
     <!-- HEADER -->
-    <section class="left-content lg:w-6/8 section-white">
+    <section class="left-content lg:w-6/8">
         <div class="header-content-blog">
             <?php
             $content = get_field('contenu_page_blog');
@@ -26,7 +26,7 @@ get_header();
             <?= $content['contenu'] ?>
         </div>
     </section>
-    <aside class="sidebar lg:w-2/8">
+    <aside class="sidebar lg:w-2/8 section-beige">
         <?php
         $sidebar = get_field("sidebar_page_blog");
         ?>

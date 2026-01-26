@@ -552,6 +552,12 @@
                 &:hover {
                     background-color: $marron;
                     color: $beige;
+
+                    .icon {
+                        svg {
+                            fill: $beige;
+                        }
+                    }
                 }
 
                 input {
@@ -563,6 +569,16 @@
                     * {
                         display: block;
                         text-align: center;
+                    }
+                }
+
+                .icon {
+                    display: block;
+
+                    svg {
+                        fill: $marron;
+                        transition: .3s;
+                        margin: auto;
                     }
                 }
             }

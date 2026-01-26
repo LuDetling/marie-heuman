@@ -90,6 +90,22 @@ function only_search_posts($query)
 }
 add_action('pre_get_posts', 'only_search_posts');
 
+// Autoriser l'upload de fichiers SVG
+add_filter('wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+    $filetype = wp_check_filetype($filename, $mimes);
+    return [
+        'ext'             => $filetype['ext'],
+        'type'            => $filetype['type'],
+        'proper_filename' => $data['proper_filename']
+    ];
+}, 10, 4);
+
+function cc_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
 // STYLE WYSIWYG
 add_filter('mce_buttons_2', function ($buttons) {
     array_unshift($buttons, 'styleselect');

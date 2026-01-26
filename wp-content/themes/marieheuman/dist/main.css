@@ -287,8 +287,13 @@ header {
   }
 }
 .content-header > nav .calendly svg {
+  fill: #f6f5f2;
   width: 50px;
   height: 50px;
+  transition: 0.3s;
+}
+.content-header > nav .calendly svg:hover {
+  fill: #d86a3d;
 }
 .content-header .menu-menu-principal-container {
   width: 100%;
@@ -355,6 +360,9 @@ header {
 }
 .menu-plied #menu-second-menu {
   padding: 0;
+}
+.menu-plied #menu-second-menu .menu-item:last-child {
+  margin-bottom: 12px;
 }
 .menu-plied #menu-second-menu a {
   padding: 0.5rem 3rem;
@@ -632,6 +640,12 @@ h3::before {
   border-radius: 15px;
   padding: 2rem;
 }
+.content-approche .card-approche .icone {
+  margin-bottom: 0.5rem;
+}
+.content-approche .card-approche .icone svg {
+  fill: #d86a3d;
+}
 .content-approche .card-approche h4 {
   font-size: 24px;
   font-family: "Playfair Display", serif;
@@ -770,21 +784,19 @@ h3::before {
   padding: 2rem;
   border-radius: 15px;
 }
-.card-ro-accueil::after {
-  font-family: "Font Awesome 6 Free";
-  content: "\f15c";
-  font-size: 1.5rem;
-  color: #d86a3d;
-  background-color: #ece7dd;
-  min-width: 48px;
-  width: 48px;
+.card-ro-accueil .icone {
+  background-color: #f6f5f2;
   min-height: 48px;
   height: 48px;
+  min-width: 48px;
+  width: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  order: 0;
+}
+.card-ro-accueil .icone svg {
+  fill: #d86a3d;
 }
 .card-ro-accueil .content-card-ro-accueil {
   padding-right: 45px;
@@ -836,6 +848,9 @@ h3::before {
   justify-content: center;
   margin: auto;
   margin-bottom: 0.5rem;
+}
+.contact-accueil .content-groupe-contact-accueil .dashicons svg {
+  fill: #f6f5f2;
 }
 .contact-accueil .content-groupe-contact-accueil h4 {
   font-weight: bold;
@@ -942,7 +957,6 @@ main .sidebar {
   margin-top: 5rem;
   margin-right: 120px;
   padding: 2rem;
-  background-color: white;
   border-radius: 15px;
 }
 main .sidebar h3::before,
@@ -2157,12 +2171,23 @@ main .more {
   background-color: #462620;
   color: #f6f5f2;
 }
+#custom-booking-app .calendar-card .meeting-type-selector .type-option.active .icon svg, #custom-booking-app .calendar-card .meeting-type-selector .type-option:hover .icon svg {
+  fill: #f6f5f2;
+}
 #custom-booking-app .calendar-card .meeting-type-selector .type-option input {
   display: none;
 }
 #custom-booking-app .calendar-card .meeting-type-selector .type-option .option-content * {
   display: block;
   text-align: center;
+}
+#custom-booking-app .calendar-card .meeting-type-selector .type-option .icon {
+  display: block;
+}
+#custom-booking-app .calendar-card .meeting-type-selector .type-option .icon svg {
+  fill: #462620;
+  transition: 0.3s;
+  margin: auto;
 }
 #custom-booking-app .other-days {
   margin-top: 2rem;

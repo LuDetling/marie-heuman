@@ -289,6 +289,14 @@ h3 {
         border-radius: 15px;
         padding: 2rem;
 
+        .icone {
+            margin-bottom: .5rem;
+
+            svg {
+                fill: $orange;
+            }
+        }
+
         h4 {
             font-size: 24px;
             font-family: "Playfair Display", serif;
@@ -554,21 +562,20 @@ h3 {
     padding: 2rem;
     border-radius: 15px;
 
-    &::after {
-        font-family: 'Font Awesome 6 Free';
-        content: '\f15c';
-        font-size: 1.5rem;
-        color: $orange;
-        background-color: $white;
-        min-width: 48px;
-        width: 48px;
+    .icone {
+        background-color: $beige;
         min-height: 48px;
         height: 48px;
+        min-width: 48px;
+        width: 48px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        order: 0;
+
+        svg {
+            fill: $orange;
+        }
     }
 
     .content-card-ro-accueil {
@@ -635,6 +642,10 @@ h3 {
             justify-content: center;
             margin: auto;
             margin-bottom: .5rem;
+
+            svg {
+                fill: $beige;
+            }
         }
 
         h4 {

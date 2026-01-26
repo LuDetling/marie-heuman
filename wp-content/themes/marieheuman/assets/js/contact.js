@@ -141,33 +141,53 @@ document.addEventListener('DOMContentLoaded', function () {
             row.className = 'collapse calendar-card';
             row.setAttribute('data-date', dateKey);
             row.setAttribute('name', 'my-accordion-day')
-            row.innerHTML = `
-            <summary class="collapse-title date-header">${displayDate}</summary>
-            <div class="collapse-content">
-                <div class="time-slots-grid">
-                </div>
-                <hr class="trait">
-                <div class="meeting-type-selector flex-wrap md:flex-nowrap">
-                    <div class="type-option w-full md:w-1/2">
-                        <input type="radio" name="meeting_type" value="google_conference" checked>
-                        <label class="option-content" for="google_conference">
-                            <span class="icon">📹</span>
-                            <strong>Visioconférence</strong>
-                            <small>Google Meet</small>
-                        </label>
-                    </div>
 
-                    <div class="type-option w-full md:w-1/2">
-                        <input type="radio" name="meeting_type" value="outbound_call">
-                        <label class="option-content" for="outbound_call">
-                            <span class="icon">📞</span>
-                            <strong>Téléphone</strong>
-                            <small>Appel téléphonique</small>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        `;
+
+            // 1. Création du container summary (sécurisé)
+            const summary = document.createElement('summary');
+            summary.className = 'collapse-title date-header';
+            summary.textContent = displayDate; // <--- C'est ici que la sécurité joue
+
+            // 2. Création du contenu
+            const content = document.createElement('div');
+            content.className = 'collapse-content';
+
+            // 3. On injecte le reste du HTML "statique" (qui ne contient pas de variables)
+            content.innerHTML = `
+    <div class="time-slots-grid"></div>
+    <hr class="trait">
+    <div class="meeting-type-selector flex-wrap md:flex-nowrap">
+        <div class="type-option w-full md:w-1/2">
+            <input type="radio" name="meeting_type" id="google_conference_${displayDate}" value="google_conference" checked>
+            <label class="option-content" for="google_conference_${displayDate}">
+                <span class="icon">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M251.77,73a8,8,0,0,0-8.21.39L208,97.05V72a16,16,0,0,0-16-16H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V159l35.56,23.71A8,8,0,0,0,248,184a8,8,0,0,0,8-8V80A8,8,0,0,0,251.77,73ZM192,184H32V72H192V184Zm48-22.95-32-21.33V116.28L240,95Z"></path></svg>
+
+                </span>
+                <strong>Visioconférence</strong>
+                <small>Google Meet</small>
+            </label>
+        </div>
+        <div class="type-option w-full md:w-1/2">
+            <input type="radio" name="meeting_type" id="outbound_call_${displayDate}" value="outbound_call">
+            <label class="option-content" for="outbound_call_${displayDate}">
+                <span class="icon">
+                
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg>
+                
+                </span>
+                <strong>Téléphone</strong>
+                <small>Appel téléphonique</small>
+            </label>
+        </div>
+    </div>
+`;
+
+            // 4. On vide row et on assemble
+            row.innerHTML = '';
+            row.appendChild(summary);
+            row.appendChild(content);
             row.querySelector("summary").addEventListener('click', () => {
                 resetSelectedStep1()
             })

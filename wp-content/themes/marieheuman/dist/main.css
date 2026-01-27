@@ -156,7 +156,7 @@
   border-color: #ece7dd;
 }
 
-.second-link-orange {
+.second-link-orange, #page-contact .reseaux #sb_instagram #sbi_load .sbi_follow_btn a {
   font-size: 20px;
   display: block;
   color: #f6f5f2;
@@ -165,15 +165,15 @@
   width: fit-content;
   text-align: left;
 }
-.second-link-orange:hover {
+.second-link-orange:hover, #page-contact .reseaux #sb_instagram #sbi_load .sbi_follow_btn a:hover {
   color: #ece7dd;
   border-color: #ece7dd;
 }
-.second-link-orange {
+.second-link-orange, #page-contact .reseaux #sb_instagram #sbi_load .sbi_follow_btn a {
   color: #d86a3d;
   border-color: #d86a3d;
 }
-.second-link-orange:hover {
+.second-link-orange:hover, #page-contact .reseaux #sb_instagram #sbi_load .sbi_follow_btn a:hover {
   color: #9c6338;
   border-color: #9c6338;
 }
@@ -266,34 +266,43 @@ header {
 .content-header > nav .logo-menu-home {
   width: 115px;
 }
-.content-header > nav .calendly {
+.content-header > nav .content-calendly {
   width: 80px;
   height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-header > nav .content-calendly .calendly {
+  width: 46px;
+  height: 46px;
   font-size: 2rem;
   transform: rotate(90deg);
-  border-radius: 50%;
   fill: #f6f5f2;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.3s;
-}
-.content-header > nav .calendly:hover {
-  fill: #d86a3d;
+  border-radius: 50%;
+  background-color: rgba(246, 245, 242, 0.2);
+  border: 1px solid rgba(246, 245, 242, 0.2);
 }
 @media screen and (max-width: 767px) {
-  .content-header > nav .calendly {
+  .content-header > nav .content-calendly .calendly {
     transform: rotate(0);
   }
 }
-.content-header > nav .calendly svg {
-  fill: #f6f5f2;
-  width: 50px;
-  height: 50px;
-  transition: 0.3s;
+.content-header > nav .content-calendly .calendly:hover {
+  background-color: #f6f5f2;
 }
-.content-header > nav .calendly svg:hover {
-  fill: #d86a3d;
+.content-header > nav .content-calendly .calendly:hover svg {
+  fill: #462620;
+}
+.content-header > nav .content-calendly .calendly svg {
+  fill: #f6f5f2;
+  width: 32px;
+  height: 32px;
+  transition: 0.3s;
 }
 .content-header .menu-menu-principal-container {
   width: 100%;
@@ -400,7 +409,9 @@ header {
 .other-buttons-header .faq-link {
   background-color: #7a8b85;
   border: 1px solid #7a8b85;
-  color: #f6f5f2;
+}
+.other-buttons-header .faq-link svg {
+  fill: #f6f5f2;
 }
 .other-buttons-header .faq-link:hover {
   background-color: #3f5e5a;
@@ -860,17 +871,17 @@ h3::before {
   font-size: 14px;
 }
 
-.fas, footer .contact ul li.tel a::before, footer .contact ul li.loca a::before, .search::after, main .sidebar form button::before {
+.fas, .search::after, main .sidebar form button::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
 }
 
-.far, footer .contact ul li.mail a::before, main .left-content .header-content-blog .blog-meta::before {
+.far, main .left-content .header-content-blog .blog-meta::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 400;
 }
 
-.fab, footer .instagram a::before, footer #menu-reseaux .instagram a::before, footer #menu-reseaux .linkedin a::before, footer #menu-reseaux .facebook a::before, footer #menu-reseaux .pinterest a::before {
+.fab {
   font-family: "Font Awesome 6 Brands";
   font-weight: 400;
 }
@@ -1226,7 +1237,6 @@ main .more {
   padding: 3rem;
 }
 .engagements .card-engagement .dashicons {
-  color: #3f5e5a;
   background-color: rgba(63, 94, 90, 0.3);
   display: flex;
   align-items: center;
@@ -1236,6 +1246,9 @@ main .more {
   border-radius: 50%;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+.engagements .card-engagement .dashicons svg {
+  fill: #3f5e5a;
 }
 .engagements .card-engagement .titre-description h4 {
   font-family: "Playfair Display";
@@ -1572,25 +1585,12 @@ main .more {
 .left-projet li:not(:last-child) {
   margin-bottom: 0.7rem;
 }
-.left-projet li::before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  margin-right: 8px;
-}
-.left-projet .date::before {
-  content: "\f133";
-}
-.left-projet .localisation::before {
-  content: "\f3c5";
-}
-.left-projet .surface::before {
-  content: "\f424";
-}
-.left-projet .type::before {
-  content: "\f0b1";
-}
-.left-projet .tarifs::before {
-  content: "\f153";
+.left-projet li svg {
+  fill: #462620;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin-right: 0.5rem;
 }
 
 .swiperProjectPage,
@@ -1714,6 +1714,40 @@ main .more {
 #page-contact section:not(.header-content) h2::before {
   display: none;
 }
+#page-contact .reseaux h3 {
+  margin-bottom: 2rem;
+}
+#page-contact .reseaux #sb_instagram {
+  display: flex;
+  flex-direction: column;
+}
+#page-contact .reseaux #sb_instagram #sbi_images {
+  order: 2;
+}
+#page-contact .reseaux #sb_instagram #sbi_load {
+  order: 1;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+#page-contact .reseaux #sb_instagram #sbi_load .sbi_follow_btn {
+  margin-left: 0;
+}
+#page-contact .reseaux #sb_instagram #sbi_load .sbi_follow_btn a {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  color: #d86a3d;
+  padding: 0;
+  font-size: 1rem;
+}
+#page-contact .reseaux #sb_instagram #sbi_load .sbi_follow_btn a:hover {
+  background: none !important;
+  box-shadow: none !important;
+  color: #9c6338;
+}
+#page-contact .reseaux #sb_instagram #sbi_load .sbi_follow_btn a svg {
+  display: none;
+}
 #page-contact .decouverte {
   background-color: #3f5e5a;
   color: #f6f5f2;
@@ -1739,6 +1773,9 @@ main .more {
   margin: auto;
   margin-bottom: 1rem;
 }
+#page-contact .content-icone-texte .dashicons svg {
+  fill: #f6f5f2;
+}
 #page-contact .calendly-inline-widget {
   margin-top: 3rem;
 }
@@ -1751,7 +1788,6 @@ main .more {
   border-radius: 15px;
 }
 #page-contact .swiper-slide .dashicons {
-  color: #d86a3d;
   width: 48px;
   min-width: 48px;
   height: 48px;
@@ -1762,6 +1798,9 @@ main .more {
   align-items: center;
   justify-content: center;
   margin-bottom: 2rem;
+}
+#page-contact .swiper-slide .dashicons svg {
+  fill: #d86a3d;
 }
 #page-contact .swiper-slide h4 {
   font-family: "Playfair Display";
@@ -1873,6 +1912,7 @@ main .more {
   border-radius: 15px;
   width: 100%;
   padding: 0.7rem 1.5rem;
+  font-weight: normal;
 }
 #form-calendly select,
 #form-calendly ::picker(select),
@@ -2073,6 +2113,12 @@ main .more {
   margin-top: 2px;
   text-align: end;
 }
+#custom-booking-app .header-form-calendly > div > a {
+  transition: 0.3s;
+}
+#custom-booking-app .header-form-calendly > div > a:hover {
+  color: #9c6338;
+}
 #custom-booking-app .header-form-calendly .step-title {
   color: #462620;
   text-align: center;
@@ -2257,7 +2303,6 @@ main .more {
   border-radius: 15px;
 }
 #histoire .univers .swiper-slide .dashicons {
-  color: #d86a3d;
   width: 48px;
   min-width: 48px;
   height: 48px;
@@ -2268,6 +2313,9 @@ main .more {
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+}
+#histoire .univers .swiper-slide .dashicons svg {
+  fill: #d86a3d;
 }
 #histoire .univers .swiper-slide h4 {
   font-family: "Playfair Display";
@@ -2364,9 +2412,6 @@ footer h2 {
   font-size: 1rem;
   margin-bottom: 1rem;
 }
-footer .instagram a::before {
-  content: "\f16d";
-}
 footer #menu-reseaux {
   margin-top: 2rem;
   flex-direction: row;
@@ -2382,10 +2427,10 @@ footer #menu-reseaux a {
 footer #menu-reseaux a:hover {
   background: none;
 }
-footer #menu-reseaux a:hover::before {
+footer #menu-reseaux a:hover .menu-icon {
   border-color: #d86a3d;
 }
-footer #menu-reseaux a::before {
+footer #menu-reseaux a .menu-icon {
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -2397,17 +2442,10 @@ footer #menu-reseaux a::before {
   border-radius: 50%;
   transition: 0.3s;
 }
-footer #menu-reseaux .instagram a::before {
-  content: "\f16d";
-}
-footer #menu-reseaux .linkedin a::before {
-  content: "\f0e1";
-}
-footer #menu-reseaux .facebook a::before {
-  content: "\f39e";
-}
-footer #menu-reseaux .pinterest a::before {
-  content: "\f231";
+footer #menu-reseaux a .menu-icon svg {
+  fill: #f6f5f2;
+  width: 24px;
+  transition: 0.3s;
 }
 footer #menu-navigation {
   padding: 0;
@@ -2429,23 +2467,20 @@ footer .contact ul li {
 footer .contact ul li a:hover {
   color: #d86a3d;
 }
+footer .contact ul li a:hover svg {
+  fill: #d86a3d;
+}
 footer .contact ul li a {
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-footer .contact ul li.mail a::before {
-  margin-right: 0.5rem;
-  font-size: 18px;
-  content: "\f0e0";
-}
-footer .contact ul li.tel a::before {
-  margin-right: 0.5rem;
-  font-size: 18px;
-  content: "\f095";
-}
-footer .contact ul li.loca a::before {
-  margin-right: 0.5rem;
-  font-size: 18px;
-  content: "\f3c5";
+footer .contact ul li a svg {
+  display: inline-block;
+  fill: #f6f5f2;
+  width: 24px;
+  transition: 0.3s;
 }
 footer .footer-bottom {
   padding-top: 1.5rem;

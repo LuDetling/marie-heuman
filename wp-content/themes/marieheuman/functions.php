@@ -91,16 +91,43 @@ function only_search_posts($query)
 add_action('pre_get_posts', 'only_search_posts');
 
 // Autoriser l'upload de fichiers SVG
-add_filter('wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
     $filetype = wp_check_filetype($filename, $mimes);
     return [
-        'ext'             => $filetype['ext'],
-        'type'            => $filetype['type'],
+        'ext' => $filetype['ext'],
+        'type' => $filetype['type'],
         'proper_filename' => $data['proper_filename']
     ];
 }, 10, 4);
 
-function cc_mime_types($mimes) {
+
+add_filter('nav_menu_item_title', 'injecter_svg_depuis_fichier_acf', 10, 4);
+
+function injecter_svg_depuis_fichier_acf($title, $item, $args, $depth) {
+    // 1. On récupère le champ ACF (qui doit être un type "Image" ou "Fichier")
+    // 'icones_menu' est le nom de ton champ sur l'élément de menu
+    $icone_data = get_field('icones_menu', $item);
+
+    if ($icone_data) {
+        // 2. On récupère le chemin physique sur le serveur
+        // Si ton champ retourne un Array, on prend l'ID : $icone_data['ID']
+        $icon_path = get_attached_file($icone_data['icone']);
+
+        if ($icon_path && file_exists($icon_path)) {
+            // 3. On lit le contenu du SVG
+            $svg_content = file_get_contents($icon_path);
+            
+            // On retourne le SVG + le titre (caché pour l'accessibilité)
+            return '<span class="menu-icon">' . $svg_content . '</span>' . 
+                   '<span class="screen-reader-text">' . $title . '</span>';
+        }
+    }
+
+    return $title;
+}
+
+function cc_mime_types($mimes)
+{
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }

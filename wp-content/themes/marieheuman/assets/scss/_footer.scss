@@ -30,15 +30,6 @@ footer {
         margin-bottom: 1rem;
     }
 
-    .instagram {
-        a {
-            &::before {
-                content: '\f16d';
-                @extend .fab;
-            }
-        }
-    }
-
     #menu-reseaux {
         margin-top: 2rem;
         flex-direction: row;
@@ -54,12 +45,16 @@ footer {
             &:hover {
                 background: none;
 
-                &::before {
+                .menu-icon {
                     border-color: $orange;
+
+                    svg {
+                        // fill: $orange;
+                    }
                 }
             }
 
-            &::before {
+            .menu-icon {
                 font-size: 20px;
                 display: flex;
                 align-items: center;
@@ -70,44 +65,15 @@ footer {
                 border: 1px solid rgba($color: $beige, $alpha: .3);
                 border-radius: 50%;
                 transition: .3s;
-            }
-        }
 
-        .instagram {
-            a {
-                &::before {
-                    content: '\f16d';
-                    @extend .fab;
+                svg {
+                    fill: $beige;
+                    width: 24px;
+                    transition: .3s;
                 }
             }
         }
 
-        .linkedin {
-            a {
-                &::before {
-                    content: '\f0e1';
-                    @extend .fab;
-                }
-            }
-        }
-
-        .facebook {
-            a {
-                &::before {
-                    content: '\f39e';
-                    @extend .fab;
-                }
-            }
-        }
-
-        .pinterest {
-            a {
-                &::before {
-                    content: '\f231';
-                    @extend .fab;
-                }
-            }
-        }
     }
 
     #menu-navigation {
@@ -134,42 +100,23 @@ footer {
 
                 a:hover {
                     color: $orange;
+
+                    svg {
+                        fill: $orange;
+                    }
                 }
 
                 a {
                     transition: .3s;
-                }
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
 
-                &.mail {
-                    a {
-                        &::before {
-                            margin-right: .5rem;
-                            font-size: 18px;
-                            content: "\f0e0";
-                            @extend .far;
-                        }
-                    }
-                }
-
-                &.tel {
-                    a {
-                        &::before {
-                            margin-right: .5rem;
-                            font-size: 18px;
-                            content: "\f095";
-                            @extend .fas;
-                        }
-                    }
-                }
-
-                &.loca {
-                    a {
-                        &::before {
-                            margin-right: .5rem;
-                            font-size: 18px;
-                            content: "\f3c5";
-                            @extend .fas;
-                        }
+                    svg {
+                        display: inline-block;
+                        fill: $beige;
+                        width: 24px;
+                        transition: .3s;
                     }
                 }
             }

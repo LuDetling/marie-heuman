@@ -74,7 +74,15 @@ get_header();
                 if ($engagement['titre_description']) {
                     ?>
                     <div class="card-engagement section-beige">
-                        <span class="dashicons <?= $engagement['icone']; ?>"></span>
+                        <div class="dashicons">
+                            <?php
+                            $icon_path = get_attached_file($engagement['icone']);
+                            // Vérifie si le fichier existe et l'affiche
+                            if (file_exists($icon_path)) {
+                                echo file_get_contents($icon_path);
+                            }
+                            ?>
+                        </div>
                         <div class="titre-description">
                             <?= $engagement['titre_description'] ?>
                         </div>

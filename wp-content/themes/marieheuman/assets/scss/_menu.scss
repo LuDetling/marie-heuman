@@ -73,34 +73,47 @@ header {
             width: 115px;
         }
 
-        .calendly {
+        .content-calendly {
             width: 80px;
             height: 80px;
-            font-size: 2rem;
-            transform: rotate(90deg);
-            border-radius: 50%;
-            fill: $beige;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: .3s;
 
-            &:hover {
-                fill: $orange;
-            }
-
-            @media screen and (max-width: 767px) {
-                transform: rotate(0);
-            }
-
-            svg {
+            .calendly {
+                width: 46px;
+                height: 46px;
+                font-size: 2rem;
+                transform: rotate(90deg);
                 fill: $beige;
-                width: 50px;
-                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 transition: .3s;
+                border-radius: 50%;
+                // background-color: $light-secondary;
+                // border: 1px solid $light-secondary;
+                background-color: rgba($color: $beige, $alpha: .2);
+                border: 1px solid rgba($color: $beige, $alpha: .2);
+
+                @media screen and (max-width: 767px) {
+                    transform: rotate(0);
+                }
 
                 &:hover {
-                    fill: $orange;
+                    background-color: $beige;
+
+                    svg {
+
+                        fill: $marron;
+                    }
+                }
+
+                svg {
+                    fill: $beige;
+                    width: 32px;
+                    height: 32px;
+                    transition: .3s;
                 }
             }
         }
@@ -238,7 +251,11 @@ header {
     .faq-link {
         background-color: $light-secondary;
         border: 1px solid $light-secondary;
-        color: $beige;
+
+        svg {
+            fill: $beige;
+
+        }
 
         &:hover {
             background-color: $secondary;

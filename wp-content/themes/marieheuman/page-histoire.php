@@ -71,14 +71,22 @@ get_header();
                     $bloc = $univers['bloc_' . $i];
                     ?>
                     <div class="swiper-slide section-white">
-                        <span class="dashicons <?= $bloc['icone']; ?>"></span>
+                        <div class="dashicons">
+                            <?php
+                            $icon_path = get_attached_file($bloc['icone']);
+                            // Vérifie si le fichier existe et l'affiche
+                            if (file_exists($icon_path)) {
+                                echo file_get_contents($icon_path);
+                            }
+                            ?>
+                        </div>
                         <h4><?= $bloc['titre'] ?></h4>
                         <div class="texte"><?= $bloc['description'] ?></div>
                     </div>
                 <?php endfor; ?>
             </div>
         </div>
-        
+
     </section>
     <section class="contrib section-white">
         <div class="content-contrib">

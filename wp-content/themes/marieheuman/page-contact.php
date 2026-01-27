@@ -35,7 +35,15 @@ get_header();
                     // 3. Affichage sécurisé
                     ?>
                     <div class="content-icone-texte">
-                        <span class="dashicons <?= esc_attr($groupe_icone['icone']); ?>"></span>
+                        <div class="dashicons">
+                            <?php
+                            $icon_path = get_attached_file($groupe_icone['icone']);
+                            // Vérifie si le fichier existe et l'affiche
+                            if (file_exists($icon_path)) {
+                                echo file_get_contents($icon_path);
+                            }
+                            ?>
+                        </div>
                         <div class="texte"><?= $groupe_icone['description'] ?></div>
                     </div>
                     <?php
@@ -183,7 +191,15 @@ get_header();
                     <div class="swiper-slide section-white">
                         <div class="flex gap-4">
 
-                            <span class="dashicons <?= $bloc['icone']; ?>"></span>
+                            <div class="dashicons">
+                                <?php
+                                $icon_path = get_attached_file($bloc['icone']);
+                                // Vérifie si le fichier existe et l'affiche
+                                if (file_exists($icon_path)) {
+                                    echo file_get_contents($icon_path);
+                                }
+                                ?>
+                            </div>
                             <div class="content">
                                 <h4><?= $bloc['titre'] ?></h4>
                                 <div class="infos"><?= $bloc['infos'] ?></div>
@@ -203,6 +219,7 @@ get_header();
     <section class="reseaux section-beige">
         <span class="tag-home"><?= $contact['reseaux']['tag'] ?></span>
         <?= $contact['reseaux']['titre'] ?>
+        <?= do_shortcode('[instagram-feed feed=2]'); ?>
     </section>
     <section class="faq section-white">
         <span class="tag-home"><?= $contact['faq']['tag'] ?></span>

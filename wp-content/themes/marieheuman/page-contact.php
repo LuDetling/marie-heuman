@@ -128,15 +128,15 @@ get_header();
 
             <div>
                 <label for="lastname-contact" class="required">Nom</label>
-                <input id="lastname-contact" name="lastname" type="text" value="Detling">
+                <input id="lastname-contact" name="lastname" type="text">
             </div>
             <div>
                 <label for="firstname-contact" class="required">Prénom</label>
-                <input id="firstname-contact" name="firstname" type="text" value="Lucas">
+                <input id="firstname-contact" name="firstname" type="text">
             </div>
             <div>
                 <label for="email-contact" class="required">Email</label>
-                <input id="email-contact" name="email" type="text" value="lucas.detling@gmail.com">
+                <input id="email-contact" name="email" type="text">
             </div>
             <div>
                 <label for="phone-contact" class="required">Téléphone</label>

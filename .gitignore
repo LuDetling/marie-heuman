@@ -48,3 +48,5 @@ wp-config.php
 #/wp-content/themes
 
 id_rsa*
+.htaccess.wpmanager.bkp
+error_log

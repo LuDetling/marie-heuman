@@ -30,7 +30,8 @@ get_header();
         <?php
         $sidebar = get_field("sidebar_page_blog");
         ?>
-        <h2>Histoires d'interieurs</h2>
+        <img src="<?= get_template_directory_uri() ?>/assets/images/histoires-interieurs.png"
+            alt="logo histoires intérieurs" class="sidebar-decorative-img mb-8">
         <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
             <label for="s"> Recherchez un sujet, un mot-clé ou une inspiration parmi les
                 articles du blog.

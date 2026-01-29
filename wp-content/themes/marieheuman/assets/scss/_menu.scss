@@ -91,22 +91,15 @@ header {
                 justify-content: center;
                 transition: .3s;
                 border-radius: 50%;
-                // background-color: $light-secondary;
-                // border: 1px solid $light-secondary;
-                background-color: rgba($color: $beige, $alpha: .2);
-                border: 1px solid rgba($color: $beige, $alpha: .2);
+                background-color: $orange;
+                border: $orange;
 
                 @media screen and (max-width: 767px) {
                     transform: rotate(0);
                 }
 
                 &:hover {
-                    background-color: $beige;
-
-                    svg {
-
-                        fill: $marron;
-                    }
+                    background-color: $caramel;
                 }
 
                 svg {

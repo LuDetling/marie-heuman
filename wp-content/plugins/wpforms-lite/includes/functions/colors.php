@@ -14,11 +14,11 @@
  *
  * @param mixed  $color Color value.
  * @param string $dark  Dark color value (default: '#000000').
- * @param string $light Light color value (default: '#FFFFFF').
+ * @param string $white Light color value (default: '#FFFFFF').
  *
  * @return string
  */
-function wpforms_light_or_dark( $color, $dark = '#000000', $light = '#FFFFFF' ) {
+function wpforms_light_or_dark( $color, $dark = '#000000', $white = '#FFFFFF' ) {
 
 	$hex = str_replace( '#', '', $color );
 
@@ -28,7 +28,7 @@ function wpforms_light_or_dark( $color, $dark = '#000000', $light = '#FFFFFF' ) 
 
 	$brightness = ( ( $c_r * 299 ) + ( $c_g * 587 ) + ( $c_b * 114 ) ) / 1000;
 
-	return $brightness > 155 ? $dark : $light;
+	return $brightness > 155 ? $dark : $white;
 }
 
 /**
@@ -152,14 +152,14 @@ function wpforms_hex_darker( $color, $factor = 30 ) {
  * @since 1.8.5
  *
  * @param string $color        The original color value. Color hex value.
- * @param int    $light_factor The factor to lighten the color.
+ * @param int    $white_factor The factor to lighten the color.
  * @param int    $dark_factor  The factor to darken the color.
  *
  * @return string The contrasting color value.
  */
-function wpforms_generate_contrasting_color( $color, $light_factor = 30, $dark_factor = 30 ) {
+function wpforms_generate_contrasting_color( $color, $white_factor = 30, $dark_factor = 30 ) {
 
 	$is_dark = wpforms_light_or_dark( $color, 'light', 'dark' ) === 'dark';
 
-	return $is_dark ? wpforms_hex_lighter( $color, $light_factor ) : wpforms_hex_darker( $color, $dark_factor );
+	return $is_dark ? wpforms_hex_lighter( $color, $white_factor ) : wpforms_hex_darker( $color, $dark_factor );
 }

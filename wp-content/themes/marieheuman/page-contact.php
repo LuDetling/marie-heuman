@@ -189,7 +189,7 @@ get_header();
                     $bloc = $collaboration['groupe_collaboration']['collaboration_' . $i];
                     ?>
                     <div class="swiper-slide section-white">
-                        <div class="flex gap-4">
+                        <div class="flex flex-wrap md:flex-nowrap gap-4">
 
                             <div class="dashicons">
                                 <?php

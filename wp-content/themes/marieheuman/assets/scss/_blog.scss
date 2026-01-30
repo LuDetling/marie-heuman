@@ -55,6 +55,11 @@ main {
   .left-content {
     padding-right: 0;
 
+    @media screen and (max-width: 767px) {
+      padding-top: 99px;
+      padding-right: 20px;
+    }
+
     .header-content-blog {
       .blog-meta {
         color: $secondary;
@@ -115,6 +120,17 @@ main {
     margin-right: 120px;
     padding: 2rem;
     border-radius: 15px;
+
+    .sidebar-decorative-img {
+      margin-inline: auto;
+      max-width: 300px;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-top: 0;
+      margin-inline: 20px;
+      padding: 20px;
+    }
 
     h3,
     h2 {

@@ -934,6 +934,12 @@ main {
 main .left-content {
   padding-right: 0;
 }
+@media screen and (max-width: 767px) {
+  main .left-content {
+    padding-top: 99px;
+    padding-right: 20px;
+  }
+}
 main .left-content .header-content-blog .blog-meta {
   color: #3f5e5a;
   margin-block: 1.5rem;
@@ -979,6 +985,17 @@ main .sidebar {
   margin-right: 120px;
   padding: 2rem;
   border-radius: 15px;
+}
+main .sidebar .sidebar-decorative-img {
+  margin-inline: auto;
+  max-width: 300px;
+}
+@media screen and (max-width: 767px) {
+  main .sidebar {
+    margin-top: 0;
+    margin-inline: 20px;
+    padding: 20px;
+  }
 }
 main .sidebar h3::before,
 main .sidebar h2::before {

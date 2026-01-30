@@ -247,13 +247,17 @@
     }
 
     .card-collaboration {
-        padding: 2rem 3rem;
+        padding: 3rem;
         border-radius: 15px;
         max-width: 1000px;
         margin: auto;
         display: none;
         transition: .3s;
         margin-bottom: 5rem;
+
+        @media screen and (max-width: 767px) {
+            padding: 20px;
+        }
 
         &.active-collaboration {
             display: block;

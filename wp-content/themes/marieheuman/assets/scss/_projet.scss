@@ -81,6 +81,10 @@
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
 
+            @media screen and (max-width: 767px) {
+                padding: 20px;
+            }
+
             h4 {
                 font-family: 'Playfair Display';
                 font-size: 24px;
@@ -149,11 +153,11 @@
     padding: 2rem;
     border-radius: 15px;
 
-    li {
-        // display: flex;
-        // align-items: center;
-        // gap: .5rem;
+    @media screen and (max-width: 767px) {
+        padding: 20px;
+    }
 
+    li {
         &:not(:last-child) {
             margin-bottom: .7rem;
         }
@@ -194,10 +198,14 @@
 .page-projet {
 
     .parti-pris {
-        padding: 2rem;
+        padding: 3rem;
         max-width: 1000px;
         margin: auto;
         border-radius: 15px;
+
+        @media screen and (max-width: 767px) {
+            padding: 20px;
+        }
 
         p:not(:last-child) {
             margin-bottom: 1rem;

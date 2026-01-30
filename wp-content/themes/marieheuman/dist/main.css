@@ -910,6 +910,11 @@ h3::before {
 .articles .card-article .text-card {
   padding: 2rem 3rem;
 }
+@media screen and (max-width: 767px) {
+  .articles .card-article .text-card {
+    padding: 20px;
+  }
+}
 .articles .card-article .text-card h4 {
   font-family: "Playfair Display", serif;
   font-size: 24px;
@@ -1341,13 +1346,18 @@ main .more {
   cursor: initial;
 }
 .collaboration .card-collaboration {
-  padding: 2rem 3rem;
+  padding: 3rem;
   border-radius: 15px;
   max-width: 1000px;
   margin: auto;
   display: none;
   transition: 0.3s;
   margin-bottom: 5rem;
+}
+@media screen and (max-width: 767px) {
+  .collaboration .card-collaboration {
+    padding: 20px;
+  }
 }
 .collaboration .card-collaboration.active-collaboration {
   display: block;
@@ -1465,6 +1475,12 @@ main .more {
   bottom: 0;
   left: 0;
   width: 100%;
+  padding: 2rem 3rem;
+}
+@media screen and (max-width: 767px) {
+  .card-presse .on-card {
+    padding: 20px;
+  }
 }
 .card-presse .on-card h2 {
   margin-bottom: 0;
@@ -1576,6 +1592,11 @@ main .more {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
+@media screen and (max-width: 767px) {
+  #list-projets .card-article .text-card {
+    padding: 20px;
+  }
+}
 #list-projets .card-article .text-card h4 {
   font-family: "Playfair Display";
   font-size: 24px;
@@ -1624,6 +1645,11 @@ main .more {
   padding: 2rem;
   border-radius: 15px;
 }
+@media screen and (max-width: 767px) {
+  .left-projet {
+    padding: 20px;
+  }
+}
 .left-projet li:not(:last-child) {
   margin-bottom: 0.7rem;
 }
@@ -1655,10 +1681,15 @@ main .more {
 }
 
 .page-projet .parti-pris {
-  padding: 2rem;
+  padding: 3rem;
   max-width: 1000px;
   margin: auto;
   border-radius: 15px;
+}
+@media screen and (max-width: 767px) {
+  .page-projet .parti-pris {
+    padding: 20px;
+  }
 }
 .page-projet .parti-pris p:not(:last-child) {
   margin-bottom: 1rem;
@@ -1829,6 +1860,11 @@ main .more {
   padding: 3rem;
   border-radius: 15px;
 }
+@media screen and (max-width: 767px) {
+  #page-contact .swiper-slide {
+    padding: 20px;
+  }
+}
 #page-contact .swiper-slide .dashicons {
   width: 48px;
   min-width: 48px;
@@ -1899,6 +1935,11 @@ main .more {
   padding: 3rem;
   max-width: 1000px;
   margin: auto;
+}
+@media screen and (max-width: 767px) {
+  #page-contact .soutiens .content-soutiens {
+    padding: 20px;
+  }
 }
 #page-contact .soutiens .content-soutiens h2 {
   margin-bottom: 1rem;
@@ -2356,6 +2397,11 @@ main .more {
   padding: 3rem;
   border-radius: 15px;
 }
+@media screen and (max-width: 767px) {
+  #histoire .univers .swiper-slide {
+    padding: 20px;
+  }
+}
 #histoire .univers .swiper-slide .dashicons {
   width: 48px;
   min-width: 48px;
@@ -2426,6 +2472,11 @@ main .more {
   padding: 3rem;
   max-width: 1000px;
   margin: auto;
+}
+@media screen and (max-width: 767px) {
+  #histoire .contrib .content-contrib {
+    padding: 20px;
+  }
 }
 #histoire .contrib .content-contrib h2 {
   margin-bottom: 1rem;

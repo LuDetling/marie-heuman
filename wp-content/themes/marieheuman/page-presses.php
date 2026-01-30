@@ -42,7 +42,7 @@ function transformer_en_swiper_slides($content)
                         <div class="img">
                             <img src="<?= $presse['image']['url'] ?>" alt="<?= $presse['image']['alt'] ?>">
                         </div>
-                        <div class="on-card section-white lg:p-8 md:p-6 p-4">
+                        <div class="on-card section-white">
                             <h2><?= the_title() ?></h2>
                             <div class="date">
                                 <?= $presse['date'] ?>

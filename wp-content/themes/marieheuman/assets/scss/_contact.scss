@@ -114,6 +114,10 @@
         padding: 3rem;
         border-radius: 15px;
 
+        @media screen and (max-width: 767px) {
+            padding: 20px;
+        }
+
         .dashicons {
             width: 48px;
             min-width: 48px;
@@ -199,6 +203,10 @@
             padding: 3rem;
             max-width: 1000px;
             margin: auto;
+
+            @media screen and (max-width: 767px) {
+                padding: 20px;
+            }
 
             h2 {
                 margin-bottom: 1rem;

@@ -128,7 +128,7 @@ function transformer_en_swiper_slides($content)
         ?>
         <section class="votre-projet">
             <?= $votreProjet['titre'] ?>
-            <div class="flex gap-8 items-center">
+            <div class="flex gap-8 items-center flex-wrap">
                 <a href="<?= $votreProjet['lien_1']['url'] ?>"
                     class="orange-button"><?= $votreProjet['lien_1']['title'] ?></a>
                 <a href="<?= $votreProjet['lien_2']['url'] ?>"

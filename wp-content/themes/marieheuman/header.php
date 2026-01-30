@@ -11,7 +11,7 @@
 
     <header>
         <div class="content-header">
-            <nav class="flex items-center flex-row-reverse gap-8">
+            <nav class="flex items-center md:flex-row-reverse gap-8">
                 <!-- Menu -->
                 <div class="content-logo-menu">
                     <button id="menu-toggle" class="cursor-pointer" aria-expanded="false" aria-controls="main-menu">

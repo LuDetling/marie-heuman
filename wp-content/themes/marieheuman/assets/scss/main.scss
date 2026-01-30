@@ -30,6 +30,12 @@ section {
 
 }
 
+@media screen and (max-width: 767px) {
+    .header-content {
+        padding-top: 99px;
+    }
+}
+
 .section-white {
     position: relative;
     background-color: $beige;
@@ -95,14 +101,14 @@ section {
 // STYLE WYSIWYG
 .white-block {
     background-color: $beige;
-    border-radius: 30px;
+    border-radius: 15px;
     padding: 1.5rem;
     color: $marron;
 }
 
 .beige-block {
     background-color: $white;
-    border-radius: 30px;
+    border-radius: 15px;
     padding: 1.5rem;
     color: $marron;
 }
@@ -123,7 +129,7 @@ section {
     li {
         color: $orange;
         background-color: $white;
-        border-radius: 30px;
+        border-radius: 15px;
         padding: .5rem 1.5rem;
         display: inline-block;
     }

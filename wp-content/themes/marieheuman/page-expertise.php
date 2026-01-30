@@ -101,9 +101,14 @@ get_header();
         ?>
         <span class="tag-page"><?= $collaboration_expertise_accompagnement["tag"] ?></span>
         <?= $collaboration_expertise_accompagnement["titre_description"] ?>
-        <div class="flex gap-10 md:gap-20 justify-center">
+        <div class="flex gap-5 md:gap-10 justify-center selectors items-center">
             <?php for ($i = 1; $i < 4; $i++) { ?>
                 <button class="selector-slide<?= $i == 1 ? ' active-border-marron-button' : '' ?>"><?= $i ?></button>
+                <?php
+                if ($i < 3) { ?>
+                    <div class="point"></div>
+                <?php }
+                ?>
             <?php } ?>
         </div>
         <?php for ($i = 1; $i < 4; $i++) {
@@ -111,7 +116,7 @@ get_header();
                 ?>
             <div id="card-collaboration-<?= $i ?>"
                 class="section-white card-collaboration<?= $i == 1 ? ' active-collaboration' : '' ?>">
-                <div class="flex gap-8">
+                <div class="flex flex-wrap md:flex-nowrap gap-5 md:gap-10">
                     <span class="dashicons <?= $collaboration['icone']; ?>"></span>
                     <div>
                         <h4><?= $collaboration['titre']; ?></h4>
@@ -144,7 +149,11 @@ get_header();
                 $ressource = $ressources_expertise_accompagnement['ressource_' . $i];
                 ?>
                 <!-- //new -->
-                <div class="card-ro-accueil gap-8 flex w-full">
+                <div class="card-ro-accueil gap-4 sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
+                    <div class="icone">
+                        <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
+                        ?>
+                    </div>
                     <div class="content-card-ro-accueil">
 
                         <div class="flex gap-4 title-icon">

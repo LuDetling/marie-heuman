@@ -279,7 +279,6 @@ header {
   font-size: 2rem;
   transform: rotate(90deg);
   fill: #f6f5f2;
-  display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.3s;
@@ -353,6 +352,7 @@ header {
   font-size: 18px;
   padding: 0.5rem 3rem;
   text-transform: uppercase;
+  color: #f6f5f2;
 }
 .menu-plied #menu-menu-principal > li .sub-menu::before {
   display: none;
@@ -374,6 +374,7 @@ header {
   padding: 0.5rem 3rem;
   background: none;
   text-transform: uppercase;
+  color: #f6f5f2;
 }
 .menu-plied #menu-second-menu a:hover {
   color: #d86a3d;
@@ -393,7 +394,6 @@ header {
   right: 1rem;
 }
 .other-buttons-header .calendly-link {
-  fill: #f6f5f2;
   background-color: #d86a3d;
   border: 1px solid #d86a3d;
 }
@@ -401,6 +401,7 @@ header {
   background-color: #9c6338;
 }
 .other-buttons-header .calendly-link svg {
+  fill: #f6f5f2;
   width: 2rem;
 }
 .other-buttons-header .faq-link {
@@ -650,6 +651,14 @@ h3::before {
 }
 .content-approche .card-approche .icone {
   margin-bottom: 0.5rem;
+  width: fit-content;
+  background-color: #ece7dd;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .content-approche .card-approche .icone svg {
   fill: #d86a3d;
@@ -718,7 +727,6 @@ h3::before {
   color: #f6f5f2;
   padding: 2rem;
   border-radius: 15px;
-  width: 90%;
   max-width: 1000px;
   margin-inline: auto;
 }
@@ -791,6 +799,11 @@ h3::before {
   background-color: white;
   padding: 2rem;
   border-radius: 15px;
+}
+@media screen and (max-width: 767px) {
+  .card-ro-accueil {
+    padding: 20px;
+  }
 }
 .card-ro-accueil .icone {
   background-color: #f6f5f2;
@@ -1047,7 +1060,6 @@ main .more {
 
 .search {
   position: relative;
-  width: 90%;
   max-width: 1000px;
   margin: auto;
   display: flex;
@@ -1174,8 +1186,16 @@ main .more {
   justify-content: center;
   font-size: 18px;
 }
+@media screen and (max-width: 1200px) {
+  .accompagnements .accompagnement .left-accompagnement .index {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: -15px;
+  }
+}
 .accompagnements .accompagnement .left-accompagnement img {
-  border-radius: 30px;
+  border-radius: 15px;
   border-top-left-radius: 0;
   height: 100%;
   object-fit: cover;
@@ -1230,8 +1250,13 @@ main .more {
   color: #462620;
 }
 .engagements .card-engagement {
-  border-radius: 30px;
+  border-radius: 15px;
   padding: 3rem;
+}
+@media screen and (max-width: 767px) {
+  .engagements .card-engagement {
+    padding: 20px;
+  }
 }
 .engagements .card-engagement .dashicons {
   background-color: rgba(63, 94, 90, 0.3);
@@ -1267,7 +1292,7 @@ main .more {
 .collaboration > p {
   max-width: 1000px;
 }
-.collaboration .selector-slide {
+.collaboration .selectors .selector-slide {
   color: #462620;
   border: 1px solid #462620;
   display: flex;
@@ -1283,28 +1308,24 @@ main .more {
   cursor: pointer;
   transition: 0.3s;
 }
-.collaboration .selector-slide.active-border-marron-button {
+.collaboration .selectors .selector-slide.active-border-marron-button {
   color: #f6f5f2;
 }
-.collaboration .selector-slide:hover {
+.collaboration .selectors .selector-slide:hover {
   background-color: #462620;
   color: #f6f5f2;
 }
-.collaboration .selector-slide:not(:last-child)::after {
-  content: "";
+.collaboration .selectors .point {
   width: 10px;
   height: 10px;
   background-color: #462620;
   display: block;
-  position: absolute;
-  right: -37px;
   border-radius: 50%;
   cursor: initial;
 }
 .collaboration .card-collaboration {
   padding: 2rem 3rem;
-  border-radius: 30px;
-  width: 90%;
+  border-radius: 15px;
   max-width: 1000px;
   margin: auto;
   display: none;
@@ -1348,13 +1369,17 @@ main .more {
   display: block;
 }
 .collaboration .reservation {
-  width: 90%;
   max-width: 1000px;
   margin: auto;
   padding: 2rem 3rem;
   background-color: #3f5e5a;
-  border-radius: 30px;
+  border-radius: 15px;
   color: #f6f5f2;
+}
+@media screen and (max-width: 767px) {
+  .collaboration .reservation {
+    padding: 20px;
+  }
 }
 .collaboration .reservation h2 {
   margin-bottom: 1.5rem;
@@ -1378,14 +1403,13 @@ main .more {
 
 #expertise section:not(.header-content) h2 {
   margin-bottom: 0.5rem;
+  font-size: 36px;
+  font-family: "Playfair Display";
 }
 #expertise section:not(.header-content) h2::before {
   display: none;
 }
-#expertise h2 {
-  font-size: 36px;
-  font-family: "Playfair Display";
-}
+
 .content .tag-home:not(:first-child) {
   margin-top: 2rem;
 }
@@ -1557,7 +1581,6 @@ main .more {
 }
 
 .swiperAvis {
-  width: 90%;
   max-width: 1000px;
   margin-top: 3rem;
 }
@@ -1565,6 +1588,11 @@ main .more {
   background-color: #ece7dd;
   border-radius: 15px;
   padding: 3rem;
+}
+@media screen and (max-width: 767px) {
+  .swiperAvis .swiper-slide {
+    padding: 20px;
+  }
 }
 .swiperAvis .swiper-slide .nom {
   margin-top: 1.5rem;
@@ -2503,6 +2531,11 @@ section {
   overflow: hidden;
 }
 
+@media screen and (max-width: 767px) {
+  .header-content {
+    padding-top: 99px;
+  }
+}
 .section-white {
   position: relative;
   background-color: #f6f5f2;
@@ -2554,14 +2587,14 @@ section {
 
 .white-block {
   background-color: #f6f5f2;
-  border-radius: 30px;
+  border-radius: 15px;
   padding: 1.5rem;
   color: #462620;
 }
 
 .beige-block {
   background-color: #ece7dd;
-  border-radius: 30px;
+  border-radius: 15px;
   padding: 1.5rem;
   color: #462620;
 }
@@ -2578,7 +2611,7 @@ section {
 .orange-list-container li {
   color: #d86a3d;
   background-color: #ece7dd;
-  border-radius: 30px;
+  border-radius: 15px;
   padding: 0.5rem 1.5rem;
   display: inline-block;
 }

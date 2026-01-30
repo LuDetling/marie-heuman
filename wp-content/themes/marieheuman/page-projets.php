@@ -111,7 +111,7 @@ get_header();
     <section class="accompagnements section-beige">
         <div class="titre">
             <?= $content['accompagnements']['titre'] ?>
-            <div class="flex gap-8 mt-12 items-center">
+            <div class="flex gap-8 mt-12 items-center flex-wrap">
                 <a href="<?= $content['accompagnements']['lien_1']['url'] ?>"
                     target="<?= $content['accompagnements']['lien_1']['target'] ?>"
                     class="orange-button"><?= $content['accompagnements']['lien_1']['title'] ?></a>

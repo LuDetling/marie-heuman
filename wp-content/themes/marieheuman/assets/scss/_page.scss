@@ -73,10 +73,18 @@
                 align-items: center;
                 justify-content: center;
                 font-size: 18px;
+
+                @media screen and (max-width: 1200px) {
+                    width: 30px;
+                    height: 30px;
+                    top: -15px;
+                    left: -15px;
+                }
+
             }
 
             img {
-                border-radius: 30px;
+                border-radius: 15px;
                 border-top-left-radius: 0;
                 height: 100%;
                 object-fit: cover;
@@ -146,9 +154,13 @@
     color: $marron;
 
     .card-engagement {
-        border-radius: 30px;
+        border-radius: 15px;
         // background-color: $beige;
         padding: 3rem;
+
+        @media screen and (max-width: 767px) {
+            padding: 20px;
+        }
 
         .dashicons {
             background-color: rgba($color: $secondary, $alpha: .3);
@@ -196,39 +208,39 @@
         max-width: 1000px;
     }
 
-    .selector-slide {
-        color: $marron;
-        border: 1px solid $marron;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        width: 46px;
-        height: 46px;
-        position: relative;
-        border-radius: 50%;
-        margin-block: 3rem;
-        padding: 0;
-        cursor: pointer;
-        transition: .3s;
+    .selectors {
+        .selector-slide {
+            color: $marron;
+            border: 1px solid $marron;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            width: 46px;
+            height: 46px;
+            position: relative;
+            border-radius: 50%;
+            margin-block: 3rem;
+            padding: 0;
+            cursor: pointer;
+            transition: .3s;
 
-        &.active-border-marron-button {
-            color: $beige;
+            &.active-border-marron-button {
+                color: $beige;
+            }
+
+            &:hover {
+                background-color: $marron;
+                color: $beige;
+            }
+
         }
 
-        &:hover {
-            background-color: $marron;
-            color: $beige;
-        }
-
-        &:not(:last-child)::after {
-            content: "";
+        .point {
             width: 10px;
             height: 10px;
             background-color: $marron;
             display: block;
-            position: absolute;
-            right: -37px;
             border-radius: 50%;
             cursor: initial;
         }
@@ -236,8 +248,7 @@
 
     .card-collaboration {
         padding: 2rem 3rem;
-        border-radius: 30px;
-        width: 90%;
+        border-radius: 15px;
         max-width: 1000px;
         margin: auto;
         display: none;
@@ -288,13 +299,16 @@
     }
 
     .reservation {
-        width: 90%;
         max-width: 1000px;
         margin: auto;
         padding: 2rem 3rem;
         background-color: $secondary;
-        border-radius: 30px;
+        border-radius: 15px;
         color: $beige;
+
+        @media screen and (max-width: 767px) {
+            padding: 20px;
+        }
 
         h2 {
             margin-bottom: 1.5rem;
@@ -330,23 +344,13 @@
     section:not(.header-content) {
         h2 {
             margin-bottom: .5rem;
+            font-size: 36px;
+            font-family: "Playfair Display";
 
             &::before {
                 display: none;
             }
         }
-    }
-
-    h2 {
-        // margin-bottom: 1.5rem;
-        // color: $beige;
-        font-size: 36px;
-        font-family: "Playfair Display";
-
-    }
-
-    h3 {
-        // font-size: 1rem;
     }
 }
 

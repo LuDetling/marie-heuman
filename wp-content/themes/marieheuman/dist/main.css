@@ -1916,6 +1916,15 @@ main .more {
   margin-top: 2rem;
 }
 
+.form-contact {
+  padding: 3rem;
+}
+@media screen and (max-width: 767px) {
+  .form-contact {
+    padding: 20px;
+  }
+}
+
 #form-calendly,
 #form-contact {
   display: grid;
@@ -2090,7 +2099,6 @@ main .more {
 }
 
 #form-contact {
-  padding: 3rem;
   border-radius: 15px;
 }
 #form-contact input,
@@ -2149,6 +2157,11 @@ main .more {
   margin-top: 3rem;
   max-width: 1000px;
   margin-inline: auto;
+}
+@media screen and (max-width: 767px) {
+  #custom-booking-app {
+    padding: 20px;
+  }
 }
 #custom-booking-app .header-form-calendly > div {
   width: 133px;

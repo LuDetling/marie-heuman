@@ -224,11 +224,14 @@
             margin-top: 2rem;
         }
     }
+}
 
+.form-contact {
+    padding: 3rem;
 
-
-
-
+    @media screen and (max-width: 767px) {
+        padding: 20px;
+    }
 }
 
 #form-calendly,
@@ -406,7 +409,6 @@
 }
 
 #form-contact {
-    padding: 3rem;
     border-radius: 15px;
 
     input,
@@ -479,6 +481,10 @@
     margin-top: 3rem;
     max-width: 1000px;
     margin-inline: auto;
+
+    @media screen and (max-width: 767px) {
+        padding: 20px;
+    }
 
     .header-form-calendly {
         >div {

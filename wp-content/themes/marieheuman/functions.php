@@ -359,6 +359,16 @@ function get_calendly_spots()
     wp_send_json_success($data); // Renvoie le JSON propre au Javascript
 }
 
+/**
+ * Supprime les espaces insécables (&nbsp;) des titres
+ */
+function mh_clean_title_nbsp($title) {
+    // On remplace l'entité HTML et le caractère hexadécimal correspondant
+    $title = str_replace(array('&nbsp;', "\xc2\xa0"), ' ', $title);
+    return trim($title);
+}
+add_filter('the_title', 'mh_clean_title_nbsp');
+
 function get_calendly_form()
 {
     // 1. TA CONFIGURATION SECRÈTE

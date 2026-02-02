@@ -48,7 +48,7 @@
                     width="<?= esc_attr($image_ma_vision['width']); ?>"
                     height="<?= esc_attr($image_ma_vision['height']); ?>">
             </div>
-            <div class="texte-ma-vision lg:w-6/10">
+            <div class="texte-ma-vision lg:w-6/10 pt-4 lg:py-4">
                 <?= $texte_ma_vision ?>
                 <div class="mt-8">
                     <a href="<?= esc_url($plus_ma_vision['url']) ?>"
@@ -153,8 +153,13 @@
                     <div class="text-card">
                         <?= $card['texte_card_approche_accueil'] ?>
                     </div>
-                    <div class="list-hide-approche">
-                        <?= $card['liste_card_approche_accueil'] ?>
+                    <div class="list-approche">
+                        <button class="show-approche"></button>
+                        <!-- <button class="hide-approche hidden"></button> -->
+                        <div class="list-hide-approche">
+                            <div class="trait"></div>
+                            <?= $card['liste_card_approche_accueil'] ?>
+                        </div>
                     </div>
                 </div>
             <?php } ?>

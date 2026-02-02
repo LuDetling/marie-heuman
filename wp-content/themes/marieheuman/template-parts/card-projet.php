@@ -6,6 +6,10 @@ $projet = get_field('projet');
         <img src="<?= esc_url($projet['image']['url']); ?>" alt="<?= esc_attr($projet['image']['alt']); ?>"
             width="<?= esc_attr($projet['image']['width']); ?>" height="<?= esc_attr($projet['image']['height']); ?>">
     <?php endif; ?>
+    <div class="show-hide">
+        <button class="show">+</button>
+        <button class="hide">-</button>
+    </div>
     <div class="text-card section-white">
         <h4><?php the_title(); ?></h4>
         <?= $projet['description'] ?>

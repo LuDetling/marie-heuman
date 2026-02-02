@@ -9,14 +9,18 @@
         font-size: 48px;
         font-family: 'Playfair Display';
         color: $marron;
+
+        @media screen and (max-width: 767px) {
+            font-size: 2rem;
+            line-height: normal;
+        }
     }
 
     h2 {
-        font-family: 'Roboto';
+        font-family: 'Roboto' !important;
         display: flex;
-        align-items: center;
         color: $marron;
-        font-size: 20px;
+        font-size: 20px !important;
         gap: 13px;
         margin-bottom: 3.5rem;
 
@@ -25,6 +29,7 @@
             width: 50px;
             height: 1px;
             background-color: $marron;
+            margin-top: 11px;
         }
     }
 }
@@ -51,7 +56,9 @@
     }
 
     .accompagnement {
-        margin-bottom: 5rem;
+        &:not(:last-child) {
+            margin-bottom: 5rem;
+        }
 
         &:nth-child(even) {
             flex-direction: row-reverse;
@@ -163,7 +170,8 @@
         }
 
         .dashicons {
-            background-color: rgba($color: $secondary, $alpha: .3);
+            background-color: $beige;
+            border: 1px solid $beige;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -174,7 +182,7 @@
             margin-bottom: 1rem;
 
             svg {
-                fill: $secondary;
+                fill: $orange;
             }
         }
 
@@ -343,20 +351,6 @@
 }
 
 // END RESSOURCES
-
-#expertise {
-    section:not(.header-content) {
-        h2 {
-            margin-bottom: .5rem;
-            font-size: 36px;
-            font-family: "Playfair Display";
-
-            &::before {
-                display: none;
-            }
-        }
-    }
-}
 
 .content {
     .tag-home:not(:first-child) {

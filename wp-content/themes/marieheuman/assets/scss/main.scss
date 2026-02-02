@@ -14,13 +14,14 @@
 * {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
+    line-height: normal;
 }
 
 section {
     padding: 5rem 160px;
 
     @media screen and (max-width: 1200px) {
-        padding: 2rem 20px;
+        padding: 4rem 20px;
 
     }
 
@@ -164,31 +165,38 @@ main:not(.front-page) {
 
         @media screen and (max-width: 767px) {
             font-size: 2rem;
+            line-height: normal;
         }
     }
 
+    // h2 {
+    //     font-family: 'Roboto';
+    //     display: flex;
+    //     align-items: center;
+    //     color: $marron;
+    //     font-size: 20px;
+    //     gap: 13px;
+    //     margin-bottom: 3.5rem;
+
+    //     &::before {
+    //         content: "";
+    //         width: 50px;
+    //         height: 1px;
+    //         background-color: $marron;
+    //     }
+
+    //     @media screen and (max-width: 767px) {
+    //         &::before {
+    //             display: none;
+    //         }
+
+    //     }
+    // }
+
     h2 {
-        font-family: 'Roboto';
-        display: flex;
-        align-items: center;
+        font-family: 'Playfair Display';
         color: $marron;
-        font-size: 20px;
-        gap: 13px;
-        margin-bottom: 3.5rem;
-
-        &::before {
-            content: "";
-            width: 50px;
-            height: 1px;
-            background-color: $marron;
-        }
-
-        @media screen and (max-width: 767px) {
-            &::before {
-                display: none;
-            }
-
-        }
+        font-size: 2rem;
     }
 }
 

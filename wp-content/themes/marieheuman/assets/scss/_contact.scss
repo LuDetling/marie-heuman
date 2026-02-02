@@ -3,20 +3,6 @@
 @use "fontawesome";
 
 #page-contact {
-    section:not(.header-content) {
-
-        h2 {
-
-            font-family: 'Playfair Display';
-            font-size: 36px;
-            margin-bottom: 0;
-
-            &::before {
-                display: none;
-            }
-        }
-    }
-
     .reseaux {
         h3 {
             margin-bottom: 2rem;
@@ -28,6 +14,10 @@
 
             #sbi_images {
                 order: 2;
+
+                img {
+                    border-radius: 15px;
+                }
             }
 
             #sbi_load {

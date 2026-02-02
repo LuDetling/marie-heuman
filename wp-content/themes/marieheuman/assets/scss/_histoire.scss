@@ -3,20 +3,6 @@
 @use "fontawesome";
 
 #histoire {
-
-    // PERSO
-    section:not(.header-content) {
-        h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 36px;
-            margin-bottom: 0;
-
-            &::before {
-                display: none;
-            }
-        }
-    }
-
     img {
         border-radius: 15px;
         object-fit: cover;

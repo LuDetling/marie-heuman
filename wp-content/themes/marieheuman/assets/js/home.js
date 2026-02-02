@@ -35,3 +35,22 @@ serviceButtons.forEach((button, index) => {
 
     })
 });
+
+
+function toggleApproche() {
+    const cards = document.querySelectorAll('.card-approche')
+    cards.forEach(card => {
+
+        const showBtn = card.querySelector('.show-approche')
+        const hideBtn = card.querySelector('.hide-approche')
+        const listHide = card.querySelector('.list-hide-approche')
+        showBtn.addEventListener('click', () => {
+            showBtn.classList.toggle('hidden')
+            listHide.classList.toggle('visible')
+            hideBtn.classList.toggle('hidden')
+        })
+
+    })
+}
+
+toggleApproche();

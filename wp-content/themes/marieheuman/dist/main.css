@@ -237,10 +237,24 @@ header {
   width: 80px;
   border-left: 1px solid #d86a3d;
 }
+@media screen and (max-width: 767px) {
+  .content-header > nav .content-logo-menu {
+    border-left: none;
+    border-right: 1px solid #d86a3d;
+  }
+}
 .content-header > nav .content-logo-menu #menu-toggle {
   padding-left: 19px;
   width: 100%;
   height: 100%;
+}
+@media screen and (max-width: 767px) {
+  .content-header > nav .content-logo-menu #menu-toggle {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .content-header > nav .content-logo-menu #menu-toggle .img-menu {
   width: 40px;
@@ -255,6 +269,7 @@ header {
 @media screen and (max-width: 767px) {
   .content-header > nav .content-logo-menu #menu-toggle .img-menu {
     transform: rotate(0);
+    width: 30px;
   }
 }
 .content-header > nav .content-logo-menu #menu-toggle .img-menu:hover, .content-header > nav .content-logo-menu #menu-toggle .img-menu.img-menu-open {
@@ -354,11 +369,21 @@ header {
   text-transform: uppercase;
   color: #f6f5f2;
 }
+@media screen and (max-width: 767px) {
+  .menu-plied #menu-menu-principal > li > a {
+    padding: 0.5rem 25px;
+  }
+}
 .menu-plied #menu-menu-principal > li .sub-menu::before {
   display: none;
 }
 .menu-plied #menu-menu-principal > li .sub-menu li a {
   padding: 0.5rem 3rem;
+}
+@media screen and (max-width: 767px) {
+  .menu-plied #menu-menu-principal > li .sub-menu li a {
+    padding: 0.5rem 25px;
+  }
 }
 .menu-plied #menu-menu-principal a:hover {
   background: none;
@@ -378,6 +403,11 @@ header {
 }
 .menu-plied #menu-second-menu a:hover {
   color: #d86a3d;
+}
+@media screen and (max-width: 767px) {
+  .menu-plied #menu-second-menu a {
+    padding: 0.5rem 25px;
+  }
 }
 
 .other-buttons-header > a {
@@ -456,20 +486,25 @@ h2 {
   font-size: 36px;
   color: #462620;
 }
+@media screen and (max-width: 767px) {
+  h2 {
+    font-size: 1.7rem;
+  }
+}
 
 h3 {
-  display: flex;
-  align-items: center;
   color: #462620;
   font-size: 20px;
   gap: 13px;
   margin-bottom: 3rem;
+  display: inline-flex;
 }
 h3::before {
   content: "";
   width: 50px;
   height: 1px;
   background-color: #462620;
+  margin-top: 11px;
 }
 
 .content-img-header {
@@ -495,6 +530,7 @@ h3::before {
 @media screen and (max-width: 767px) {
   .content-img-header .text-img-header h1 {
     font-size: 2rem;
+    line-height: normal;
   }
 }
 .content-img-header .text-img-header h2 {
@@ -556,7 +592,6 @@ h3::before {
   color: #462620;
   font-size: 1rem;
   line-height: 1.8;
-  padding: 1rem 0;
 }
 .content-ma-vision .texte-ma-vision p {
   margin-bottom: 0.7rem;
@@ -677,33 +712,81 @@ h3::before {
 .content-approche .card-approche .text-card p:not(:last-child) {
   margin-bottom: 1rem;
 }
-.content-approche .card-approche:hover .list-hide-approche {
-  max-height: 150px;
+.content-approche .card-approche:hover .list-approche .list-hide-approche {
+  max-height: 220px;
 }
-.content-approche .card-approche .list-hide-approche {
-  max-height: 0;
-  overflow: hidden;
-  transition: 1s;
-  display: block;
+.content-approche .card-approche:hover .list-approche .list-hide-approche .trait {
+  transform: translateX(0%);
+}
+.content-approche .card-approche .list-approche {
   position: relative;
 }
-.content-approche .card-approche .list-hide-approche::before {
+.content-approche .card-approche .list-approche .show-approche {
+  cursor: pointer;
+  width: 13px;
+  height: 15px;
+  position: absolute;
+  top: 9px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-approche .card-approche .list-approche .show-approche::after {
   content: "";
+  width: 13px;
+  height: 1px;
+  display: block;
+  background-color: #462620;
+  transform: rotate(90deg);
+  position: absolute;
+}
+.content-approche .card-approche .list-approche .show-approche::before {
+  content: "";
+  width: 13px;
+  height: 1px;
+  display: block;
+  background-color: #462620;
+  position: absolute;
+}
+.content-approche .card-approche .list-approche .hide-approche {
+  width: 15px;
+  height: 1px;
+  background-color: #462620;
+}
+.content-approche .card-approche .list-approche .trait {
   display: block;
   width: 100%;
   height: 1px;
   background-color: #462620;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  transition: 1s;
+  transform: translateX(-100%);
 }
-.content-approche .card-approche .list-hide-approche ul li {
+.content-approche .card-approche .list-approche .list-hide-approche.visible {
+  max-height: 220px;
+}
+.content-approche .card-approche .list-approche .list-hide-approche.visible .trait {
+  transform: translateX(0%);
+}
+.content-approche .card-approche .list-approche .list-hide-approche {
+  max-height: 0;
+  overflow: hidden;
+  transition: 1s;
+  display: block;
+  position: relative;
+}
+.content-approche .card-approche .list-approche .list-hide-approche ul li {
   position: relative;
   padding-left: 1.5rem;
   display: flex;
   align-items: center;
+}
+.content-approche .card-approche .list-approche .list-hide-approche ul li:not(:last-child) {
   margin-bottom: 0.7rem;
 }
-.content-approche .card-approche .list-hide-approche ul li::before {
+.content-approche .card-approche .list-approche .list-hide-approche ul li::before {
   content: "";
   width: 0.5rem;
   height: 0.5rem;
@@ -712,7 +795,7 @@ h3::before {
   position: absolute;
   left: 0.25rem;
 }
-.content-approche .card-approche .list-hide-approche ul li::after {
+.content-approche .card-approche .list-approche .list-hide-approche ul li::after {
   content: "";
   width: 1rem;
   height: 1rem;
@@ -1155,12 +1238,17 @@ main .more {
   font-family: "Playfair Display";
   color: #462620;
 }
+@media screen and (max-width: 767px) {
+  .header-content h1 {
+    font-size: 2rem;
+    line-height: normal;
+  }
+}
 .header-content h2 {
-  font-family: "Roboto";
+  font-family: "Roboto" !important;
   display: flex;
-  align-items: center;
   color: #462620;
-  font-size: 20px;
+  font-size: 20px !important;
   gap: 13px;
   margin-bottom: 3.5rem;
 }
@@ -1169,6 +1257,7 @@ main .more {
   width: 50px;
   height: 1px;
   background-color: #462620;
+  margin-top: 11px;
 }
 
 .header-content-without-link h2 {
@@ -1185,7 +1274,7 @@ main .more {
 .accompagnements .titre-description-top p {
   max-width: 1000px;
 }
-.accompagnements .accompagnement {
+.accompagnements .accompagnement:not(:last-child) {
   margin-bottom: 5rem;
 }
 .accompagnements .accompagnement:nth-child(even) {
@@ -1281,7 +1370,8 @@ main .more {
   }
 }
 .engagements .card-engagement .dashicons {
-  background-color: rgba(63, 94, 90, 0.3);
+  background-color: #f6f5f2;
+  border: 1px solid #f6f5f2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1292,7 +1382,7 @@ main .more {
   margin-bottom: 1rem;
 }
 .engagements .card-engagement .dashicons svg {
-  fill: #3f5e5a;
+  fill: #d86a3d;
 }
 .engagements .card-engagement .titre-description h4 {
   font-family: "Playfair Display";
@@ -1426,15 +1516,6 @@ main .more {
 }
 .ressources .card-ro-accueil::after {
   background-color: #f6f5f2;
-}
-
-#expertise section:not(.header-content) h2 {
-  margin-bottom: 0.5rem;
-  font-size: 36px;
-  font-family: "Playfair Display";
-}
-#expertise section:not(.header-content) h2::before {
-  display: none;
 }
 
 .content .tag-home:not(:first-child) {
@@ -1581,6 +1662,30 @@ main .more {
   object-fit: cover;
   transition: 0.6s;
 }
+#list-projets .card-article .show-hide {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d86a3d;
+  background-color: #f6f5f2;
+  color: #d86a3d;
+  width: 36px;
+  height: 36px;
+  z-index: 2;
+}
+#list-projets .card-article .show-hide button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+#list-projets .card-article .show-hide .hide {
+  display: none;
+}
 #list-projets .card-article .text-card {
   padding: 2rem 3rem;
   position: absolute;
@@ -1602,6 +1707,18 @@ main .more {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 0.5rem;
+}
+#list-projets .card-article.text-card-visible .text-card {
+  transform: translateY(0);
+}
+#list-projets .card-article.text-card-visible img {
+  transform: scale(1.2);
+}
+#list-projets .card-article.text-card-visible .show {
+  display: none;
+}
+#list-projets .card-article.text-card-visible .hide {
+  display: block;
 }
 #list-projets .temoignages {
   background-color: white;
@@ -1779,14 +1896,6 @@ main .more {
   transition: 0.3s;
 }
 
-#page-contact section:not(.header-content) h2 {
-  font-family: "Playfair Display";
-  font-size: 36px;
-  margin-bottom: 0;
-}
-#page-contact section:not(.header-content) h2::before {
-  display: none;
-}
 #page-contact .reseaux h3 {
   margin-bottom: 2rem;
 }
@@ -1796,6 +1905,9 @@ main .more {
 }
 #page-contact .reseaux #sb_instagram #sbi_images {
   order: 2;
+}
+#page-contact .reseaux #sb_instagram #sbi_images img {
+  border-radius: 15px;
 }
 #page-contact .reseaux #sb_instagram #sbi_load {
   order: 1;
@@ -2372,14 +2484,6 @@ main .more {
   border-color: grey;
 }
 
-#histoire section:not(.header-content) h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  margin-bottom: 0;
-}
-#histoire section:not(.header-content) h2::before {
-  display: none;
-}
 #histoire img {
   border-radius: 15px;
   object-fit: cover;
@@ -2591,10 +2695,18 @@ footer .footer-bottom {
   padding-top: 1.5rem;
   border-top: 1px solid #d86a3d;
 }
+footer .footer-bottom a {
+  font-size: 14px;
+  transition: 0.3s;
+}
+footer .footer-bottom a:hover {
+  color: #d86a3d;
+}
 
 * {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
+  line-height: normal;
 }
 
 section {
@@ -2602,7 +2714,7 @@ section {
 }
 @media screen and (max-width: 1200px) {
   section {
-    padding: 2rem 20px;
+    padding: 4rem 20px;
   }
 }
 section {
@@ -2718,27 +2830,13 @@ main:not(.front-page) h1 {
 @media screen and (max-width: 767px) {
   main:not(.front-page) h1 {
     font-size: 2rem;
+    line-height: normal;
   }
 }
 main:not(.front-page) h2 {
-  font-family: "Roboto";
-  display: flex;
-  align-items: center;
+  font-family: "Playfair Display";
   color: #462620;
-  font-size: 20px;
-  gap: 13px;
-  margin-bottom: 3.5rem;
-}
-main:not(.front-page) h2::before {
-  content: "";
-  width: 50px;
-  height: 1px;
-  background-color: #462620;
-}
-@media screen and (max-width: 767px) {
-  main:not(.front-page) h2::before {
-    display: none;
-  }
+  font-size: 2rem;
 }
 
 .rating {

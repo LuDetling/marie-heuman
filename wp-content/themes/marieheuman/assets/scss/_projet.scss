@@ -70,6 +70,33 @@
             transition: .6s;
         }
 
+        .show-hide {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $orange;
+            background-color: $beige;
+            color: $orange;
+            width: 36px;
+            height: 36px;
+            z-index: 2;
+
+            button {
+                cursor: pointer;
+                font-size: 1.5rem;
+                width: 100%;
+                height: 100%;
+            }
+
+            .hide {
+                display: none;
+            }
+        }
+
         .text-card {
             padding: 2rem 3rem;
             position: absolute;
@@ -85,11 +112,30 @@
                 padding: 20px;
             }
 
+
             h4 {
                 font-family: 'Playfair Display';
                 font-size: 24px;
                 font-weight: bold;
                 margin-bottom: .5rem;
+            }
+        }
+
+        &.text-card-visible {
+            .text-card {
+                transform: translateY(0);
+            }
+
+            img {
+                transform: scale(1.2);
+            }
+
+            .show {
+                display: none;
+            }
+
+            .hide {
+                display: block;
             }
         }
     }

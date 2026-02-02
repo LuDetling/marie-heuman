@@ -21,7 +21,7 @@ get_header();
         ?>
         <span class="tag-home"><?= $contact['tag'] ?></span>
         <?= $contact['titre'] ?>
-        <div class="flex justify-center gap-10 md:gap-20">
+        <div class="flex flex-wrap justify-center gap-10 md:gap-20">
             <?php
             // On boucle de 1 à 3 pour parcourir les champs numérotés manuellement
             for ($i = 1; $i <= 3; $i++) {

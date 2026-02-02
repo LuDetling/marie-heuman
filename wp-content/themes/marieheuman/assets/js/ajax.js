@@ -78,8 +78,28 @@
                     this.isLoading = false;
                     this.loader.hide();
                     this.grid.removeClass('loading');
+                    const articles = document.querySelectorAll('.card-article');
+                    if (articles.length === 0) return;
+                    function toggleShowHide() {
+                        articles.forEach(article => {
+
+                            const showBtn = article.querySelector('.show');
+                            const hideBtn = article.querySelector('.hide');
+                            showBtn.addEventListener('click', () => {
+                                console.log('click');
+                                article.classList.add('text-card-visible');
+                            });
+
+                            hideBtn.addEventListener('click', () => {
+                                article.classList.remove('text-card-visible');
+                            });
+                        })
+                    }
+                    toggleShowHide();
                 }
             });
+
+
         },
 
         renderPagination() {

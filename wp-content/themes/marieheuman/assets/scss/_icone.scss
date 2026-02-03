@@ -1,0 +1,11 @@
+@use "globals" as *;
+@use "mixins" as *;
+
+
+.icone-beige {
+    @include icone-beige;
+}
+
+.icone-white {
+    @include icone-white;
+}

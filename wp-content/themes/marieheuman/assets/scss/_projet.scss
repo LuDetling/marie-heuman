@@ -133,24 +133,27 @@
 
 .swiperAvis {
     max-width: 1000px;
-    margin-top: 3rem;
 
-    .swiper-slide {
-        background-color: $white;
-        border-radius: 15px;
-        padding: 3rem;
+    .swiper-wrapper {
+        align-items: flex-end;
 
-        @media screen and (max-width: 767px) {
-            padding: 20px;
-        }
+        .swiper-slide {
+            background-color: $white;
+            border-radius: 15px;
+            padding: 3rem;
 
-        .nom {
-            margin-top: 1.5rem;
-            color: $secondary;
-            margin-left: auto;
-            padding-top: .2rem;
-            border-top: 1px solid $secondary;
-            width: fit-content;
+            @media screen and (max-width: 767px) {
+                padding: 2rem;
+            }
+
+            .nom {
+                margin-top: 1.5rem;
+                color: $secondary;
+                margin-left: auto;
+                padding-top: .2rem;
+                border-top: 1px solid $secondary;
+                width: fit-content;
+            }
         }
     }
 }
@@ -162,7 +165,7 @@
     border-radius: 15px;
 
     @media screen and (max-width: 767px) {
-        padding: 20px;
+        padding: 2rem;
     }
 
     li {
@@ -212,7 +215,7 @@
         border-radius: 15px;
 
         @media screen and (max-width: 767px) {
-            padding: 20px;
+            padding: 2rem;
         }
 
         p:not(:last-child) {

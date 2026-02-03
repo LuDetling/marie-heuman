@@ -13,7 +13,7 @@
         <section class="content-img-header relative">
             <img src="<?= esc_url($image_header['url']); ?>" alt="<?= esc_attr($image_header['alt']); ?>"
                 width="<?= esc_attr($image_header['width']); ?>" height="<?= esc_attr($image_header['height']); ?>">
-            <div class="absolute md:left-30 z-2">
+            <div class="absolute z-2">
                 <div class="text-img-header">
                     <?= $text_image_header; ?>
                     <div class="flex items-center gap-8 mt-12 flex-wrap">
@@ -101,8 +101,8 @@
                     <span class="tag"><?= $tag_service ?></span>
                     <?= $texte_service ?>
                     <div class="mt-8">
-                        <a href="<?= esc_url($plus_service['url']) ?>"
-                            class="more"><?= esc_html($plus_service['title']) ?></a>
+                        <a href="conceptions-realisations-architecture-interieure-tours-blois" class="more">En savoir
+                            plus</a>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                 $card = get_field('card_' . $i . '_approche_accueil');
                 ?>
                 <div class="card-approche">
-                    <div class="icone">
+                    <div class="icone-beige">
                         <?php
                         if (!empty($card['icone'])) {
                             $icon_path = get_attached_file($card['icone']);
@@ -302,12 +302,12 @@
             if ($fichier_ressources) {
                 foreach ($fichier_ressources as $fichier) {
                     ?>
-                    <div class="card-ro-accueil gap-4 sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
-                        <div class="icone">
+                    <div class="card-ro-accueil sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
+                        <div class="icone-white">
                             <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
                             ?>
                         </div>
-                        <div class="content-card-ro-accueil">
+                        <div class="content-card-ro-accueil w-full sm:w-auto">
 
                             <div class="flex gap-4 title-icon">
                                 <h4><?= $fichier['titre'] ?></h4>

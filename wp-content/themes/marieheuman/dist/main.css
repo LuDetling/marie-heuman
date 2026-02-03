@@ -59,7 +59,7 @@
   border-radius: 15px;
   font-size: 18px;
   transition: 0.3s;
-  display: inline-block;
+  display: table;
   cursor: pointer;
 }
 .orange-button:hover {
@@ -200,6 +200,66 @@
   border-color: #7a8b85;
 }
 
+.icone-beige {
+  margin-bottom: 0.5rem;
+  width: fit-content;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .icone-beige {
+    width: 37px;
+    height: 37px;
+    min-width: 37px;
+    min-height: 37px;
+  }
+  .icone-beige svg {
+    width: 23px;
+  }
+}
+.icone-beige {
+  background-color: #ece7dd;
+}
+.icone-beige svg {
+  fill: #d86a3d;
+}
+
+.icone-white {
+  margin-bottom: 0.5rem;
+  width: fit-content;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .icone-white {
+    width: 37px;
+    height: 37px;
+    min-width: 37px;
+    min-height: 37px;
+  }
+  .icone-white svg {
+    width: 23px;
+  }
+}
+.icone-white {
+  background-color: #f6f5f2;
+}
+.icone-white svg {
+  fill: #d86a3d;
+}
+
 header {
   display: flex;
 }
@@ -269,11 +329,16 @@ header {
 @media screen and (max-width: 767px) {
   .content-header > nav .content-logo-menu #menu-toggle .img-menu {
     transform: rotate(0);
-    width: 30px;
+    width: 35px;
   }
 }
-.content-header > nav .content-logo-menu #menu-toggle .img-menu:hover, .content-header > nav .content-logo-menu #menu-toggle .img-menu.img-menu-open {
+.content-header > nav .content-logo-menu #menu-toggle .img-menu.img-menu-open {
   background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png");
+}
+@media screen and (min-width: 767px) {
+  .content-header > nav .content-logo-menu #menu-toggle .img-menu:hover {
+    background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png");
+  }
 }
 .content-header > nav .content-logo-menu #menu-toggle img {
   width: 40px;
@@ -287,6 +352,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width: 767px) {
+  .content-header > nav .content-calendly {
+    display: none;
+  }
 }
 .content-header > nav .content-calendly .calendly {
   width: 46px;
@@ -420,8 +490,8 @@ header {
   font-size: 2rem;
   transition: 0.3s;
   z-index: 200;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 20px;
+  right: 20px;
 }
 .other-buttons-header .calendly-link {
   background-color: #d86a3d;
@@ -512,13 +582,20 @@ h3::before {
   display: flex;
   align-items: center;
 }
+.content-img-header > div {
+  padding: 0 160px;
+}
+@media screen and (max-width: 1200px) {
+  .content-img-header > div {
+    padding: 0 20px;
+  }
+}
 .content-img-header img {
   height: 100vh;
   width: 100%;
   object-fit: cover;
 }
 .content-img-header .text-img-header {
-  padding: 2rem;
   border-radius: 15px;
 }
 .content-img-header .text-img-header h1 {
@@ -536,7 +613,6 @@ h3::before {
 .content-img-header .text-img-header h2 {
   font-size: 30px;
   display: flex;
-  align-items: center;
   gap: 13px;
   color: #f6f5f2;
   margin-top: 1rem;
@@ -548,6 +624,7 @@ h3::before {
   height: 1px;
   width: 50px;
   background-color: #f6f5f2;
+  margin-top: 18px;
 }
 @media screen and (max-width: 767px) {
   .content-img-header .text-img-header h2 {
@@ -556,9 +633,6 @@ h3::before {
   .content-img-header .text-img-header h2::before {
     display: none;
   }
-}
-.content-img-header .text-img-header .border-orange-button {
-  color: #f6f5f2;
 }
 .content-img-header .text-img-header .second-link {
   text-shadow: 0px 3px 15px black;
@@ -612,6 +686,11 @@ h3::before {
   min-height: 11px;
   background-color: #462620;
   border-radius: 50%;
+}
+@media screen and (max-width: 767px) {
+  .content-services-accueil .selector-services .point:not(:last-child)::after {
+    display: none;
+  }
 }
 .content-services-accueil .item-service {
   display: none;
@@ -712,11 +791,16 @@ h3::before {
 .content-approche .card-approche .text-card p:not(:last-child) {
   margin-bottom: 1rem;
 }
-.content-approche .card-approche:hover .list-approche .list-hide-approche {
-  max-height: 220px;
+.content-approche .card-approche .text-card p:last-child {
+  margin-bottom: 2rem;
 }
-.content-approche .card-approche:hover .list-approche .list-hide-approche .trait {
-  transform: translateX(0%);
+@media screen and (min-width: 767px) {
+  .content-approche .card-approche:hover .list-approche .list-hide-approche {
+    max-height: 220px;
+  }
+  .content-approche .card-approche:hover .list-approche .list-hide-approche .trait {
+    transform: translateX(0%);
+  }
 }
 .content-approche .card-approche .list-approche {
   position: relative;
@@ -726,7 +810,7 @@ h3::before {
   width: 13px;
   height: 15px;
   position: absolute;
-  top: 9px;
+  top: -7px;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -737,7 +821,7 @@ h3::before {
   width: 13px;
   height: 1px;
   display: block;
-  background-color: #462620;
+  background-color: #3f5e5a;
   transform: rotate(90deg);
   position: absolute;
 }
@@ -746,7 +830,7 @@ h3::before {
   width: 13px;
   height: 1px;
   display: block;
-  background-color: #462620;
+  background-color: #3f5e5a;
   position: absolute;
 }
 .content-approche .card-approche .list-approche .hide-approche {
@@ -758,9 +842,8 @@ h3::before {
   display: block;
   width: 100%;
   height: 1px;
-  background-color: #462620;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  background-color: #3f5e5a;
+  margin-bottom: 2rem;
   transition: 1s;
   transform: translateX(-100%);
 }
@@ -817,6 +900,11 @@ h3::before {
   font-size: 36px;
   font-family: "Playfair Display";
   margin-bottom: 1rem;
+}
+@media screen and (max-width: 767px) {
+  .content-approche .content-question-conception-accueil h4 {
+    font-size: 24px;
+  }
 }
 .content-approche .content-question-conception-accueil .texte-question-conception {
   margin-bottom: 2rem;
@@ -885,7 +973,7 @@ h3::before {
 }
 @media screen and (max-width: 767px) {
   .card-ro-accueil {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 .card-ro-accueil .icone {
@@ -1362,7 +1450,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   .engagements .card-engagement {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 .engagements .card-engagement .dashicons {
@@ -1468,7 +1556,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   .collaboration .card-collaboration {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 .collaboration .card-collaboration.active-collaboration {
@@ -1519,7 +1607,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   .collaboration .reservation {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 .collaboration .reservation h2 {
@@ -1584,7 +1672,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   .card-presse .on-card {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 .card-presse .on-card h2 {
@@ -1732,19 +1820,21 @@ main .more {
 
 .swiperAvis {
   max-width: 1000px;
-  margin-top: 3rem;
 }
-.swiperAvis .swiper-slide {
+.swiperAvis .swiper-wrapper {
+  align-items: flex-end;
+}
+.swiperAvis .swiper-wrapper .swiper-slide {
   background-color: #ece7dd;
   border-radius: 15px;
   padding: 3rem;
 }
 @media screen and (max-width: 767px) {
-  .swiperAvis .swiper-slide {
-    padding: 20px;
+  .swiperAvis .swiper-wrapper .swiper-slide {
+    padding: 2rem;
   }
 }
-.swiperAvis .swiper-slide .nom {
+.swiperAvis .swiper-wrapper .swiper-slide .nom {
   margin-top: 1.5rem;
   color: #3f5e5a;
   margin-left: auto;
@@ -1759,7 +1849,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   .left-projet {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 .left-projet li:not(:last-child) {
@@ -1800,7 +1890,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   .page-projet .parti-pris {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 .page-projet .parti-pris p:not(:last-child) {
@@ -1969,7 +2059,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   #page-contact .swiper-slide {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 #page-contact .swiper-slide .dashicons {
@@ -2068,7 +2158,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   .form-contact {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 
@@ -2307,7 +2397,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   #custom-booking-app {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 #custom-booking-app .header-form-calendly > div {
@@ -2436,6 +2526,11 @@ main .more {
   fill: #462620;
   transition: 0.3s;
   margin: auto;
+}
+@media screen and (max-width: 767px) {
+  #custom-booking-app .calendar-card .meeting-type-selector .type-option .icon svg {
+    width: 24px;
+  }
 }
 #custom-booking-app .other-days {
   margin-top: 2rem;
@@ -2877,8 +2972,10 @@ main:not(.front-page) h2 {
 }
 .swiper-navigation > div[class^=swiper-button] {
   border: 2px solid #f6f5f2;
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2891,6 +2988,14 @@ main:not(.front-page) h2 {
 .swiper-navigation > div[class^=swiper-button] svg {
   width: 1rem;
   height: 1rem;
+}
+@media screen and (max-width: 767px) {
+  .swiper-navigation > div[class^=swiper-button] {
+    width: 37px;
+    height: 37px;
+    width: 37px;
+    height: 37px;
+  }
 }
 
 .blog-filters {

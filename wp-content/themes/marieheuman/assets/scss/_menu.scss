@@ -67,13 +67,18 @@ header {
 
                     @media screen and (max-width: 767px) {
                         transform: rotate(0);
-                        width: 30px;
+                        width: 35px;
                     }
 
-                    &:hover,
+
                     &.img-menu-open {
                         background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png');
+                    }
 
+                    @media screen and (min-width: 767px) {
+                        &:hover {
+                            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png');
+                        }
                     }
                 }
 
@@ -93,6 +98,10 @@ header {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
 
             .calendly {
                 width: 46px;
@@ -250,8 +259,8 @@ header {
         font-size: 2rem;
         transition: .3s;
         z-index: 200;
-        bottom: 1rem;
-        right: 1rem;
+        bottom: 20px;
+        right: 20px;
     }
 
     .calendly-link {

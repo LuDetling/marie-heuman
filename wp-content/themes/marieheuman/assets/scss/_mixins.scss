@@ -67,7 +67,7 @@
     border-radius: 15px;
     font-size: 18px;
     transition: .3s;
-    display: inline-block;
+    display: table;
     cursor: pointer;
 
     &:hover {
@@ -181,4 +181,46 @@
 @mixin fab {
     font-family: 'Font Awesome 6 Brands';
     font-weight: 400;
+}
+
+@mixin icone-svg {
+    margin-bottom: .5rem;
+    width: fit-content;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        width: 37px;
+        height: 37px;
+        min-width: 37px;
+        min-height: 37px;
+
+        svg {
+            width: 23px
+        }
+    }
+}
+
+@mixin icone-beige {
+    @include icone-svg;
+    background-color: $white;
+
+    svg {
+        fill: $orange;
+    }
+}
+
+@mixin icone-white {
+    @include icone-svg;
+    background-color: $beige;
+
+    svg {
+        fill: $orange;
+    }
 }

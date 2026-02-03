@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // 1. Création du container summary (sécurisé)
             const summary = document.createElement('summary');
-            summary.className = 'collapse-title date-header';
+            summary.className = 'collapse-title date-header text-center sm:text-left';
             summary.textContent = displayDate; // <--- C'est ici que la sécurité joue
 
             // 2. Création du contenu

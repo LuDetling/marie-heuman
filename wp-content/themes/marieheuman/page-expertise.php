@@ -101,32 +101,40 @@ get_header();
         ?>
         <span class="tag-page"><?= $collaboration_expertise_accompagnement["tag"] ?></span>
         <?= $collaboration_expertise_accompagnement["titre_description"] ?>
-        <div class="flex gap-5 md:gap-10 justify-center selectors items-center">
-            <?php for ($i = 1; $i < 4; $i++) { ?>
-                <button class="selector-slide<?= $i == 1 ? ' active-border-marron-button' : '' ?>"><?= $i ?></button>
-                <?php
-                if ($i < 3) { ?>
-                    <div class="point"></div>
-                <?php }
-                ?>
-            <?php } ?>
+        <div class="swiper-navigation">
+            <div class="swiper-pagination swiper-pagination-collaboration"></div>
         </div>
-        <?php for ($i = 1; $i < 4; $i++) {
-            $collaboration = $collaboration_expertise_accompagnement['slide_' . $i]
-                ?>
-            <div id="card-collaboration-<?= $i ?>"
-                class="section-white card-collaboration<?= $i == 1 ? ' active-collaboration' : '' ?>">
-                <div class="flex flex-wrap md:flex-nowrap gap-5 md:gap-10">
-                    <span class="dashicons <?= $collaboration['icone']; ?>"></span>
-                    <div>
-                        <h4><?= $collaboration['titre']; ?></h4>
-                        <span class="offre"><?= $collaboration['offre']; ?></span>
-                        <?= $collaboration['description']; ?>
-                    </div>
-                </div>
+        <div class="swiper swiperCollaboration">
+            <div class="swiper-wrapper">
+                <?php for ($i = 1; $i < 4; $i++) {
+                    $collaboration = $collaboration_expertise_accompagnement['slide_' . $i]
+                        ?>
+                    <div class="section-white swiper-slide card-collaboration">
+                        <div class=" flex flex-wrap md:flex-nowrap gap-5 md:gap-10">
+                            <div class="dashicons">
+                                <?php
+                                $icon_path = get_attached_file($collaboration['icone']);
+                                // Vérifie si le fichier existe et l'affiche
+                                if (file_exists($icon_path)) {
+                                    echo file_get_contents($icon_path);
+                                }
+                                ?>
+                            </div>
+                            <div>
+                                <h4>
+                                    <?= $collaboration['titre']; ?>
+                                </h4>
+                                <span class="offre">
+                                    <?= $collaboration['offre']; ?>
+                                </span>
+                                <?= $collaboration['description']; ?>
+                            </div>
+                        </div>
 
+                    </div>
+                <?php } ?>
             </div>
-        <?php } ?>
+        </div>
         <div class="reservation">
             <?php $reservation = $collaboration_expertise_accompagnement['reservation'] ?>
             <?= $reservation['titre_descrpition'] ?>

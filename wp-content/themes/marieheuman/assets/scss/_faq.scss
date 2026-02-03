@@ -18,21 +18,19 @@
         content: '\f002';
         position: absolute;
         right: 1rem;
-        color: $orange;
     }
 
     #faq-search {
-        border: 1px solid $orange;
-        color: $orange;
-        border-radius: 40px;
+        border-radius: 15px;
         padding: 1rem;
         padding-right: 3rem;
         display: block;
         width: 100%;
+        background-color: $white;
 
         &:focus {
             outline: none;
-            border-color: $marron;
+            // border-color: $marron;
         }
 
     }

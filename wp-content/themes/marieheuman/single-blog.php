@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Artcicle Blog */
+/* Template Name: Article Blog */
 get_header();
 ?>
 <main class="md:ml-20 pb-10 flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap items-stretch section-white">
@@ -30,8 +30,10 @@ get_header();
         <?php
         $sidebar = get_field("sidebar_page_blog");
         ?>
-        <img src="<?= get_template_directory_uri() ?>/assets/images/histoires-interieurs.png"
-            alt="logo histoires intérieurs" class="sidebar-decorative-img mb-8">
+        <div>
+            <img src="<?= get_template_directory_uri() ?>/assets/images/histoires-interieurs.png"
+                alt="logo histoires intérieurs" class="sidebar-decorative-img mb-8">
+        </div>
         <form role="search" method="get" class="search-form" action="<?php echo home_url('/'); ?>">
             <label for="s"> Recherchez un sujet, un mot-clé ou une inspiration parmi les
                 articles du blog.

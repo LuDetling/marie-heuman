@@ -78,7 +78,7 @@
                     this.isLoading = false;
                     this.loader.hide();
                     this.grid.removeClass('loading');
-                    const articles = document.querySelectorAll('.card-article');
+                    const articles = document.querySelectorAll('.portfolio .card-article');
                     if (articles.length === 0) return;
                     function toggleShowHide() {
                         articles.forEach(article => {

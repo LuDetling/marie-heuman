@@ -8,7 +8,6 @@ function marieheuman_js()
 {
     wp_enqueue_script('menu-js', get_template_directory_uri() . '/assets/js/menu.js', [], false, true);
     wp_enqueue_script('home-js', get_template_directory_uri() . '/assets/js/home.js', [], false, true);
-    wp_enqueue_script('page-js', get_template_directory_uri() . '/assets/js/page.js', [], false, true);
     wp_enqueue_script('carousel-js', get_template_directory_uri() . '/assets/js/carousel.js', [], false, true);
     wp_enqueue_script('single-js', get_template_directory_uri() . '/assets/js/projet.js', [], false, true);
     if (is_page_template('page-faq.php')) {
@@ -81,7 +80,6 @@ function register_categories()
     );
 }
 
-
 function only_search_posts($query)
 {
     if ($query->is_search && !is_admin()) {
@@ -103,7 +101,8 @@ add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mime
 
 add_filter('nav_menu_item_title', 'injecter_svg_depuis_fichier_acf', 10, 4);
 
-function injecter_svg_depuis_fichier_acf($title, $item, $args, $depth) {
+function injecter_svg_depuis_fichier_acf($title, $item, $args, $depth)
+{
     // 1. On récupère le champ ACF (qui doit être un type "Image" ou "Fichier")
     // 'icones_menu' est le nom de ton champ sur l'élément de menu
     $icone_data = get_field('icones_menu', $item);
@@ -116,10 +115,10 @@ function injecter_svg_depuis_fichier_acf($title, $item, $args, $depth) {
         if ($icon_path && file_exists($icon_path)) {
             // 3. On lit le contenu du SVG
             $svg_content = file_get_contents($icon_path);
-            
+
             // On retourne le SVG + le titre (caché pour l'accessibilité)
-            return '<span class="menu-icon">' . $svg_content . '</span>' . 
-                   '<span class="screen-reader-text">' . $title . '</span>';
+            return '<span class="menu-icon">' . $svg_content . '</span>' .
+                '<span class="screen-reader-text">' . $title . '</span>';
         }
     }
 
@@ -362,7 +361,8 @@ function get_calendly_spots()
 /**
  * Supprime les espaces insécables (&nbsp;) des titres
  */
-function mh_clean_title_nbsp($title) {
+function mh_clean_title_nbsp($title)
+{
     // On remplace l'entité HTML et le caractère hexadécimal correspondant
     $title = str_replace(array('&nbsp;', "\xc2\xa0"), ' ', $title);
     return trim($title);

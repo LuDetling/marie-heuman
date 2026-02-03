@@ -123,3 +123,15 @@ const swiperProjetsRecents = new Swiper('.swiperProjetsRecents', {
     }    // mousewheel: {
     // },
 });
+const swiperCollaboration = new Swiper('.swiperCollaboration', {
+    slidesPerView: 1,
+    spaceBetween: 40,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination-collaboration",
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+    }
+});

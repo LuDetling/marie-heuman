@@ -10,44 +10,6 @@
         margin-top: 3rem;
     }
 
-    .titre {
-
-        h3 {
-            font-size: 36px;
-            font-family: 'Playfair Display';
-            margin-bottom: 1rem;
-
-            &::before {
-                display: none;
-            }
-        }
-
-        p {
-            font-size: 18px;
-            position: relative;
-            padding-left: 63px;
-
-            &::before {
-                content: "";
-                width: 50px;
-                height: 1px;
-                background-color: $marron;
-                position: absolute;
-                left: 0;
-                top: 11px;
-            }
-
-            @media screen and (max-width: 767px) {
-                padding-left: 0;
-
-                &::before {
-                    display: none;
-                }
-
-            }
-        }
-    }
-
     .card-article {
         position: relative;
         overflow: hidden;

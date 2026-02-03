@@ -501,7 +501,7 @@ h3 {
 }
 h3::before {
   content: "";
-  width: 50px;
+  width: 30px;
   height: 1px;
   background-color: #462620;
   margin-top: 11px;
@@ -1076,7 +1076,6 @@ main .sidebar {
 }
 main .sidebar .sidebar-decorative-img {
   margin-inline: auto;
-  max-width: 300px;
 }
 @media screen and (max-width: 767px) {
   main .sidebar {
@@ -1174,20 +1173,17 @@ main .more {
   content: "\f002";
   position: absolute;
   right: 1rem;
-  color: #d86a3d;
 }
 .search #faq-search {
-  border: 1px solid #d86a3d;
-  color: #d86a3d;
-  border-radius: 40px;
+  border-radius: 15px;
   padding: 1rem;
   padding-right: 3rem;
   display: block;
   width: 100%;
+  background-color: #ece7dd;
 }
 .search #faq-search:focus {
   outline: none;
-  border-color: #462620;
 }
 
 #faq-categories li {
@@ -1404,7 +1400,15 @@ main .more {
 .collaboration > p {
   max-width: 1000px;
 }
-.collaboration .selectors .selector-slide {
+.collaboration .selectors .swiper-pagination,
+.collaboration .swiper-navigation .swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.collaboration .selectors .swiper-pagination .swiper-pagination-bullet,
+.collaboration .swiper-navigation .swiper-pagination .swiper-pagination-bullet {
   color: #462620;
   border: 1px solid #462620;
   display: flex;
@@ -1416,18 +1420,37 @@ main .more {
   position: relative;
   border-radius: 50%;
   margin-block: 3rem;
+  margin-inline: 0;
   padding: 0;
   cursor: pointer;
   transition: 0.3s;
+  background-color: #ece7dd;
+  opacity: 1;
 }
-.collaboration .selectors .selector-slide.active-border-marron-button {
-  color: #f6f5f2;
-}
-.collaboration .selectors .selector-slide:hover {
+.collaboration .selectors .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active, .collaboration .selectors .swiper-pagination .swiper-pagination-bullet:hover,
+.collaboration .swiper-navigation .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.collaboration .swiper-navigation .swiper-pagination .swiper-pagination-bullet:hover {
   background-color: #462620;
   color: #f6f5f2;
 }
-.collaboration .selectors .point {
+.collaboration .selectors .swiper-pagination .swiper-pagination-bullet:not(:last-child)::after,
+.collaboration .swiper-navigation .swiper-pagination .swiper-pagination-bullet:not(:last-child)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #462620;
+  display: block;
+  border-radius: 50%;
+  cursor: initial;
+  position: absolute;
+  right: -22px;
+}
+.collaboration .selectors .swiper-pagination.active-border-marron-button,
+.collaboration .swiper-navigation .swiper-pagination.active-border-marron-button {
+  color: #f6f5f2;
+}
+.collaboration .selectors .point,
+.collaboration .swiper-navigation .point {
   width: 10px;
   height: 10px;
   background-color: #462620;
@@ -1440,7 +1463,6 @@ main .more {
   border-radius: 15px;
   max-width: 1000px;
   margin: auto;
-  display: none;
   transition: 0.3s;
   margin-bottom: 5rem;
 }
@@ -1463,7 +1485,6 @@ main .more {
 }
 .collaboration .card-collaboration .dashicons {
   background-color: #ece7dd;
-  color: #d86a3d;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1472,6 +1493,9 @@ main .more {
   height: 48px;
   border-radius: 50%;
   font-size: 1.5rem;
+}
+.collaboration .card-collaboration .dashicons svg {
+  fill: #d86a3d;
 }
 .collaboration .card-collaboration h4 {
   font-family: "Playfair Display";
@@ -1576,7 +1600,8 @@ main .more {
 .card-presse .on-card .date {
   margin-bottom: 1rem;
 }
-.card-presse .on-card .second-link-secondary {
+.card-presse .on-card .second-link-secondary,
+.card-presse .on-card .second-link-orange {
   font-size: 1rem;
 }
 
@@ -1614,36 +1639,6 @@ main .more {
 
 #list-projets .blog-filters {
   margin-top: 3rem;
-}
-#list-projets .titre h3 {
-  font-size: 36px;
-  font-family: "Playfair Display";
-  margin-bottom: 1rem;
-}
-#list-projets .titre h3::before {
-  display: none;
-}
-#list-projets .titre p {
-  font-size: 18px;
-  position: relative;
-  padding-left: 63px;
-}
-#list-projets .titre p::before {
-  content: "";
-  width: 50px;
-  height: 1px;
-  background-color: #462620;
-  position: absolute;
-  left: 0;
-  top: 11px;
-}
-@media screen and (max-width: 767px) {
-  #list-projets .titre p {
-    padding-left: 0;
-  }
-  #list-projets .titre p::before {
-    display: none;
-  }
 }
 #list-projets .card-article {
   position: relative;

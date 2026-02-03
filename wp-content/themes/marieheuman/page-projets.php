@@ -50,7 +50,7 @@ get_header();
         </div>
 
         <!-- Grille des projes -->
-        <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-10 md:gap-20" id="ajax-grid">
+        <div class="grid 2xl:grid-cols-3 xl:grid-cols-2 gap-10 md:gap-20 projets" id="ajax-grid">
             <!-- Projets chargés en AJAX -->
         </div>
 

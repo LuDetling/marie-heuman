@@ -21,7 +21,7 @@
         color: $marron;
         font-size: 20px !important;
         gap: 13px;
-        margin-bottom: 3.5rem;
+        // margin-bottom: 3.5rem;
 
         &::before {
             content: "";
@@ -277,11 +277,14 @@
         }
     }
 
+    .swiperCollaboration {
+        max-width: 1000px;
+        margin: auto;
+    }
+
     .card-collaboration {
         padding: 3rem;
         border-radius: 15px;
-        max-width: 1000px;
-        margin: auto;
         transition: .3s;
         margin-bottom: 5rem;
 

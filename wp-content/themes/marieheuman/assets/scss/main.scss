@@ -18,6 +18,10 @@
     line-height: normal;
 }
 
+img {
+    max-height: 80vh;
+}
+
 section {
     padding: 5rem 160px;
 
@@ -265,8 +269,6 @@ main:not(.front-page) {
         gap: 1rem;
 
         @media screen and (min-width: 767px) {
-            padding: 20px;
-
             &::after {
                 content: "";
                 width: 10px;

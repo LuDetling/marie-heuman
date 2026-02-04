@@ -3,13 +3,19 @@
 @use "fontawesome";
 
 #histoire {
+
     img {
         border-radius: 15px;
         object-fit: cover;
+        height: 100%;
     }
 
     .texte {
         padding: 3rem 0;
+
+        @media screen and (max-width: 1023px) {
+            padding: 0;
+        }
     }
 
 
@@ -24,7 +30,7 @@
             border-radius: 15px;
 
             @media screen and (max-width: 767px) {
-                padding: 20px;
+                padding: 2rem;
             }
 
             .dashicons {
@@ -115,7 +121,7 @@
             margin: auto;
 
             @media screen and (max-width: 767px) {
-                padding: 20px;
+                padding: 2rem;
             }
 
             h2 {

@@ -115,6 +115,7 @@ h3 {
                 content: '';
                 height: 1px;
                 width: 50px;
+                min-width: 50px;
                 background-color: $beige;
                 margin-top: 18px;
             }
@@ -602,6 +603,10 @@ h3 {
         padding-right: 45px;
         order: 1;
 
+        @media screen and (max-width: 767px) {
+            padding-right: 0;
+        }
+
         .title-icon {
 
             h4 {
@@ -650,6 +655,15 @@ h3 {
     .content-groupe-contact-accueil {
         text-align: center;
 
+
+        @media screen and (max-width: 767px) {
+            text-align: left;
+
+            *> {
+                display: inline;
+            }
+        }
+
         .dashicons {
             font-size: 2rem;
             width: 48px;
@@ -662,6 +676,10 @@ h3 {
             justify-content: center;
             margin: auto;
             margin-bottom: .5rem;
+
+            @media screen and (max-width: 767px) {
+                margin-bottom: 0;
+            }
 
             svg {
                 fill: $beige;

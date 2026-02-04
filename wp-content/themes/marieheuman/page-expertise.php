@@ -11,7 +11,7 @@ get_header();
         $header_expertise_accompagnement = get_field("header_expertise_accompagnement");
         ?>
         <?= $header_expertise_accompagnement['titre'] ?>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-8">
             <a href="<?= esc_url($header_expertise_accompagnement['lien_1']['url']) ?>"
                 class="orange-button"><?= esc_html($header_expertise_accompagnement['lien_1']['title']) ?>
             </a>
@@ -110,7 +110,7 @@ get_header();
                     $collaboration = $collaboration_expertise_accompagnement['slide_' . $i]
                         ?>
                     <div class="section-white swiper-slide card-collaboration">
-                        <div class=" flex flex-wrap md:flex-nowrap gap-5 md:gap-10">
+                        <div class=" flex flex-wrap sm:flex-nowrap sm:gap-8">
                             <div class="icone-beige">
                                 <?php
                                 $icon_path = get_attached_file($collaboration['icone']);
@@ -157,7 +157,7 @@ get_header();
                 $ressource = $ressources_expertise_accompagnement['ressource_' . $i];
                 ?>
                 <!-- //new -->
-                <div class="card-ro-accueil gap-4 sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
+                <div class="card-ro-accueil sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
                     <div class="icone-white">
                         <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
                         ?>

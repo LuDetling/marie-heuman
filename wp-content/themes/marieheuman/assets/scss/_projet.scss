@@ -186,6 +186,7 @@
     border-radius: 15px;
 
     .swiper-wrapper {
+        align-items: flex-end;
 
         .swiper-slide {
             max-width: 80%;
@@ -194,7 +195,6 @@
 
             img {
                 border-radius: 15px;
-                height: 100%;
                 max-height: 70vh;
                 width: auto;
                 // margin: auto;
@@ -319,6 +319,7 @@
                     text-shadow: 0px 3px 15px black;
                     margin-bottom: 0;
                     z-index: 1;
+                    font-size: 24px;
 
                     &::before {
                         display: none;

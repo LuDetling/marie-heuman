@@ -10,7 +10,7 @@ get_header();
         <div class="titre">
             <?= $header['titre'] ?>
         </div>
-        <div class="flex items-center gap-8 flex-wrap lg:flex-nowrap">
+        <div class="flex items-center gap-8 flex-wrap lg:flex-nowrap mt-8">
             <a href="<?= $header['lien_1']['url'] ?>" <?= $header['lien_1']['target'] ?>
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" <?= $header['lien_2']['target'] ?>

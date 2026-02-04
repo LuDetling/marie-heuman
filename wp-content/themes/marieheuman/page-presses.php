@@ -23,7 +23,7 @@ function transformer_en_swiper_slides($content)
         $header = get_field("header_content");
         ?>
         <?= $header['titre'] ?>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-8 mt-8">
             <a href="<?= $header['lien_1']['url'] ?>" target="<?= $header['lien_1']['target'] ?>"
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" target="<?= $header['lien_2']['target'] ?>"

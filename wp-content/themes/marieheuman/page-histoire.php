@@ -10,7 +10,7 @@ get_header();
         <div class="titre">
             <?= $header['titre'] ?>
         </div>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-8">
             <a href="<?= $header['lien_1']['url'] ?>" target="<?= $header['lien_1']['target'] ?>"
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" target="<?= $header['lien_2']['target'] ?>"
@@ -27,7 +27,7 @@ get_header();
             <?= $perso['titre'] ?>
         </h2>
         <div class="flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap mt-8">
-            <div class=" lg:w-4/10">
+            <div class=" lg:w-4/10 mx-auto">
                 <img src="<?= $perso['image']['url'] ?>" alt="<?= $perso['image']['alt'] ?>" />
             </div>
             <div class="texte lg:w-6/10">
@@ -50,7 +50,7 @@ get_header();
                 <?= $philosophie['description'] ?>
                 <a href="<?= $philosophie['lien']['url'] ?>" class="more"><?= $philosophie['lien']['title'] ?></a>
             </div>
-            <div class=" lg:w-4/10">
+            <div class="mx-auto lg:w-4/10">
                 <img src="<?= $philosophie['image']['url'] ?>" alt="<?= $philosophie['image']['alt'] ?>" />
             </div>
         </div>
@@ -105,7 +105,7 @@ get_header();
     <section class="accompagnement">
         <?php $accompagnement = get_field("page_histoire")['accompagnement'] ?>
         <?= $accompagnement['titre_description'] ?>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-8">
             <a href="<?= $accompagnement['lien_1']['url'] ?>" target="<?= $accompagnement['lien_1']['target'] ?>"
                 class="orange-button"><?= $accompagnement['lien_1']['title'] ?></a>
             <a href="<?= $accompagnement['lien_2']['url'] ?>" target="<?= $accompagnement['lien_2']['target'] ?>"

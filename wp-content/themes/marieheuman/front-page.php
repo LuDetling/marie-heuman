@@ -356,12 +356,12 @@
         ?>
         <span class="tag-home"><?= $tag_contact_accueil ?></span>
         <?= $titre_contact_accueil ?>
-        <div class="flex flex-wrap gap-10 md:gap-20 justify-center">
+        <div class="flex flex-wrap gap-10 md:gap-20 md:justify-center">
             <?php
             for ($i = 1; $i < 4; $i++) {
                 $groupe_contact_accueil = get_field('groupe_' . $i . '_contact_accueil');
                 ?>
-                <div class="content-groupe-contact-accueil">
+                <div class="content-groupe-contact-accueil flex items-center gap-4 md:block">
                     <?php if (!empty($groupe_contact_accueil['icone'])): ?>
                         <div class="dashicons">
                             <?php
@@ -373,12 +373,14 @@
                             ?>
                         </div>
                     <?php endif; ?>
-                    <h4>
-                        <?= $groupe_contact_accueil['titre'] ?>
-                    </h4>
-                    <p class="description">
-                        <?= $groupe_contact_accueil['description'] ?>
-                    </p>
+                    <div>
+                        <h4>
+                            <?= $groupe_contact_accueil['titre'] ?>
+                        </h4>
+                        <p class="description">
+                            <?= $groupe_contact_accueil['description'] ?>
+                        </p>
+                    </div>
                 </div>
             <?php }
             ?>

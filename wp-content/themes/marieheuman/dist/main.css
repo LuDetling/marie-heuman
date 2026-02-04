@@ -624,6 +624,7 @@ h3::before {
   content: "";
   height: 1px;
   width: 50px;
+  min-width: 50px;
   background-color: #f6f5f2;
   margin-top: 18px;
 }
@@ -993,6 +994,11 @@ h3::before {
   padding-right: 45px;
   order: 1;
 }
+@media screen and (max-width: 767px) {
+  .card-ro-accueil .content-card-ro-accueil {
+    padding-right: 0;
+  }
+}
 .card-ro-accueil .content-card-ro-accueil .title-icon h4 {
   font-size: 24px;
   font-family: "Playfair Display";
@@ -1027,6 +1033,11 @@ h3::before {
 .contact-accueil .content-groupe-contact-accueil {
   text-align: center;
 }
+@media screen and (max-width: 767px) {
+  .contact-accueil .content-groupe-contact-accueil {
+    text-align: left;
+  }
+}
 .contact-accueil .content-groupe-contact-accueil .dashicons {
   font-size: 2rem;
   width: 48px;
@@ -1039,6 +1050,11 @@ h3::before {
   justify-content: center;
   margin: auto;
   margin-bottom: 0.5rem;
+}
+@media screen and (max-width: 767px) {
+  .contact-accueil .content-groupe-contact-accueil .dashicons {
+    margin-bottom: 0;
+  }
 }
 .contact-accueil .content-groupe-contact-accueil .dashicons svg {
   fill: #f6f5f2;
@@ -1082,7 +1098,7 @@ h3::before {
 }
 @media screen and (max-width: 767px) {
   .articles .card-article .text-card {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 .articles .card-article .text-card h4 {
@@ -1252,7 +1268,6 @@ main .more {
 .search {
   position: relative;
   max-width: 1000px;
-  margin: auto;
   display: flex;
   align-items: center;
 }
@@ -1286,6 +1301,11 @@ main .more {
   border-radius: 50%;
   display: block;
 }
+@media screen and (max-width: 767px) {
+  #faq-categories li:not(:last-child)::after {
+    display: none;
+  }
+}
 #faq-categories button.active:hover {
   background-color: #462620;
 }
@@ -1296,8 +1316,8 @@ main .more {
   margin-inline: auto;
 }
 #faq-list .faq-category-block .faq-item {
-  border-radius: 20px;
-  margin-bottom: 2rem;
+  border-radius: 15px;
+  margin-bottom: 20px;
 }
 #faq-list .faq-category-block .faq-item .collapse-title {
   font-weight: bold;
@@ -1332,7 +1352,6 @@ main .more {
   color: #462620;
   font-size: 20px !important;
   gap: 13px;
-  margin-bottom: 3.5rem;
 }
 .header-content h2::before {
   content: "";
@@ -1543,11 +1562,13 @@ main .more {
   border-radius: 50%;
   cursor: initial;
 }
+.collaboration .swiperCollaboration {
+  max-width: 1000px;
+  margin: auto;
+}
 .collaboration .card-collaboration {
   padding: 3rem;
   border-radius: 15px;
-  max-width: 1000px;
-  margin: auto;
   transition: 0.3s;
   margin-bottom: 5rem;
 }
@@ -1868,6 +1889,10 @@ main .more {
 .avant-apres .swiper {
   border-radius: 15px;
 }
+.swiperProjectPage .swiper-wrapper,
+.avant-apres .swiper .swiper-wrapper {
+  align-items: flex-end;
+}
 .swiperProjectPage .swiper-wrapper .swiper-slide,
 .avant-apres .swiper .swiper-wrapper .swiper-slide {
   max-width: 80%;
@@ -1877,7 +1902,6 @@ main .more {
 .swiperProjectPage .swiper-wrapper .swiper-slide img,
 .avant-apres .swiper .swiper-wrapper .swiper-slide img {
   border-radius: 15px;
-  height: 100%;
   max-height: 70vh;
   width: auto;
   object-fit: cover;
@@ -1969,6 +1993,7 @@ main .more {
   text-shadow: 0px 3px 15px black;
   margin-bottom: 0;
   z-index: 1;
+  font-size: 24px;
 }
 .page-projet .swiperProjetsRecents .swiper-slide a h2::before {
   display: none;
@@ -1991,6 +2016,7 @@ main .more {
 }
 #page-contact .reseaux #sb_instagram #sbi_images {
   order: 2;
+  gap: 40px !important;
 }
 #page-contact .reseaux #sb_instagram #sbi_images img {
   border-radius: 15px;
@@ -2031,6 +2057,17 @@ main .more {
 #page-contact .decouverte h3::before {
   background-color: #f6f5f2;
 }
+#page-contact .content-icone-texte {
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  #page-contact .content-icone-texte {
+    text-align: left;
+  }
+}
+#page-contact .content-icone-texte h4 {
+  margin-bottom: 0.5rem;
+}
 #page-contact .content-icone-texte .dashicons {
   font-size: 1.5rem;
   border-radius: 50%;
@@ -2042,7 +2079,12 @@ main .more {
   width: 48px;
   height: 48px;
   margin: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+@media screen and (max-width: 767px) {
+  #page-contact .content-icone-texte .dashicons {
+    margin-bottom: 0;
+  }
 }
 #page-contact .content-icone-texte .dashicons svg {
   fill: #f6f5f2;
@@ -2136,7 +2178,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   #page-contact .soutiens .content-soutiens {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 #page-contact .soutiens .content-soutiens h2 {
@@ -2332,6 +2374,7 @@ main .more {
 
 #form-contact {
   border-radius: 15px;
+  margin-top: 48px;
 }
 #form-contact input,
 #form-contact textarea,
@@ -2572,9 +2615,15 @@ main .more {
 #histoire img {
   border-radius: 15px;
   object-fit: cover;
+  height: 100%;
 }
 #histoire .texte {
   padding: 3rem 0;
+}
+@media screen and (max-width: 1023px) {
+  #histoire .texte {
+    padding: 0;
+  }
 }
 #histoire .univers .universSwiper {
   max-width: 1000px;
@@ -2585,7 +2634,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   #histoire .univers .swiper-slide {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 #histoire .univers .swiper-slide .dashicons {
@@ -2658,7 +2707,7 @@ main .more {
 }
 @media screen and (max-width: 767px) {
   #histoire .contrib .content-contrib {
-    padding: 20px;
+    padding: 2rem;
   }
 }
 #histoire .contrib .content-contrib h2 {
@@ -2682,7 +2731,7 @@ footer {
 }
 @media screen and (max-width: 767px) {
   footer {
-    padding: 2rem 20px;
+    padding: 64px 20px 2rem;
   }
 }
 footer img {
@@ -2791,6 +2840,10 @@ footer .footer-bottom a:hover {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   line-height: normal;
+}
+
+img {
+  max-height: 80vh;
 }
 
 section {
@@ -3001,9 +3054,6 @@ main:not(.front-page) h2 {
   gap: 1rem;
 }
 @media screen and (min-width: 767px) {
-  .blog-filters li:not(:last-child) {
-    padding: 20px;
-  }
   .blog-filters li:not(:last-child)::after {
     content: "";
     width: 10px;

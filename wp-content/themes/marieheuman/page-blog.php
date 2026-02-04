@@ -9,7 +9,7 @@ get_header();
         $header = get_field("header_content");
         ?>
         <?= $header['titre'] ?>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-8 mt-8">
             <a href="<?= $header['lien_1']['url'] ?>" <?= $header['lien_1']['target'] ?>
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" <?= $header['lien_2']['target'] ?>
@@ -24,7 +24,7 @@ get_header();
 
         <!-- Filtres par catégorie -->
         <div class="blog-filters">
-            <ul class="flex gap-4 flex-wrap justify-center">
+            <ul class="flex gap-4 flex-wrap">
                 <li>
                     <button class="filter-btn active" data-category="">Tous</button>
                 </li>

@@ -10,7 +10,7 @@ get_header();
         <?= $header['titre'] ?>
 
         <!-- Search -->
-        <div class="search">
+        <div class="search mt-8 mx-auto">
             <input type="text" id="faq-search" placeholder="Rechercher une question..." />
         </div>
     </section>
@@ -20,7 +20,7 @@ get_header();
 
 
         <!-- FILTRES -->
-        <ul id="faq-categories" class="flex gap-4 flex-wrap justify-center">
+        <ul id="faq-categories" class="flex gap-4 flex-wrap">
             <li><button data-category="all" class="border-marron-button active">Toutes</button></li>
             <?php
             $terms = get_terms([

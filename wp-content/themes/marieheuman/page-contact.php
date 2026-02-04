@@ -21,7 +21,7 @@ get_header();
         ?>
         <span class="tag-home"><?= $contact['tag'] ?></span>
         <?= $contact['titre'] ?>
-        <div class="flex flex-wrap justify-center gap-10 md:gap-20">
+        <div class="flex flex-wrap gap-10 md:gap-20 md:justify-center mt-12">
             <?php
             // On boucle de 1 à 3 pour parcourir les champs numérotés manuellement
             for ($i = 1; $i <= 3; $i++) {
@@ -34,7 +34,7 @@ get_header();
             
                     // 3. Affichage sécurisé
                     ?>
-                    <div class="content-icone-texte">
+                    <div class="content-icone-texte flex items-center gap-4 md:block">
                         <div class="dashicons">
                             <?php
                             $icon_path = get_attached_file($groupe_icone['icone']);

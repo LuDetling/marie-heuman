@@ -2,7 +2,6 @@
 
 // HEADER
 .header-content {
-    background-color: white;
     color: $marron;
 
     h1 {
@@ -157,7 +156,6 @@
 
 // ENGAGEMENTS
 .engagements {
-    background-color: white;
     color: $marron;
 
     .card-engagement {
@@ -289,6 +287,7 @@
 
         @media screen and (max-width: 767px) {
             padding: 2rem;
+            margin-bottom: 4rem;
         }
 
         &.active-collaboration {

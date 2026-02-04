@@ -34,7 +34,7 @@ section {
 
 @media screen and (max-width: 767px) {
     .header-content {
-        padding-top: 99px;
+        padding-top: 144px;
     }
 }
 
@@ -264,13 +264,17 @@ main:not(.front-page) {
         align-items: center;
         gap: 1rem;
 
-        &::after {
-            content: "";
-            width: 10px;
-            height: 10px;
-            background-color: $marron;
-            border-radius: 50%;
-            display: block;
+        @media screen and (min-width: 767px) {
+            padding: 20px;
+
+            &::after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background-color: $marron;
+                border-radius: 50%;
+                display: block;
+            }
         }
     }
 

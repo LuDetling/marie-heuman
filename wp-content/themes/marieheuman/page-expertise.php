@@ -74,7 +74,7 @@ get_header();
                 if ($engagement['titre_description']) {
                     ?>
                     <div class="card-engagement section-beige">
-                        <div class="dashicons">
+                        <div class="icone-white">
                             <?php
                             $icon_path = get_attached_file($engagement['icone']);
                             // Vérifie si le fichier existe et l'affiche
@@ -111,7 +111,7 @@ get_header();
                         ?>
                     <div class="section-white swiper-slide card-collaboration">
                         <div class=" flex flex-wrap md:flex-nowrap gap-5 md:gap-10">
-                            <div class="dashicons">
+                            <div class="icone-beige">
                                 <?php
                                 $icon_path = get_attached_file($collaboration['icone']);
                                 // Vérifie si le fichier existe et l'affiche
@@ -158,7 +158,7 @@ get_header();
                 ?>
                 <!-- //new -->
                 <div class="card-ro-accueil gap-4 sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
-                    <div class="icone">
+                    <div class="icone-white">
                         <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
                         ?>
                     </div>

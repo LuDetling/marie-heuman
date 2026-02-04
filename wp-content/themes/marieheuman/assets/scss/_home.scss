@@ -60,6 +60,7 @@ h3 {
     &::before {
         content: "";
         width: 30px;
+        min-width: 30px;
         height: 1px;
         background-color: $marron;
         margin-top: 11px;
@@ -299,7 +300,6 @@ h3 {
     color: $marron;
 
     .card-approche {
-        background-color: white;
         border-radius: 15px;
         padding: 2rem;
 
@@ -575,7 +575,6 @@ h3 {
 }
 
 .card-ro-accueil {
-    background-color: white;
     padding: 2rem;
     border-radius: 15px;
 
@@ -653,8 +652,8 @@ h3 {
 
         .dashicons {
             font-size: 2rem;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background-color: rgba($color: $beige, $alpha: .2);
             border: 1px solid rgba($color: $beige, $alpha: .2);

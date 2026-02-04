@@ -15,13 +15,15 @@
         overflow: hidden;
         border-radius: 15px;
 
-        &:hover {
-            .text-card {
-                transform: translateY(0);
-            }
+        @media screen and (min-width: 767px) {
+            &:hover {
+                .text-card {
+                    transform: translateY(0);
+                }
 
-            img {
-                transform: scale(1.2);
+                img {
+                    transform: scale(1.2);
+                }
             }
         }
 
@@ -102,27 +104,23 @@
         }
     }
 
-
-    // AVIS
-    .temoignages {
-        background-color: white;
-
-
-    }
-
-    // END AVIS
     .accompagnements {
         background-color: $secondary;
         color: $beige;
 
         .titre {
 
+            h2 {}
+
             h3,
+            h2,
             p {
                 color: $beige;
             }
 
-            p {
+            h3 {
+                margin-bottom: 0;
+
                 &::before {
                     background-color: $beige;
                 }

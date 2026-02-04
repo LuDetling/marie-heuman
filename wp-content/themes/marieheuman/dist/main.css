@@ -572,6 +572,7 @@ h3 {
 h3::before {
   content: "";
   width: 30px;
+  min-width: 30px;
   height: 1px;
   background-color: #462620;
   margin-top: 11px;
@@ -759,7 +760,6 @@ h3::before {
   color: #462620;
 }
 .content-approche .card-approche {
-  background-color: white;
   border-radius: 15px;
   padding: 2rem;
 }
@@ -967,7 +967,6 @@ h3::before {
 }
 
 .card-ro-accueil {
-  background-color: white;
   padding: 2rem;
   border-radius: 15px;
 }
@@ -1030,8 +1029,8 @@ h3::before {
 }
 .contact-accueil .content-groupe-contact-accueil .dashicons {
   font-size: 2rem;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background-color: rgba(246, 245, 242, 0.2);
   border: 1px solid rgba(246, 245, 242, 0.2);
@@ -1314,7 +1313,6 @@ main .more {
 }
 
 .header-content {
-  background-color: white;
   color: #462620;
 }
 .header-content h1 {
@@ -1441,7 +1439,6 @@ main .more {
 }
 
 .engagements {
-  background-color: white;
   color: #462620;
 }
 .engagements .card-engagement {
@@ -1557,6 +1554,7 @@ main .more {
 @media screen and (max-width: 767px) {
   .collaboration .card-collaboration {
     padding: 2rem;
+    margin-bottom: 4rem;
   }
 }
 .collaboration .card-collaboration.active-collaboration {
@@ -1733,11 +1731,13 @@ main .more {
   overflow: hidden;
   border-radius: 15px;
 }
-#list-projets .card-article:hover .text-card {
-  transform: translateY(0);
-}
-#list-projets .card-article:hover img {
-  transform: scale(1.2);
+@media screen and (min-width: 767px) {
+  #list-projets .card-article:hover .text-card {
+    transform: translateY(0);
+  }
+  #list-projets .card-article:hover img {
+    transform: scale(1.2);
+  }
 }
 #list-projets .card-article img {
   border-radius: 15px;
@@ -1803,18 +1803,19 @@ main .more {
 #list-projets .card-article.text-card-visible .hide {
   display: block;
 }
-#list-projets .temoignages {
-  background-color: white;
-}
 #list-projets .accompagnements {
   background-color: #3f5e5a;
   color: #f6f5f2;
 }
 #list-projets .accompagnements .titre h3,
+#list-projets .accompagnements .titre h2,
 #list-projets .accompagnements .titre p {
   color: #f6f5f2;
 }
-#list-projets .accompagnements .titre p::before {
+#list-projets .accompagnements .titre h3 {
+  margin-bottom: 0;
+}
+#list-projets .accompagnements .titre h3::before {
   background-color: #f6f5f2;
 }
 
@@ -2038,8 +2039,8 @@ main .more {
   justify-content: center;
   background-color: rgba(246, 245, 242, 0.2);
   border: 1px solid rgba(246, 245, 242, 0.2);
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   margin: auto;
   margin-bottom: 1rem;
 }
@@ -2140,12 +2141,6 @@ main .more {
 }
 #page-contact .soutiens .content-soutiens h2 {
   margin-bottom: 1rem;
-}
-#page-contact .faq {
-  background-color: white;
-}
-#page-contact .contact {
-  background-color: white;
 }
 #page-contact .contact button {
   display: block;
@@ -2581,9 +2576,6 @@ main .more {
 #histoire .texte {
   padding: 3rem 0;
 }
-#histoire .philosophie {
-  background-color: white;
-}
 #histoire .univers .universSwiper {
   max-width: 1000px;
 }
@@ -2657,9 +2649,6 @@ main .more {
   background-color: #462620;
   color: #f6f5f2;
 }
-#histoire .contrib {
-  background-color: white;
-}
 #histoire .contrib .content-contrib {
   background-color: #ece7dd;
   border-radius: 15px;
@@ -2700,6 +2689,11 @@ footer img {
   max-width: 190px;
   display: block;
   margin-bottom: 2rem;
+}
+@media screen and (max-width: 767px) {
+  footer img {
+    max-width: 145px;
+  }
 }
 footer p {
   font-size: 14px;
@@ -2815,7 +2809,7 @@ section {
 
 @media screen and (max-width: 767px) {
   .header-content {
-    padding-top: 99px;
+    padding-top: 144px;
   }
 }
 .section-white {
@@ -3006,13 +3000,18 @@ main:not(.front-page) h2 {
   align-items: center;
   gap: 1rem;
 }
-.blog-filters li:not(:last-child)::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  background-color: #462620;
-  border-radius: 50%;
-  display: block;
+@media screen and (min-width: 767px) {
+  .blog-filters li:not(:last-child) {
+    padding: 20px;
+  }
+  .blog-filters li:not(:last-child)::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #462620;
+    border-radius: 50%;
+    display: block;
+  }
 }
 .blog-filters .filter-btn.active:hover {
   background-color: #462620;

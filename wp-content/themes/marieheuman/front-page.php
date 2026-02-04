@@ -137,7 +137,7 @@
             for ($i = 1; $i <= 4; $i++) {
                 $card = get_field('card_' . $i . '_approche_accueil');
                 ?>
-                <div class="card-approche">
+                <div class="card-approche section-white">
                     <div class="icone-beige">
                         <?php
                         if (!empty($card['icone'])) {

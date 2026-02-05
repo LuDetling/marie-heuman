@@ -517,7 +517,6 @@ header {
 
 .more {
   color: #7a8b85;
-  display: inline-flex;
   align-items: center;
   gap: 1rem;
   font-size: 18px;
@@ -1206,6 +1205,8 @@ main .sidebar h3 {
 main .sidebar h3::before {
   content: "";
   width: 0.7rem;
+  min-width: 0.7rem;
+  min-height: 0.7rem;
   height: 0.7rem;
   background-color: #d86a3d;
   display: inline-block;

@@ -160,6 +160,8 @@ main {
       &::before {
         content: "";
         width: .7rem;
+        min-width: .7rem;
+        min-height: .7rem;
         height: .7rem;
         background-color: $orange;
         display: inline-block;

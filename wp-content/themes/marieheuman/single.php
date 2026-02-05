@@ -1,7 +1,6 @@
-<?php get_header(); ?>
+<?php get_header();
 
 
-<?php
 $projet = get_field("projet");
 function transformer_en_swiper_slides($content)
 {

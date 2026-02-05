@@ -111,7 +111,7 @@ get_header();
         <!-- END RESERVATION -->
 
         <!-- GUIDES -->
-        <?php if (!empty($sidebar['guides'])): ?>
+        <?php if (!empty($sidebar['guides']['lien'])): ?>
             <div class="guides">
                 <h3>
                     <?= $sidebar['guides']['titre'] ?>

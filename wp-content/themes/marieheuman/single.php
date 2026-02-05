@@ -87,14 +87,14 @@ function transformer_en_swiper_slides($content)
 
             <?php
             if ($informations['images']) { ?>
-                <div class="flex-1 lg:mt-0 mt-8">
+                <div class="lg:mt-0 mt-8">
                     <div class="swiper swiperProjectPage">
                         <?= transformer_en_swiper_slides($informations['images']) ?>
                     </div>
                     <div class="flex gap-8 swiper-navigation justify-center items-center">
-                        <div class="swiper-button-prev swiper-button-prev-projet"></div>
-                        <div class="swiper-pagination swiper-pagination-projet"></div>
-                        <div class="swiper-button-next swiper-button-next-projet"></div>
+                        <div class="swiper-button-prev swiper-button-prev-swiperProjectPage"></div>
+                        <div class="swiper-pagination swiper-pagination-swiperProjectPage"></div>
+                        <div class="swiper-button-next swiper-button-next-swiperProjectPage"></div>
                     </div>
                 </div>
             <?php } ?>
@@ -141,7 +141,7 @@ function transformer_en_swiper_slides($content)
         $args = [
             'post_type' => 'post', // Le slug de ta catégorie
             'posts_per_page' => 5,          // Nombre d'articles à récupérer
-            // 'post__not_in' => [get_the_ID()], // Optionnel : exclure l'article actuel pour éviter les doublons
+            'post__not_in' => [get_the_ID()], // Optionnel : exclure l'article actuel pour éviter les doublons
         ];
         $recent_posts_query = new WP_Query($args);
         if ($recent_posts_query->have_posts()): ?>

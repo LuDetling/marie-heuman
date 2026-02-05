@@ -58,23 +58,20 @@ const contactSwiper = new Swiper('.contactSwiper', {
 });
 
 const projectSwiper = new Swiper('.swiperProjectPage', {
-    slidesPerView: 1,
-    spaceBetween: 40,
     loop: true,
+    slidesPerView: 1, // Par défaut sur mobile
+    grabCursor: true, // Petit bonus pour l'UX
     pagination: {
-        el: ".swiper-pagination-projet",
+        el: ".swiper-pagination-swiperProjectPage",
         clickable: true,
     },
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    mousewheel: {
+        nextEl: ".swiper-button-next-swiperProjectPage",
+        prevEl: ".swiper-button-prev-swiperProjectPage",
     },
     breakpoints: {
         768: {
-            slidesPerView: 'auto',
-            spaceBetween: 80,
+            slidesPerView: 'auto', // L'image prend sa largeur définie en CSS
         },
     }
 });

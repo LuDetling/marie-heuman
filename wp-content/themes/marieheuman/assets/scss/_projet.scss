@@ -161,6 +161,7 @@
 .left-projet {
     padding: 2rem;
     border-radius: 15px;
+    min-width: 311px;
 
     @media screen and (max-width: 767px) {
         padding: 2rem;
@@ -189,16 +190,20 @@
         align-items: flex-end;
 
         .swiper-slide {
-            max-width: 80%;
-            height: auto;
+            /* On laisse l'image dicter la largeur du slide */
+            max-width: calc(80% + 40px); // Empêche de sortir du conteneur global
+            padding-right: 40px; // L'espace est INSÉRÉ dans le slide
+            box-sizing: border-box;
             width: auto;
 
             img {
                 border-radius: 15px;
+                display: block; // Enlève l'espace sous l'image
                 max-height: 70vh;
                 width: auto;
-                // margin: auto;
-                object-fit: cover;
+                // max-width: 80%; // L'image ne dépasse jamais le slide
+                height: auto;
+                object-fit: contain; // 'contain' garantit de voir toute l'image
             }
         }
     }

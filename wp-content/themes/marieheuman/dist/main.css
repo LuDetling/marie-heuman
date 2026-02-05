@@ -1869,6 +1869,7 @@ main .more {
 .left-projet {
   padding: 2rem;
   border-radius: 15px;
+  min-width: 311px;
 }
 @media screen and (max-width: 767px) {
   .left-projet {
@@ -1896,16 +1897,20 @@ main .more {
 }
 .swiperProjectPage .swiper-wrapper .swiper-slide,
 .avant-apres .swiper .swiper-wrapper .swiper-slide {
-  max-width: 80%;
-  height: auto;
+  /* On laisse l'image dicter la largeur du slide */
+  max-width: calc(80% + 40px);
+  padding-right: 40px;
+  box-sizing: border-box;
   width: auto;
 }
 .swiperProjectPage .swiper-wrapper .swiper-slide img,
 .avant-apres .swiper .swiper-wrapper .swiper-slide img {
   border-radius: 15px;
+  display: block;
   max-height: 70vh;
   width: auto;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .page-projet .parti-pris {

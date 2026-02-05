@@ -122,19 +122,16 @@ function transformer_en_swiper_slides($content)
     }
     ?>
 
-    <?php $votreProjet = $projet['votre_projet'];
-    if ($votreProjet['lien_1']) {
-        ?>
-        <section class="votre-projet">
-            <?= $votreProjet['titre'] ?>
-            <div class="flex gap-8 items-center flex-wrap">
-                <a href="<?= $votreProjet['lien_1']['url'] ?>"
-                    class="orange-button"><?= $votreProjet['lien_1']['title'] ?></a>
-                <a href="<?= $votreProjet['lien_2']['url'] ?>"
-                    class="second-link"><?= $votreProjet['lien_2']['title'] ?></a>
-            </div>
-        </section>
-    <?php } ?>
+    <section class="votre-projet">
+        <h2>Un projet similaire en tête ?</h2>
+        <p>Chaque espace raconte une histoire unique.<br>
+            Ensemble, créons la vôtre avec une approche sur-mesure, humaine et structurée.</p>
+        <div class="flex gap-8 items-center flex-wrap">
+            <a href="contact-architecte-interieur-tours-blois/" class="orange-button">Echangeons sur votre projet</a>
+            <a href="expertise-accompagnement-architecture-tours-blois/" class="second-link">Découvrez mes
+                accompagnements</a>
+        </div>
+    </section>
 
 
     <section class="section-white projets-recents">

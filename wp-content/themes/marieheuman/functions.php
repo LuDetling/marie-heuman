@@ -175,7 +175,7 @@ add_filter('tiny_mce_before_init', function ($settings) {
     $settings['style_formats'] = json_encode($style_formats);
 
     return $settings;
-});
+}, 999);
 
 /**
  * Méthode Standard pour charger le CSS dans l'éditeur TinyMCE

@@ -127,6 +127,12 @@ section {
     }
 }
 
+.header-content {
+    .orange-list-container {
+        margin-top: 3.5rem;
+    }
+}
+
 .orange-list-container {
     display: flex;
     gap: 1rem;
@@ -231,10 +237,10 @@ main:not(.front-page) {
 
         &[class^="swiper-button"] {
             border: 2px solid #f6f5f2;
-            width: 48px;
-            height: 48px;
-            width: 48px;
-            height: 48px;
+            width: 37px;
+            height: 37px;
+            width: 37px;
+            height: 37px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -248,13 +254,6 @@ main:not(.front-page) {
             svg {
                 width: 1rem;
                 height: 1rem;
-            }
-
-            @media screen and (max-width: 767px) {
-                width: 37px;
-                height: 37px;
-                width: 37px;
-                height: 37px;
             }
         }
     }

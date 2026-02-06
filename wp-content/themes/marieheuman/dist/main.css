@@ -1764,6 +1764,7 @@ main .more {
 #list-projets .card-article img {
   border-radius: 15px;
   min-height: 650px;
+  height: 100%;
   object-fit: cover;
   transition: 0.6s;
 }
@@ -1776,7 +1777,6 @@ main .more {
   align-items: center;
   justify-content: center;
   border: 1px solid #d86a3d;
-  background-color: #f6f5f2;
   color: #d86a3d;
   width: 36px;
   height: 36px;
@@ -1792,7 +1792,8 @@ main .more {
   display: none;
 }
 #list-projets .card-article .text-card {
-  padding: 2rem 3rem;
+  padding: 2rem;
+  padding-top: 1.5rem;
   position: absolute;
   bottom: 0;
   background-color: #f6f5f2;
@@ -1801,11 +1802,6 @@ main .more {
   transition: 0.3s;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-}
-@media screen and (max-width: 767px) {
-  #list-projets .card-article .text-card {
-    padding: 20px;
-  }
 }
 #list-projets .card-article .text-card h4 {
   font-family: "Playfair Display";
@@ -2470,7 +2466,7 @@ main .more {
 }
 #custom-booking-app .calendar-card .date-header {
   background-color: #462620;
-  padding: 1rem 3rem;
+  padding: 1rem 4rem;
   color: #f6f5f2;
   font-weight: bold;
 }
@@ -2614,8 +2610,8 @@ main .more {
 }
 #custom-booking-app #go-to-step-2.locked {
   cursor: not-allowed;
-  background-color: grey;
-  border-color: grey;
+  background-color: #ece7dd;
+  border-color: #ece7dd;
 }
 
 #histoire img {
@@ -2673,8 +2669,12 @@ main .more {
 #histoire .univers .swiper-navigation .swiper-pagination {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 3rem;
+}
+@media screen and (max-width: 767px) {
+  #histoire .univers .swiper-navigation .swiper-pagination {
+    gap: 2rem;
+  }
 }
 #histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet {
   background: none;
@@ -2699,6 +2699,11 @@ main .more {
   border-radius: 50%;
   position: absolute;
   right: -29px;
+}
+@media screen and (max-width: 767px) {
+  #histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet:not(:last-child)::after {
+    display: none;
+  }
 }
 #histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active, #histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet:hover {
   background-color: #462620;
@@ -2938,6 +2943,10 @@ section {
   width: 150px;
 }
 
+.header-content .orange-list-container {
+  margin-top: 3.5rem;
+}
+
 .orange-list-container {
   display: flex;
   gap: 1rem;
@@ -3025,10 +3034,10 @@ main:not(.front-page) h2 {
 }
 .swiper-navigation > div[class^=swiper-button] {
   border: 2px solid #f6f5f2;
-  width: 48px;
-  height: 48px;
-  width: 48px;
-  height: 48px;
+  width: 37px;
+  height: 37px;
+  width: 37px;
+  height: 37px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3041,14 +3050,6 @@ main:not(.front-page) h2 {
 .swiper-navigation > div[class^=swiper-button] svg {
   width: 1rem;
   height: 1rem;
-}
-@media screen and (max-width: 767px) {
-  .swiper-navigation > div[class^=swiper-button] {
-    width: 37px;
-    height: 37px;
-    width: 37px;
-    height: 37px;
-  }
 }
 
 .blog-filters {

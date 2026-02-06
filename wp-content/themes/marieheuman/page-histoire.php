@@ -46,11 +46,11 @@ get_header();
             <?= $philosophie['titre'] ?>
         </h2>
         <div class="flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap mt-8">
-            <div class="texte lg:w-6/10">
+            <div class="texte lg:w-6/10 lg:order-1 order-2">
                 <?= $philosophie['description'] ?>
                 <a href="<?= $philosophie['lien']['url'] ?>" class="more"><?= $philosophie['lien']['title'] ?></a>
             </div>
-            <div class="mx-auto lg:w-4/10">
+            <div class="mx-auto lg:w-4/10 lg:order-2 order-1">
                 <img src="<?= $philosophie['image']['url'] ?>" alt="<?= $philosophie['image']['alt'] ?>" />
             </div>
         </div>

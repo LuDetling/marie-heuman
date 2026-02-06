@@ -531,7 +531,7 @@
 
         .date-header {
             background-color: $marron;
-            padding: 1rem 3rem;
+            padding: 1rem 4rem;
             color: $beige;
             font-weight: bold;
         }
@@ -704,8 +704,8 @@
     #go-to-step-2 {
         &.locked {
             cursor: not-allowed;
-            background-color: grey;
-            border-color: grey;
+            background-color: $white;
+            border-color: $white;
         }
     }
 }

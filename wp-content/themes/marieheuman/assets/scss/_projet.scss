@@ -30,6 +30,7 @@
         img {
             border-radius: 15px;
             min-height: 650px;
+            height: 100%;
             object-fit: cover;
             transition: .6s;
         }
@@ -43,7 +44,6 @@
             align-items: center;
             justify-content: center;
             border: 1px solid $orange;
-            background-color: $beige;
             color: $orange;
             width: 36px;
             height: 36px;
@@ -62,7 +62,8 @@
         }
 
         .text-card {
-            padding: 2rem 3rem;
+            padding: 2rem;
+            padding-top: 1.5rem;
             position: absolute;
             bottom: 0;
             background-color: $beige;
@@ -71,11 +72,6 @@
             transition: .3s;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
-
-            @media screen and (max-width: 767px) {
-                padding: 20px;
-            }
-
 
             h4 {
                 font-family: 'Playfair Display';

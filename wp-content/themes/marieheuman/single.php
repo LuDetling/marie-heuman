@@ -160,7 +160,9 @@ function transformer_en_swiper_slides($content)
                                         <?php the_title(); ?>
                                     </h2>
                                 </div>
-                                <img src="<?= $projet['image']['url'] ?>" alt="">
+                                <?php if (!empty($projet['image']['url'])): ?>
+                                    <img src="<?= $projet['image']['url'] ?>" alt="<?= $projet['image']['alt'] ?>">
+                                <?php endif; ?>
                             </a>
                         </div>
                     <?php endwhile; ?>

@@ -31,15 +31,20 @@ if ($avantApres['avant']['images']) {
                     <div class="swiper swiperProjectAvantApres swiperProjectAvantApres-<?= $indexAvantApres ?>">
                         <?= transformer_en_swiper_slides($selector['images']) ?>
                     </div>
-                    <div class="flex gap-8 swiper-navigation justify-center items-center">
-                        <div class="swiper-button-prev swiper-button-prev-<?= $indexAvantApres ?>"></div>
-                        <div class="swiper-pagination swiper-pagination-<?= $indexAvantApres ?>"></div>
-                        <div class="swiper-button-next swiper-button-next-<?= $indexAvantApres ?>"></div>
-                    </div>
+                    <?php if ($indexAvantApres > 1): ?>
+                        <div class="flex gap-8 swiper-navigation justify-center items-center">
+                            <!-- <div class="swiper-button-prev swiper-button-prev-avant-apres-<?= $indexAvantApres ?>"></div>
+                        <div class="swiper-pagination swiper-pagination-avant-apres-<?= $indexAvantApres ?>"></div>
+                        <div class="swiper-button-next swiper-button-next-avant-apres-<?= $indexAvantApres ?>"></div> -->
+                            <div class="swiper-button-prev swiper-button-prev-avant-apres"></div>
+                            <div class="swiper-pagination swiper-pagination-avant-apres"></div>
+                            <div class="swiper-button-next swiper-button-next-avant-apres"></div>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <?php
                 $indexAvantApres++;
             endforeach ?>
-            </div>
-        </section>
+        </div>
+    </section>
 <?php } ?>

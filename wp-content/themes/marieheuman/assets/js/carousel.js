@@ -78,23 +78,48 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
 });
 
 for (let i = 0; i < 3; i++) {
-    new Swiper('.swiperProjectAvantApres-' + i, {
-        slidesPerView: 1,
-        spaceBetween: 40,
-        loop: true,
-        pagination: {
-            el: ".swiper-pagination-" + i,
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next-" + i,
-            prevEl: ".swiper-button-prev-" + i,
-        },
-        mousewheel: {
-        },
+    console.log(document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length);
+    if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
+        new Swiper('.swiperProjectAvantApres-' + i, {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination-avant-apres",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next-avant-apres",
+                prevEl: ".swiper-button-prev-avant-apres",
+            },
+            mousewheel: {
+            },
 
-    });
+        });
+    }
 }
+// for (let i = 0; i < 3; i++) {
+//     console.log(document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length);
+//     if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
+
+//         new Swiper('.swiperProjectAvantApres-' + i, {
+//             slidesPerView: 1,
+//             spaceBetween: 40,
+//             loop: true,
+//             pagination: {
+//                 el: ".swiper-pagination-avant-apres-" + i,
+//                 clickable: true,
+//             },
+//             navigation: {
+//                 nextEl: ".swiper-button-next-avant-apres-" + i,
+//                 prevEl: ".swiper-button-prev-avant-apres-" + i,
+//             },
+//             mousewheel: {
+//             },
+
+//         });
+//     }
+// }
 
 const swiperProjetsRecents = new Swiper('.swiperProjetsRecents', {
     slidesPerView: 1,

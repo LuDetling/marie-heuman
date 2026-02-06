@@ -78,7 +78,6 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
 });
 
 for (let i = 0; i < 3; i++) {
-    console.log(document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length);
     if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
         document.querySelector('.swiperProjectAvantApres  .swiper-navigation').classList.remove('hidden');
         new Swiper('.swiperProjectAvantApres-' + i, {
@@ -100,7 +99,6 @@ for (let i = 0; i < 3; i++) {
     }
 }
 // for (let i = 0; i < 3; i++) {
-//     console.log(document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length);
 //     if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
 
 //         new Swiper('.swiperProjectAvantApres-' + i, {

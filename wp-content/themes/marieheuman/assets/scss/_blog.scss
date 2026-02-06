@@ -69,10 +69,10 @@ main {
         color: $secondary;
         margin-block: 1.5rem;
 
-        &::before {
-          @extend .far;
-          content: '\f073';
-          margin-right: .3rem;
+        svg {
+          fill: $secondary;
+          display: inline;
+          width: 20px;
         }
       }
 
@@ -127,6 +127,7 @@ main {
 
     .sidebar-decorative-img {
       margin-inline: auto;
+      max-width: 200px;
     }
 
     @media screen and (max-width: 767px) {

@@ -336,8 +336,10 @@
                             <p>
                                 <?= $fichier['description'] ?>
                             </p>
-                            <a href="<?= $fichier['fichier']['url'] ?>" class="more">
-                                Téléchargez</a>
+                            <div class="mt-4">
+                                <a href="<?= $fichier['fichier']['url'] ?>" class="more">
+                                    Téléchargez</a>
+                            </div>
                         </div>
                     </div>
                     <?php

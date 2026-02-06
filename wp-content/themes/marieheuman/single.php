@@ -39,7 +39,7 @@ function transformer_en_swiper_slides($content)
                 <div class="left-projet section-white">
                     <div class="tag-home"><?= $informations['tag'] ?></div>
                     <ul>
-                        <?php if ($informations['localisation']) { ?>
+                        <?php if (!empty($informations['localisation'])) { ?>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
                                     <path
@@ -47,7 +47,7 @@ function transformer_en_swiper_slides($content)
                                     </path>
                                 </svg><?= $informations['localisation'] ?></li>
                         <?php } ?>
-                        <?php if ($informations['type']) { ?>
+                        <?php if (!empty($informations['type'])) { ?>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
@@ -57,7 +57,7 @@ function transformer_en_swiper_slides($content)
                                 </svg><?= $informations['type'] ?>
                             </li>
                         <?php } ?>
-                        <?php if ($informations['surface']) { ?>
+                        <?php if (!empty($informations['surface'])) { ?>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
                                     <path
@@ -65,7 +65,7 @@ function transformer_en_swiper_slides($content)
                                     </path>
                                 </svg><?= $informations['surface'] ?></li>
                         <?php } ?>
-                        <?php if ($informations['tarifs']) { ?>
+                        <?php if (!empty($informations['tarifs'])) { ?>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
                                     <path
@@ -73,7 +73,7 @@ function transformer_en_swiper_slides($content)
                                     </path>
                                 </svg><?= $informations['tarifs'] ?></li>
                         <?php } ?>
-                        <?php if ($informations['date']) { ?>
+                        <?php if (!empty($informations['date'])) { ?>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
                                     <path
@@ -81,12 +81,17 @@ function transformer_en_swiper_slides($content)
                                     </path>
                                 </svg><?= $informations['date'] ?></li>
                         <?php } ?>
+                        <?php if (!empty($informations['credit'])) { ?>
+                            <li>
+                                <?= $informations['credit'] ?>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
 
             <?php
-            if ($informations['images']) { ?>
+            if (!empty($informations['images'])) { ?>
                 <div class="lg:mt-0 mt-8">
                     <div class="swiper swiperProjectPage">
                         <?= transformer_en_swiper_slides($informations['images']) ?>
@@ -152,9 +157,11 @@ function transformer_en_swiper_slides($content)
                         $projet = get_field('projet'); ?>
                         <div class="swiper-slide">
                             <a href="<?php the_permalink(); ?>">
-                                <h2>
-                                    <?php the_title(); ?>
-                                </h2>
+                                <div class="on-img">
+                                    <h2>
+                                        <?php the_title(); ?>
+                                    </h2>
+                                </div>
                                 <img src="<?= $projet['image']['url'] ?>" alt="">
                             </a>
                         </div>

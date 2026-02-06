@@ -16,12 +16,31 @@ get_header();
                 </div>
             <?php endif; ?>
             <?php if (!empty($content['temps_de_lecture'])): ?>
-                <p class="blog-meta">
-                    <span class="date">
-                        <?= get_the_date('F o'); ?> •
-                        <?= $content['temps_de_lecture'] ?> de lecture
+                <div class="blog-meta">
+                    <span class="date flex items-center gap-2 flex-wrap">
+                        <div class="flex items-center gap-2">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-68-76a12,12,0,1,1-12-12A12,12,0,0,1,140,132Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,132ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,140,172Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z">
+                                </path>
+                            </svg>
+                            <?= get_the_date('F o'); ?>
+                        </div>
+                        <div class="flex items-center gap-2">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z">
+                                </path>
+                            </svg>
+                            <?= $content['temps_de_lecture'] ?> de lecture
+                        </div>
+
                     </span>
-                </p>
+                </div>
             <?php endif; ?>
             <?php if (!empty($content['image'])): ?>
                 <img src="<?= $content['image']['url'] ?>" alt="<?= $content['image']['alt'] ?>">

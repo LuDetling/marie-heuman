@@ -77,7 +77,7 @@
         @media screen and (max-width: 767px) {
             text-align: left;
 
-            *> {
+            >* {
                 display: inline;
             }
         }
@@ -706,6 +706,7 @@
             cursor: not-allowed;
             background-color: $white;
             border-color: $white;
+            color: $light-secondary;
         }
     }
 }

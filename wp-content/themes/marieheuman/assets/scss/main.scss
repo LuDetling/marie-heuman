@@ -108,14 +108,14 @@ section {
 .white-block {
     background-color: $beige;
     border-radius: 15px;
-    padding: 1.5rem;
+    padding: 2rem;
     color: $marron;
 }
 
 .beige-block {
     background-color: $white;
     border-radius: 15px;
-    padding: 1.5rem;
+    padding: 2rem;
     color: $marron;
 }
 
@@ -124,6 +124,9 @@ section {
         img {
             width: 150px;
         }
+    }
+    img {
+        max-width: 300px;
     }
 }
 
@@ -163,7 +166,7 @@ section {
 
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
 }
 
@@ -239,8 +242,8 @@ main:not(.front-page) {
             border: 2px solid #f6f5f2;
             width: 37px;
             height: 37px;
-            width: 37px;
-            height: 37px;
+            min-width: 37px;
+            min-height: 37px;
             display: flex;
             align-items: center;
             justify-content: center;

@@ -531,9 +531,6 @@ header {
 
 .tag-home,
 .tag-page {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   font-size: 1rem;
   color: #3f5e5a;
   text-transform: uppercase;
@@ -548,6 +545,13 @@ header {
   min-height: 0.7rem;
   background-color: #d86a3d;
   border-radius: 50%;
+  margin-top: 11px;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+.tag-home p,
+.tag-page p {
+  display: inline;
 }
 
 h2 {
@@ -557,7 +561,7 @@ h2 {
 }
 @media screen and (max-width: 767px) {
   h2 {
-    font-size: 1.7rem;
+    font-size: 1.7rem !important;
   }
 }
 
@@ -592,6 +596,7 @@ h3::before {
 }
 .content-img-header img {
   height: 100vh;
+  max-height: none;
   width: 100%;
   object-fit: cover;
 }
@@ -903,7 +908,7 @@ h3::before {
 }
 @media screen and (max-width: 767px) {
   .content-approche .content-question-conception-accueil h4 {
-    font-size: 24px;
+    font-size: 1.7rem;
   }
 }
 .content-approche .content-question-conception-accueil .texte-question-conception {
@@ -1036,6 +1041,9 @@ h3::before {
   .contact-accueil .content-groupe-contact-accueil {
     text-align: left;
   }
+  .contact-accueil .content-groupe-contact-accueil > * {
+    display: inline;
+  }
 }
 .contact-accueil .content-groupe-contact-accueil .dashicons {
   font-size: 2rem;
@@ -1071,7 +1079,7 @@ h3::before {
   font-weight: 900;
 }
 
-.far, main .left-content .header-content-blog .blog-meta::before {
+.far {
   font-family: "Font Awesome 6 Free";
   font-weight: 400;
 }
@@ -1134,9 +1142,10 @@ main .left-content .header-content-blog .blog-meta {
   color: #3f5e5a;
   margin-block: 1.5rem;
 }
-main .left-content .header-content-blog .blog-meta::before {
-  content: "\f073";
-  margin-right: 0.3rem;
+main .left-content .header-content-blog .blog-meta svg {
+  fill: #3f5e5a;
+  display: inline;
+  width: 20px;
 }
 main .left-content .header-content-blog .description {
   font-size: 18px;
@@ -1178,6 +1187,7 @@ main .sidebar {
 }
 main .sidebar .sidebar-decorative-img {
   margin-inline: auto;
+  max-width: 200px;
 }
 @media screen and (max-width: 767px) {
   main .sidebar {
@@ -1312,7 +1322,7 @@ main .more {
 }
 
 #faq-list {
-  margin-top: 5rem;
+  margin-top: 3rem;
   max-width: 1000px;
   margin-inline: auto;
 }
@@ -1550,6 +1560,12 @@ main .more {
   position: absolute;
   right: -22px;
 }
+@media screen and (max-width: 767px) {
+  .collaboration .selectors .swiper-pagination .swiper-pagination-bullet:not(:last-child)::after,
+  .collaboration .swiper-navigation .swiper-pagination .swiper-pagination-bullet:not(:last-child)::after {
+    display: none;
+  }
+}
 .collaboration .selectors .swiper-pagination.active-border-marron-button,
 .collaboration .swiper-navigation .swiper-pagination.active-border-marron-button {
   color: #f6f5f2;
@@ -1672,6 +1688,10 @@ main .more {
   list-style: disc;
   margin-left: 1rem;
 }
+.content img {
+  border-radius: 15px;
+  margin: 2rem 0;
+}
 
 .card-presse {
   border-radius: 15px;
@@ -1767,6 +1787,16 @@ main .more {
   height: 100%;
   object-fit: cover;
   transition: 0.6s;
+}
+#list-projets .card-article .over-img-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #list-projets .card-article .show-hide {
   position: absolute;
@@ -1908,6 +1938,27 @@ main .more {
   height: auto;
   object-fit: contain;
 }
+@media screen and (max-width: 767px) {
+  .swiperProjectPage .swiper-wrapper .swiper-slide,
+  .avant-apres .swiper .swiper-wrapper .swiper-slide {
+    max-width: 100%;
+    padding-right: 0;
+  }
+  .swiperProjectPage .swiper-wrapper .swiper-slide img,
+  .avant-apres .swiper .swiper-wrapper .swiper-slide img {
+    max-height: none;
+    width: 100%;
+  }
+}
+
+.avant-apres .swiper .swiper-wrapper .swiper-slide {
+  max-width: 100%;
+  padding-right: 0;
+}
+.avant-apres .swiper .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  object-fit: cover;
+}
 
 .page-projet .parti-pris {
   padding: 3rem;
@@ -1938,6 +1989,11 @@ main .more {
   background-color: #462620;
   border-radius: 50%;
   display: block;
+}
+@media screen and (max-width: 767px) {
+  .page-projet .avant-apres .selectors ul li:not(:last-child)::after {
+    display: none;
+  }
 }
 .page-projet .avant-apres .content-avant-apres {
   display: none;
@@ -1970,6 +2026,11 @@ main .more {
 .page-projet .votre-projet h2::before {
   display: none;
 }
+@media screen and (max-width: 767px) {
+  .page-projet .votre-projet h2 {
+    font-size: 1.7rem;
+  }
+}
 .page-projet .votre-projet p {
   margin-bottom: 2rem;
 }
@@ -1987,17 +2048,20 @@ main .more {
 .page-projet .swiperProjetsRecents .swiper-slide a:hover img {
   transform: scale(1.2);
 }
-.page-projet .swiperProjetsRecents .swiper-slide a h2 {
+.page-projet .swiperProjetsRecents .swiper-slide a .on-img {
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+}
+.page-projet .swiperProjetsRecents .swiper-slide a .on-img h2 {
+  padding: 0 2rem 2rem;
   color: #f6f5f2;
   text-shadow: 0px 3px 15px black;
   margin-bottom: 0;
-  z-index: 1;
   font-size: 24px;
 }
-.page-projet .swiperProjetsRecents .swiper-slide a h2::before {
+.page-projet .swiperProjetsRecents .swiper-slide a .on-img h2::before {
   display: none;
 }
 .page-projet .swiperProjetsRecents .swiper-slide a img {
@@ -2065,6 +2129,9 @@ main .more {
 @media screen and (max-width: 767px) {
   #page-contact .content-icone-texte {
     text-align: left;
+  }
+  #page-contact .content-icone-texte > * {
+    display: inline;
   }
 }
 #page-contact .content-icone-texte h4 {
@@ -2612,6 +2679,7 @@ main .more {
   cursor: not-allowed;
   background-color: #ece7dd;
   border-color: #ece7dd;
+  color: #7a8b85;
 }
 
 #histoire img {
@@ -2669,11 +2737,12 @@ main .more {
 #histoire .univers .swiper-navigation .swiper-pagination {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
 }
 @media screen and (max-width: 767px) {
   #histoire .univers .swiper-navigation .swiper-pagination {
-    gap: 2rem;
+    gap: 1rem;
   }
 }
 #histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet {
@@ -2928,19 +2997,22 @@ section {
 .white-block {
   background-color: #f6f5f2;
   border-radius: 15px;
-  padding: 1.5rem;
+  padding: 2rem;
   color: #462620;
 }
 
 .beige-block {
   background-color: #ece7dd;
   border-radius: 15px;
-  padding: 1.5rem;
+  padding: 2rem;
   color: #462620;
 }
 
 .mce-content-body .swiper-wrapper img {
   width: 150px;
+}
+.mce-content-body img {
+  max-width: 300px;
 }
 
 .header-content .orange-list-container {
@@ -2970,7 +3042,7 @@ section {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -3036,8 +3108,8 @@ main:not(.front-page) h2 {
   border: 2px solid #f6f5f2;
   width: 37px;
   height: 37px;
-  width: 37px;
-  height: 37px;
+  min-width: 37px;
+  min-height: 37px;
   display: flex;
   align-items: center;
   justify-content: center;

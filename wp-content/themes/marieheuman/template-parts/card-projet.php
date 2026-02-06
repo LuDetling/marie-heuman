@@ -5,6 +5,7 @@ $projet = get_field('projet');
     <?php if ($projet['image']): ?>
         <img src="<?= esc_url($projet['image']['url']); ?>" alt="<?= esc_attr($projet['image']['alt']); ?>"
             width="<?= esc_attr($projet['image']['width']); ?>" height="<?= esc_attr($projet['image']['height']); ?>">
+        <a href="<?php the_permalink(); ?>" class="over-img-link"></a>
     <?php endif; ?>
     <div class="show-hide">
         <button class="show">+</button>

@@ -23,7 +23,7 @@ function transformer_en_swiper_slides($content)
         $header = get_field("header_content");
         ?>
         <?= $header['titre'] ?>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-8 mt-8">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-16">
             <a href="<?= $header['lien_1']['url'] ?>" target="<?= $header['lien_1']['target'] ?>"
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" target="<?= $header['lien_2']['target'] ?>"
@@ -55,14 +55,14 @@ function transformer_en_swiper_slides($content)
                             </div>
                             <?php if ($presse['fichier']) { ?>
                                 <a href="<?= $presse['fichier']['url'] ?>" target="_blank" class="second-link-secondary">Découvrez
-                                    l'article en PDF</a>
+                                    l'article</a>
                             <?php } else { ?>
                                 <button class="show-images second-link-secondary cursor-pointer">Découvrez
-                                    l'article en images</button>
+                                    l'article</button>
                             <?php }
                             if ($presse['lien_externe']) { ?>
                                 <a href="<?= $presse['lien_externe']['url'] ?>" target="<?= $presse['lien_externe']['target'] ?>"
-                                    class="second-link-orange mt-4">Découvrez l'article en ligne</a>
+                                    class="second-link-orange mt-4">Découvrez l'article</a>
                             <?php } ?>
 
 

@@ -191,8 +191,10 @@ get_header();
                         <p>
                             <?= $ressource['fichier']['description'] ?>
                         </p>
-                        <a href="<?= $ressource['fichier']['url'] ?>" class="more">
-                            Téléchargez</a>
+                        <div class="mt-4">
+                            <a href="<?= $ressource['fichier']['url'] ?>" class="more">
+                                Téléchargez</a>
+                        </div>
                     </div>
                 </div>
             <?php }

@@ -9,7 +9,7 @@ get_header();
         $header = get_field("header_content");
         ?>
         <?= $header['titre'] ?>
-        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-8 mt-8">
+        <div class="flex gap-8 flex-wrap lg:flex-nowrap items-center mt-16">
             <a href="<?= $header['lien_1']['url'] ?>" <?= $header['lien_1']['target'] ?>
                 class="orange-button"><?= $header['lien_1']['title'] ?></a>
             <a href="<?= $header['lien_2']['url'] ?>" <?= $header['lien_2']['target'] ?>

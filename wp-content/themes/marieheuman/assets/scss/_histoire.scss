@@ -69,10 +69,11 @@
             .swiper-pagination {
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 gap: 3rem;
 
                 @media screen and (max-width: 767px) {
-                    gap: 2rem;
+                    gap: 1rem;
                 }
 
                 .swiper-pagination-bullet {

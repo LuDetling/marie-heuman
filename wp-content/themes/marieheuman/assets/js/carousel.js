@@ -60,6 +60,7 @@ const contactSwiper = new Swiper('.contactSwiper', {
 const projectSwiper = new Swiper('.swiperProjectPage', {
     loop: true,
     slidesPerView: 1, // Par défaut sur mobile
+    spaceBetween: 40,
     grabCursor: true, // Petit bonus pour l'UX
     pagination: {
         el: ".swiper-pagination-swiperProjectPage",
@@ -72,6 +73,7 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
     breakpoints: {
         768: {
             slidesPerView: 'auto', // L'image prend sa largeur définie en CSS
+            spaceBetween: 0,
         },
     }
 });
@@ -91,12 +93,7 @@ for (let i = 0; i < 3; i++) {
         },
         mousewheel: {
         },
-        breakpoints: {
-            768: {
-                slidesPerView: "auto",
-                spaceBetween: 80,
-            },
-        }
+
     });
 }
 

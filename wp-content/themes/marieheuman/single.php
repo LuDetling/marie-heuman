@@ -108,8 +108,10 @@ function transformer_en_swiper_slides($content)
     <section class="section-white">
         <div class="parti-pris section-beige">
             <?php $partiPris = $projet['parti_pris'] ?>
-            <div class="tag-home"><?= $partiPris['tag'] ?></div>
-            <?php if ($partiPris['description']) { ?>
+            <?php if (!empty($partiPris['tag'])) { ?>
+                <div class="tag-home"><?= $partiPris['tag'] ?></div>
+            <?php } ?>
+            <?php if (!empty($partiPris['description'])) { ?>
                 <div>
                     <?= $partiPris['description'] ?>
                 </div>

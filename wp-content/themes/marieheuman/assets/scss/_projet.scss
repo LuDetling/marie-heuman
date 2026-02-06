@@ -194,34 +194,27 @@
     border-radius: 15px;
 
     .swiper-wrapper {
-        align-items: flex-end;
-
         .swiper-slide {
             /* On laisse l'image dicter la largeur du slide */
             max-width: calc(80% + 40px); // Empêche de sortir du conteneur global
             padding-right: 40px; // L'espace est INSÉRÉ dans le slide
             box-sizing: border-box;
             width: auto;
-
-
+            height: auto;
 
             img {
                 border-radius: 15px;
                 display: block; // Enlève l'espace sous l'image
                 max-height: 70vh;
                 width: auto;
-                height: auto;
-                object-fit: contain; // 'contain' garantit de voir toute l'image
+                height: 100%;
+                object-fit: cover; // 'contain' garantit de voir toute l'image
             }
 
             @media screen and (max-width: 767px) {
                 max-width: 100%;
                 padding-right: 0;
 
-                img {
-                    max-height: none;
-                    width: 100%;
-                }
             }
         }
     }

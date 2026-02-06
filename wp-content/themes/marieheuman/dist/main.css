@@ -1917,10 +1917,6 @@ main .more {
 .avant-apres .swiper {
   border-radius: 15px;
 }
-.swiperProjectPage .swiper-wrapper,
-.avant-apres .swiper .swiper-wrapper {
-  align-items: flex-end;
-}
 .swiperProjectPage .swiper-wrapper .swiper-slide,
 .avant-apres .swiper .swiper-wrapper .swiper-slide {
   /* On laisse l'image dicter la largeur du slide */
@@ -1928,6 +1924,7 @@ main .more {
   padding-right: 40px;
   box-sizing: border-box;
   width: auto;
+  height: auto;
 }
 .swiperProjectPage .swiper-wrapper .swiper-slide img,
 .avant-apres .swiper .swiper-wrapper .swiper-slide img {
@@ -1935,19 +1932,14 @@ main .more {
   display: block;
   max-height: 70vh;
   width: auto;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 @media screen and (max-width: 767px) {
   .swiperProjectPage .swiper-wrapper .swiper-slide,
   .avant-apres .swiper .swiper-wrapper .swiper-slide {
     max-width: 100%;
     padding-right: 0;
-  }
-  .swiperProjectPage .swiper-wrapper .swiper-slide img,
-  .avant-apres .swiper .swiper-wrapper .swiper-slide img {
-    max-height: none;
-    width: 100%;
   }
 }
 

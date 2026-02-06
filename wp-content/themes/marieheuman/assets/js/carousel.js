@@ -58,8 +58,7 @@ const contactSwiper = new Swiper('.contactSwiper', {
 });
 
 const projectSwiper = new Swiper('.swiperProjectPage', {
-    loop: true,
-    slidesPerView: 1, // Par défaut sur mobile
+    slidesPerView: 'auto', // Par défaut sur mobile
     spaceBetween: 40,
     grabCursor: true, // Petit bonus pour l'UX
     pagination: {

@@ -19,16 +19,12 @@ function transformer_en_swiper_slides($content)
 <main class="md:ml-20 page-projet">
     <section class="header-content section-white">
         <h1><?php the_title() ?></h1>
-        <?php
-        if ($projet['description']) {
-
+        <?php if (!empty($projet['description'])):
             ?>
             <h2>
                 <?= $projet['description'] ?>
             </h2>
-            <?php
-        }
-        ?>
+        <?php endif; ?>
     </section>
     <div class="img-under-header"></div>
     <section class="section-beige">

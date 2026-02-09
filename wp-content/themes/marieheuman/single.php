@@ -131,7 +131,7 @@ function transformer_en_swiper_slides($content)
             Ensemble, créons la vôtre avec une approche sur-mesure, humaine et structurée.</p>
         <div class="flex gap-8 items-center flex-wrap">
             <a href="contact-architecte-interieur-tours-blois/" class="orange-button">Echangeons sur votre projet</a>
-            <a href="expertise-accompagnement-architecture-tours-blois/" class="second-link">Découvrez mes
+            <a href="expertise-accompagnement-architecture-interieure-tours-blois/" class="second-link">Découvrez mes
                 accompagnements</a>
         </div>
     </section>

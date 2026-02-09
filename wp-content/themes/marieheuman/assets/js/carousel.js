@@ -78,41 +78,22 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
     }
 });
 
-for (let i = 0; i < 3; i++) {
-    if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
-        document.querySelector('.swiperProjectAvantApres  .swiper-navigation').classList.remove('hidden');
-        new Swiper('.swiperProjectAvantApres-' + i, {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination-avant-apres",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next-avant-apres",
-                prevEl: ".swiper-button-prev-avant-apres",
-            },
-            mousewheel: {
-            },
-
-        });
-    }
-}
 // for (let i = 0; i < 3; i++) {
 //     if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
-
+//         document.querySelectorAll('.avant-apres  .swiper-navigation').forEach((el) => {
+//             el.classList.remove('hidden');
+//         })
 //         new Swiper('.swiperProjectAvantApres-' + i, {
 //             slidesPerView: 1,
 //             spaceBetween: 40,
 //             loop: true,
 //             pagination: {
-//                 el: ".swiper-pagination-avant-apres-" + i,
+//                 el: ".swiper-pagination-avant-apres",
 //                 clickable: true,
 //             },
 //             navigation: {
-//                 nextEl: ".swiper-button-next-avant-apres-" + i,
-//                 prevEl: ".swiper-button-prev-avant-apres-" + i,
+//                 nextEl: ".swiper-button-next-avant-apres",
+//                 prevEl: ".swiper-button-prev-avant-apres",
 //             },
 //             mousewheel: {
 //             },
@@ -120,6 +101,26 @@ for (let i = 0; i < 3; i++) {
 //         });
 //     }
 // }
+for (let i = 0; i < 3; i++) {
+    if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
+        document.querySelectorAll('.avant-apres  .swiper-navigation').forEach((el) => {
+            el.classList.remove('hidden');
+        })
+        new Swiper('.swiperProjectAvantApres-' + i, {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination-avant-apres-" + i,
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next-avant-apres-" + i,
+                prevEl: ".swiper-button-prev-avant-apres-" + i,
+            },
+        });
+    }
+}
 
 const swiperProjetsRecents = new Swiper('.swiperProjetsRecents', {
     slidesPerView: 1,
@@ -141,6 +142,8 @@ const swiperProjetsRecents = new Swiper('.swiperProjetsRecents', {
     }    // mousewheel: {
     // },
 });
+
+
 const swiperCollaboration = new Swiper('.swiperCollaboration', {
     slidesPerView: 1,
     spaceBetween: 40,

@@ -31,12 +31,12 @@ if ($avantApres['avant']['images']) {
                         <?= transformer_en_swiper_slides($selector['images']) ?>
                     </div>
                     <div class="flex gap-8 swiper-navigation justify-center items-center hidden">
-                        <!-- <div class="swiper-button-prev swiper-button-prev-avant-apres-<?= $indexAvantApres ?>"></div>
+                        <div class="swiper-button-prev swiper-button-prev-avant-apres-<?= $indexAvantApres ?>"></div>
                         <div class="swiper-pagination swiper-pagination-avant-apres-<?= $indexAvantApres ?>"></div>
-                        <div class="swiper-button-next swiper-button-next-avant-apres-<?= $indexAvantApres ?>"></div> -->
-                        <div class="swiper-button-prev swiper-button-prev-avant-apres"></div>
+                        <div class="swiper-button-next swiper-button-next-avant-apres-<?= $indexAvantApres ?>"></div>
+                        <!-- <div class="swiper-button-prev swiper-button-prev-avant-apres"></div>
                         <div class="swiper-pagination swiper-pagination-avant-apres"></div>
-                        <div class="swiper-button-next swiper-button-next-avant-apres"></div>
+                        <div class="swiper-button-next swiper-button-next-avant-apres"></div> -->
                     </div>
                 </div>
                 <?php

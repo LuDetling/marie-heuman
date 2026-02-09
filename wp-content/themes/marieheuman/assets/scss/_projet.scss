@@ -186,6 +186,10 @@
             display: inline-block;
             margin-right: .5rem;
         }
+        .second-link-secondary {
+            font-size: 1rem;
+            display: inline;
+        }
     }
 }
 
@@ -374,7 +378,7 @@
                     border-radius: 15px;
                     height: 100%;
                     max-height: 70vh;
-                    width: auto;
+                    width: 100%;
                     object-fit: cover;
                     transition: .3s;
                 }

@@ -1912,6 +1912,10 @@ main .more {
   display: inline-block;
   margin-right: 0.5rem;
 }
+.left-projet li .second-link-secondary {
+  font-size: 1rem;
+  display: inline;
+}
 
 .swiperProjectPage,
 .avant-apres .swiper {
@@ -2061,7 +2065,7 @@ main .more {
   border-radius: 15px;
   height: 100%;
   max-height: 70vh;
-  width: auto;
+  width: 100%;
   object-fit: cover;
   transition: 0.3s;
 }

@@ -79,7 +79,34 @@ function transformer_en_swiper_slides($content)
                         <?php } ?>
                         <?php if (!empty($informations['credit'])) { ?>
                             <li>
-                                <?= $informations['credit'] ?>
+                                Crédit : <?= $informations['credit'] ?>
+                            </li>
+                        <?php } ?>
+                        <?php if (!empty($informations['identite_visuelle'])) { ?>
+                            <li>
+                                <?php
+                                $categories = get_the_category();
+                                $has_identite_visuelle = false;
+
+                                // 1. On scanne le tableau pour vérifier la présence de la catégorie
+                                if (!empty($categories)) {
+                                    foreach ($categories as $category) {
+                                        if ($category->slug === 'identite-visuelle') {
+                                            $has_identite_visuelle = true;
+                                            break; // On a trouvé, on peut arrêter de chercher
+                                        }
+                                    }
+                                }
+
+                                // 2. On affiche le texte en fonction du résultat
+                                if ($has_identite_visuelle) { ?>
+                                    <a href="<?= $informations['identite_visuelle']['url'] ?>"
+                                        class="second-link-secondary">Découvrez la conception intérieure</a>
+                                    <?php
+                                } else { ?>
+                                    <a href="<?= $informations['identite_visuelle']['url'] ?>"
+                                        class="second-link-secondary">Découvrez l'identité visuelle</a>
+                                <?php } ?>
                             </li>
                         <?php } ?>
                     </ul>

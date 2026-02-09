@@ -2052,7 +2052,7 @@ main .more {
   color: #f6f5f2;
   text-shadow: 0px 3px 15px black;
   margin-bottom: 0;
-  font-size: 24px;
+  font-size: 24px !important;
 }
 .page-projet .swiperProjetsRecents .swiper-slide a .on-img h2::before {
   display: none;

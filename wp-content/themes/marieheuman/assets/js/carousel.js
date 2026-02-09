@@ -61,6 +61,7 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
     slidesPerView: 'auto', // Par défaut sur mobile
     spaceBetween: 40,
     grabCursor: true, // Petit bonus pour l'UX
+    mousewheel: true,
     pagination: {
         el: ".swiper-pagination-swiperProjectPage",
         clickable: true,

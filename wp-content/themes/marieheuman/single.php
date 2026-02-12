@@ -9,7 +9,6 @@ function transformer_en_swiper_slides($content)
 
     // On cherche les images (dans des <p> ou seules)
     $pattern = '/<p[^>]*>\s*(<a[^>]*>)?\s*(<img[^>]*>)\s*(<\/a>)?\s*<\/p>|(<img[^>]*>)/i';
-
     return preg_replace_callback($pattern, function ($matches) {
         $image_html = !empty($matches[4]) ? $matches[4] : $matches[1] . $matches[2] . $matches[3];
         return '<div class="swiper-slide">' . $image_html . '</div>';

@@ -465,6 +465,9 @@ header {
 .menu-plied #menu-second-menu .menu-item:last-child {
   margin-bottom: 12px;
 }
+.menu-plied #menu-second-menu .current_page_item a {
+  color: #d86a3d;
+}
 .menu-plied #menu-second-menu a {
   padding: 0.5rem 3rem;
   background: none;
@@ -716,7 +719,7 @@ h3::before {
 .content-services-accueil .left-service img {
   border-radius: 15px;
   object-fit: cover;
-  height: 100%;
+  height: 60vh;
 }
 .content-services-accueil .right-service {
   padding: 1rem 0;
@@ -1006,6 +1009,7 @@ h3::before {
 .card-ro-accueil .content-card-ro-accueil .title-icon h4 {
   font-size: 24px;
   font-family: "Playfair Display";
+  font-weight: bold;
 }
 .card-ro-accueil .content-card-ro-accueil .pages {
   color: #3f5e5a;
@@ -1473,12 +1477,7 @@ main .more {
 }
 .engagements .card-engagement {
   border-radius: 15px;
-  padding: 3rem;
-}
-@media screen and (max-width: 767px) {
-  .engagements .card-engagement {
-    padding: 2rem;
-  }
+  padding: 2rem;
 }
 .engagements .card-engagement .dashicons {
   background-color: #f6f5f2;
@@ -1584,14 +1583,13 @@ main .more {
   margin: auto;
 }
 .collaboration .card-collaboration {
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 15px;
   transition: 0.3s;
   margin-bottom: 5rem;
 }
 @media screen and (max-width: 767px) {
   .collaboration .card-collaboration {
-    padding: 2rem;
     margin-bottom: 4rem;
   }
 }
@@ -1876,12 +1874,7 @@ main .more {
 .swiperAvis .swiper-wrapper .swiper-slide {
   background-color: #ece7dd;
   border-radius: 15px;
-  padding: 3rem;
-}
-@media screen and (max-width: 767px) {
-  .swiperAvis .swiper-wrapper .swiper-slide {
-    padding: 2rem;
-  }
+  padding: 2rem;
 }
 .swiperAvis .swiper-wrapper .swiper-slide .nom {
   margin-top: 1.5rem;
@@ -1950,6 +1943,7 @@ main .more {
 .avant-apres .content-avant-apres .swiper .swiper-slide {
   max-width: 100%;
   padding-right: 0;
+  width: 100%;
 }
 .avant-apres .content-avant-apres .swiper .swiper-slide img {
   width: 100%;
@@ -1958,15 +1952,10 @@ main .more {
 }
 
 .page-projet .parti-pris {
-  padding: 3rem;
+  padding: 2rem;
   max-width: 1000px;
   margin: auto;
   border-radius: 15px;
-}
-@media screen and (max-width: 767px) {
-  .page-projet .parti-pris {
-    padding: 2rem;
-  }
 }
 .page-projet .parti-pris p:not(:last-child) {
   margin-bottom: 1rem;
@@ -1992,11 +1981,16 @@ main .more {
     display: none;
   }
 }
+.page-projet .avant-apres .container-avant-apres {
+  position: relative;
+}
 .page-projet .avant-apres .content-avant-apres {
-  display: none;
+  width: 0;
+  height: 0;
 }
 .page-projet .avant-apres .active-avant-apres {
-  display: block;
+  width: 100%;
+  height: 100%;
   animation: fadeIn 0.5s;
 }
 @keyframes fadeIn {
@@ -2056,7 +2050,11 @@ main .more {
   color: #f6f5f2;
   text-shadow: 0px 3px 15px black;
   margin-bottom: 0;
-  font-size: 24px !important;
+}
+@media screen and (max-width: 767px) {
+  .page-projet .swiperProjetsRecents .swiper-slide a .on-img h2 {
+    font-size: 24px !important;
+  }
 }
 .page-projet .swiperProjetsRecents .swiper-slide a .on-img h2::before {
   display: none;
@@ -2163,13 +2161,8 @@ main .more {
   margin: auto;
 }
 #page-contact .swiper-slide {
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 15px;
-}
-@media screen and (max-width: 767px) {
-  #page-contact .swiper-slide {
-    padding: 2rem;
-  }
 }
 #page-contact .swiper-slide .dashicons {
   width: 48px;
@@ -2238,7 +2231,7 @@ main .more {
 }
 #page-contact .soutiens .content-soutiens {
   border-radius: 15px;
-  padding: 3rem;
+  padding: 2rem;
   max-width: 1000px;
   margin: auto;
 }
@@ -2257,7 +2250,7 @@ main .more {
 }
 
 .form-contact {
-  padding: 3rem;
+  padding: 2rem;
 }
 @media screen and (max-width: 767px) {
   .form-contact {
@@ -2492,7 +2485,7 @@ main .more {
 }
 
 #custom-booking-app {
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 15px;
   color: #462620;
   margin-top: 3rem;
@@ -2696,13 +2689,8 @@ main .more {
   max-width: 1000px;
 }
 #histoire .univers .swiper-slide {
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 15px;
-}
-@media screen and (max-width: 767px) {
-  #histoire .univers .swiper-slide {
-    padding: 2rem;
-  }
 }
 #histoire .univers .swiper-slide .dashicons {
   width: 48px;
@@ -2778,14 +2766,9 @@ main .more {
 #histoire .contrib .content-contrib {
   background-color: #ece7dd;
   border-radius: 15px;
-  padding: 3rem;
+  padding: 2rem;
   max-width: 1000px;
   margin: auto;
-}
-@media screen and (max-width: 767px) {
-  #histoire .contrib .content-contrib {
-    padding: 2rem;
-  }
 }
 #histoire .contrib .content-contrib h2 {
   margin-bottom: 1rem;

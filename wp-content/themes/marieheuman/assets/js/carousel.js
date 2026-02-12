@@ -78,49 +78,50 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
     }
 });
 
-// for (let i = 0; i < 3; i++) {
-//     if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
-//         document.querySelectorAll('.avant-apres  .swiper-navigation').forEach((el) => {
-//             el.classList.remove('hidden');
-//         })
-//         new Swiper('.swiperProjectAvantApres-' + i, {
-//             slidesPerView: 1,
-//             spaceBetween: 40,
-//             loop: true,
-//             pagination: {
-//                 el: ".swiper-pagination-avant-apres",
-//                 clickable: true,
-//             },
-//             navigation: {
-//                 nextEl: ".swiper-button-next-avant-apres",
-//                 prevEl: ".swiper-button-prev-avant-apres",
-//             },
-//             mousewheel: {
-//             },
+const commonOptions = {
+    slidesPerView: 1,
+    spaceBetween: 40,
+    loop: true,
+    observer: true,
+    observeParents: true,
+    controller: {
+        by: 'container' // C'est cette ligne qui sauve ton navigateur !
+    }
+};
+const allContentAvantApres = document.querySelectorAll('.content-avant-apres');
+const allSwipers = [];
 
-//         });
-//     }
-// }
-for (let i = 0; i < 3; i++) {
-    if (document.querySelectorAll('.swiperProjectAvantApres-' + i + ' .swiper-slide').length > 1) {
-        document.querySelectorAll('.avant-apres  .swiper-navigation').forEach((el) => {
-            el.classList.remove('hidden');
-        })
-        new Swiper('.swiperProjectAvantApres-' + i, {
-            slidesPerView: 1,
-            spaceBetween: 40,
-            loop: true,
+allContentAvantApres.forEach((content, index) => {
+    if (index === 0) {
+        const swiper = new Swiper('.swiperProjectAvantApres-' + index, {
+            ...commonOptions,
             pagination: {
-                el: ".swiper-pagination-avant-apres-" + i,
+                el: ".swiper-pagination-avant-apres",
                 clickable: true,
             },
             navigation: {
-                nextEl: ".swiper-button-next-avant-apres-" + i,
-                prevEl: ".swiper-button-prev-avant-apres-" + i,
+                nextEl: ".swiper-button-next-avant-apres",
+                prevEl: ".swiper-button-prev-avant-apres",
             },
-        });
+        })
+        allSwipers.push(swiper);
+    } else {
+        const swiper = new Swiper('.swiperProjectAvantApres-' + index, commonOptions);
+        allSwipers.push(swiper);
     }
-}
+})
+
+allSwipers.forEach((currentSwiper) => {
+    currentSwiper.on('slideChange', () => {
+        const newIndex = currentSwiper.realIndex;
+        allSwipers.forEach((s) => {
+            // On évite la boucle infinie en vérifiant l'index
+            if (s.realIndex !== newIndex) {
+                s.slideToLoop(newIndex);
+            }
+        });
+    });
+});
 
 const swiperProjetsRecents = new Swiper('.swiperProjetsRecents', {
     slidesPerView: 1,
@@ -137,7 +138,9 @@ const swiperProjetsRecents = new Swiper('.swiperProjetsRecents', {
     breakpoints: {
         768: {
             slidesPerView: 2,
-            spaceBetween: 80,
+        },
+        1700: {
+            slidesPerView: 3,
         },
     }    // mousewheel: {
     // },

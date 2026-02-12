@@ -120,12 +120,8 @@
     }
 
     .swiper-slide {
-        padding: 3rem;
+        padding: 2rem;
         border-radius: 15px;
-
-        @media screen and (max-width: 767px) {
-            padding: 2rem;
-        }
 
         .dashicons {
             width: 48px;
@@ -209,7 +205,7 @@
 
         .content-soutiens {
             border-radius: 15px;
-            padding: 3rem;
+            padding: 2rem;
             max-width: 1000px;
             margin: auto;
 
@@ -239,7 +235,7 @@
 }
 
 .form-contact {
-    padding: 3rem;
+    padding: 2rem;
 
     @media screen and (max-width: 767px) {
         padding: 2rem;
@@ -488,7 +484,7 @@
 }
 
 #custom-booking-app {
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 15px;
     color: $marron;
     margin-top: 3rem;

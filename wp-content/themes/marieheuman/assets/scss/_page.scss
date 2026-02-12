@@ -161,11 +161,7 @@
     .card-engagement {
         border-radius: 15px;
         // background-color: $beige;
-        padding: 3rem;
-
-        @media screen and (max-width: 767px) {
-            padding: 2rem;
-        }
+        padding: 2rem;
 
         .dashicons {
             background-color: $beige;
@@ -287,13 +283,12 @@
     }
 
     .card-collaboration {
-        padding: 3rem;
+        padding: 2rem;
         border-radius: 15px;
         transition: .3s;
         margin-bottom: 5rem;
 
         @media screen and (max-width: 767px) {
-            padding: 2rem;
             margin-bottom: 4rem;
         }
 

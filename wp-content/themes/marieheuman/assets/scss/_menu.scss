@@ -231,6 +231,12 @@ header {
             margin-bottom: 12px;
         }
 
+        .current_page_item {
+            a {
+                color: $orange;
+            }
+        }
+
         a {
             padding: 0.5rem 3rem;
             background: none;

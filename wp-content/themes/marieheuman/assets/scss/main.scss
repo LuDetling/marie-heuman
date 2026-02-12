@@ -125,6 +125,7 @@ section {
             width: 150px;
         }
     }
+
     img {
         max-width: 300px;
     }
@@ -161,8 +162,12 @@ section {
     &::before {
         display: none;
     }
+
 }
 
+p {
+    max-width: 1000px;
+}
 
 
 .container {

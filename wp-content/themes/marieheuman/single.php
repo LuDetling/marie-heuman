@@ -165,7 +165,7 @@ function transformer_en_swiper_slides($content)
 
     <section class="section-white projets-recents">
         <div class="tag-home">Découvrez d'autres projets</div>
-        <a href="conceptions-realisations-architecture-tours-blois" class="more">Voir tous les projets</a>
+        <a href="architecte-interieur-renovation-tours-realisations/" class="more">Voir tous les projets</a>
         <?php
         $args = [
             'post_type' => 'post', // Le slug de ta catégorie

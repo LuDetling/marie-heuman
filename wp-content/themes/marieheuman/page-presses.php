@@ -62,7 +62,7 @@ function transformer_en_swiper_slides($content)
                             <?php }
                             if ($presse['lien_externe']): ?>
                                 <a href="<?= $presse['lien_externe']['url'] ?>" target="<?= $presse['lien_externe']['target'] ?>"
-                                    class="second-link-orange mt-4">lire l'article en ligne</a>
+                                    class="second-link-orange mt-4">Lire l'article en ligne</a>
                             <?php endif; ?>
 
 

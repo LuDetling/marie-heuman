@@ -60,10 +60,10 @@ function transformer_en_swiper_slides($content)
                                 <button class="show-images second-link-secondary cursor-pointer">Découvrez
                                     l'article</button>
                             <?php }
-                            if ($presse['lien_externe']) { ?>
+                            if ($presse['lien_externe']): ?>
                                 <a href="<?= $presse['lien_externe']['url'] ?>" target="<?= $presse['lien_externe']['target'] ?>"
-                                    class="second-link-orange mt-4">Découvrez l'article</a>
-                            <?php } ?>
+                                    class="second-link-orange mt-4">lire l'article en ligne</a>
+                            <?php endif; ?>
 
 
                         </div>

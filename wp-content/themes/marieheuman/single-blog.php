@@ -52,7 +52,42 @@ get_header();
                 <?= $content['contenu'] ?>
             </div>
         <?php endif; ?>
+
+        <?php
+        $blogs = [
+            'post_type' => 'blog',
+            'posts_per_page' => 3,
+            'post__not_in' => [get_the_ID()]
+        ];
+        $blog_query = new WP_Query($blogs);
+        if ($blog_query->have_posts()): ?>
+            <div class="related-articles mt-20">
+                <h2>Derniers blogs</h2>
+                <div class="articles-list flex gap-10">
+                    <?php while ($blog_query->have_posts()):
+                        $blog_query->the_post(); ?>
+                        <a href="<?= get_permalink() ?>" class="article-item flex gap-4 items-center">
+                            <div class="article-image w-1/3">
+                                <?php if (has_post_thumbnail()): ?>
+                                    <?= get_the_post_thumbnail(get_the_ID(), 'medium_large') ?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="article-info w-2/3">
+                                <h3>
+                                    <?= get_the_title() ?>
+                                </h3>
+                                <p>
+                                    <?= get_the_excerpt() ?>
+                                </p>
+                            </div>
+                        </a>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        <?php endif; ?>
     </section>
+
+
     <aside class="sidebar lg:w-2/8 section-beige">
         <?php
         $sidebar = get_field("sidebar_page_blog");

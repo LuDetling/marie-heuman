@@ -1,7 +1,8 @@
 @use "globals" as *;
 
 // HEADER
-.header-content {
+.header-content,
+.header-content-blog {
     color: $marron;
 
     h1 {
@@ -26,6 +27,7 @@
         &::before {
             content: "";
             width: 50px;
+            min-width: 50px;
             height: 1px;
             background-color: $marron;
             margin-top: 11px;

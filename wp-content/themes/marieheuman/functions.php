@@ -154,6 +154,12 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'wrapper' => true,
         ],
         [
+            'title' => 'Citation',
+            'block' => 'div',
+            'classes' => 'citation',
+            'wrapper' => true,
+        ],
+        [
             'title' => 'Tag',
             'block' => 'div',
             'classes' => 'tag-home',

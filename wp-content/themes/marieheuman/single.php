@@ -34,15 +34,15 @@ function transformer_en_swiper_slides($content)
                 <div class="left-projet section-white">
                     <div class="tag-home"><?= $informations['tag'] ?></div>
                     <ul>
-                        <?php if (!empty($informations['localisation'])) { ?>
+                        <?php if (!empty($informations['localisation'])): ?>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
                                     <path
                                         d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z">
                                     </path>
                                 </svg><?= $informations['localisation'] ?></li>
-                        <?php } ?>
-                        <?php if (!empty($informations['type'])) { ?>
+                        <?php endif; ?>
+                        <?php if (!empty($informations['type'])): ?>
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
@@ -51,37 +51,37 @@ function transformer_en_swiper_slides($content)
                                     </path>
                                 </svg><?= $informations['type'] ?>
                             </li>
-                        <?php } ?>
-                        <?php if (!empty($informations['surface'])) { ?>
+                        <?php endif; ?>
+                        <?php if (!empty($informations['surface'])): ?>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
                                     <path
                                         d="M216,48V96a8,8,0,0,1-16,0V67.31l-50.34,50.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM106.34,138.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l50.35-50.34a8,8,0,0,0-11.32-11.32Z">
                                     </path>
                                 </svg><?= $informations['surface'] ?></li>
-                        <?php } ?>
-                        <?php if (!empty($informations['tarifs'])) { ?>
+                        <?php endif; ?>
+                        <?php if (!empty($informations['tarifs'])): ?>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
                                     <path
                                         d="M190,192.33a8,8,0,0,1-.63,11.3A80,80,0,0,1,56.4,152H40a8,8,0,0,1,0-16H56V120H40a8,8,0,0,1,0-16H56.4A80,80,0,0,1,189.34,52.37,8,8,0,0,1,178.66,64.3,64,64,0,0,0,72.52,104H136a8,8,0,0,1,0,16H72v16h48a8,8,0,0,1,0,16H72.52a64,64,0,0,0,106.14,39.71A8,8,0,0,1,190,192.33Z">
                                     </path>
                                 </svg><?= $informations['tarifs'] ?></li>
-                        <?php } ?>
-                        <?php if (!empty($informations['date'])) { ?>
+                        <?php endif; ?>
+                        <?php if (!empty($informations['date'])): ?>
                             <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000"
                                     viewBox="0 0 256 256">
                                     <path
                                         d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-38.34-85.66a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L116,164.69l42.34-42.35A8,8,0,0,1,169.66,122.34Z">
                                     </path>
                                 </svg><?= $informations['date'] ?></li>
-                        <?php } ?>
-                        <?php if (!empty($informations['credit'])) { ?>
+                        <?php endif; ?>
+                        <?php if (!empty($informations['credit'])): ?>
                             <li>
                                 Crédit : <?= $informations['credit'] ?>
                             </li>
-                        <?php } ?>
-                        <?php if (!empty($informations['identite_visuelle'])) { ?>
+                        <?php endif; ?>
+                        <?php if (!empty($informations['identite_visuelle'])): ?>
                             <li>
                                 <?php
                                 $categories = get_the_category();
@@ -107,7 +107,7 @@ function transformer_en_swiper_slides($content)
                                         class="second-link-secondary">Découvrez l'identité visuelle</a>
                                 <?php } ?>
                             </li>
-                        <?php } ?>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -127,19 +127,17 @@ function transformer_en_swiper_slides($content)
             <?php } ?>
         </div>
     </section>
-    <section class="section-white">
-        <div class="parti-pris section-beige">
-            <?php $partiPris = $projet['parti_pris'] ?>
-            <?php if (!empty($partiPris['tag'])) { ?>
+    <?php $partiPris = $projet['parti_pris'] ?>
+    <?php if (!empty($partiPris['description'])): ?>
+        <section class="section-white">
+            <div class="parti-pris section-beige">
                 <div class="tag-home"><?= $partiPris['tag'] ?></div>
-            <?php } ?>
-            <?php if (!empty($partiPris['description'])) { ?>
                 <div>
                     <?= $partiPris['description'] ?>
                 </div>
-            <?php } ?>
-        </div>
-    </section>
+            </div>
+        </section>
+    <?php endif; ?>
     <?php
 
     if (has_category('identite-visuelle')) {

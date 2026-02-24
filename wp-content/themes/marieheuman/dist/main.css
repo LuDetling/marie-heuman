@@ -2050,6 +2050,7 @@ main .more {
   border-radius: 15px;
   width: auto;
   margin: auto;
+  max-height: auto;
 }
 .page-projet .votre-projet {
   background-color: #3f5e5a;
@@ -3178,6 +3179,9 @@ main:not(.front-page) h3::before {
   justify-content: center;
   border-radius: 50%;
   transition: 0.3s;
+}
+.swiper-navigation > div[class^=swiper-button].swiper-button-lock {
+  display: none;
 }
 .swiper-navigation > div[class^=swiper-button]:hover {
   border-color: #d86a3d;

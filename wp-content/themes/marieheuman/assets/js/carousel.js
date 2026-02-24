@@ -118,6 +118,7 @@ allContentAvantApres.forEach((content, index) => {
                 nextEl: ".swiper-button-next-avant-apres",
                 prevEl: ".swiper-button-prev-avant-apres",
             },
+            watchOverflow: true
         })
         allSwipers.push(swiper);
     } else {

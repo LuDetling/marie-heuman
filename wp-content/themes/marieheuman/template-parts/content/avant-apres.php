@@ -36,13 +36,11 @@ $avantApres = $projet['avant_apres']; ?>
                         $indexAvantApres++;
                     endif;
                 endforeach ?>
-                <?php if ($indexAvantApres > 1): ?>
-                    <div class="flex gap-8 swiper-navigation justify-center items-center">
-                        <div class="swiper-button-prev swiper-button-prev-avant-apres"></div>
-                        <div class="swiper-pagination swiper-pagination-avant-apres"></div>
-                        <div class="swiper-button-next swiper-button-next-avant-apres"></div>
-                    </div>
-                <?php endif; ?>
+                <div class="flex gap-8 swiper-navigation justify-center items-center">
+                    <div class="swiper-button-prev swiper-button-prev-avant-apres"></div>
+                    <div class="swiper-pagination swiper-pagination-avant-apres"></div>
+                    <div class="swiper-button-next swiper-button-next-avant-apres"></div>
+                </div>
             </div>
         </div>
     </section>

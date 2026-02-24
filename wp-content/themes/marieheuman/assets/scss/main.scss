@@ -292,6 +292,10 @@ main:not(.front-page) {
             border-radius: 50%;
             transition: .3s;
 
+            &.swiper-button-lock {
+                display: none;
+            }
+
             &:hover {
                 border-color: $orange;
             }

@@ -77,9 +77,12 @@ main {
     .swiperSingleBlog {
       margin-top: 1.5rem;
 
-      .swiper-slide {
-        border-radius: 15px;
-        padding: 2rem;
+      .swiper-wrapper {
+        align-items: flex-end;
+
+        .swiper-slide {
+          border-radius: 15px;
+        }
       }
     }
 

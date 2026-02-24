@@ -65,31 +65,46 @@ get_header();
                 <h2>Derniers blogs</h2>
                 <div class="swiper swiperSingleBlog">
                     <div class="swiper-wrapper">
-                        <?php while ($blog_query->have_posts()):
+                        <?php
+                        $posts = new WP_Query([
+                            'post_type' => 'blog',
+                            'posts_per_page' => 10,
+                        ]);
+                        while ($blog_query->have_posts()):
                             $blog_query->the_post();
-                            $content = get_field('contenu_page_blog');
+                            $blog = get_field("contenu_page_blog");
                             ?>
                             <div class="swiper-slide section-beige">
-                                <a href="<?= get_permalink() ?>" class="">
-                                    <div class="article-image">
-                                        <?php if (!empty($content['image'])): ?>
-                                            <img src="<?= $content['image']['url'] ?>" alt="<?= $content['image']['alt'] ?>">
+                                <article id="card-blog" class="projet-card carousel-item ">
+                                    <div>
+                                        <?php if ($blog['image']): ?>
+                                            <img src="<?= esc_url($blog['image']['url']); ?>"
+                                                alt="<?= esc_attr($blog['image']['alt']); ?>"
+                                                width="<?= esc_attr($blog['image']['width']); ?>"
+                                                height="<?= esc_attr($blog['image']['height']); ?>">
                                         <?php endif; ?>
+                                        <div class="text-card">
+                                            <h4><?php the_title(); ?></h4>
+                                            <p class="blog-meta">
+                                                <?= get_the_date('F o'); ?> •
+                                                <?= $blog['temps_de_lecture'] ?> de lecture
+                                            </p>
+
+                                            <a href="<?php the_permalink(); ?>" class="more mt-4">Lire l'article</a>
+                                        </div>
                                     </div>
-                                    <div class="article-info">
-                                        <h3>
-                                            <?= get_the_title() ?>
-                                        </h3>
-                                    </div>
-                                </a>
+                                </article>
                             </div>
-                        <?php endwhile; ?>
+                            <?php
+                        endwhile;
+                        wp_reset_postdata(); ?>
+
                     </div>
                 </div>
                 <div class="flex gap-8 swiper-navigation justify-center items-center">
-                    <div class="swiper-button-prev-single-blog swiper-button-prev"></div>
-                    <div class="swiper-pagination-single-blog swiper-pagination"></div>
-                    <div class="swiper-button-next-single-blog swiper-button-next"></div>
+                    <div class="swiper-button-prev swiper-button-prev-single-blog"></div>
+                    <div class="swiper-pagination swiper-pagination-single-blog"></div>
+                    <div class="swiper-button-next swiper-button-next-single-blog"></div>
                 </div>
             </div>
         <?php endif; ?>

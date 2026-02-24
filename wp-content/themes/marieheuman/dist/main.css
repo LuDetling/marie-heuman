@@ -926,35 +926,42 @@ h3::before {
   margin-bottom: 0;
 }
 
-.content-blog-accueil {
-  background-color: #ffffff;
+.content-blog-accueil,
+.related-articles {
   color: #462620;
 }
-.content-blog-accueil .projet-card {
+.content-blog-accueil .projet-card,
+.related-articles .projet-card {
   border-radius: 15px;
   overflow: hidden;
 }
-.content-blog-accueil .projet-card > div {
+.content-blog-accueil .projet-card > div,
+.related-articles .projet-card > div {
   width: 100%;
 }
-.content-blog-accueil .projet-card > div img {
+.content-blog-accueil .projet-card > div img,
+.related-articles .projet-card > div img {
   width: 100%;
   object-fit: cover;
   height: 350px;
 }
-.content-blog-accueil .projet-card > div .text-card {
+.content-blog-accueil .projet-card > div .text-card,
+.related-articles .projet-card > div .text-card {
   padding: 2rem;
 }
-.content-blog-accueil .projet-card > div .text-card h4 {
+.content-blog-accueil .projet-card > div .text-card h4,
+.related-articles .projet-card > div .text-card h4 {
   font-size: 24px;
   font-family: "Playfair Display";
   margin-bottom: 0.5rem;
   font-weight: bold;
 }
-.content-blog-accueil .projet-card > div .text-card .blog-meta::first-letter {
+.content-blog-accueil .projet-card > div .text-card .blog-meta::first-letter,
+.related-articles .projet-card > div .text-card .blog-meta::first-letter {
   text-transform: uppercase;
 }
-.content-blog-accueil .next-prev .btn-next-prev {
+.content-blog-accueil .next-prev .btn-next-prev,
+.related-articles .next-prev .btn-next-prev {
   border: 2px solid #ece7dd;
   width: 3rem;
   height: 3rem;
@@ -963,14 +970,16 @@ h3::before {
   justify-content: center;
   border-radius: 50%;
 }
-.content-blog-accueil .next-prev .indicator {
+.content-blog-accueil .next-prev .indicator,
+.related-articles .next-prev .indicator {
   width: 12px;
   height: 12px;
   background-color: #ece7dd;
   border-radius: 50%;
   transition: 0.3s;
 }
-.content-blog-accueil .next-prev .indicator.active-card-indicator {
+.content-blog-accueil .next-prev .indicator.active-card-indicator,
+.related-articles .next-prev .indicator.active-card-indicator {
   background-color: #d86a3d;
 }
 
@@ -1158,9 +1167,11 @@ main .left-content h3::before {
 main .left-content .swiperSingleBlog {
   margin-top: 1.5rem;
 }
-main .left-content .swiperSingleBlog .swiper-slide {
+main .left-content .swiperSingleBlog .swiper-wrapper {
+  align-items: flex-end;
+}
+main .left-content .swiperSingleBlog .swiper-wrapper .swiper-slide {
   border-radius: 15px;
-  padding: 2rem;
 }
 main .left-content .header-content-blog .blog-meta {
   color: #3f5e5a;

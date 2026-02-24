@@ -13,11 +13,31 @@
   .card-article {
     border-radius: 15px;
 
-    img {
+    .img-link {
+      overflow: hidden;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
+
+      a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+
+    img {
       height: 40vh;
       object-fit: cover;
+      transition: .6s;
     }
 
     .text-card {
@@ -103,6 +123,8 @@ main {
       img {
         border-radius: 15px;
         margin-bottom: 5rem;
+        width: 100%;
+        object-fit: cover;
       }
     }
 

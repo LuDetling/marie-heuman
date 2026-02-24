@@ -1114,11 +1114,26 @@ h3::before {
 .articles .card-article {
   border-radius: 15px;
 }
-.articles .card-article img {
+.articles .card-article .img-link {
+  overflow: hidden;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+.articles .card-article .img-link a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.articles .card-article:hover img {
+  transform: scale(1.2);
+}
+.articles .card-article img {
   height: 40vh;
   object-fit: cover;
+  transition: 0.6s;
 }
 .articles .card-article .text-card {
   padding: 2rem 3rem;
@@ -1187,6 +1202,8 @@ main .left-content .header-content-blog .blog-meta svg {
 main .left-content .header-content-blog img {
   border-radius: 15px;
   margin-bottom: 5rem;
+  width: 100%;
+  object-fit: cover;
 }
 main .left-content .content p:not(:last-child) {
   margin-bottom: 1rem;
@@ -1703,6 +1720,12 @@ main .more {
   border-radius: 15px;
   margin: 2rem 0;
   width: 100%;
+}
+.content h2 {
+  margin-bottom: 1.5rem;
+}
+.content h3 {
+  margin-bottom: 1.2rem;
 }
 
 .card-presse {
@@ -3014,6 +3037,12 @@ section {
 }
 .mce-content-body img {
   max-width: 300px;
+}
+.mce-content-body h2 {
+  margin-bottom: 1.5rem;
+}
+.mce-content-body h3 {
+  margin-bottom: 1.2rem;
 }
 
 .header-content .orange-list-container {

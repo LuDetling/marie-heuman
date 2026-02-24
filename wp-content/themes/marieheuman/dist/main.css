@@ -1725,6 +1725,7 @@ main .more {
   width: 100%;
 }
 .content h2 {
+  margin-top: 5rem;
   margin-bottom: 1.5rem;
 }
 .content h3 {
@@ -3043,6 +3044,7 @@ section {
 }
 .mce-content-body h2 {
   margin-bottom: 1.5rem;
+  margin-top: 5rem;
 }
 .mce-content-body h3 {
   margin-bottom: 1.2rem;

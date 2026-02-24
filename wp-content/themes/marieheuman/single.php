@@ -139,8 +139,7 @@ function transformer_en_swiper_slides($content)
         </section>
     <?php endif; ?>
     <?php
-
-    if (has_category('identite-visuelle')) {
+    if (has_category(23)) {
         // Charge un template spécifique pour le portfolio
         get_template_part('template-parts/content/identite');
     } else {

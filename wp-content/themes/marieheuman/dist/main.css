@@ -1192,7 +1192,7 @@ main .left-content .content p:not(:last-child) {
   margin-bottom: 1rem;
 }
 main .sidebar {
-  margin-top: 5rem;
+  margin-block: 5rem;
   margin-right: 160px;
   padding: 2rem;
   border-radius: 15px;
@@ -1203,13 +1203,13 @@ main .sidebar .sidebar-decorative-img {
 }
 @media screen and (max-width: 1200px) {
   main .sidebar {
-    margin-top: 64px;
+    margin-block: 64px;
     margin-right: 20px;
   }
 }
 @media screen and (max-width: 1023px) {
   main .sidebar {
-    margin-top: 0;
+    margin-block: 0;
     margin-inline: 20px;
     padding: 20px;
   }

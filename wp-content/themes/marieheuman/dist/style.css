@@ -2437,11 +2437,6 @@
       gap: calc(var(--spacing) * 20);
     }
   }
-  .md\:gap-30 {
-    @media (width >= 48rem) {
-      gap: calc(var(--spacing) * 30);
-    }
-  }
   .lg\:order-1 {
     @media (width >= 64rem) {
       order: 1;

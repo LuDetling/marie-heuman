@@ -1149,15 +1149,18 @@ h3::before {
   margin-bottom: 1rem;
   font-weight: bold;
 }
-.articles .card-article .text-card .blog-meta {
+
+.blog-meta {
   color: #3f5e5a;
   margin-bottom: 1rem;
 }
-.articles .card-article .text-card .blog-meta .date {
-  display: inline-block;
-}
-.articles .card-article .text-card .blog-meta .date::first-letter {
+.blog-meta .date span::first-letter {
   text-transform: uppercase;
+}
+.blog-meta .date svg {
+  fill: #3f5e5a;
+  display: inline;
+  width: 20px;
 }
 
 main {
@@ -1718,7 +1721,7 @@ main .more {
 }
 .content img {
   border-radius: 15px;
-  margin: 2rem 0;
+  margin: 80px 0;
   width: 100%;
 }
 .content h2 {

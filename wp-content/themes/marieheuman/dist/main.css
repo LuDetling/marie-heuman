@@ -2050,7 +2050,7 @@ main .more {
   border-radius: 15px;
   width: auto;
   margin: auto;
-  max-height: auto;
+  max-height: none;
 }
 .page-projet .votre-projet {
   background-color: #3f5e5a;

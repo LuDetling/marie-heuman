@@ -16,6 +16,8 @@
     img {
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
+      height: 40vh;
+      object-fit: cover;
     }
 
     .text-card {
@@ -115,7 +117,7 @@ main {
   // SIDEBAR
   .sidebar {
     margin-top: 5rem;
-    margin-right: 120px;
+    margin-right: 160px;
     padding: 2rem;
     border-radius: 15px;
 
@@ -136,24 +138,28 @@ main {
       padding: 20px;
     }
 
-    h3 {
-      text-transform: uppercase;
-      color: $secondary;
-      font-size: 1rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      display: inline-block;
+    div {
 
-      &::before {
-        content: "";
-        width: .7rem;
-        min-width: .7rem;
-        min-height: .7rem;
-        height: .7rem;
-        background-color: $orange;
+      h3 {
+        text-transform: uppercase;
+        color: $secondary;
+        font-size: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
         display: inline-block;
-        border-radius: 50%;
-        margin-right: .5rem;
+
+        &::before {
+          content: "";
+          width: .7rem;
+          min-width: .7rem;
+          min-height: .7rem;
+          height: .7rem;
+          background-color: $orange;
+          display: inline-block;
+          border-radius: 50%;
+          margin-right: .5rem;
+          margin-bottom: 0;
+        }
       }
     }
 

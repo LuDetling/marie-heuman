@@ -14,7 +14,6 @@ $blog = get_field('contenu_page_blog');
             </span>
             <?= $blog['temps_de_lecture'] ?> de lecture
         </p>
-        <?= $blog['description'] ?>
         <a href="<?php the_permalink(); ?>" class="more mt-4">Lire l'article</a>
     </div>
 </div>

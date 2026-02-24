@@ -2043,6 +2043,9 @@ main .more {
     opacity: 1;
   }
 }
+.page-projet .identite p {
+  margin: auto;
+}
 .page-projet .identite img {
   border-radius: 15px;
   width: auto;

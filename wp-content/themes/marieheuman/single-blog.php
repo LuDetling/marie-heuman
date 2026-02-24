@@ -63,25 +63,33 @@ get_header();
         if ($blog_query->have_posts()): ?>
             <div class="related-articles mt-20">
                 <h2>Derniers blogs</h2>
-                <div class="articles-list flex gap-10">
-                    <?php while ($blog_query->have_posts()):
-                        $blog_query->the_post(); ?>
-                        <a href="<?= get_permalink() ?>" class="article-item flex gap-4 items-center">
-                            <div class="article-image w-1/3">
-                                <?php if (has_post_thumbnail()): ?>
-                                    <?= get_the_post_thumbnail(get_the_ID(), 'medium_large') ?>
-                                <?php endif; ?>
+                <div class="swiper swiperSingleBlog">
+                    <div class="swiper-wrapper">
+                        <?php while ($blog_query->have_posts()):
+                            $blog_query->the_post();
+                            $content = get_field('contenu_page_blog');
+                            ?>
+                            <div class="swiper-slide section-beige">
+                                <a href="<?= get_permalink() ?>" class="">
+                                    <div class="article-image">
+                                        <?php if (!empty($content['image'])): ?>
+                                            <img src="<?= $content['image']['url'] ?>" alt="<?= $content['image']['alt'] ?>">
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="article-info">
+                                        <h3>
+                                            <?= get_the_title() ?>
+                                        </h3>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="article-info w-2/3">
-                                <h3>
-                                    <?= get_the_title() ?>
-                                </h3>
-                                <p>
-                                    <?= get_the_excerpt() ?>
-                                </p>
-                            </div>
-                        </a>
-                    <?php endwhile; ?>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
+                <div class="flex gap-8 swiper-navigation justify-center items-center">
+                    <div class="swiper-button-prev-single-blog swiper-button-prev"></div>
+                    <div class="swiper-pagination-single-blog swiper-pagination"></div>
+                    <div class="swiper-button-next-single-blog swiper-button-next"></div>
                 </div>
             </div>
         <?php endif; ?>

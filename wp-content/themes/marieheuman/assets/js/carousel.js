@@ -1,4 +1,4 @@
-const swiper = new Swiper('.swiperAvis', {
+const swiperAvis = new Swiper('.swiperAvis', {
     slidesPerView: 1,
     spaceBetween: 80,
     loop: true,
@@ -9,6 +9,19 @@ const swiper = new Swiper('.swiperAvis', {
     navigation: {
         nextEl: ".swiper-button-next-avis",
         prevEl: ".swiper-button-prev-avis",
+    },
+});
+const swiperSingleBlog = new Swiper('.swiperSingleBlog', {
+    slidesPerView: 1,
+    spaceBetween: 80,
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination-single-blog",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next-single-blog",
+        prevEl: ".swiper-button-prev-single-blog",
     },
 });
 
@@ -44,6 +57,8 @@ const universSwiper = new Swiper('.universSwiper', {
         },
     }
 });
+
+
 const contactSwiper = new Swiper('.contactSwiper', {
     slidesPerView: 1,
     spaceBetween: 80,

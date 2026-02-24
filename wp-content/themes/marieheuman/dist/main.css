@@ -281,7 +281,7 @@ header {
 @media screen and (max-width: 767px) {
   .content-header {
     transform: rotate(0);
-    width: 100vw;
+    width: 100%;
     top: 0;
   }
 }
@@ -637,7 +637,7 @@ h3::before {
 }
 @media screen and (max-width: 767px) {
   .content-img-header .text-img-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
   }
   .content-img-header .text-img-header h2::before {
     display: none;
@@ -1136,7 +1136,7 @@ main {
 main .left-content {
   padding-right: 0;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
   main .left-content {
     padding-top: 99px;
     padding-right: 20px;
@@ -1149,6 +1149,13 @@ main .left-content h3 {
 }
 main .left-content h3::before {
   display: none;
+}
+main .left-content .swiperSingleBlog {
+  margin-top: 1.5rem;
+}
+main .left-content .swiperSingleBlog .swiper-slide {
+  border-radius: 15px;
+  padding: 2rem;
 }
 main .left-content .header-content-blog .blog-meta {
   color: #3f5e5a;
@@ -1176,7 +1183,13 @@ main .sidebar .sidebar-decorative-img {
   margin-inline: auto;
   max-width: 200px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1200px) {
+  main .sidebar {
+    margin-top: 64px;
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 1023px) {
   main .sidebar {
     margin-top: 0;
     margin-inline: 20px;
@@ -1790,6 +1803,7 @@ main .more {
   width: 36px;
   height: 36px;
   z-index: 2;
+  background-color: #f6f5f2;
 }
 #list-projets .card-article .show-hide button {
   cursor: pointer;

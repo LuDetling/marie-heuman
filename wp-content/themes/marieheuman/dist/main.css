@@ -618,6 +618,11 @@ h3::before {
     line-height: normal;
   }
 }
+@media screen and (max-height: 700px) {
+  .content-img-header .text-img-header h1 {
+    padding-top: 80px;
+  }
+}
 .content-img-header .text-img-header h2 {
   font-size: 30px;
   display: flex;

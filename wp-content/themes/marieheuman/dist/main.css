@@ -620,7 +620,7 @@ h3::before {
 }
 @media screen and (max-height: 700px) {
   .content-img-header .text-img-header h1 {
-    padding-top: 80px;
+    padding-top: 96px;
   }
 }
 .content-img-header .text-img-header h2 {

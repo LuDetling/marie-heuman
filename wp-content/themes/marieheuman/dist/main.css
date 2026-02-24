@@ -2045,6 +2045,8 @@ main .more {
 }
 .page-projet .identite img {
   border-radius: 15px;
+  width: auto;
+  margin: auto;
 }
 .page-projet .votre-projet {
   background-color: #3f5e5a;

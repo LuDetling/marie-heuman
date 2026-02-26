@@ -101,7 +101,7 @@
                     <span class="tag"><?= $tag_service ?></span>
                     <?= $texte_service ?>
                     <div class="mt-8">
-                        <a href="conceptions-realisations-architecture-interieure-tours-blois" class="more">En savoir
+                        <a href="<?= get_permalink(8) ?>" class="more">En savoir
                             plus</a>
                     </div>
                 </div>

@@ -162,7 +162,8 @@ get_header();
                     <input type="checkbox" name="ccga" id="ccga">
                     <label for="ccga">J'accepte d'être contactée par Marie Heuman concernant mon projet
                         d'architecture
-                        d'intérieur. Mes données seront traitées conformément à la <a href="#" class="ccga">politique de
+                        d'intérieur. Mes données seront traitées conformément à la <a href="<?= get_permalink(714) ?>"
+                            class="ccga">politique de
                             confidentialité.</a></label>
                 </div>
             </fieldset>

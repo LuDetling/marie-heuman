@@ -129,7 +129,7 @@ h3 {
             }
 
             @media screen and (max-width: 767px) {
-                font-size: 1.5rem !important;
+                font-size: 20px !important;
 
                 &::before {
                     display: none;
@@ -255,7 +255,7 @@ h3 {
 
         .tag {
             text-transform: uppercase;
-            color: $secondary;
+            color: $orange;
         }
 
         h4 {

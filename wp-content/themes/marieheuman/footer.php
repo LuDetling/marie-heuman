@@ -46,8 +46,8 @@
     <div class="flex flex-wrap justify-between footer-bottom gap-4">
         <p>© 2025 Marie Heuman • Tous droits réservés.</p>
         <div class="flex flex-wrap gap-4">
-            <a href="<?= get_permalink(get_page_by_path('mentions-legales')); ?>">Mentions légales</a>
-            <a href="<?= get_permalink(get_page_by_path('politique-de-confidentialite')); ?>">Politique de
+            <a href="<?= get_permalink(733); ?>">Mentions légales</a>
+            <a href="<?= get_permalink(714); ?>">Politique de
                 confidentialité</a>
         </div>
     </div>

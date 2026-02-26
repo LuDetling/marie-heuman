@@ -344,56 +344,58 @@
         }
     }
 
-    .swiperProjetsRecents {
-        .swiper-slide {
-            position: relative;
-            height: auto;
-            width: auto;
+}
 
-            a {
-                display: block;
-                overflow: hidden;
+.swiperProjetsRecents,
+.swiperSingleBlog {
+    .swiper-slide {
+        position: relative;
+        height: auto;
+        width: auto;
+
+        a {
+            display: block;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 100%;
+
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+
+            .on-img {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                width: 100%;
+
+                h2 {
+                    padding: 0 2rem 2rem;
+                    color: $beige;
+                    text-shadow: 0px 3px 15px black;
+                    margin-bottom: 0;
+
+                    @media screen and (max-width: 767px) {
+                        font-size: 24px !important;
+                    }
+
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+
+
+
+            img {
                 border-radius: 15px;
                 height: 100%;
-
-                &:hover {
-                    img {
-                        transform: scale(1.2);
-                    }
-                }
-
-                .on-img {
-                    position: absolute;
-                    z-index: 1;
-                    bottom: 0;
-                    width: 100%;
-
-                    h2 {
-                        padding: 0 2rem 2rem;
-                        color: $beige;
-                        text-shadow: 0px 3px 15px black;
-                        margin-bottom: 0;
-
-                        @media screen and (max-width: 767px) {
-                            font-size: 24px !important;
-                        }
-
-                        &::before {
-                            display: none;
-                        }
-                    }
-                }
-
-
-
-                img {
-                    border-radius: 15px;
-                    height: 100%;
-                    max-height: 70vh;
-                    width: 100%;
-                    object-fit: cover;
-                    transition: .3s;
-                }
+                max-height: 70vh;
+                width: 100%;
+                object-fit: cover;
+                transition: .3s;
             }
         }
     }

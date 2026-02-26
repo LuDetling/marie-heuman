@@ -54,16 +54,26 @@ get_header();
             </div>
         <?php endif; ?>
 
-        <?php
+        <?php $call_to_action = $content['call_to_action'];
+        if (!empty($call_to_action['texte'])): ?>
+            <section class="section-secondary">
+                <?= $call_to_action['texte'] ?>
+                <div class="flex gap-x-8 gap-y-4 flex-wrap items-center mt-8">
+                    <a href="<?= get_permalink(40) ?>#custom-booking-app" class="orange-button">Réservez un appel</a>
+                    <a href="<?= get_permalink(25) ?>" class="second-link">Découvrez mes accompagnements</a>
+                </div>
+            </section>
+        <?php endif;
+
         $blogs = [
             'post_type' => 'blog',
             'posts_per_page' => 3,
             'post__not_in' => [get_the_ID()]
         ];
+
         $blog_query = new WP_Query($blogs);
         if ($blog_query->have_posts()): ?>
             <div class="related-articles mt-20">
-                <h2>Derniers blogs</h2>
                 <div class="swiper swiperSingleBlog">
                     <div class="swiper-wrapper">
                         <?php
@@ -75,7 +85,7 @@ get_header();
                             $blog_query->the_post();
                             $blog = get_field("contenu_page_blog");
                             ?>
-                            <div class="swiper-slide section-beige">
+                            <!-- <div class="swiper-slide section-beige">
                                 <article id="card-blog" class="projet-card carousel-item ">
                                     <div>
                                         <?php if ($blog['image']): ?>
@@ -86,15 +96,24 @@ get_header();
                                         <?php endif; ?>
                                         <div class="text-card">
                                             <h4><?php the_title(); ?></h4>
-                                            <p class="blog-meta">
-                                                <?= get_the_date('F o'); ?> •
-                                                <?= $blog['temps_de_lecture'] ?> de lecture
-                                            </p>
-
-                                            <a href="<?php the_permalink(); ?>" class="more mt-4">Lire l'article</a>
                                         </div>
                                     </div>
                                 </article>
+                            </div> -->
+                            <div class="swiper-slide">
+                                <a href="<?php the_permalink(); ?>">
+                                    <div class="on-img">
+                                        <h2>
+                                            <?php the_title(); ?>
+                                        </h2>
+                                    </div>
+                                    <?php if (!empty($blog['image']['url'])): ?>
+                                        <img src="<?= esc_url($blog['image']['url']) ?>"
+                                            alt="<?= esc_attr($blog['image']['alt']) ?>">
+                                    <?php else: ?>
+                                        <img src="<?= esc_url(IMAGE_DEFAULT) ?>" alt="Image par défaut">
+                                    <?php endif; ?>
+                                </a>
                             </div>
                             <?php
                         endwhile;
@@ -154,7 +173,7 @@ get_header();
             <h3>
                 Envie d’en savoir plus sur mon parcours ?
             </h3>
-            <a href="mon-histoire-architecte-interieur-tours-blois" class="more">Découvrez mon histoire</a>
+            <a href="<?= get_permalink(27) ?>" class="more">Découvrez mon histoire</a>
         </div>
 
         <!-- END HISTOIRE -->
@@ -167,7 +186,7 @@ get_header();
             <p>Vous avez un projet d’aménagement, de rénovation ou de création d’identité ?</p>
             <p>Mes accompagnements sont pensés pour s’adapter à votre rythme, vos besoins et votre univers.</p>
             <p>De la première idée à la concrétisation, je vous guide à chaque étape.</p>
-            <a href="expertise-accompagnement-architecture-interieure-tours-blois" class="more">Découvrez mes
+            <a href="<?= get_permalink(25) ?>" class="more">Découvrez mes
                 services</a>
         </div>
 
@@ -182,7 +201,7 @@ get_header();
             <p>Prenons le temps d’en parler ensemble.</p>
             <p>Cet appel gratuit et sans engagement me permet de comprendre vos besoins, de vous guider sur la bonne
                 formule et de poser les premières bases d’un projet réfléchi et serein.</p>
-            <a href="contact-architecte-interieur-tours-blois/#custom-booking-app" class="more">Réservez votre
+            <a href="<?= get_permalink(40) ?>#custom-booking-app" class="more">Réservez votre
                 créneau</a>
         </div>
 

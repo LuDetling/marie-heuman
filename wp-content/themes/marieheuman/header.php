@@ -28,8 +28,7 @@
 
                 <!-- calendly -->
                 <div class="content-calendly">
-                    <a href="contact-architecte-interieur-tours-blois/#custom-booking-app"
-                        class="calendly hidden md:flex">
+                    <a href="<?= get_permalink(40) ?>#custom-booking-app" class="calendly hidden md:flex">
                         <?=
                             file_get_contents(get_template_directory() . '/assets/images/icones/calendar-dots.svg');
                         ?>
@@ -50,7 +49,7 @@
         </nav>
     </header>
     <div class="other-buttons-header">
-        <a href="contact-architecte-interieur-tours-blois/#custom-booking-app" class="calendly-link flex md:hidden">
+        <a href="<?= get_permalink(40) ?>#custom-booking-app" class="calendly-link flex md:hidden">
             <?=
                 file_get_contents(get_template_directory() . '/assets/images/icones/calendar-dots.svg');
             ?>

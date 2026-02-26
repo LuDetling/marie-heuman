@@ -13,7 +13,7 @@ const swiperAvis = new Swiper('.swiperAvis', {
 });
 const swiperSingleBlog = new Swiper('.swiperSingleBlog', {
     slidesPerView: 1,
-    spaceBetween: 80,
+    spaceBetween: 40,
     loop: true,
     pagination: {
         el: ".swiper-pagination-single-blog",
@@ -23,6 +23,11 @@ const swiperSingleBlog = new Swiper('.swiperSingleBlog', {
         nextEl: ".swiper-button-next-single-blog",
         prevEl: ".swiper-button-prev-single-blog",
     },
+    breakpoints: {
+        1800: {
+            slidesPerView: 2,
+        }
+    }
 });
 
 const swiperHomeBlog = new Swiper('.swiperHomeBlog', {

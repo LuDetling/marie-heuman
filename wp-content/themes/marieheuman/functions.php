@@ -37,6 +37,8 @@ function marieheuman_setup()
         'contact' => 'Contact',
     ]);
 }
+
+define('IMAGE_DEFAULT', get_template_directory_uri() . '/assets/images/image-default.jpg');
 function add_fontawesome()
 {
     wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
@@ -157,7 +159,6 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'title' => 'Citation',
             'block' => 'div',
             'classes' => 'citation',
-            'wrapper' => true,
         ],
         [
             'title' => 'Tag',

@@ -642,7 +642,7 @@ h3::before {
 }
 @media screen and (max-width: 767px) {
   .content-img-header .text-img-header h2 {
-    font-size: 1.5rem !important;
+    font-size: 20px !important;
   }
   .content-img-header .text-img-header h2::before {
     display: none;
@@ -731,7 +731,7 @@ h3::before {
 }
 .content-services-accueil .right-service .tag {
   text-transform: uppercase;
-  color: #3f5e5a;
+  color: #d86a3d;
 }
 .content-services-accueil .right-service h4 {
   font-size: 24px;
@@ -1208,6 +1208,9 @@ main .left-content .header-content-blog img {
   width: 100%;
   object-fit: cover;
 }
+main .left-content .content p {
+  max-width: none;
+}
 main .left-content .content p:not(:last-child) {
   margin-bottom: 1rem;
 }
@@ -1418,7 +1421,7 @@ main .more {
   color: #462620;
 }
 .accompagnements .titre-description-top {
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 .accompagnements .titre-description-top p {
   max-width: 1000px;
@@ -1488,7 +1491,7 @@ main .more {
   content: "";
   width: 1rem;
   height: 1rem;
-  background-color: rgba(63, 94, 90, 0.3);
+  background-color: rgba(216, 106, 61, 0.3);
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -1498,7 +1501,7 @@ main .more {
   content: "";
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #3f5e5a;
+  background-color: #d86a3d;
   border-radius: 50%;
   position: absolute;
   left: 0.25rem;
@@ -2073,41 +2076,50 @@ main .more {
 .page-projet .votre-projet p {
   margin-bottom: 2rem;
 }
-.page-projet .swiperProjetsRecents .swiper-slide {
+
+.swiperProjetsRecents .swiper-slide,
+.swiperSingleBlog .swiper-slide {
   position: relative;
   height: auto;
   width: auto;
 }
-.page-projet .swiperProjetsRecents .swiper-slide a {
+.swiperProjetsRecents .swiper-slide a,
+.swiperSingleBlog .swiper-slide a {
   display: block;
   overflow: hidden;
   border-radius: 15px;
   height: 100%;
 }
-.page-projet .swiperProjetsRecents .swiper-slide a:hover img {
+.swiperProjetsRecents .swiper-slide a:hover img,
+.swiperSingleBlog .swiper-slide a:hover img {
   transform: scale(1.2);
 }
-.page-projet .swiperProjetsRecents .swiper-slide a .on-img {
+.swiperProjetsRecents .swiper-slide a .on-img,
+.swiperSingleBlog .swiper-slide a .on-img {
   position: absolute;
   z-index: 1;
   bottom: 0;
   width: 100%;
 }
-.page-projet .swiperProjetsRecents .swiper-slide a .on-img h2 {
+.swiperProjetsRecents .swiper-slide a .on-img h2,
+.swiperSingleBlog .swiper-slide a .on-img h2 {
   padding: 0 2rem 2rem;
   color: #f6f5f2;
   text-shadow: 0px 3px 15px black;
   margin-bottom: 0;
 }
 @media screen and (max-width: 767px) {
-  .page-projet .swiperProjetsRecents .swiper-slide a .on-img h2 {
+  .swiperProjetsRecents .swiper-slide a .on-img h2,
+  .swiperSingleBlog .swiper-slide a .on-img h2 {
     font-size: 24px !important;
   }
 }
-.page-projet .swiperProjetsRecents .swiper-slide a .on-img h2::before {
+.swiperProjetsRecents .swiper-slide a .on-img h2::before,
+.swiperSingleBlog .swiper-slide a .on-img h2::before {
   display: none;
 }
-.page-projet .swiperProjetsRecents .swiper-slide a img {
+.swiperProjetsRecents .swiper-slide a img,
+.swiperSingleBlog .swiper-slide a img {
   border-radius: 15px;
   height: 100%;
   max-height: 70vh;
@@ -3023,10 +3035,37 @@ section {
 }
 
 .white-block {
+  position: relative;
   background-color: #f6f5f2;
   border-radius: 15px;
   padding: 2rem;
   color: #462620;
+  margin: 2.5rem 0;
+  max-width: 1000px;
+}
+.white-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* L'image JPEG de votre grain */
+  background-image: url("../assets/images/grain-3.jpeg");
+  opacity: 0.1;
+  background-repeat: repeat;
+  /* RÉGLAGES DE LÉGÈRETÉ */
+  /* Entre 0.02 et 0.05 pour un effet quasi invisible mais présent */
+  mix-blend-mode: multiply;
+  /* Fusionne parfaitement le grain avec le beige */
+  z-index: 0;
+  pointer-events: none;
+  /* Important : permet de cliquer sur les boutons en dessous */
+}
+.white-block > *, .white-block::after {
+  position: relative;
+  z-index: 1;
+  /* Place le contenu au-dessus du grain */
 }
 
 .beige-block {
@@ -3034,12 +3073,18 @@ section {
   border-radius: 15px;
   padding: 2rem;
   color: #462620;
-  margin-bottom: 2rem;
+  margin: 2.5rem 0;
+  max-width: 1000px;
 }
 
 .citation {
   font-family: "Playfair Display", serif;
   color: #3f5e5a;
+  font-size: 1.7rem;
+  text-align: center;
+}
+.citation * {
+  font-family: "Playfair Display", serif;
 }
 
 .mce-content-body .swiper-wrapper img {
@@ -3079,6 +3124,21 @@ section {
   position: relative;
 }
 .section-beige::before {
+  display: none;
+}
+
+.section-secondary {
+  background-color: #3f5e5a;
+  padding: 2rem;
+  color: #f6f5f2;
+  border-radius: 15px;
+  margin: 5rem 0;
+}
+.section-secondary h2 {
+  color: #f6f5f2 !important;
+  margin-bottom: 1.5rem;
+}
+.section-secondary::before {
   display: none;
 }
 

@@ -153,8 +153,8 @@ function transformer_en_swiper_slides($content)
         <p>Chaque espace raconte une histoire unique.<br>
             Ensemble, créons la vôtre avec une approche sur-mesure, humaine et structurée.</p>
         <div class="flex gap-8 items-center flex-wrap">
-            <a href="contact-architecte-interieur-tours-blois/" class="orange-button">Echangeons sur votre projet</a>
-            <a href="expertise-accompagnement-architecture-interieure-tours-blois/" class="second-link">Découvrez mes
+            <a href="<?= get_permalink(40) ?>#custom-booking-app" class="orange-button">Echangeons sur votre projet</a>
+            <a href="<?= get_permalink(25) ?>" class="second-link">Découvrez mes
                 accompagnements</a>
         </div>
     </section>
@@ -162,7 +162,7 @@ function transformer_en_swiper_slides($content)
 
     <section class="section-white projets-recents">
         <div class="tag-home">Découvrez d'autres projets</div>
-        <a href="architecte-interieur-renovation-tours-realisations/" class="more">Voir tous les projets</a>
+        <a href="<?= get_permalink(8) ?>" class="more">Voir tous les projets</a>
         <?php
         $args = [
             'post_type' => 'post', // Le slug de ta catégorie

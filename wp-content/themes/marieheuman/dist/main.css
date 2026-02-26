@@ -2975,6 +2975,10 @@ img {
   max-height: 80vh;
 }
 
+.overflow-x-auto {
+  scrollbar-width: none;
+}
+
 section {
   padding: 5rem 160px;
 }

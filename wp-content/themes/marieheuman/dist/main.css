@@ -1187,12 +1187,6 @@ main .left-content h3::before {
 main .left-content .swiperSingleBlog {
   margin-top: 1.5rem;
 }
-main .left-content .swiperSingleBlog .swiper-wrapper {
-  align-items: flex-end;
-}
-main .left-content .swiperSingleBlog .swiper-wrapper .swiper-slide {
-  border-radius: 15px;
-}
 main .left-content .header-content-blog .blog-meta {
   color: #3f5e5a;
   margin-block: 1.5rem;
@@ -1491,7 +1485,7 @@ main .more {
   content: "";
   width: 1rem;
   height: 1rem;
-  background-color: rgba(216, 106, 61, 0.3);
+  background-color: rgba(63, 94, 90, 0.3);
   border-radius: 50%;
   position: absolute;
   left: 0;
@@ -1501,7 +1495,7 @@ main .more {
   content: "";
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #d86a3d;
+  background-color: #3f5e5a;
   border-radius: 50%;
   position: absolute;
   left: 0.25rem;
@@ -2077,11 +2071,16 @@ main .more {
   margin-bottom: 2rem;
 }
 
+.swiperProjetsRecents .swiper-wrapper,
+.swiperSingleBlog .swiper-wrapper {
+  align-items: stretch;
+}
 .swiperProjetsRecents .swiper-slide,
 .swiperSingleBlog .swiper-slide {
   position: relative;
   height: auto;
   width: auto;
+  max-height: 600px;
 }
 .swiperProjetsRecents .swiper-slide a,
 .swiperSingleBlog .swiper-slide a {
@@ -3077,11 +3076,54 @@ section {
   max-width: 1000px;
 }
 
+.beige-block *,
+.white-block * {
+  list-style: none;
+}
+.beige-block ul,
+.white-block ul {
+  padding-left: 0;
+}
+.beige-block ul li,
+.white-block ul li {
+  position: relative;
+  align-items: center;
+  padding-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+.beige-block ul li::marker,
+.white-block ul li::marker {
+  display: none;
+}
+.beige-block ul li::before,
+.white-block ul li::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: rgba(216, 106, 61, 0.3);
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+}
+.beige-block ul li::after,
+.white-block ul li::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #d86a3d;
+  border-radius: 50%;
+  position: absolute;
+  left: 0.25rem;
+  top: 0.5rem;
+}
+
 .citation {
   font-family: "Playfair Display", serif;
   color: #3f5e5a;
   font-size: 1.7rem;
   text-align: center;
+  margin: 2rem 0;
 }
 .citation * {
   font-family: "Playfair Display", serif;

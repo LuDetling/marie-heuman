@@ -29,7 +29,7 @@ get_header();
 
         <!-- Filtres par catégorie -->
         <div class="blog-filters">
-            <ul class="flex gap-4 flex-wrap">
+            <ul class="flex gap-4">
                 <li>
                     <button class="filter-btn active" data-category="">Tous les projets</button>
                 </li>

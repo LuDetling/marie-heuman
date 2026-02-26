@@ -348,10 +348,16 @@
 
 .swiperProjetsRecents,
 .swiperSingleBlog {
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+
     .swiper-slide {
         position: relative;
         height: auto;
         width: auto;
+        max-height: 600px;
 
         a {
             display: block;

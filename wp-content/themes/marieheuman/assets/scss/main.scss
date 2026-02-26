@@ -154,11 +154,56 @@ section {
     max-width: 1000px;
 }
 
+.beige-block,
+.white-block {
+    * {
+        list-style: none;
+    }
+
+    ul {
+        padding-left: 0;
+
+        li {
+            position: relative;
+            align-items: center;
+            padding-left: 2rem;
+            margin-bottom: .5rem;
+
+            &::marker {
+                display: none;
+            }
+
+            &::before {
+                content: "";
+                width: 1rem;
+                height: 1rem;
+                background-color: rgba($color: $orange, $alpha: .3);
+                border-radius: 50%;
+                position: absolute;
+                left: 0;
+                top: 0.25rem;
+            }
+
+            &::after {
+                content: "";
+                width: .5rem;
+                height: .5rem;
+                background-color: $orange;
+                border-radius: 50%;
+                position: absolute;
+                left: .25rem;
+                top: .5rem;
+            }
+        }
+    }
+}
+
 .citation {
     font-family: 'Playfair Display', serif;
     color: $secondary;
     font-size: 1.7rem;
     text-align: center;
+    margin: 2rem 0;
 
     * {
         font-family: 'Playfair Display', serif;

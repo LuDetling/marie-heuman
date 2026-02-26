@@ -29,18 +29,61 @@ get_header();
         <?php
         $cinq_champs_expertise_accompagnement = get_field("cinq_champs_expertise_accompagnement");
         ?>
-        <span class="tag-page"><?= $cinq_champs_expertise_accompagnement['tag'] ?></span>
-        <div class="titre-description titre-description-top">
-            <?= $cinq_champs_expertise_accompagnement['titre_&_description'] ?>
+        <!-- <span class="tag-page"><?= $cinq_champs_expertise_accompagnement['tag'] ?></span> -->
+        <span class="tag-page">Cinq champs d’accompagnement</span>
+        <div class="titre-description">
+            <h2>Du diagnostic à la réalisation, une approche sur mesure et globale</h2>
+            <h3>Une méthode claire, adaptée à chaque étape de votre projet</h3>
+        </div>
+        <div class="flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap items-center mb-20">
+            <div class="lg:w-5/10 ">
+                <p data-start="940" data-end="1152">J’interviens à chaque étape du projet, de la phase de <strong
+                        data-start="998" data-end="1023">diagnostic et d’étude</strong> jusqu’à la <strong
+                        data-start="1035" data-end="1052">mise en œuvre</strong>, en adaptant précisément mon
+                    accompagnement à vos besoins, vos enjeux et vos objectifs.</p>
+                <p data-start="1154" data-end="1497">J’aborde chaque projet comme un système cohérent, où l’<strong
+                        data-start="1213" data-end="1223">espace</strong>, l’<strong data-start="1227"
+                        data-end="1236">image</strong> et l’<strong data-start="1242" data-end="1251">usage</strong>
+                    dialoguent harmonieusement. Cette vision globale s’appuie sur une <strong data-start="1318"
+                        data-end="1353">approche transversale du design</strong>, mêlant <strong data-start="1362"
+                        data-end="1387">réflexion stratégique</strong>, <strong data-start="1389"
+                        data-end="1403">créativité</strong> et <strong data-start="1407" data-end="1429">exigence
+                        technique.</strong></p>
+                <p data-start="2379" data-end="2869">Cette <strong data-start="2385" data-end="2404">approche à
+                        360°</strong> permet d’éviter les réponses fragmentées et d’assurer une cohérence réelle entre
+                    ce que le lieu est, ce qu’il exprime et la manière dont il est vécu. Le projet se construit comme
+                    une <strong data-start="2596" data-end="2624">collaboration sur mesure</strong>, nourrie par
+                    l’échange, l’analyse des usages et une attention particulière portée aux <strong data-start="2719"
+                        data-end="2730">détails</strong>, afin d’aboutir à un résultat <strong data-start="2761"
+                        data-end="2771">aligné</strong>, <strong data-start="2773" data-end="2785">maîtrisé</strong> et
+                    <strong data-start="2789" data-end="2800">durable</strong>, aussi pertinent dans son fonctionnement
+                    que dans son image.</p>
+            </div>
+            <div class="lg:w-5/10 ">
+                <div class="white-block">
+                    <ul>
+                        <li>Le <strong>design stratégique</strong> permet de clarifier les objectifs du projet, ses
+                            contraintes, son positionnement et les priorités à mettre en œuvre. Il pose les bases d’un
+                            projet pertinent, durable et aligné avec votre mode de vie ou votre activité.</li>
+                        <li>Le&nbsp;<strong>design d’espace</strong>&nbsp;organise les volumes, les circulations, la
+                            lumière et les ambiances afin de créer un lieu fonctionnel, fluide et agréable à vivre au
+                            quotidien.</li>
+                        <li>Le&nbsp;<strong>design de mobilier</strong>&nbsp;prolonge cette réflexion à l’échelle des
+                            objets et des agencements sur mesure, en optimisant l’usage tout en renforçant le caractère
+                            du lieu.</li>
+                        <li>Le&nbsp;<strong>design d’identité</strong>&nbsp;assure la cohérence visuelle et émotionnelle
+                            de l’ensemble. Il peut concerner l’image de marque pour les professionnels, ou l’univers
+                            esthétique et sensible du lieu pour les particuliers.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <?php
-        for ($i = 1; $i < 6; $i++) {
+        for ($i = 1; $i < 6; $i++):
             $champ = $cinq_champs_expertise_accompagnement['champ_' . $i . '_accompagnement'];
-            // $champ = $cinq_champs_expertise_accompagnement['champ_2_accompagnement'];
-            if ($champ) {
+            if ($champ):
                 ?>
                 <div class="flex gap-10 md:gap-20 accompagnement flex-wrap lg:flex-nowrap items-center">
-                    <!-- <?= var_dump($champ) ?> -->
                     <div class="lg:w-5/10 left-accompagnement">
                         <span class="index"><?= $i ?></span>
                         <img src="<?= esc_url($champ['image']['url']) ?>" alt="">
@@ -54,8 +97,7 @@ get_header();
                         </div>
                     </div>
                 </div>
-            <?php }
-        } ?>
+            <?php endif; endfor; ?>
     </section>
     <!-- END ACCOMPAGNEMENTS -->
 

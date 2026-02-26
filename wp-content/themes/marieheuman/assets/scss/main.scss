@@ -208,6 +208,10 @@ section {
     * {
         font-family: 'Playfair Display', serif;
     }
+
+    @media screen and (max-width: 767px) {
+        font-size: 1.2rem;
+    }
 }
 
 .mce-content-body {

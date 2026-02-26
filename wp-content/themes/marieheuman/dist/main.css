@@ -146,7 +146,8 @@
   font-size: 20px;
   display: block;
   color: #f6f5f2;
-  border-bottom: 1px solid #f6f5f2;
+  text-decoration: underline;
+  text-underline-offset: 4px;
   transition: 0.3s;
   width: fit-content;
   text-align: left;
@@ -160,7 +161,8 @@
   font-size: 20px;
   display: block;
   color: #f6f5f2;
-  border-bottom: 1px solid #f6f5f2;
+  text-decoration: underline;
+  text-underline-offset: 4px;
   transition: 0.3s;
   width: fit-content;
   text-align: left;
@@ -182,7 +184,8 @@
   font-size: 20px;
   display: block;
   color: #f6f5f2;
-  border-bottom: 1px solid #f6f5f2;
+  text-decoration: underline;
+  text-underline-offset: 4px;
   transition: 0.3s;
   width: fit-content;
   text-align: left;
@@ -2783,16 +2786,23 @@ main .more {
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  overflow-x: auto;
 }
 @media screen and (max-width: 767px) {
   #histoire .univers .swiper-navigation .swiper-pagination {
     gap: 1rem;
   }
 }
+@media screen and (max-width: 400px) {
+  #histoire .univers .swiper-navigation .swiper-pagination {
+    justify-content: flex-start;
+  }
+}
 #histoire .univers .swiper-navigation .swiper-pagination .swiper-pagination-bullet {
   background: none;
   width: 46px;
-  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
   border: 1px solid #462620;
   color: #462620;
   transition: 0.3s;
@@ -3127,6 +3137,11 @@ section {
 }
 .citation * {
   font-family: "Playfair Display", serif;
+}
+@media screen and (max-width: 767px) {
+  .citation {
+    font-size: 1.2rem;
+  }
 }
 
 .mce-content-body .swiper-wrapper img {

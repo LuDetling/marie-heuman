@@ -62,7 +62,7 @@ get_header();
         <span class="tag-home"><?= $univers['tag'] ?></span>
         <?= $univers['titre'] ?>
         <div class="swiper-navigation">
-            <div class="swiper-pagination flex-wrap"></div>
+            <div class="swiper-pagination"></div>
         </div>
         <div class="swiper universSwiper">
             <div class="swiper-wrapper">

@@ -5,11 +5,11 @@ $avantApres = $projet['avant_apres']; ?>
     <section class="avant-apres section-beige">
         <div class="container">
             <div class="selectors flex gap-8 justify-center w-full">
-                <ul class="flex gap-4 flex-wrap">
+                <ul class="flex gap-4 overflow-x-auto">
                     <?php $indexSelector = 0;
                     foreach ($avantApres as $selector):
                         if (!empty($selector['images'] && str_contains($selector['images'], '<img'))): ?>
-                            <li>
+                            <li class="min-w-max">
                                 <button
                                     class="avant-apres-button border-marron-button <?= $indexSelector === 0 ? 'active-border-marron-button' : '' ?>"
                                     data-index="<?= $indexSelector ?>">

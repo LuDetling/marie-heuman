@@ -29,8 +29,8 @@ get_header();
 
         <!-- Filtres par catégorie -->
         <div class="blog-filters">
-            <ul class="flex gap-4">
-                <li>
+            <ul class="flex gap-4 overflow-x-auto">
+                <li class="min-w-max">
                     <button class="filter-btn active" data-category="">Tous les projets</button>
                 </li>
                 <?php
@@ -42,7 +42,7 @@ get_header();
                     foreach ($categories as $cat) {
                         ?>
                         <?php
-                        echo '<li><button class="filter-btn" data-category="' . esc_attr($cat->slug) . '">' . esc_html($cat->name) . '</button></li>';
+                        echo '<li class="min-w-max"><button class="filter-btn" data-category="' . esc_attr($cat->slug) . '">' . esc_html($cat->name) . '</button></li>';
                     }
                 }
                 ?>

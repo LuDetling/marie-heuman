@@ -71,13 +71,13 @@
     <section class="content-services-accueil bg-grain section-white">
         <span class="tag-home"><?= $tag_services_accueil ?></span>
         <?= $titres_services_accueil ?>
-        <div class="flex gap-4 selector-services flex-wrap">
+        <div class="flex gap-4 selector-services overflow-x-auto">
             <?php
             for ($i = 1; $i <= 3; $i++) {
 
                 $titre_service = get_field('titre_service_' . $i);
                 ?>
-                <div class="point">
+                <div class="point min-w-max">
                     <button
                         class="service-button border-marron-button<?= $i == 1 ? ' active-border-marron-button' : '' ?>"><?= $titre_service ?></button>
                 </div>

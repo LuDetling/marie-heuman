@@ -134,7 +134,8 @@
     font-size: 20px;
     display: block;
     color: $beige;
-    border-bottom: 1px solid $beige;
+    text-decoration: underline;
+    text-underline-offset: 4px;
     transition: .3s;
     width: fit-content;
     text-align: left;

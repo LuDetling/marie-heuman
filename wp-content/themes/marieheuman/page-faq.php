@@ -20,8 +20,8 @@ get_header();
 
 
         <!-- FILTRES -->
-        <ul id="faq-categories" class="flex gap-4 flex-wrap">
-            <li><button data-category="all" class="border-marron-button active">Toutes</button></li>
+        <ul id="faq-categories" class="flex gap-4 overflow-x-auto ">
+            <li class="min-w-max"><button data-category="all" class="border-marron-button active">Toutes</button></li>
             <?php
             $terms = get_terms([
                 'taxonomy' => 'faq_category',
@@ -30,7 +30,7 @@ get_header();
             foreach ($terms as $term):
                 if ($term->count > 0):
                     ?>
-                    <li>
+                    <li class="min-w-max">
                         <button data-category="<?= esc_attr($term->slug); ?>"
                             class="border-marron-button"><?= esc_html($term->name); ?></button>
                     </li>

@@ -2,7 +2,7 @@
 /* Template Name: Article Blog */
 get_header();
 ?>
-<main class="md:ml-20 pb-10 flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap items-stretch section-white">
+<main class="md:ml-20 pb-20 lg:pb-10 flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap items-stretch section-white">
     <!-- HEADER -->
     <section class="left-content lg:w-6/8">
         <div class="header-content-blog">

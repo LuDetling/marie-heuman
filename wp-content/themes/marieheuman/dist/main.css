@@ -1208,7 +1208,7 @@ main .left-content .header-content-blog img {
   width: 100%;
   object-fit: cover;
 }
-main .left-content .content p {
+main .left-content .content * {
   max-width: none;
 }
 main .left-content .content p:not(:last-child) {

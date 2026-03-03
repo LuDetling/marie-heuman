@@ -2734,6 +2734,10 @@ main .more {
   color: #7a8b85;
 }
 
+.faq h3 {
+  display: block;
+}
+
 #histoire img {
   border-radius: 15px;
   object-fit: cover;

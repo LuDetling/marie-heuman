@@ -24,7 +24,7 @@ get_header();
 
         <!-- Filtres par catégorie -->
         <div class="blog-filters">
-            <ul class="flex gap-4 overflow-x-auto">
+            <ul class="flex gap-4 overflow-x-auto xl:flex-wrap">
                 <li class="min-w-max">
                     <button class="filter-btn active" data-category="">Tous</button>
                 </li>

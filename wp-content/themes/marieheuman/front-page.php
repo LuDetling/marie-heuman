@@ -71,7 +71,7 @@
     <section class="content-services-accueil bg-grain section-white">
         <span class="tag-home"><?= $tag_services_accueil ?></span>
         <?= $titres_services_accueil ?>
-        <div class="flex gap-4 selector-services overflow-x-auto">
+        <div class="flex gap-4 selector-services overflow-x-auto xl:flex-wrap">
             <?php
             for ($i = 1; $i <= 3; $i++) {
 

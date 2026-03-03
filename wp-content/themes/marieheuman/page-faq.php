@@ -20,7 +20,7 @@ get_header();
 
 
         <!-- FILTRES -->
-        <ul id="faq-categories" class="flex gap-4 overflow-x-auto ">
+        <ul id="faq-categories" class="flex gap-4 overflow-x-auto xl:flex-wrap ">
             <li class="min-w-max"><button data-category="all" class="border-marron-button active">Toutes</button></li>
             <?php
             $terms = get_terms([

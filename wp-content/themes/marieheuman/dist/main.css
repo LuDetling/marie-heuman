@@ -1006,7 +1006,7 @@ h3::before {
 .content-ro-accueil .guide-newsletter form input:not([type=submit]) {
   background-color: #f6f5f2;
   width: 100%;
-  max-width: 700px;
+  max-width: none;
 }
 .content-ro-accueil .guide-newsletter form .cgu {
   display: flex;
@@ -1041,12 +1041,13 @@ h3::before {
 }
 .content-ro-accueil .guide-newsletter form .cgu label {
   margin-bottom: 0;
+  font-weight: normal;
 }
 .content-ro-accueil .guide-newsletter form .cgu label a {
   color: #3f5e5a;
   text-decoration: underline;
 }
-.content-ro-accueil .guide-newsletter form div:not(.g-recaptcha) {
+.content-ro-accueil .guide-newsletter form .sib_signup_box_inside_2 > div {
   margin-top: 1.5rem;
 }
 

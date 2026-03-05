@@ -597,7 +597,7 @@ h3 {
             input:not([type="submit"]) {
                 background-color: $beige;
                 width: 100%;
-                max-width: 700px;
+                max-width: none;
             }
 
             .cgu {
@@ -636,6 +636,7 @@ h3 {
 
                 label {
                     margin-bottom: 0;
+                    font-weight: normal;
 
                     a {
                         color: $secondary;
@@ -644,9 +645,12 @@ h3 {
                 }
             }
 
-            div:not(.g-recaptcha) {
-                margin-top: 1.5rem;
+            .sib_signup_box_inside_2 {
+                >div {
+                    margin-top: 1.5rem;
+                }
             }
+
         }
     }
 }

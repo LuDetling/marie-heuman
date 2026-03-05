@@ -61,6 +61,7 @@
   transition: 0.3s;
   display: table;
   cursor: pointer;
+  width: fit-content;
 }
 .orange-button:hover {
   background-color: #9c6338;
@@ -989,6 +990,9 @@ h3::before {
 .content-ro-accueil {
   background-color: #f6f5f2;
   color: #462620;
+}
+.content-ro-accueil .guide-newsletter form input:not([type=submit]) {
+  background-color: #ece7dd;
 }
 
 .card-ro-accueil {
@@ -2345,11 +2349,6 @@ main .more {
   font-weight: bold;
   margin-bottom: 0.3rem;
 }
-#form-calendly .required::after,
-#form-contact .required::after {
-  content: " *";
-  color: #d86a3d;
-}
 #form-calendly input,
 #form-calendly select,
 #form-contact input,
@@ -2981,6 +2980,23 @@ img {
 
 .overflow-x-auto {
   scrollbar-width: none;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+form input {
+  border-radius: 15px;
+  width: 100%;
+  padding: 0.7rem 1.5rem;
+  font-weight: normal;
+  max-width: 400px;
+}
+form .required::after {
+  content: " *";
+  color: #d86a3d;
 }
 
 section {

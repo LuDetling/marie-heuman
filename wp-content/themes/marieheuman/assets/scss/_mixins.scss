@@ -69,6 +69,7 @@
     transition: .3s;
     display: table;
     cursor: pointer;
+    width: fit-content;
 
     &:hover {
         background-color: $caramel;

@@ -581,6 +581,14 @@ h3 {
 .content-ro-accueil {
     background-color: $beige;
     color: $marron;
+
+    .guide-newsletter {
+        form {
+            input:not([type="submit"]) {
+                background-color: $white;
+            }
+        }
+    }
 }
 
 .card-ro-accueil {

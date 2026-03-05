@@ -265,13 +265,6 @@
         margin-bottom: .3rem;
     }
 
-    .required {
-        &::after {
-            content: " *";
-            color: $orange;
-        }
-    }
-
     input,
     select {
         background-color: $white;

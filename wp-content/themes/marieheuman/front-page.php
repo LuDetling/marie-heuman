@@ -299,8 +299,8 @@
         <div class="flex gap-10 md:gap-20 justify-between flex-wrap lg:flex-nowrap">
             <?php
             $fichier_ressources = get_field('fichiers_ressources_accueil');
-            if ($fichier_ressources) {
-                foreach ($fichier_ressources as $fichier) {
+            if ($fichier_ressources):
+                foreach ($fichier_ressources as $fichier):
                     ?>
                     <div class="card-ro-accueil sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
                         <div class="icone-white">
@@ -336,17 +336,19 @@
                             <p>
                                 <?= $fichier['description'] ?>
                             </p>
-                            <div class="mt-4">
+                            <!-- <div class="mt-4">
                                 <a href="<?= $fichier['fichier']['url'] ?>" class="more">
                                     Téléchargez</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <?php
-                }
-            }
-            ?>
-        </div>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <div class="guide-newsletter">
+                <h2 class="my-4">Pour reçevoir mes guides veuillez remplir le formulaire ci-dessous</h2>
+                <?= do_shortcode("[sibwp_form id=2]") ?>
+            </div>
     </section>
     <!-- END RESSOURCES OFFERTES -->
     <!-- CONTACT -->

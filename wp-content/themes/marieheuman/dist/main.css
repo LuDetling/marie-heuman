@@ -1046,7 +1046,7 @@ h3::before {
   color: #3f5e5a;
   text-decoration: underline;
 }
-.content-ro-accueil .guide-newsletter form div {
+.content-ro-accueil .guide-newsletter form div:not(.g-recaptcha) {
   margin-top: 1.5rem;
 }
 

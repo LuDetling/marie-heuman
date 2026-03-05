@@ -644,7 +644,7 @@ h3 {
                 }
             }
 
-            div {
+            div:not(.g-recaptcha) {
                 margin-top: 1.5rem;
             }
         }

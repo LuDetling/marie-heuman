@@ -1008,6 +1008,44 @@ h3::before {
   width: 100%;
   max-width: 700px;
 }
+.content-ro-accueil .guide-newsletter form .cgu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.content-ro-accueil .guide-newsletter form .cgu input {
+  width: auto;
+  appearance: none;
+  height: 17px;
+  min-width: 17px;
+  background: #ece7dd;
+  border: 1px solid #462620;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+}
+.content-ro-accueil .guide-newsletter form .cgu input:checked {
+  background: #462620;
+  position: relative;
+}
+.content-ro-accueil .guide-newsletter form .cgu input:checked::before {
+  font-family: "FontAwesome";
+  content: "\f00c";
+  display: block;
+  color: #ece7dd;
+  font-size: 10px;
+  position: absolute;
+}
+.content-ro-accueil .guide-newsletter form .cgu label {
+  margin-bottom: 0;
+}
+.content-ro-accueil .guide-newsletter form .cgu label a {
+  color: #3f5e5a;
+  text-decoration: underline;
+}
 .content-ro-accueil .guide-newsletter form div {
   margin-top: 1.5rem;
 }

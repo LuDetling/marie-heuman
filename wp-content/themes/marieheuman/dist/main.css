@@ -991,8 +991,25 @@ h3::before {
   background-color: #f6f5f2;
   color: #462620;
 }
+.content-ro-accueil .guide-newsletter {
+  max-width: 1000px;
+  margin-inline: auto;
+  margin-top: 5rem;
+  border-radius: 15px;
+  padding: 2rem;
+}
+@media screen and (max-width: 48rem) {
+  .content-ro-accueil .guide-newsletter {
+    margin-top: 2.5rem;
+  }
+}
 .content-ro-accueil .guide-newsletter form input:not([type=submit]) {
-  background-color: #ece7dd;
+  background-color: #f6f5f2;
+  width: 100%;
+  max-width: 700px;
+}
+.content-ro-accueil .guide-newsletter form div {
+  margin-top: 1.5rem;
 }
 
 .card-ro-accueil {

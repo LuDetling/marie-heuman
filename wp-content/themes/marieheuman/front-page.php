@@ -343,12 +343,12 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <div class="guide-newsletter">
-                <h2 class="my-4">Pour reçevoir mes guides veuillez remplir le formulaire ci-dessous</h2>
-                <?= do_shortcode("[sibwp_form id=2]") ?>
-            </div>
+            <?php endif; ?>
+        </div>
+        <div class="guide-newsletter section-beige">
+            <h2 class="my-4">Recevez vos guides offerts par mail !</h2>
+            <?= do_shortcode("[sibwp_form id=2]") ?>
+        </div>
     </section>
     <!-- END RESSOURCES OFFERTES -->
     <!-- CONTACT -->

@@ -583,9 +583,25 @@ h3 {
     color: $marron;
 
     .guide-newsletter {
+        max-width: 1000px;
+        margin-inline: auto;
+        margin-top: 5rem;
+        border-radius: 15px;
+        padding: 2rem;
+
+        @media screen and (max-width: 48rem) {
+            margin-top: 2.5rem;
+        }
+
         form {
             input:not([type="submit"]) {
-                background-color: $white;
+                background-color: $beige;
+                width: 100%;
+                max-width: 700px;
+            }
+
+            div {
+                margin-top: 1.5rem;
             }
         }
     }

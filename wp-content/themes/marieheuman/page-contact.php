@@ -217,7 +217,7 @@ get_header();
             <?= $contact['soutiens'] ?>
         </div>
         <div class="newsletter-block guide-newsletter">
-            <h2>Entrez dans les coulisses du studio et restez informé des nouveautés.</h2>
+            <h2>Entrez dans les coulisses du studio et restez informé des nouveautés</h2>
             <p>Recevez directement dans votre boîte mail mes nouveaux projets, articles, inspirations, ressources
                 utiles… ainsi que des offres et avantages proposés par mes partenaires.</p>
             <p class="beige">1 à 2 emails par mois • Pas de spam</p>

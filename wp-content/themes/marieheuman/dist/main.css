@@ -62,6 +62,8 @@
   display: table;
   cursor: pointer;
   width: fit-content;
+  min-width: 0;
+  white-space: unset;
 }
 .orange-button:hover {
   background-color: #9c6338;
@@ -3000,6 +3002,11 @@ main .more {
   margin: 5rem auto;
   max-width: 1000px;
 }
+@media screen and (max-width: 767px) {
+  .newsletter-block {
+    margin: 2rem 0;
+  }
+}
 .newsletter-block h2 {
   color: #f6f5f2 !important;
   margin-bottom: 1.5rem;
@@ -3009,6 +3016,7 @@ main .more {
 }
 .newsletter-block p.beige {
   color: #ece7dd;
+  font-size: 14px;
 }
 .newsletter-block form .cgu label a {
   color: #ece7dd;
@@ -3377,6 +3385,11 @@ section {
   color: #f6f5f2;
   border-radius: 15px;
   margin: 5rem 0;
+}
+@media screen and (max-width: 767px) {
+  .section-secondary {
+    margin: 2rem 0;
+  }
 }
 .section-secondary h2 {
   color: #f6f5f2 !important;

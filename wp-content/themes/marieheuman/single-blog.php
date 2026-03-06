@@ -208,16 +208,30 @@ get_header();
         <!-- END RESERVATION -->
 
         <!-- GUIDES -->
-        <?php if (!empty($sidebar['guides']['lien'])): ?>
-            <div class="guides">
-                <h3>
-                    <?= $sidebar['guides']['titre'] ?>
-                </h3>
-                <a href="<?= $sidebar['guides']['lien']['url'] ?>"
-                    class="more"><?= $sidebar['guides']['lien']['title'] ?></a>
+        <div class="guides-newsletter-aside">
+            <?php $guides = $sidebar['guides']; ?>
+            <h3>Recevez vos guides offerts</h3>
+            <div class="images-guides">
+                <?php foreach ($guides as $guide):
+                    if ($guide['url']): ?>
+                        <img src="<?= esc_url($guide['url']) ?>" alt="<?= esc_attr($guide['title']) ?>">
+                    <?php endif;
+                endforeach; ?>
             </div>
-        <?php endif; ?>
+            <?= do_shortcode("[sibwp_form id=2]") ?>
+
+        </div>
         <!-- END GUIDES -->
+
+
+        <!-- NEWSLETTER -->
+        <div class="guides-newsletter-aside">
+            <h3>Entrez dans les coulisses du studio</h3>
+            <p>Recevez directement dans votre boîte mail mes nouveaux projets, articles, inspirations, ressources
+                utiles… ainsi que des offres et avantages proposés par mes partenaires.</p>
+            <?= do_shortcode("[sibwp_form id=3]") ?>
+        </div>
+        <!-- END NEWSLETTER -->
     </aside>
 </main>
 <?php

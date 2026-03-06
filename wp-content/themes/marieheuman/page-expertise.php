@@ -57,7 +57,8 @@ get_header();
                         data-end="2730">détails</strong>, afin d’aboutir à un résultat <strong data-start="2761"
                         data-end="2771">aligné</strong>, <strong data-start="2773" data-end="2785">maîtrisé</strong> et
                     <strong data-start="2789" data-end="2800">durable</strong>, aussi pertinent dans son fonctionnement
-                    que dans son image.</p>
+                    que dans son image.
+                </p>
             </div>
             <div class="lg:w-5/10 ">
                 <div class="white-block">
@@ -233,14 +234,14 @@ get_header();
                         <p>
                             <?= $ressource['fichier']['description'] ?>
                         </p>
-                        <div class="mt-4">
-                            <a href="<?= $ressource['fichier']['url'] ?>" class="more">
-                                Téléchargez</a>
-                        </div>
                     </div>
                 </div>
             <?php }
             ?>
+        </div>
+        <div class="guide-newsletter section-beige">
+            <h2 class="my-4">Recevez vos guides offerts par mail !</h2>
+            <?= do_shortcode("[sibwp_form id=2]") ?>
         </div>
     </section>
     <!-- END RESSOURCES -->

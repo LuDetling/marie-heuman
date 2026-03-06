@@ -216,6 +216,13 @@ get_header();
         <div class="content-soutiens section-beige">
             <?= $contact['soutiens'] ?>
         </div>
+        <div class="newsletter-block guide-newsletter">
+            <h2>Entrez dans les coulisses du studio et restez informé des nouveautés.</h2>
+            <p>Recevez directement dans votre boîte mail mes nouveaux projets, articles, inspirations, ressources
+                utiles… ainsi que des offres et avantages proposés par mes partenaires.</p>
+            <p class="beige">1 à 2 emails par mois • Pas de spam</p>
+            <?= do_shortcode("[sibwp_form id=3]") ?>
+        </div>
     </section>
     <section class="reseaux section-beige">
         <span class="tag-home"><?= $contact['reseaux']['tag'] ?></span>

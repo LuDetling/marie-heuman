@@ -245,6 +245,101 @@ main {
     }
 
     //END RECHERCHE
+    .guides-newsletter-aside {
+      .images-guides {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+
+        img {
+          border-radius: 15px;
+          object-fit: cover;
+
+          @media screen and (max-width: 1023px) {
+            max-width: 300px;
+          }
+        }
+      }
+
+      form {
+        label {
+          margin-bottom: 0;
+          color: $marron;
+        }
+
+        input[type="submit"] {
+          color: $beige;
+          background-color: $orange;
+          border: 2px solid $orange;
+          padding: .5rem 1rem;
+          text-transform: uppercase;
+          border-radius: 15px;
+          font-size: 1rem;
+          transition: .3s;
+          display: table;
+          cursor: pointer;
+          white-space: unset;
+          width: fit-content;
+
+          &:hover {
+            background-color: $caramel;
+            border-color: $caramel;
+          }
+        }
+
+        .cgu {
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+
+          input {
+            width: auto;
+            appearance: none;
+            height: 17px;
+            min-width: 17px;
+            background: $white;
+            border: 1px solid $marron;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            border-radius: 0;
+
+            &:checked {
+              background: $marron;
+              position: relative;
+
+              &::before {
+                font-family: "FontAwesome";
+                content: "\f00c";
+                display: block;
+                color: $white;
+                font-size: 10px;
+                position: absolute;
+              }
+            }
+          }
+
+          label {
+            margin-bottom: 0;
+            font-weight: normal;
+
+            a {
+              color: $secondary;
+              text-decoration: underline;
+            }
+          }
+        }
+
+      }
+
+      .sib_signup_form {
+        >div>div {
+          margin-top: 1.5rem;
+        }
+      }
+    }
   }
 
   //INFORMATIONS

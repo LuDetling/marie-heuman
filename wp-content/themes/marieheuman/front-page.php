@@ -310,7 +310,7 @@
                         <div class="content-card-ro-accueil w-full sm:w-auto">
 
                             <div class="flex gap-4 title-icon">
-                                <h4><?= $fichier['titre'] ?></h4>
+                                <h4><?= $fichier['fichier']['title'] ?></h4>
                             </div>
 
                             <div class="pages">
@@ -334,12 +334,8 @@
                                 </span>
                             </div>
                             <p>
-                                <?= $fichier['description'] ?>
+                                <?= $fichier['fichier']['description'] ?>
                             </p>
-                            <!-- <div class="mt-4">
-                                <a href="<?= $fichier['fichier']['url'] ?>" class="more">
-                                    Téléchargez</a>
-                            </div> -->
                         </div>
                     </div>
                 <?php endforeach; ?>

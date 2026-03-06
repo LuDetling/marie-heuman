@@ -134,6 +134,9 @@ function cc_mime_types($mimes)
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
+add_filter('wp_generate_attachment_metadata', 'generate_pdf_thumbnail_from_upload', 10, 2);
+
+
 // STYLE WYSIWYG
 add_filter('mce_buttons_2', function ($buttons) {
     array_unshift($buttons, 'styleselect');

@@ -209,14 +209,21 @@ get_header();
 
         <!-- GUIDES -->
         <div class="guides-newsletter-aside">
-            <?php $guides = $sidebar['guides']; ?>
             <h3>Recevez vos guides offerts</h3>
             <div class="images-guides">
-                <?php foreach ($guides as $guide):
-                    if ($guide['url']): ?>
-                        <img src="<?= esc_url($guide['url']) ?>" alt="<?= esc_attr($guide['title']) ?>">
-                    <?php endif;
-                endforeach; ?>
+                <?php
+                $args = [
+                    'post_type' => 'guide',
+                    'posts_per_page' => 3,
+                ];
+                $guides = new WP_Query($args);
+                while ($guides->have_posts()):
+                    $guides->the_post();
+                    $guide = get_field("guides_champs");
+                    ?>
+                    <img src="<?= esc_url($guide['image']['url']) ?>" alt="<?= $guide['image']['alt'] ?>">
+                <?php endwhile;
+                wp_reset_postdata(); ?>
             </div>
             <?= do_shortcode("[sibwp_form id=2]") ?>
 

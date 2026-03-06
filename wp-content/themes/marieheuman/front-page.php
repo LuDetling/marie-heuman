@@ -298,48 +298,53 @@
         <?= $titre_ressources_offertes_accueil ?>
         <div class="flex gap-10 md:gap-20 justify-between flex-wrap lg:flex-nowrap">
             <?php
-            $fichier_ressources = get_field('fichiers_ressources_accueil');
-            if ($fichier_ressources):
-                foreach ($fichier_ressources as $fichier):
-                    ?>
-                    <div class="card-ro-accueil sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
-                        <div class="icone-white">
-                            <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
-                            ?>
-                        </div>
-                        <div class="content-card-ro-accueil w-full sm:w-auto">
-
-                            <div class="flex gap-4 title-icon">
-                                <h4><?= $fichier['fichier']['title'] ?></h4>
-                            </div>
-
-                            <div class="pages">
-                                <?php
-                                $pdf_path = get_attached_file($fichier['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
-                        
-                                // Lire le contenu du PDF
-                                $content = file_get_contents($pdf_path);
-
-                                // Compter les occurrences de '/Page' dans le fichier
-                                if ($content && $fichier['fichier']['subtype'] === 'pdf') {
-                                    preg_match_all("/\/Page\W/", $content, $matches);
-                                    $page_count = count($matches[0]);
-                                    ?>
-                                    <span><?= $page_count ?> pages</span>
-                                    <?php
-                                }
-                                ?>
-                                <span class="type-file">
-                                    <?= $fichier['fichier']['subtype'] ?>
-                                </span>
-                            </div>
-                            <p>
-                                <?= $fichier['fichier']['description'] ?>
-                            </p>
-                        </div>
+            $args = [
+                'post_type' => 'guide',
+                'posts_per_page' => 3,
+            ];
+            $guides = new WP_Query($args);
+            while ($guides->have_posts()):
+                $guides->the_post();
+                $guide = get_field("guides_champs");
+                ?>
+                <div class="card-ro-accueil sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
+                    <div class="icone-white">
+                        <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
+                        ?>
                     </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+                    <div class="content-card-ro-accueil w-full sm:w-auto">
+
+                        <div class="flex gap-4 title-icon">
+                            <h4><?= $guide['fichier']['title'] ?></h4>
+                        </div>
+
+                        <div class="pages">
+                            <?php
+                            $pdf_path = get_attached_file($guide['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
+                        
+                            // Lire le contenu du PDF
+                            $content = file_get_contents($pdf_path);
+
+                            // Compter les occurrences de '/Page' dans le fichier
+                            if ($content && $guide['fichier']['subtype'] === 'pdf') {
+                                preg_match_all("/\/Page\W/", $content, $matches);
+                                $page_count = count($matches[0]);
+                                ?>
+                                <span><?= $page_count ?> pages</span>
+                                <?php
+                            }
+                            ?>
+                            <span class="type-file">
+                                <?= $guide['fichier']['subtype'] ?>
+                            </span>
+                        </div>
+                        <p>
+                            <?= $guide['fichier']['description'] ?>
+                        </p>
+                    </div>
+                </div> <?php endwhile;
+            wp_reset_postdata(); ?>
+        </div>
         </div>
         <div class="guide-newsletter section-beige">
             <h2 class="my-4">Recevez vos guides offerts par mail !</h2>

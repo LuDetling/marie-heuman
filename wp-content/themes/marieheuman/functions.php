@@ -553,7 +553,7 @@ function handle_contact_form()
 
     // 📧 ENVOI FINAL
     $to = "contact@marieheuman.com";
-    $subject = 'Nouveau message Portfolio - ' . $firstname . ' ' . $lastname;
+    $subject = 'Contact - ' . $firstname . ' ' . $lastname;
     $headers = [
         'Content-Type: text/plain; charset=UTF-8',
         'From: Marie Heuman <contact@marieheuman.com>',

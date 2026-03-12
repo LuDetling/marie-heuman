@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let dateSelected = ""
     let typeCall = ""
     let daySelected = 1
+    let customBookingApp = document.querySelector("#custom-booking-app")
     let buttonSend = document.querySelector("#custom-booking-app .send-button")
     let loading = document.querySelector("#custom-booking-app .loading")
     let infoDatas = document.querySelector("#custom-booking-app .info-datas")
@@ -592,6 +593,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h4 class="text-2xl font-bold mb-4 success-title">Merci pour votre demande !</h4>
                     <p>Vous allez recevoir un email de confirmation dans quelques instants.</p>
                 `
+                customBookingApp.scrollIntoView({ behavior: 'smooth' });
             } else {
                 infoDatas.textContent = "Une erreur est survenue lors de l'envoi de votre demande. Veuillez remplir tous les champs obligatoires* et réessayer."
                 buttonSend.style.display = "table";

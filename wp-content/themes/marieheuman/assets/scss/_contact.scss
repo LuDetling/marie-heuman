@@ -448,7 +448,7 @@
 
     .textarea-content,
     .files,
-    .ccga {
+    .cgv {
         grid-column: 1 / 3;
     }
 
@@ -458,7 +458,7 @@
         }
     }
 
-    .ccga a {
+    .cgv a {
         text-decoration: underline;
     }
 
@@ -690,14 +690,27 @@
         font-weight: bold;
     }
 
-    #go-to-step-2 {
-        &.locked {
-            cursor: not-allowed;
-            background-color: $white;
-            border-color: $white;
-            color: $light-secondary;
-        }
+    #go-to-step-2 {}
+
+    .locked {
+        cursor: not-allowed;
+        background-color: $white;
+        border-color: $white;
+        color: $light-secondary;
     }
+
+
+    .success-title {
+        color: $marron;
+        font-family: 'Display Playfair', serif;
+        font-size: 36px;
+    }
+}
+
+.info-datas,
+.info-datas-contact,
+.success-contact {
+    color: $secondary;
 }
 
 .faq {

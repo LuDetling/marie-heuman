@@ -424,28 +424,32 @@
                 <form method="POST" class="form-calendly" id="form-calendly">
                     <div>
                         <label for="lastname" class="required">Nom</label>
-                        <input id="lastname" name="lastname" type="text">
+                        <input id="lastname" name="lastname" type="text" required>
                     </div>
                     <div>
                         <label for="firstname" class="required">Prénom</label>
-                        <input id="firstname" name="firstname" type="text">
+                        <input id="firstname" name="firstname" type="text" required>
                     </div>
                     <div>
                         <label for="email" class="required">Email</label>
-                        <input id="email" name="email" type="text">
+                        <input id="email" name="email" type="text" required>
                     </div>
                     <div>
                         <label for="phone" class="required">Téléphone</label>
-                        <input id="phone" name="phone" type="text">
+                        <input id="phone" name="phone" type="text" required>
                     </div>
                 </form>
 
+                <div class="info-datas mt-12"></div>
                 <div class="action-area flex gap-10 md:gap-20 items-center flex-wrap md:flex-nowrap">
                     <div class="md:w-1/2 w-full">
                         <a id="back-to-step-1" href="#custom-booking-app" class="second-link-orange">Retour</a>
                     </div>
                     <div class="md:w-1/2 w-full">
-                        <button class="orange-button" form="form-calendly">Envoyez votre demande</button>
+                        <button class="orange-button send-button" form="form-calendly">Envoyez votre
+                            demande</button>
+                        <span class="loading loading-spinner loading-sm hidden"></span>
+
                     </div>
                 </div>
             </div>

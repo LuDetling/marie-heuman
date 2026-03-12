@@ -84,28 +84,31 @@ get_header();
                 <form method="POST" class="form-calendly" id="form-calendly">
                     <div>
                         <label for="lastname" class="required">Nom</label>
-                        <input id="lastname" name="lastname" type="text">
+                        <input id="lastname" name="lastname" type="text" required>
                     </div>
                     <div>
                         <label for="firstname" class="required">Prénom</label>
-                        <input id="firstname" name="firstname" type="text">
+                        <input id="firstname" name="firstname" type="text" required>
                     </div>
                     <div>
                         <label for="email" class="required">Email</label>
-                        <input id="email" name="email" type="text">
+                        <input id="email" name="email" type="text" required>
                     </div>
                     <div>
                         <label for="phone" class="required">Téléphone</label>
-                        <input id="phone" name="phone" type="text">
+                        <input id="phone" name="phone" type="text" required>
                     </div>
                 </form>
 
+                <div class="info-datas mt-12"></div>
                 <div class="action-area flex gap-10 md:gap-20 items-center flex-wrap md:flex-nowrap">
-                    <div class="w-full md:w-1/2">
+                    <div class="md:w-1/2 w-full">
                         <a id="back-to-step-1" href="#custom-booking-app" class="second-link-orange">Retour</a>
                     </div>
-                    <div class="w-full md:w-1/2">
-                        <button class="orange-button" form="form-calendly">Envoyez votre demande</button>
+                    <div class="md:w-1/2 w-full">
+                        <button class="orange-button send-button" form="form-calendly">Envoyez votre
+                            demande</button>
+                        <span class="loading loading-spinner loading-sm hidden"></span>
                     </div>
                 </div>
             </div>
@@ -118,8 +121,18 @@ get_header();
         <?php
         $contact_form = $contact["contact"];
         ?>
+
         <span class="tag-home"><?= $contact_form['tag'] ?></span>
         <?= $contact_form['titre'] ?>
+        <div class="success-contact mt-12">
+            <?php if (isset($_GET['sent']) && $_GET['sent'] === 'success'): ?>
+                <p>Merci ! Votre demande a bien été envoyée. Je reviens vers vous très prochainement.</p>
+            <?php endif; ?>
+            <?php if (isset($_GET['sent']) && $_GET['sent'] === 'error'): ?>
+                <p>Une erreur est survenue lors de l'envoi. Veuillez réessayer ou me contacter directement par email.</p>
+            <?php endif; ?>
+        </div>
+
         <form method="post" class="form-contact section-beige" id="form-contact" enctype="multipart/form-data">
             <?php wp_nonce_field('contact_form_action', 'contact_nonce'); ?>
 
@@ -128,19 +141,19 @@ get_header();
 
             <div>
                 <label for="lastname-contact" class="required">Nom</label>
-                <input id="lastname-contact" name="lastname" type="text">
+                <input id="lastname-contact" name="lastname" type="text" required>
             </div>
             <div>
                 <label for="firstname-contact" class="required">Prénom</label>
-                <input id="firstname-contact" name="firstname" type="text">
+                <input id="firstname-contact" name="firstname" type="text" required>
             </div>
             <div>
                 <label for="email-contact" class="required">Email</label>
-                <input id="email-contact" name="email" type="text">
+                <input id="email-contact" name="email" type="text" required>
             </div>
             <div>
                 <label for="phone-contact" class="required">Téléphone</label>
-                <input id="phone-contact" name="phone" type="text">
+                <input id="phone-contact" name="phone" type="text" required>
             </div>
             <div class="from-calendly"></div>
             <div class="flex gap-4 files">
@@ -157,17 +170,20 @@ get_header();
                     <input type="file" name="otherFiles[]" id="otherFiles" multiple>
                 </div>
             </div>
-            <fieldset class="ccga flex gap-4 items-start">
+            <fieldset class="cgv flex gap-4 items-start">
                 <div>
-                    <input type="checkbox" name="ccga" id="ccga">
-                    <label for="ccga">J'accepte d'être contactée par Marie Heuman concernant mon projet
+                    <input type="checkbox" name="cgv-contact" id="cgv-contact" required>
+                    <label for="cgv-contact" class="required">J'accepte d'être contactée par Marie Heuman concernant mon
+                        projet
                         d'architecture
                         d'intérieur. Mes données seront traitées conformément à la <a href="<?= get_permalink(714) ?>"
-                            class="ccga">politique de
+                            class="cgv-contact">politique de
                             confidentialité.</a></label>
                 </div>
             </fieldset>
         </form>
+        <div class="info-datas-contact mt-12"></div>
+
         <button type="submit" class="orange-button" name="contact_submit" form="form-contact">Envoyez votre
             demande</button>
     </section>

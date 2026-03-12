@@ -2664,13 +2664,13 @@ main .more {
 }
 #form-contact .textarea-content,
 #form-contact .files,
-#form-contact .ccga {
+#form-contact .cgv {
   grid-column: 1/3;
 }
 #form-contact .files input {
   cursor: pointer;
 }
-#form-contact .ccga a {
+#form-contact .cgv a {
   text-decoration: underline;
 }
 
@@ -2864,11 +2864,22 @@ main .more {
   text-align: center;
   font-weight: bold;
 }
-#custom-booking-app #go-to-step-2.locked {
+#custom-booking-app .locked {
   cursor: not-allowed;
   background-color: #ece7dd;
   border-color: #ece7dd;
   color: #7a8b85;
+}
+#custom-booking-app .success-title {
+  color: #462620;
+  font-family: "Display Playfair", serif;
+  font-size: 36px;
+}
+
+.info-datas,
+.info-datas-contact,
+.success-contact {
+  color: #3f5e5a;
 }
 
 .faq h3 {
@@ -3139,6 +3150,10 @@ footer .footer-bottom a:hover {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   line-height: normal;
+}
+
+pre {
+  margin-left: 85px;
 }
 
 .items-end {

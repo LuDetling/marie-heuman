@@ -3061,7 +3061,7 @@ footer h2 {
   font-weight: bold;
   color: #f6f5f2;
   font-family: "Roboto";
-  font-size: 1rem;
+  font-size: 1rem !important;
   margin-bottom: 1rem;
 }
 footer #menu-reseaux {

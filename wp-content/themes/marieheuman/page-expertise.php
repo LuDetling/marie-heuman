@@ -149,33 +149,34 @@ get_header();
         </div>
         <div class="swiper swiperCollaboration">
             <div class="swiper-wrapper">
-                <?php for ($i = 1; $i < 4; $i++) {
-                    $collaboration = $collaboration_expertise_accompagnement['slide_' . $i]
+                <?php for ($i = 1; $i < 6; $i++):
+                    $collaboration = $collaboration_expertise_accompagnement['slide_' . $i];
+                    if ($collaboration['titre']):
                         ?>
-                    <div class="section-white swiper-slide card-collaboration">
-                        <div class=" flex flex-wrap sm:flex-nowrap sm:gap-8">
-                            <div class="icone-beige">
-                                <?php
-                                $icon_path = get_attached_file($collaboration['icone']);
-                                // Vérifie si le fichier existe et l'affiche
-                                if (file_exists($icon_path)) {
-                                    echo file_get_contents($icon_path);
-                                }
-                                ?>
+                        <div class="section-white swiper-slide card-collaboration">
+                            <div class=" flex flex-wrap sm:flex-nowrap sm:gap-8">
+                                <div class="icone-beige">
+                                    <?php
+                                    $icon_path = get_attached_file($collaboration['icone']);
+                                    // Vérifie si le fichier existe et l'affiche
+                                    if (file_exists($icon_path)) {
+                                        echo file_get_contents($icon_path);
+                                    }
+                                    ?>
+                                </div>
+                                <div>
+                                    <h4>
+                                        <?= $collaboration['titre']; ?>
+                                    </h4>
+                                    <span class="offre">
+                                        <?= $collaboration['offre']; ?>
+                                    </span>
+                                    <?= $collaboration['description']; ?>
+                                </div>
                             </div>
-                            <div>
-                                <h4>
-                                    <?= $collaboration['titre']; ?>
-                                </h4>
-                                <span class="offre">
-                                    <?= $collaboration['offre']; ?>
-                                </span>
-                                <?= $collaboration['description']; ?>
-                            </div>
-                        </div>
 
-                    </div>
-                <?php } ?>
+                        </div>
+                    <?php endif; endfor; ?>
             </div>
         </div>
         <div class="reservation">

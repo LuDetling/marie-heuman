@@ -3168,6 +3168,13 @@ img {
   scrollbar-width: none;
 }
 
+.swiper-slide ul {
+  padding-left: 20px;
+}
+.swiper-slide ul li {
+  list-style: disc;
+}
+
 form label {
   display: block;
   font-weight: bold;

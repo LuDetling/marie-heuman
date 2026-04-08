@@ -35,6 +35,16 @@ img {
     scrollbar-width: none;
 }
 
+.swiper-slide {
+    ul {
+        padding-left: 20px;
+
+        li {
+            list-style: disc;
+        }
+    }
+}
+
 form {
 
     label {

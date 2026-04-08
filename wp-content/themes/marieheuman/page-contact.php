@@ -202,29 +202,30 @@ get_header();
         <div class="swiper contactSwiper">
             <div class="swiper-wrapper">
                 <?php
-                for ($i = 1; $i <= 3; $i++):
+                for ($i = 1; $i <= 5; $i++):
                     $bloc = $collaboration['groupe_collaboration']['collaboration_' . $i];
-                    ?>
-                    <div class="swiper-slide section-white">
-                        <div class="flex flex-wrap md:flex-nowrap gap-4">
+                    if ($bloc['titre']):
+                        ?>
+                        <div class="swiper-slide section-white">
+                            <div class="flex flex-wrap md:flex-nowrap gap-4">
 
-                            <div class="dashicons">
-                                <?php
-                                $icon_path = get_attached_file($bloc['icone']);
-                                // Vérifie si le fichier existe et l'affiche
-                                if (file_exists($icon_path)) {
-                                    echo file_get_contents($icon_path);
-                                }
-                                ?>
-                            </div>
-                            <div class="content">
-                                <h4><?= $bloc['titre'] ?></h4>
-                                <div class="infos"><?= $bloc['infos'] ?></div>
-                                <div class="texte"><?= $bloc['description'] ?></div>
+                                <div class="dashicons">
+                                    <?php
+                                    $icon_path = get_attached_file($bloc['icone']);
+                                    // Vérifie si le fichier existe et l'affiche
+                                    if (file_exists($icon_path)) {
+                                        echo file_get_contents($icon_path);
+                                    }
+                                    ?>
+                                </div>
+                                <div class="content">
+                                    <h4><?= $bloc['titre'] ?></h4>
+                                    <div class="infos"><?= $bloc['infos'] ?></div>
+                                    <div class="texte"><?= $bloc['description'] ?></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php endfor; ?>
+                    <?php endif; endfor; ?>
             </div>
         </div>
     </section>

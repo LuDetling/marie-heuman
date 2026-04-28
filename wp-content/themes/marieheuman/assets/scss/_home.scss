@@ -582,12 +582,78 @@ h3 {
     background-color: $beige;
     color: $marron;
 
-    .guide-newsletter {
-        form {
-            input:not([type="submit"]) {
-                background-color: $white;
+}
+
+.guide-newsletter {
+    max-width: 1000px;
+    margin-inline: auto;
+    margin-top: 5rem;
+    border-radius: 15px;
+    padding: 2rem;
+
+    @media screen and (max-width: 48rem) {
+        margin-top: 2.5rem;
+    }
+
+    form {
+        input:not([type="submit"]) {
+            background-color: $beige;
+            width: 100%;
+            max-width: none;
+            outline: none;
+        }
+
+        .cgu {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            flex-wrap: wrap;
+
+            input {
+                width: auto;
+                appearance: none;
+                height: 17px;
+                min-width: 17px;
+                background: $white;
+                border: 1px solid $marron;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                border-radius: 0;
+
+                &:checked {
+                    background: $marron;
+                    position: relative;
+
+                    &::before {
+                        font-family: "FontAwesome";
+                        content: "\f00c";
+                        display: block;
+                        color: $white;
+                        font-size: 10px;
+                        position: absolute;
+                    }
+                }
+            }
+
+            label {
+                margin-bottom: 0;
+                font-weight: normal;
+
+                a {
+                    color: $secondary;
+                    text-decoration: underline;
+                }
             }
         }
+
+        &.sib_signup_form {
+            >div>div {
+                margin-top: 1.5rem;
+            }
+        }
+
     }
 }
 

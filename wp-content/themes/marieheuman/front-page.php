@@ -298,57 +298,58 @@
         <?= $titre_ressources_offertes_accueil ?>
         <div class="flex gap-10 md:gap-20 justify-between flex-wrap lg:flex-nowrap">
             <?php
-            $fichier_ressources = get_field('fichiers_ressources_accueil');
-            if ($fichier_ressources):
-                foreach ($fichier_ressources as $fichier):
-                    ?>
-                    <div class="card-ro-accueil sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
-                        <div class="icone-white">
-                            <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
-                            ?>
-                        </div>
-                        <div class="content-card-ro-accueil w-full sm:w-auto">
-
-                            <div class="flex gap-4 title-icon">
-                                <h4><?= $fichier['titre'] ?></h4>
-                            </div>
-
-                            <div class="pages">
-                                <?php
-                                $pdf_path = get_attached_file($fichier['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
-                        
-                                // Lire le contenu du PDF
-                                $content = file_get_contents($pdf_path);
-
-                                // Compter les occurrences de '/Page' dans le fichier
-                                if ($content && $fichier['fichier']['subtype'] === 'pdf') {
-                                    preg_match_all("/\/Page\W/", $content, $matches);
-                                    $page_count = count($matches[0]);
-                                    ?>
-                                    <span><?= $page_count ?> pages</span>
-                                    <?php
-                                }
-                                ?>
-                                <span class="type-file">
-                                    <?= $fichier['fichier']['subtype'] ?>
-                                </span>
-                            </div>
-                            <p>
-                                <?= $fichier['description'] ?>
-                            </p>
-                            <!-- <div class="mt-4">
-                                <a href="<?= $fichier['fichier']['url'] ?>" class="more">
-                                    Téléchargez</a>
-                            </div> -->
-                        </div>
+            $args = [
+                'post_type' => 'guide',
+                'posts_per_page' => 3,
+            ];
+            $guides = new WP_Query($args);
+            while ($guides->have_posts()):
+                $guides->the_post();
+                $guide = get_field("guides_champs");
+                ?>
+                <div class="card-ro-accueil sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
+                    <div class="icone-white">
+                        <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
+                        ?>
                     </div>
-                <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-            <div class="guide-newsletter">
-                <h2 class="my-4">Pour reçevoir mes guides veuillez remplir le formulaire ci-dessous</h2>
-                <?= do_shortcode("[sibwp_form id=2]") ?>
-            </div>
+                    <div class="content-card-ro-accueil w-full sm:w-auto">
+
+                        <div class="flex gap-4 title-icon">
+                            <h4><?= $guide['fichier']['title'] ?></h4>
+                        </div>
+
+                        <div class="pages">
+                            <?php
+                            $pdf_path = get_attached_file($guide['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
+                        
+                            // Lire le contenu du PDF
+                            $content = file_get_contents($pdf_path);
+
+                            // Compter les occurrences de '/Page' dans le fichier
+                            if ($content && $guide['fichier']['subtype'] === 'pdf') {
+                                preg_match_all("/\/Page\W/", $content, $matches);
+                                $page_count = count($matches[0]);
+                                ?>
+                                <span><?= $page_count ?> pages</span>
+                                <?php
+                            }
+                            ?>
+                            <span class="type-file">
+                                <?= $guide['fichier']['subtype'] ?>
+                            </span>
+                        </div>
+                        <p>
+                            <?= $guide['fichier']['description'] ?>
+                        </p>
+                    </div>
+                </div> <?php endwhile;
+            wp_reset_postdata(); ?>
+        </div>
+        </div>
+        <div class="guide-newsletter section-beige">
+            <h2 class="my-4">Recevez vos guides offerts par mail !</h2>
+            <?= do_shortcode("[sibwp_form id=2]") ?>
+        </div>
     </section>
     <!-- END RESSOURCES OFFERTES -->
     <!-- CONTACT -->
@@ -423,28 +424,32 @@
                 <form method="POST" class="form-calendly" id="form-calendly">
                     <div>
                         <label for="lastname" class="required">Nom</label>
-                        <input id="lastname" name="lastname" type="text">
+                        <input id="lastname" name="lastname" type="text" required>
                     </div>
                     <div>
                         <label for="firstname" class="required">Prénom</label>
-                        <input id="firstname" name="firstname" type="text">
+                        <input id="firstname" name="firstname" type="text" required>
                     </div>
                     <div>
                         <label for="email" class="required">Email</label>
-                        <input id="email" name="email" type="text">
+                        <input id="email" name="email" type="text" required>
                     </div>
                     <div>
                         <label for="phone" class="required">Téléphone</label>
-                        <input id="phone" name="phone" type="text">
+                        <input id="phone" name="phone" type="text" required>
                     </div>
                 </form>
 
+                <div class="info-datas mt-12"></div>
                 <div class="action-area flex gap-10 md:gap-20 items-center flex-wrap md:flex-nowrap">
                     <div class="md:w-1/2 w-full">
                         <a id="back-to-step-1" href="#custom-booking-app" class="second-link-orange">Retour</a>
                     </div>
                     <div class="md:w-1/2 w-full">
-                        <button class="orange-button" form="form-calendly">Envoyez votre demande</button>
+                        <button class="orange-button send-button" form="form-calendly">Envoyez votre
+                            demande</button>
+                        <span class="loading loading-spinner loading-sm hidden"></span>
+
                     </div>
                 </div>
             </div>

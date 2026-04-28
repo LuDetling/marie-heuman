@@ -208,16 +208,37 @@ get_header();
         <!-- END RESERVATION -->
 
         <!-- GUIDES -->
-        <?php if (!empty($sidebar['guides']['lien'])): ?>
-            <div class="guides">
-                <h3>
-                    <?= $sidebar['guides']['titre'] ?>
-                </h3>
-                <a href="<?= $sidebar['guides']['lien']['url'] ?>"
-                    class="more"><?= $sidebar['guides']['lien']['title'] ?></a>
+        <div class="guides-newsletter-aside">
+            <h3>Recevez vos guides offerts</h3>
+            <div class="images-guides">
+                <?php
+                $args = [
+                    'post_type' => 'guide',
+                    'posts_per_page' => 3,
+                ];
+                $guides = new WP_Query($args);
+                while ($guides->have_posts()):
+                    $guides->the_post();
+                    $guide = get_field("guides_champs");
+                    ?>
+                    <img src="<?= esc_url($guide['image']['url']) ?>" alt="<?= $guide['image']['alt'] ?>">
+                <?php endwhile;
+                wp_reset_postdata(); ?>
             </div>
-        <?php endif; ?>
+            <?= do_shortcode("[sibwp_form id=2]") ?>
+
+        </div>
         <!-- END GUIDES -->
+
+
+        <!-- NEWSLETTER -->
+        <div class="guides-newsletter-aside">
+            <h3>Entrez dans les coulisses du studio</h3>
+            <p>Recevez directement dans votre boîte mail mes nouveaux projets, articles, inspirations, ressources
+                utiles… ainsi que des offres et avantages proposés par mes partenaires.</p>
+            <?= do_shortcode("[sibwp_form id=3]") ?>
+        </div>
+        <!-- END NEWSLETTER -->
     </aside>
 </main>
 <?php

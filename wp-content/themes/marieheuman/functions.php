@@ -134,6 +134,9 @@ function cc_mime_types($mimes)
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
+add_filter('wp_generate_attachment_metadata', 'generate_pdf_thumbnail_from_upload', 10, 2);
+
+
 // STYLE WYSIWYG
 add_filter('mce_buttons_2', function ($buttons) {
     array_unshift($buttons, 'styleselect');
@@ -469,23 +472,18 @@ add_action('init', 'handle_contact_form');
 
 function handle_contact_form()
 {
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['lastname'])) {
         return;
     }
 
-    if (
-        !isset($_POST['contact_nonce']) ||
-        !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_action')
-    ) {
+    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_action')) {
         return;
     }
 
-    // 🛑 Honeypot anti-spam
     if (!empty($_POST['website'])) {
         return;
     }
 
-    // 🧼 Champs simples
     $lastname = sanitize_text_field($_POST['lastname'] ?? '');
     $firstname = sanitize_text_field($_POST['firstname'] ?? '');
     $email = sanitize_email($_POST['email'] ?? '');
@@ -495,72 +493,52 @@ function handle_contact_form()
         return;
     }
 
-    // 🧾 Récupération dynamique des champs complexes
     $body = "NOUVELLE DEMANDE DE CONTACT\n\n";
     $body .= "Nom : $lastname\n";
     $body .= "Prénom : $firstname\n";
     $body .= "Email : $email\n";
     $body .= "Téléphone : $phone\n\n";
 
+    // 🧾 Récupération des champs dynamiques
     foreach ($_POST as $key => $value) {
         if (in_array($key, ['contact_nonce', '_wp_http_referer', 'lastname', 'firstname', 'email', 'phone', 'website'])) {
             continue;
         }
 
-        is_array($value) ? implode(', ', array_map('sanitize_text_field', $value)) : sanitize_textarea_field($value);
+        // On traite la valeur correctement
+        if (is_array($value)) {
+            $display_value = implode(', ', array_map('sanitize_text_field', $value));
+        } else {
+            $display_value = sanitize_textarea_field($value);
+        }
 
-        $body .= ucfirst($key) . " : " . $value . "\n";
+        $body .= ucfirst(str_replace('_', ' ', $key)) . " : " . $display_value . "\n";
     }
 
-    $to = "contact@marieheuman.com";
-    $subject = 'Nouveau message – fichiers joints';
-    $message = 'Un nouveau formulaire a été envoyé avec des fichiers joints.';
-    $headers = [
-        'Content-Type: text/plain; charset=UTF-8',
-        'From: Site Web <contact@marieheuman.com>', // OBLIGATOIRE IONOS
-        'Reply-To: ' . $email,
-    ];
-
+    // 📎 Gestion des pièces jointes
     $attachments = [];
-
-    // Tes inputs file
     $file_inputs = ['photos', 'plans', 'otherFiles'];
-
-    // Extensions autorisées
     $allowed_extensions = ['jpg', 'jpeg', 'png', 'pdf', 'docx'];
 
     foreach ($file_inputs as $input) {
-
-        if (!isset($_FILES[$input])) {
+        if (!isset($_FILES[$input]) || empty($_FILES[$input]['name'][0]))
             continue;
-        }
 
         $files = $_FILES[$input];
-
-        // Normalisation si un seul fichier
         if (!is_array($files['name'])) {
-            foreach ($files as $key => $value) {
-                $files[$key] = [$value];
+            foreach ($files as $k => $v) {
+                $files[$k] = [$v];
             }
         }
 
         foreach ($files['name'] as $index => $filename) {
-
-            if ($files['error'][$index] !== UPLOAD_ERR_OK) {
+            if ($files['error'][$index] !== UPLOAD_ERR_OK)
                 continue;
-            }
 
             $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-
-            if (!in_array($extension, $allowed_extensions)) {
+            if (!in_array($extension, $allowed_extensions))
                 continue;
-            }
 
-            if (!is_uploaded_file($files['tmp_name'][$index])) {
-                continue;
-            }
-
-            // ✅ Upload WordPress SAFE
             $upload = wp_upload_bits(
                 sanitize_file_name($filename),
                 null,
@@ -573,13 +551,26 @@ function handle_contact_form()
         }
     }
 
+    // 📧 ENVOI FINAL
+    $to = "contact@marieheuman.com";
+    $subject = 'Contact - ' . $firstname . ' ' . $lastname;
+    $headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: Marie Heuman <contact@marieheuman.com>',
+        'Reply-To: ' . $email,
+    ];
 
-    // Envoi du mail
-    wp_mail($to, $subject, $body, $headers, $attachments);
+    $sent = wp_mail($to, $subject, $body, $headers, $attachments);
 
-    // Nettoyage des fichiers uploadés
-    foreach ($attachments as $file) {
-        @unlink($file);
+    if ($sent) {
+        // Optionnel : supprimer les fichiers du dossier upload après envoi pour ne pas encombrer le serveur
+        foreach ($attachments as $file) {
+            @unlink($file);
+        }
+
+        // Redirection pour éviter le renvoi du formulaire au rafraîchissement (F5)
+        wp_redirect(add_query_arg('sent', 'success', $_SERVER['REQUEST_URI']) . '#form-calendly');
+        exit;
     }
 }
 

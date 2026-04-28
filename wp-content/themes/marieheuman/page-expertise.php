@@ -57,7 +57,8 @@ get_header();
                         data-end="2730">détails</strong>, afin d’aboutir à un résultat <strong data-start="2761"
                         data-end="2771">aligné</strong>, <strong data-start="2773" data-end="2785">maîtrisé</strong> et
                     <strong data-start="2789" data-end="2800">durable</strong>, aussi pertinent dans son fonctionnement
-                    que dans son image.</p>
+                    que dans son image.
+                </p>
             </div>
             <div class="lg:w-5/10 ">
                 <div class="white-block">
@@ -148,33 +149,34 @@ get_header();
         </div>
         <div class="swiper swiperCollaboration">
             <div class="swiper-wrapper">
-                <?php for ($i = 1; $i < 4; $i++) {
-                    $collaboration = $collaboration_expertise_accompagnement['slide_' . $i]
+                <?php for ($i = 1; $i < 6; $i++):
+                    $collaboration = $collaboration_expertise_accompagnement['slide_' . $i];
+                    if ($collaboration['titre']):
                         ?>
-                    <div class="section-white swiper-slide card-collaboration">
-                        <div class=" flex flex-wrap sm:flex-nowrap sm:gap-8">
-                            <div class="icone-beige">
-                                <?php
-                                $icon_path = get_attached_file($collaboration['icone']);
-                                // Vérifie si le fichier existe et l'affiche
-                                if (file_exists($icon_path)) {
-                                    echo file_get_contents($icon_path);
-                                }
-                                ?>
+                        <div class="section-white swiper-slide card-collaboration">
+                            <div class=" flex flex-wrap sm:flex-nowrap sm:gap-8">
+                                <div class="icone-beige">
+                                    <?php
+                                    $icon_path = get_attached_file($collaboration['icone']);
+                                    // Vérifie si le fichier existe et l'affiche
+                                    if (file_exists($icon_path)) {
+                                        echo file_get_contents($icon_path);
+                                    }
+                                    ?>
+                                </div>
+                                <div>
+                                    <h4>
+                                        <?= $collaboration['titre']; ?>
+                                    </h4>
+                                    <span class="offre">
+                                        <?= $collaboration['offre']; ?>
+                                    </span>
+                                    <?= $collaboration['description']; ?>
+                                </div>
                             </div>
-                            <div>
-                                <h4>
-                                    <?= $collaboration['titre']; ?>
-                                </h4>
-                                <span class="offre">
-                                    <?= $collaboration['offre']; ?>
-                                </span>
-                                <?= $collaboration['description']; ?>
-                            </div>
-                        </div>
 
-                    </div>
-                <?php } ?>
+                        </div>
+                    <?php endif; endfor; ?>
             </div>
         </div>
         <div class="reservation">
@@ -195,30 +197,35 @@ get_header();
         <?= $ressources_expertise_accompagnement['titre'] ?>
         <div class="grid lg:grid-cols-2 gap-10 md:gap-20">
             <?php
-            for ($i = 1; $i < 3; $i++) {
-                $ressource = $ressources_expertise_accompagnement['ressource_' . $i];
+            $args = [
+                'post_type' => 'guide',
+                'posts_per_page' => 3,
+            ];
+            $guides = new WP_Query($args);
+            while ($guides->have_posts()):
+                $guides->the_post();
+                $guide = get_field("guides_champs");
                 ?>
-                <!-- //new -->
                 <div class="card-ro-accueil sm:gap-8 flex w-full section-beige flex-wrap sm:flex-nowrap">
                     <div class="icone-white">
                         <?= file_get_contents(get_template_directory() . '/assets/images/icones/file-arrow-down.svg');
                         ?>
                     </div>
-                    <div class="content-card-ro-accueil">
+                    <div class="content-card-ro-accueil w-full sm:w-auto">
 
                         <div class="flex gap-4 title-icon">
-                            <h4><?= $ressource['fichier']['title'] ?></h4>
+                            <h4><?= $guide['fichier']['title'] ?></h4>
                         </div>
 
                         <div class="pages">
                             <?php
-                            $pdf_path = get_attached_file($ressource['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
+                            $pdf_path = get_attached_file($guide['fichier']['ID']); // Récupère le chemin du fichier sur le serveur
                         
                             // Lire le contenu du PDF
                             $content = file_get_contents($pdf_path);
 
                             // Compter les occurrences de '/Page' dans le fichier
-                            if ($content && $ressource['fichier']['subtype'] === 'pdf') {
+                            if ($content && $guide['fichier']['subtype'] === 'pdf') {
                                 preg_match_all("/\/Page\W/", $content, $matches);
                                 $page_count = count($matches[0]);
                                 ?>
@@ -227,20 +234,19 @@ get_header();
                             }
                             ?>
                             <span class="type-file">
-                                <?= $ressource['fichier']['subtype'] ?>
+                                <?= $guide['fichier']['subtype'] ?>
                             </span>
                         </div>
                         <p>
-                            <?= $ressource['fichier']['description'] ?>
+                            <?= $guide['fichier']['description'] ?>
                         </p>
-                        <div class="mt-4">
-                            <a href="<?= $ressource['fichier']['url'] ?>" class="more">
-                                Téléchargez</a>
-                        </div>
                     </div>
-                </div>
-            <?php }
-            ?>
+                </div> <?php endwhile;
+            wp_reset_postdata(); ?>
+        </div>
+        <div class="guide-newsletter section-beige">
+            <h2 class="my-4">Recevez vos guides offerts par mail !</h2>
+            <?= do_shortcode("[sibwp_form id=2]") ?>
         </div>
     </section>
     <!-- END RESSOURCES -->

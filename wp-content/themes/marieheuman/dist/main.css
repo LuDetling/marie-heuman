@@ -62,6 +62,8 @@
   display: table;
   cursor: pointer;
   width: fit-content;
+  min-width: 0;
+  white-space: unset;
 }
 .orange-button:hover {
   background-color: #9c6338;
@@ -991,8 +993,66 @@ h3::before {
   background-color: #f6f5f2;
   color: #462620;
 }
-.content-ro-accueil .guide-newsletter form input:not([type=submit]) {
-  background-color: #ece7dd;
+
+.guide-newsletter {
+  max-width: 1000px;
+  margin-inline: auto;
+  margin-top: 5rem;
+  border-radius: 15px;
+  padding: 2rem;
+}
+@media screen and (max-width: 48rem) {
+  .guide-newsletter {
+    margin-top: 2.5rem;
+  }
+}
+.guide-newsletter form input:not([type=submit]) {
+  background-color: #f6f5f2;
+  width: 100%;
+  max-width: none;
+  outline: none;
+}
+.guide-newsletter form .cgu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.guide-newsletter form .cgu input {
+  width: auto;
+  appearance: none;
+  height: 17px;
+  min-width: 17px;
+  background: #ece7dd;
+  border: 1px solid #462620;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+}
+.guide-newsletter form .cgu input:checked {
+  background: #462620;
+  position: relative;
+}
+.guide-newsletter form .cgu input:checked::before {
+  font-family: "FontAwesome";
+  content: "\f00c";
+  display: block;
+  color: #ece7dd;
+  font-size: 10px;
+  position: absolute;
+}
+.guide-newsletter form .cgu label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+.guide-newsletter form .cgu label a {
+  color: #3f5e5a;
+  text-decoration: underline;
+}
+.guide-newsletter form.sib_signup_form > div > div {
+  margin-top: 1.5rem;
 }
 
 .card-ro-accueil {
@@ -1298,6 +1358,84 @@ main .sidebar form button::before {
 main .sidebar form button:hover::before {
   color: #d86a3d;
   border-color: #d86a3d;
+}
+main .sidebar .guides-newsletter-aside .images-guides {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+main .sidebar .guides-newsletter-aside .images-guides img {
+  border-radius: 15px;
+  object-fit: cover;
+}
+@media screen and (max-width: 1023px) {
+  main .sidebar .guides-newsletter-aside .images-guides img {
+    max-width: 300px;
+  }
+}
+main .sidebar .guides-newsletter-aside form label {
+  margin-bottom: 0;
+  color: #462620;
+}
+main .sidebar .guides-newsletter-aside form input[type=submit] {
+  color: #f6f5f2;
+  background-color: #d86a3d;
+  border: 2px solid #d86a3d;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  border-radius: 15px;
+  font-size: 1rem;
+  transition: 0.3s;
+  display: table;
+  cursor: pointer;
+  white-space: unset;
+  width: fit-content;
+}
+main .sidebar .guides-newsletter-aside form input[type=submit]:hover {
+  background-color: #9c6338;
+  border-color: #9c6338;
+}
+main .sidebar .guides-newsletter-aside form .cgu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+main .sidebar .guides-newsletter-aside form .cgu input {
+  width: auto;
+  appearance: none;
+  height: 17px;
+  min-width: 17px;
+  background: #ece7dd;
+  border: 1px solid #462620;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+}
+main .sidebar .guides-newsletter-aside form .cgu input:checked {
+  background: #462620;
+  position: relative;
+}
+main .sidebar .guides-newsletter-aside form .cgu input:checked::before {
+  font-family: "FontAwesome";
+  content: "\f00c";
+  display: block;
+  color: #ece7dd;
+  font-size: 10px;
+  position: absolute;
+}
+main .sidebar .guides-newsletter-aside form .cgu label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+main .sidebar .guides-newsletter-aside form .cgu label a {
+  color: #3f5e5a;
+  text-decoration: underline;
+}
+main .sidebar .guides-newsletter-aside .sib_signup_form > div > div {
+  margin-top: 1.5rem;
 }
 main .informations img {
   border-radius: 15px;
@@ -2526,13 +2664,13 @@ main .more {
 }
 #form-contact .textarea-content,
 #form-contact .files,
-#form-contact .ccga {
+#form-contact .cgv {
   grid-column: 1/3;
 }
 #form-contact .files input {
   cursor: pointer;
 }
-#form-contact .ccga a {
+#form-contact .cgv a {
   text-decoration: underline;
 }
 
@@ -2726,11 +2864,22 @@ main .more {
   text-align: center;
   font-weight: bold;
 }
-#custom-booking-app #go-to-step-2.locked {
+#custom-booking-app .locked {
   cursor: not-allowed;
   background-color: #ece7dd;
   border-color: #ece7dd;
   color: #7a8b85;
+}
+#custom-booking-app .success-title {
+  color: #462620;
+  font-family: "Display Playfair", serif;
+  font-size: 36px;
+}
+
+.info-datas,
+.info-datas-contact,
+.success-contact {
+  color: #3f5e5a;
 }
 
 .faq h3 {
@@ -2878,6 +3027,35 @@ main .more {
   background-color: #f6f5f2;
 }
 
+.newsletter-block {
+  background-color: #3f5e5a;
+  padding: 2rem;
+  color: #f6f5f2;
+  border-radius: 15px;
+  margin: 5rem auto;
+  max-width: 1000px;
+}
+@media screen and (max-width: 767px) {
+  .newsletter-block {
+    margin: 2rem 0;
+  }
+}
+.newsletter-block h2 {
+  color: #f6f5f2 !important;
+  margin-bottom: 1.5rem;
+}
+.newsletter-block p {
+  margin-bottom: 1rem;
+}
+.newsletter-block p.beige {
+  color: #ece7dd;
+  font-size: 14px;
+}
+.newsletter-block form .cgu label a {
+  color: #ece7dd;
+  text-decoration: underline;
+}
+
 footer {
   background-color: #462620;
   color: #ece7dd;
@@ -2905,7 +3083,7 @@ footer h2 {
   font-weight: bold;
   color: #f6f5f2;
   font-family: "Roboto";
-  font-size: 1rem;
+  font-size: 1rem !important;
   margin-bottom: 1rem;
 }
 footer #menu-reseaux {
@@ -2996,12 +3174,27 @@ footer .footer-bottom a:hover {
   line-height: normal;
 }
 
+pre {
+  margin-left: 85px;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
 img {
   max-height: 80vh;
 }
 
 .overflow-x-auto {
   scrollbar-width: none;
+}
+
+.swiper-slide ul {
+  padding-left: 20px;
+}
+.swiper-slide ul li {
+  list-style: disc;
 }
 
 form label {
@@ -3236,6 +3429,11 @@ section {
   color: #f6f5f2;
   border-radius: 15px;
   margin: 5rem 0;
+}
+@media screen and (max-width: 767px) {
+  .section-secondary {
+    margin: 2rem 0;
+  }
 }
 .section-secondary h2 {
   color: #f6f5f2 !important;

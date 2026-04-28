@@ -5,8 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let dateSelected = ""
     let typeCall = ""
     let daySelected = 1
-
-
+    let customBookingApp = document.querySelector("#custom-booking-app")
+    let buttonSend = document.querySelector("#custom-booking-app .send-button")
+    let loading = document.querySelector("#custom-booking-app .loading")
+    let infoDatas = document.querySelector("#custom-booking-app .info-datas")
+    let content = document.querySelector("#custom-booking-app")
     const invitee = {
         "event_type": "https://api.calendly.com/event_types/07357e4f-138c-4b3b-bc93-daa67883f28d",
         "start_time": dateSelected,
@@ -84,9 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Conversion au format ISO 8601 requis par l'API Calendly
         const start = futureStart.toISOString();
         const end_time = end.toISOString();
-
-        console.log("Recherche à partir de:", start);
-        console.log("Recherche à partir de:", end_time);
 
         try {
             // Appel à TON serveur WordPress (action = nom de la fonction PHP)
@@ -233,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.querySelector('.call').textContent = "en appel téléphonique"
                 }
                 if (typeCall && dateSelected) {
-                    if (document.querySelector('.locked')) {
-                        document.querySelector('.locked').classList.remove('locked')
+                    if (document.querySelector('#step-1 .locked')) {
+                        document.querySelector('#step-1 .locked').classList.remove('locked')
                     }
                 }
             });
@@ -274,8 +274,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.querySelector('.error').textContent = ""
 
                     if (typeCall && dateSelected) {
-                        if (document.querySelector('.locked')) {
-                            document.querySelector('.locked').classList.remove('locked')
+                        if (document.querySelector('#step-1 .locked')) {
+                            document.querySelector('#step-1 .locked').classList.remove('locked')
                         }
                     }
                     // Ajoutez ici votre logique pour mettre à jour 'dateSelected' ou autre
@@ -303,8 +303,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Gestion du bouton "Suivant" (Passage Étape 1 -> Étape 2)
     document.getElementById('go-to-step-2').addEventListener('click', function () {
-        console.log(dateSelected);
-        console.log(typeCall);
 
         if (!dateSelected || !typeCall) {
             document.querySelector('.error').textContent = "Vous devez choisir un horaire et le type de rendez-vous pour continuer."
@@ -318,6 +316,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('back-to-step-1').addEventListener('click', function () {
         document.getElementById('step-2').classList.add('hidden');
         document.getElementById('step-1').classList.remove('hidden');
+        infoDatas.textContent = "";
+
     });
 
     async function fetchForm() {
@@ -340,11 +340,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // FORMULAIRE 
     const formElement = document.querySelector('#form-calendly');
-    const formContact = document.querySelector('#form-contact');
     const fromCalendly = document.querySelector('.from-calendly');
 
     function renderForm(datas) {
-        console.log("Render form Calendly", datas);
         datas.forEach((data, index) => {
             const row = document.createElement('div');
 
@@ -370,6 +368,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 select.setAttribute('id', data.name);
                 select.setAttribute('name', data.name);
                 select.setAttribute('position', data.position)
+                if (data.required) {
+                    select.setAttribute('required', data.required)
+                }
 
                 data.answer_choices.forEach(choice => {
                     const option = document.createElement('option');
@@ -413,6 +414,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 textarea.setAttribute('id', data.name);
                 textarea.setAttribute('name', data.name);
                 textarea.setAttribute('position', data.position);
+                if (data.required) {
+                    textarea.setAttribute('required', data.required);
+                }
+
                 row.appendChild(textarea);
 
             }
@@ -421,6 +426,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 input.setAttribute('id', data.name);
                 input.setAttribute('position', data.position);
                 input.setAttribute('name', data.name);
+                if (data.required) {
+                    input.setAttribute('required', data.required);
+                }
+
                 row.appendChild(input);
 
             } else if (data.answer_choices.length === 1) {
@@ -429,12 +438,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 input.setAttribute('id', data.name);
                 input.setAttribute('position', data.position);
                 input.setAttribute('name', data.name);
+                if (data.required) {
+                    input.setAttribute('required', data.required);
+                }
+
                 row.appendChild(input);
 
             }
             formElement.appendChild(row)
             if (fromCalendly) {
-
                 if (!data.name.includes("Conditions Générales")) {
                     fromCalendly.appendChild(row.cloneNode(true));
                 }
@@ -449,6 +461,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     formElement.addEventListener('submit', function (e) {
         e.preventDefault();
+        const classicInputs = formElement.querySelectorAll('input[required], select[required], textarea[required]');
+        const allClassicValid = Array.from(classicInputs).every(input => {
+            return input.value.trim() !== "";
+        });
+
+        // 2. Validation du fieldset "Prestations" (Au moins une cochée)
+        // On utilise l'ID avec getElementById à cause des caractères spéciaux
+        const fieldsetPresta = document.getElementById("Quelle prestation vous intéresse ? ");
+        const prestationsChecked = fieldsetPresta.querySelectorAll('input:checked').length > 0;
+
+        // 3. Validation du fieldset "CGV" (La case doit être cochée)
+        const fieldsetCGV = document.getElementById("Conditions Générales de Vente et Politique de Confidentialité. (Liens disponibles dans la description et le site web)");
+        const cgvChecked = fieldsetCGV.querySelectorAll('input:checked').length > 0;
+
+        if (allClassicValid && prestationsChecked && cgvChecked) {
+            infoDatas.textContent = "";
+        } else {
+            infoDatas.textContent = "Veuillez remplir tous les champs obligatoires* et accepter les conditions pour envoyer votre demande."
+            return;
+        }
+
         const form = this;
 
         // Le tableau final dans le format souhaité
@@ -459,7 +492,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // 1. Traitement des champs simples (texte, email, phone, select, textarea)
         //    Ces champs apparaissent normalement une seule fois dans formData.
-        for (const [name, value] of formData.entries()) {
+        for (let [name, value] of formData.entries()) {
             // Trouver l'élément original pour récupérer la position et le libellé
             const element = form.querySelector(`[name="${name}"]`);
 
@@ -473,6 +506,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Récupère la position de l'attribut 'position' (s'il existe)
                 const positionValue = element.getAttribute('position') || '';
 
+                if (questionLabel === "Téléphone") {
+                    value = value = value.replace(/^0/, '+33');
+                }
                 donneesFormulaireTableau.push({
                     question: questionLabel,
                     answer: value,
@@ -498,7 +534,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // 4. Affichage du résultat final (Vous pouvez trier par 'position' ici si nécessaire)
         donneesFormulaireTableau.sort((a, b) => a.position - b.position);
 
-        console.log("Tableau de données final :", donneesFormulaireTableau);
         parseDatasCalendly(donneesFormulaireTableau)
     })
 
@@ -519,6 +554,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     async function parseDatasCalendly(donneesFormulaireTableau) {
+        buttonSend.style.display = "none";
+        loading.classList.remove('hidden')
+
         invitee.start_time = dateSelected;
         invitee.invitee.first_name = donneesFormulaireTableau.find(value => value.question === "Prénom").answer
         invitee.invitee.last_name = donneesFormulaireTableau.find(value => value.question === "Nom").answer
@@ -531,7 +569,6 @@ document.addEventListener('DOMContentLoaded', function () {
             invitee.location.kind = "outbound_call"
             invitee.location.location = donneesFormulaireTableau.find(value => value.question === "Téléphone").answer
         }
-
         const datas = donneesFormulaireTableau.filter(value => Number.isFinite(value.position)).filter(value => value.answer !== "")
         invitee.questions_and_answers = datas
 
@@ -548,13 +585,57 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             const result = await response.json();
 
-            console.log(result);
 
+            if (result.success) {
+                buttonSend.style.display = "table";
+                loading.classList.add('hidden')
+                content.innerHTML = `
+                    <h4 class="text-2xl font-bold mb-4 success-title">Merci pour votre demande !</h4>
+                    <p>Vous allez recevoir un email de confirmation dans quelques instants.</p>
+                `
+                customBookingApp.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                infoDatas.textContent = "Une erreur est survenue lors de l'envoi de votre demande. Veuillez remplir tous les champs obligatoires* et réessayer."
+                buttonSend.style.display = "table";
+                loading.classList.add('hidden')
+            }
 
         } catch (error) {
             console.error("Erreur JS:", error);
         }
     }
+    const formContact = document.querySelector('#form-contact');
+    const infoDatasContact = document.querySelector('.info-datas-contact');
+    if (!formContact) return;
+    formContact.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const classicInputs = formContact.querySelectorAll('input[required], select[required], textarea[required]');
+        const allClassicValid = Array.from(classicInputs).every(input => {
+            return input.value.trim() !== "";
+        });
+
+        // 2. Validation du fieldset "Prestations" (Au moins une cochée)
+        // On utilise l'ID avec getElementById à cause des caractères spéciaux
+        const fieldsetPresta = document.getElementById("Quelle prestation vous intéresse ? -contact");
+        const prestationsChecked = fieldsetPresta.querySelectorAll('input:checked').length > 0;
+
+        // 3. Validation du fieldset "CGV" (La case doit être cochée)
+        const cgvChecked = document.getElementById("cgv-contact").checked;
+
+        console.log(allClassicValid, prestationsChecked, cgvChecked);
+
+        if (allClassicValid && prestationsChecked && cgvChecked) {
+            infoDatasContact.textContent = "";
+            const form = this;
+            form.submit();
+        } else {
+            infoDatasContact.textContent = "Veuillez remplir tous les champs obligatoires* et accepter les conditions pour envoyer votre demande."
+            return;
+        }
+
+    })
+
 });
 
 

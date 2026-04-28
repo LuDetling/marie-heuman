@@ -1,0 +1,42 @@
+@use "globals" as *;
+@use "buttons";
+@use "fontawesome";
+
+.newsletter-block {
+    background-color: $secondary;
+    padding: 2rem;
+    color: $beige;
+    border-radius: 15px;
+    margin: 5rem auto;
+    max-width: 1000px;
+
+    @media screen and (max-width: 767px) {
+        margin: 2rem 0;
+    }
+
+    h2 {
+        color: $beige !important;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        margin-bottom: 1rem;
+
+        &.beige {
+            color: $white;
+            font-size: 14px;
+        }
+    }
+
+    form {
+        .cgu {
+            label {
+
+                a {
+                    color: $white;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

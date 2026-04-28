@@ -27,13 +27,23 @@ get_header();
             <?= $perso['titre'] ?>
         </h2>
         <div class="flex gap-10 md:gap-20 flex-wrap lg:flex-nowrap mt-8">
-            <div class=" lg:w-4/10 mx-auto">
-                <img src="<?= $perso['image']['url'] ?>" alt="<?= $perso['image']['alt'] ?>" />
+            <div class=" lg:w-5/10 mx-auto perso-card">
+                <?php if (!empty($perso['gauche']['image'])): ?>
+                    <img src="<?= $perso['gauche']['image']['url'] ?>" alt="<?= $perso['gauche']['image']['alt'] ?>"
+                        class="w-full" />
+                    <h3><?= $perso['gauche']['nom'] ?></h3>
+                    <span class="block"><?= $perso['gauche']['role'] ?></span>
+                    <?= $perso['gauche']['text'] ?>
+                <?php endif; ?>
             </div>
-            <div class="texte lg:w-6/10">
-                <?= $perso['description'] ?>
-                <a href="<?= $perso['lien']['url'] ?>" class="more"><?= $perso['lien']['title'] ?></a>
-
+            <div class=" lg:w-5/10 mx-auto perso-card">
+                <?php if (!empty($perso['droite']['image'])): ?>
+                    <img src="<?= $perso['droite']['image']['url'] ?>" alt="<?= $perso['droite']['image']['alt'] ?>"
+                        class="w-full" />
+                    <h3><?= $perso['droite']['nom'] ?></h3>
+                    <span class="block"><?= $perso['droite']['role'] ?></span>
+                    <?= $perso['droite']['text'] ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>

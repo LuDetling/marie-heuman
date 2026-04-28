@@ -18,6 +18,38 @@
         }
     }
 
+    // Perso
+    .perso {
+        .perso-card {
+            height: 100%;
+
+            img {
+                height: 500px;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+                display: block;
+                margin-top: 1rem;
+                margin-bottom: .5rem;
+                font-family: 'Playfair Display';
+
+                &::before {
+                    display: none;
+                }
+            }
+
+            span {
+                display: block;
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+            }
+
+            p {}
+        }
+    }
+
 
     // UNIVERS
     .univers {

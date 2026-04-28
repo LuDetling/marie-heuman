@@ -14,7 +14,6 @@
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-bold: 700;
-    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -213,6 +212,98 @@
         &.modal-open, &[open], &:target, .modal-toggle:checked + & {
           opacity: 0%;
         }
+      }
+    }
+  }
+  .fab {
+    @layer daisyui.component {
+      pointer-events: none;
+      position: fixed;
+      inset-inline-end: calc(0.25rem * 4);
+      bottom: calc(0.25rem * 4);
+      z-index: 999;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      gap: calc(0.25rem * 2);
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+      white-space: nowrap;
+      > * {
+        pointer-events: auto;
+        display: flex;
+        align-items: center;
+        gap: calc(0.25rem * 2);
+        &:hover, &:has(:focus-visible) {
+          z-index: 1;
+        }
+      }
+      > [tabindex] {
+        &:first-child {
+          position: relative;
+          display: grid;
+          transition-property: opacity, visibility, rotate;
+          transition-duration: 0.2s;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      }
+      .fab-close {
+        position: absolute;
+        inset-inline-end: calc(0.25rem * 0);
+        bottom: calc(0.25rem * 0);
+      }
+      .fab-main-action {
+        position: absolute;
+        inset-inline-end: calc(0.25rem * 0);
+        bottom: calc(0.25rem * 0);
+      }
+      &:focus-within {
+        &:has(.fab-close), &:has(.fab-main-action) {
+          > [tabindex] {
+            rotate: 90deg;
+            opacity: 0%;
+          }
+        }
+        > [tabindex]:first-child {
+          pointer-events: none;
+        }
+        > :nth-child(n + 2) {
+          visibility: visible;
+          --tw-scale-x: 100%;
+          --tw-scale-y: 100%;
+          --tw-scale-z: 100%;
+          scale: var(--tw-scale-x) var(--tw-scale-y);
+          opacity: 100%;
+        }
+      }
+      > :nth-child(n + 2) {
+        visibility: hidden;
+        --tw-scale-x: 80%;
+        --tw-scale-y: 80%;
+        --tw-scale-z: 80%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+        opacity: 0%;
+        transition-property: opacity, scale, visibility;
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        &.fab-main-action, &.fab-close {
+          --tw-scale-x: 100%;
+          --tw-scale-y: 100%;
+          --tw-scale-z: 100%;
+          scale: var(--tw-scale-x) var(--tw-scale-y);
+        }
+      }
+      > :nth-child(3) {
+        transition-delay: 30ms;
+      }
+      > :nth-child(4) {
+        transition-delay: 60ms;
+      }
+      > :nth-child(5) {
+        transition-delay: 90ms;
+      }
+      > :nth-child(6) {
+        transition-delay: 120ms;
       }
     }
   }
@@ -723,6 +814,9 @@
   .collapse {
     visibility: collapse;
   }
+  .invisible {
+    visibility: hidden;
+  }
   .visible {
     visibility: visible;
   }
@@ -905,6 +999,23 @@
           height: 1em;
           cursor: pointer;
         }
+      }
+    }
+  }
+  .indicator {
+    @layer daisyui.component {
+      position: relative;
+      display: inline-flex;
+      width: max-content;
+      :where(.indicator-item) {
+        z-index: 1;
+        position: absolute;
+        white-space: nowrap;
+        top: var(--indicator-t, 0);
+        bottom: var(--indicator-b, auto);
+        left: var(--indicator-s, auto);
+        right: var(--indicator-e, 0);
+        translate: var(--indicator-x, 50%) var(--indicator-y, -50%);
       }
     }
   }
@@ -1721,6 +1832,31 @@
       }
     }
   }
+  .footer {
+    @layer daisyui.component {
+      display: grid;
+      width: 100%;
+      grid-auto-flow: row;
+      place-items: start;
+      column-gap: calc(0.25rem * 4);
+      row-gap: calc(0.25rem * 10);
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      & > * {
+        display: grid;
+        place-items: start;
+        gap: calc(0.25rem * 2);
+      }
+      &.footer-center {
+        grid-auto-flow: column dense;
+        place-items: center;
+        text-align: center;
+        & > * {
+          place-items: center;
+        }
+      }
+    }
+  }
   .fieldset {
     @layer daisyui.component {
       display: grid;
@@ -1757,6 +1893,9 @@
   .min-w-max {
     min-width: max-content;
   }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -1768,6 +1907,9 @@
   }
   .items-center {
     align-items: center;
+  }
+  .items-end {
+    align-items: flex-end;
   }
   .items-start {
     align-items: flex-start;
@@ -1808,6 +1950,10 @@
   .overflow-x-auto {
     overflow-x: auto;
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
   .loading-spinner {
     @layer daisyui.modifier {
       mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' stroke='black' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform-origin='center'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-width='3' stroke-linecap='round'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 12 12' to='360 12 12' dur='2s' repeatCount='indefinite'/%3E%3Canimate attributeName='stroke-dasharray' values='0,150;42,150;42,150' keyTimes='0;0.475;1' dur='1.5s' repeatCount='indefinite'/%3E%3Canimate attributeName='stroke-dashoffset' values='0;-16;-59' keyTimes='0;0.475;1' dur='1.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");
@@ -1835,6 +1981,21 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .btn-primary {
+    @layer daisyui.modifier.color {
+      --btn-color: var(--color-primary);
+      --btn-fg: var(--color-primary-content);
+    }
   }
   .sm\:w-auto {
     @media (width >= 40rem) {
@@ -2315,14 +2476,51 @@
     background-position-x: -115%;
   }
 }
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
     }
   }
 }

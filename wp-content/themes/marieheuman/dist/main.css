@@ -2912,13 +2912,14 @@ main .more {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   font-family: "Playfair Display";
+  font-weight: bold;
 }
 #histoire .perso .perso-card h3::before {
   display: none;
 }
 #histoire .perso .perso-card span {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 24px;
   font-size: 1.3rem;
 }
 #histoire .univers .universSwiper {

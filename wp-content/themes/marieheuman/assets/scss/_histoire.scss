@@ -34,6 +34,7 @@
                 margin-top: 1rem;
                 margin-bottom: .5rem;
                 font-family: 'Playfair Display';
+                font-weight: bold;
 
                 &::before {
                     display: none;
@@ -42,7 +43,7 @@
 
             span {
                 display: block;
-                margin-bottom: 1rem;
+                margin-bottom: 24px;
                 font-size: 1.3rem;
             }
 

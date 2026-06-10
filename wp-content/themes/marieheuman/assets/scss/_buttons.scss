@@ -2,11 +2,44 @@
 @use "mixins" as *;
 
 .marron-button {
-    @include marron-button;
+    // @include marron-button;
+    font-family: 'Jost';
+    font-size: 14px;
+    font-weight: 500;
+    background-color: $marron;
+    padding: 12px 24px;
+    color: $creme;
+    transition: .2s;
+
+    &:hover {
+        background-color: $rose;
+    }
 }
 
 .secondary-button {
-    @include secondary-button;
+    // @include secondary-button;
+    font-family: 'Jost';
+    font-size: 15px;
+    position: relative;
+    transition: .2s;
+
+    &::after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: $coperwood;
+        position: absolute;
+        bottom: -.2rem;
+        left: 0;
+    }
+
+    &:hover {
+        color: $rose;
+
+        &::after {
+            background-color: $rose;
+        }
+    }
 }
 
 .orange-button {

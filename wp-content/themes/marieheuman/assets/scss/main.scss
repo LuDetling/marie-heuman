@@ -14,7 +14,8 @@
 @use "footer";
 
 * {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-family: "Jost", Arial, Helvetica, sans-serif;
+    // font-family: "Roboto", Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
     line-height: normal;
 }
@@ -87,6 +88,10 @@ section {
     .header-content {
         padding-top: 144px;
     }
+}
+
+.section-floral {
+    background-color: $floral;
 }
 
 .section-white {

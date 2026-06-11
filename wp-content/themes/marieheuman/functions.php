@@ -175,6 +175,16 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'classes' => 'orange-list-container', // La nouvelle classe
         ],
         [
+            'title' => 'Liste green',
+            'selector' => 'ul, ol', // Cible spécifiquement la balise UL
+            'classes' => 'green-list-container', // La nouvelle classe
+        ],
+        [
+            'title' => 'Liste coperwood',
+            'selector' => 'ul, ol', // Cible spécifiquement la balise UL
+            'classes' => 'coperwood-list-container', // La nouvelle classe
+        ],
+        [
             'title' => 'Transformer en Slides',
             'selector' => 'p > img',    // CIBLE chaque image individuellement
             'block' => 'div',       // REMPLACE ou ENVELOPPE par une div

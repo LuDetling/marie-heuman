@@ -1,0 +1,299 @@
+@use "globals" as *;
+
+header {
+    display: flex;
+}
+
+.content-header {
+    display: flex;
+    background-color: $marron;
+    left: 0;
+    // padding: 0 25px;
+    position: fixed;
+    top: 100vh;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    width: 100vh;
+    height: 80px;
+    z-index: 1001;
+    border-bottom: 1px solid $orange;
+    transition: .3s;
+
+    @media screen and (max-width: 767px) {
+        transform: rotate(0);
+        width: 100%;
+        top: 0;
+    }
+
+    >nav {
+        justify-content: space-between;
+        width: 100%;
+
+        .content-logo-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            width: 80px;
+            border-left: 1px solid $orange;
+
+            @media screen and (max-width: 767px) {
+                border-left: none;
+                border-right: 1px solid $orange;
+            }
+
+
+            #menu-toggle {
+                padding-left: 19px;
+                width: 100%;
+                height: 100%;
+
+                @media screen and (max-width: 767px) {
+                    padding-left: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .img-menu {
+                    width: 40px;
+                    height: inherit;
+                    background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png');
+                    background-size: contain;
+                    transform: rotate(90deg);
+                    transition: .3s;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                    @media screen and (max-width: 767px) {
+                        transform: rotate(0);
+                        width: 35px;
+                    }
+
+
+                    &.img-menu-open {
+                        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png');
+                    }
+
+                    @media screen and (min-width: 767px) {
+                        &:hover {
+                            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png');
+                        }
+                    }
+                }
+
+                img {
+                    width: 40px;
+                }
+            }
+        }
+
+        .logo-menu-home {
+            width: 115px;
+        }
+
+        .content-calendly {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
+
+            .calendly {
+                width: 46px;
+                height: 46px;
+                font-size: 2rem;
+                transform: rotate(90deg);
+                fill: $beige;
+                align-items: center;
+                justify-content: center;
+                transition: .3s;
+                border-radius: 50%;
+                background-color: $orange;
+                border: $orange;
+
+                @media screen and (max-width: 767px) {
+                    transform: rotate(0);
+                }
+
+                &:hover {
+                    background-color: $caramel;
+                }
+
+                svg {
+                    fill: $beige;
+                    width: 32px;
+                    height: 32px;
+                    transition: .3s;
+                }
+            }
+        }
+    }
+
+    //MENU
+    .menu-menu-principal-container {
+        width: 100%;
+    }
+}
+
+.menu-plied {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    background-color: $marron;
+    height: 100%;
+    // border-left: 1px solid $orange;
+    transform: translateX(-321px);
+    max-width: 400px;
+    transition: .5s;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: 767px) {
+        transform: translateX(-100%);
+    }
+
+    &.menu-open {
+        transform: translateX(80px);
+        opacity: 1;
+
+        @media screen and (max-width: 767px) {
+            transform: translateX(0);
+        }
+    }
+
+    #menu-menu-principal {
+        padding: 0;
+
+        >li {
+            justify-content: center;
+            height: 79px;
+
+            &:not(:first-child) {
+                border-top: 1px solid $orange;
+            }
+
+
+            &:last-child {
+                border-bottom: 1px solid $orange;
+            }
+
+            &.current-menu-item {
+                a {
+                    color: $orange;
+                }
+            }
+
+            >a {
+                font-size: 18px;
+                padding: .5rem 3rem;
+                text-transform: uppercase;
+                color: $beige;
+
+                @media screen and (max-width: 767px) {
+                    padding: .5rem 25px;
+                }
+            }
+
+            .sub-menu {
+                &::before {
+                    display: none;
+                }
+
+                li {
+                    a {
+                        padding: .5rem 3rem;
+
+                        @media screen and (max-width: 767px) {
+                            padding: .5rem 25px;
+                        }
+                    }
+                }
+            }
+        }
+
+        a:hover {
+            background: none;
+            color: $orange;
+        }
+    }
+
+    #menu-second-menu {
+        padding: 0;
+
+        .menu-item:last-child {
+            margin-bottom: 12px;
+        }
+
+        .current_page_item {
+            a {
+                color: $orange;
+            }
+        }
+
+        a {
+            padding: 0.5rem 3rem;
+            background: none;
+            text-transform: uppercase;
+            color: $beige;
+
+            &:hover {
+                color: $orange;
+            }
+
+            @media screen and (max-width: 767px) {
+                padding: .5rem 25px;
+            }
+        }
+    }
+}
+
+.other-buttons-header {
+    >a {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        font-size: 2rem;
+        transition: .3s;
+        z-index: 200;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .calendly-link {
+        background-color: $orange;
+        border: 1px solid $orange;
+
+        &:hover {
+            background-color: $caramel;
+        }
+
+        svg {
+            fill: $beige;
+            width: 2rem;
+        }
+    }
+
+    .faq-link {
+        background-color: $light-secondary;
+        border: 1px solid $light-secondary;
+
+        svg {
+            fill: $beige;
+
+        }
+
+        &:hover {
+            background-color: $secondary;
+        }
+    }
+}

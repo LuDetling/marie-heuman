@@ -20,6 +20,15 @@
     line-height: normal;
 }
 
+.site-container-left {
+    width: 220px;
+}
+
+.site-container-right {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+}
+
 pre {
     margin-left: 85px;
 }
@@ -71,7 +80,8 @@ form {
 }
 
 section {
-    padding: 5rem 160px;
+    // padding: 5rem 160px;
+    padding: 120px 80px;
 
     @media screen and (max-width: 1200px) {
         padding: 4rem 20px;
@@ -92,6 +102,11 @@ section {
 
 .section-floral {
     background-color: $floral;
+}
+
+.section-desert {
+    background-color: $desert;
+    padding: 160px 80px;
 }
 
 .section-white {
@@ -293,6 +308,44 @@ section {
     }
 }
 
+.green-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    li {
+        background-color: $green;
+        font-size: 13px;
+        font-weight: 500;
+        color: $floral;
+        padding: 6px 14px;
+        transition: .2s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.coperwood-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    li {
+        background-color: $coperwood;
+        font-size: 13px;
+        font-weight: 500;
+        color: $floral;
+        padding: 6px 14px;
+        transition: .2s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
 .orange-list-container {
     display: flex;
     gap: 1rem;
@@ -376,15 +429,15 @@ main:not(.front-page) {
         color: $marron;
         font-size: 20px;
 
-        &::before {
-            content: "";
-            display: block;
-            width: 50px;
-            min-width: 50px;
-            height: 1px;
-            background-color: $marron;
-            margin-bottom: .5rem;
-        }
+        // &::before {
+        //     content: "";
+        //     display: block;
+        //     width: 50px;
+        //     min-width: 50px;
+        //     height: 1px;
+        //     background-color: $marron;
+        //     margin-bottom: .5rem;
+        // }
 
         @media screen and (max-width: 767px) {
             &::before {

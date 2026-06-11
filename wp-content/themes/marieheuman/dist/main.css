@@ -84,14 +84,20 @@
   font-style: italic;
   font-display: swap;
 }
-.marron-button, .blog-filters .filter-btn.active, #faq-categories button.active {
+.button {
   font-family: "Jost";
   font-size: 14px;
   font-weight: 500;
-  background-color: #462620;
-  padding: 12px 24px;
-  color: #fffdf3;
   transition: 0.2s;
+  padding: 12px 24px;
+  position: relative;
+  display: block;
+  width: fit-content;
+}
+
+.marron-button, .blog-filters .filter-btn.active, #faq-categories button.active {
+  background-color: #462620;
+  color: #fffdf3;
 }
 .marron-button:hover, .blog-filters .filter-btn.active:hover, #faq-categories button.active:hover {
   background-color: #a15d66;
@@ -99,9 +105,10 @@
 
 .secondary-button {
   font-family: "Jost";
-  font-size: 15px;
-  position: relative;
+  font-size: 14px;
+  font-weight: 500;
   transition: 0.2s;
+  position: relative;
 }
 .secondary-button::after {
   content: "";
@@ -117,6 +124,50 @@
 }
 .secondary-button:hover::after {
   background-color: #a15d66;
+}
+
+.white-button {
+  background-color: #fffdf3;
+  color: #462620;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.white-button:hover {
+  background-color: #ac9c35;
+}
+
+.header-white-button {
+  background-color: #fffdf3;
+  color: #462620;
+}
+.header-white-button:hover {
+  background-color: #ac9c35;
+}
+
+.marron-desert-button {
+  background-color: #462620;
+  color: #f3ceb1;
+}
+.marron-desert-button:hover {
+  background-color: #f3ceb1;
+  color: #462620;
+}
+
+.marron-rose-button {
+  background-color: #462620;
+  color: #fffdf3;
+}
+.marron-rose-button:hover {
+  background-color: #a15d66;
+}
+
+.marron-coperwood-button {
+  background-color: #462620;
+  color: #f3ceb1;
+}
+.marron-coperwood-button:hover {
+  background-color: #A76523;
 }
 
 .orange-button {
@@ -335,262 +386,97 @@
   fill: #d86a3d;
 }
 
-header {
-  display: flex;
+.site-container-left {
+  z-index: 1000;
+  transition: 0.2s;
 }
-
-.content-header {
-  display: flex;
-  background-color: #462620;
-  left: 0;
-  position: fixed;
-  top: 100vh;
-  transform: rotate(-90deg);
-  transform-origin: top left;
-  width: 100vh;
-  height: 80px;
-  z-index: 1001;
-  border-bottom: 1px solid #d86a3d;
-  transition: 0.3s;
-}
-@media screen and (max-width: 767px) {
-  .content-header {
-    transform: rotate(0);
-    width: 100%;
-    top: 0;
-  }
-}
-.content-header > nav {
-  justify-content: space-between;
+.site-container-left #menu-toggle {
   width: 100%;
 }
-.content-header > nav .content-logo-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80px;
-  width: 80px;
-  border-left: 1px solid #d86a3d;
-}
-@media screen and (max-width: 767px) {
-  .content-header > nav .content-logo-menu {
-    border-left: none;
-    border-right: 1px solid #d86a3d;
-  }
-}
-.content-header > nav .content-logo-menu #menu-toggle {
-  padding-left: 19px;
-  width: 100%;
-  height: 100%;
-}
-@media screen and (max-width: 767px) {
-  .content-header > nav .content-logo-menu #menu-toggle {
-    padding-left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-.content-header > nav .content-logo-menu #menu-toggle .img-menu {
-  width: 40px;
-  height: inherit;
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png");
+.site-container-left #menu-toggle .img-menu {
+  width: 60px;
+  height: 60px;
   background-size: contain;
-  transform: rotate(90deg);
-  transition: 0.3s;
+  transition: 0.2s;
   background-repeat: no-repeat;
   background-position: center;
 }
-@media screen and (max-width: 767px) {
-  .content-header > nav .content-logo-menu #menu-toggle .img-menu {
-    transform: rotate(0);
-    width: 35px;
-  }
-}
-.content-header > nav .content-logo-menu #menu-toggle .img-menu.img-menu-open {
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png");
-}
-@media screen and (min-width: 767px) {
-  .content-header > nav .content-logo-menu #menu-toggle .img-menu:hover {
-    background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-orange.png");
-  }
-}
-.content-header > nav .content-logo-menu #menu-toggle img {
-  width: 40px;
-}
-.content-header > nav .logo-menu-home {
-  width: 115px;
-}
-.content-header > nav .content-calendly {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-@media screen and (max-width: 767px) {
-  .content-header > nav .content-calendly {
-    display: none;
-  }
-}
-.content-header > nav .content-calendly .calendly {
-  width: 46px;
-  height: 46px;
-  font-size: 2rem;
-  transform: rotate(90deg);
-  fill: #f6f5f2;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-  border-radius: 50%;
-  background-color: #d86a3d;
-  border: #d86a3d;
-}
-@media screen and (max-width: 767px) {
-  .content-header > nav .content-calendly .calendly {
-    transform: rotate(0);
-  }
-}
-.content-header > nav .content-calendly .calendly:hover {
-  background-color: #9c6338;
-}
-.content-header > nav .content-calendly .calendly svg {
-  fill: #f6f5f2;
-  width: 32px;
-  height: 32px;
-  transition: 0.3s;
-}
-.content-header .menu-menu-principal-container {
-  width: 100%;
-}
-
-.menu-plied {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  background-color: #462620;
-  height: 100%;
-  transform: translateX(-321px);
-  max-width: 400px;
-  transition: 0.5s;
-  opacity: 0;
+.site-container-left #menu-menu-principal {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 18px;
+  padding-inline: 1.5rem;
 }
-@media screen and (max-width: 767px) {
-  .menu-plied {
-    transform: translateX(-100%);
-  }
-}
-.menu-plied.menu-open {
-  transform: translateX(80px);
-  opacity: 1;
-}
-@media screen and (max-width: 767px) {
-  .menu-plied.menu-open {
-    transform: translateX(0);
-  }
-}
-.menu-plied #menu-menu-principal {
+.site-container-left #menu-menu-principal li a {
+  position: relative;
+  display: flex;
+  align-items: center;
   padding: 0;
+  font-size: 15px;
+  transition: 0.2s;
 }
-.menu-plied #menu-menu-principal > li {
-  justify-content: center;
-  height: 79px;
-}
-.menu-plied #menu-menu-principal > li:not(:first-child) {
-  border-top: 1px solid #d86a3d;
-}
-.menu-plied #menu-menu-principal > li:last-child {
-  border-bottom: 1px solid #d86a3d;
-}
-.menu-plied #menu-menu-principal > li.current-menu-item a {
-  color: #d86a3d;
-}
-.menu-plied #menu-menu-principal > li > a {
-  font-size: 18px;
-  padding: 0.5rem 3rem;
-  text-transform: uppercase;
-  color: #f6f5f2;
-}
-@media screen and (max-width: 767px) {
-  .menu-plied #menu-menu-principal > li > a {
-    padding: 0.5rem 25px;
-  }
-}
-.menu-plied #menu-menu-principal > li .sub-menu::before {
-  display: none;
-}
-.menu-plied #menu-menu-principal > li .sub-menu li a {
-  padding: 0.5rem 3rem;
-}
-@media screen and (max-width: 767px) {
-  .menu-plied #menu-menu-principal > li .sub-menu li a {
-    padding: 0.5rem 25px;
-  }
-}
-.menu-plied #menu-menu-principal a:hover {
+.site-container-left #menu-menu-principal li a:hover {
   background: none;
-  color: #d86a3d;
 }
-.menu-plied #menu-second-menu {
-  padding: 0;
-}
-.menu-plied #menu-second-menu .menu-item:last-child {
-  margin-bottom: 12px;
-}
-.menu-plied #menu-second-menu .current_page_item a {
-  color: #d86a3d;
-}
-.menu-plied #menu-second-menu a {
-  padding: 0.5rem 3rem;
-  background: none;
-  text-transform: uppercase;
-  color: #f6f5f2;
-}
-.menu-plied #menu-second-menu a:hover {
-  color: #d86a3d;
-}
-@media screen and (max-width: 767px) {
-  .menu-plied #menu-second-menu a {
-    padding: 0.5rem 25px;
-  }
+.site-container-left #menu-menu-principal li.current-menu-item a::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  left: -12px;
 }
 
-.other-buttons-header > a {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  font-size: 2rem;
-  transition: 0.3s;
-  z-index: 200;
-  bottom: 20px;
-  right: 20px;
+.header-marron {
+  background-color: #462620;
 }
-.other-buttons-header .calendly-link {
-  background-color: #d86a3d;
-  border: 1px solid #d86a3d;
+.header-marron .img-menu {
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png");
 }
-.other-buttons-header .calendly-link:hover {
-  background-color: #9c6338;
+.header-marron #menu-menu-principal li a {
+  color: #bed0ce;
 }
-.other-buttons-header .calendly-link svg {
-  fill: #f6f5f2;
-  width: 2rem;
+.header-marron #menu-menu-principal li.current-menu-item a::before {
+  background-color: #bed0ce;
 }
-.other-buttons-header .faq-link {
-  background-color: #7a8b85;
-  border: 1px solid #7a8b85;
+
+.header-rose {
+  background-color: #a15d66;
 }
-.other-buttons-header .faq-link svg {
-  fill: #f6f5f2;
+.header-rose .img-menu {
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png");
 }
-.other-buttons-header .faq-link:hover {
-  background-color: #3f5e5a;
+.header-rose #menu-menu-principal li a {
+  color: #f3ceb1;
+}
+.header-rose #menu-menu-principal li.current-menu-item a::before {
+  background-color: #462620;
+}
+
+.header-floral {
+  background-color: #fffdf3;
+}
+.header-floral .img-menu {
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png");
+}
+.header-floral #menu-menu-principal li a {
+  color: #a15d66;
+}
+.header-floral #menu-menu-principal li.current-menu-item a::before {
+  background-color: #a15d66;
+}
+
+.header-desert {
+  background-color: #f3ceb1;
+}
+.header-desert .img-menu {
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png");
+}
+.header-desert #menu-menu-principal li a {
+  color: #A76523;
+}
+.header-desert #menu-menu-principal li.current-menu-item a::before {
+  background-color: #A76523;
 }
 
 .home-header {
@@ -688,6 +574,8 @@ header {
   color: #A76523;
   text-align: center;
   margin-bottom: 1rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.6;
 }
 .home-section .content {
   text-align: center;
@@ -698,6 +586,11 @@ header {
   font-size: 44px;
   margin-bottom: 1.5rem;
   margin-top: 0;
+  line-height: 1.2;
+}
+.home-section .content h2 em {
+  font-family: "Newsreader";
+  font-style: italic;
 }
 .home-section .content p {
   font-size: 17px;
@@ -734,6 +627,70 @@ header {
   line-height: 1.6;
 }
 
+.home-approche .tag-home {
+  text-align: left;
+}
+.home-approche .content {
+  text-align: left;
+}
+.home-approche .content p {
+  max-width: 380px;
+  margin-left: 0;
+}
+.home-approche .right-approche h3 {
+  font-family: "Newsreader";
+  font-size: 28px;
+  font-weight: 500;
+  font-style: italic;
+  color: #A76523;
+  margin-bottom: 1rem;
+}
+.home-approche .right-approche p {
+  font-size: 19px;
+  line-height: 1.5;
+  max-width: 500px;
+}
+.home-approche .right-approche p:not(:last-child) {
+  margin-bottom: 60px;
+}
+
+.home-pour-qui .cards img {
+  display: block;
+  height: 240px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+.home-pour-qui .cards .container-card {
+  padding: 3rem;
+  border: 1px solid #f3ceb1;
+}
+.home-pour-qui .cards .container-card .tag {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A76523;
+  margin-bottom: 1rem;
+}
+.home-pour-qui .cards .container-card h3 {
+  font-family: "Newsreader";
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+.home-pour-qui .cards .container-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.home-pour-qui .cards .container-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
 .fas, .search::after, main .sidebar form button::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
@@ -2750,6 +2707,15 @@ footer .footer-bottom a:hover {
   line-height: normal;
 }
 
+.site-container-left {
+  width: 220px;
+}
+
+.site-container-right {
+  width: calc(100% - 220px);
+  margin-left: 220px;
+}
+
 pre {
   margin-left: 85px;
 }
@@ -2791,7 +2757,7 @@ form .required::after {
 }
 
 section {
-  padding: 5rem 160px;
+  padding: 120px 80px;
 }
 @media screen and (max-width: 1200px) {
   section {
@@ -2811,6 +2777,11 @@ section {
 }
 .section-floral {
   background-color: #fffdf3;
+}
+
+.section-desert {
+  background-color: #f3ceb1;
+  padding: 160px 80px;
 }
 
 .section-white {
@@ -2981,6 +2952,40 @@ section {
   margin-top: 3.5rem;
 }
 
+.green-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.green-list-container li {
+  background-color: #ac9c35;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fffdf3;
+  padding: 6px 14px;
+  transition: 0.2s;
+}
+.green-list-container li:hover {
+  transform: scale(1.05);
+}
+
+.coperwood-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.coperwood-list-container li {
+  background-color: #A76523;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fffdf3;
+  padding: 6px 14px;
+  transition: 0.2s;
+}
+.coperwood-list-container li:hover {
+  transform: scale(1.05);
+}
+
 .orange-list-container {
   display: flex;
   gap: 1rem;
@@ -3052,15 +3057,6 @@ main:not(.front-page) h3 {
   font-family: "Roboto";
   color: #462620;
   font-size: 20px;
-}
-main:not(.front-page) h3::before {
-  content: "";
-  display: block;
-  width: 50px;
-  min-width: 50px;
-  height: 1px;
-  background-color: #462620;
-  margin-bottom: 0.5rem;
 }
 @media screen and (max-width: 767px) {
   main:not(.front-page) h3::before {

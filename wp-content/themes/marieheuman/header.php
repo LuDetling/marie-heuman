@@ -8,47 +8,27 @@
 </head>
 
 <body>
-
-    <header>
-        <div class="content-header">
-            <nav class="flex items-center md:flex-row-reverse gap-8">
-                <!-- Menu -->
-                <div class="content-logo-menu">
-                    <button id="menu-toggle" class="cursor-pointer" aria-expanded="false" aria-controls="main-menu">
+    <div class="flex">
+        <aside class="site-container-left fixed h-screen top-0 left-0 header-marron">
+            <header class=" content-header">
+                <nav class="h-screen flex flex-col justify-between py-[60px]">
+                    <!-- Menu -->
+                    <button id="menu-toggle" class="cursor-pointer flex items-center justify-center" aria-expanded="false" aria-controls="main-menu">
                         <div class="img-menu"></div>
-                        <!-- <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png"
-                            alt="logo menu" class="logo-menu"> -->
                     </button>
-                </div>
-
-                <!-- Accueil -->
-                <a href="<?= home_url() ?>" class="block px-5 py-4">
-                    <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-logo-clair.png"
-                        alt="logo menu" class="logo-menu-home"></a>
-
-                <!-- calendly -->
-                <div class="content-calendly">
-                    <a href="<?= get_permalink(40) ?>#custom-booking-app" class="calendly hidden md:flex">
-                        <?=
-                            file_get_contents(get_template_directory() . '/assets/images/icones/calendar-dots.svg');
-                        ?>
+                    <nav>
+                        <?php
+                        wp_nav_menu([
+                            'theme_location' => 'main_menu'
+                        ]); ?>
+                    </nav>
+                    <!-- calendly -->
+                    <a href="<?= get_permalink(40) ?>#custom-booking-app" class="header-button button header-white-button mx-auto">
+                        Réserver un appel
                     </a>
-                </div>
 
-        </div>
-        <nav class="menu-plied">
-            <?php
-            wp_nav_menu([
-                'theme_location' => 'main_menu'
-            ]);
-            wp_nav_menu([
-                'theme_location' => 'second_menu'
-            ]);
-
-            ?>
-        </nav>
-    </header>
-    <div class="other-buttons-header">
+            </header>
+            <!-- <div class="other-buttons-header">
         <a href="<?= get_permalink(40) ?>#custom-booking-app" class="calendly-link flex md:hidden">
             <?=
                 file_get_contents(get_template_directory() . '/assets/images/icones/calendar-dots.svg');
@@ -61,4 +41,6 @@
                 </path>
             </svg>
         </a>
-    </div>
+    </div> -->
+        </aside>
+        <div class="site-container-right">

@@ -1,15 +1,21 @@
 @use "globals" as *;
 @use "mixins" as *;
 
-.marron-button {
-    // @include marron-button;
+.button {
     font-family: 'Jost';
     font-size: 14px;
     font-weight: 500;
-    background-color: $marron;
-    padding: 12px 24px;
-    color: $creme;
     transition: .2s;
+    padding: 12px 24px;
+    position: relative;
+    display: block;
+    width: fit-content;
+}
+
+.marron-button {
+    // @include marron-button;
+    background-color: $marron;
+    color: $creme;
 
     &:hover {
         background-color: $rose;
@@ -19,9 +25,10 @@
 .secondary-button {
     // @include secondary-button;
     font-family: 'Jost';
-    font-size: 15px;
-    position: relative;
+    font-size: 14px;
+    font-weight: 500;
     transition: .2s;
+    position: relative;
 
     &::after {
         content: '';
@@ -39,6 +46,55 @@
         &::after {
             background-color: $rose;
         }
+    }
+}
+
+.white-button {
+    background-color: $creme;
+    color: $marron;
+    font-size: 13px;
+    font-weight: 500;
+    transition: .2s;
+
+    &:hover {
+        background-color: $green
+    }
+}
+
+.header-white-button {
+    background-color: $creme;
+    color: $marron;
+
+    &:hover {
+        background-color: $green
+    }
+}
+
+.marron-desert-button {
+    background-color: $marron;
+    color: $desert;
+
+    &:hover {
+        background-color: $desert;
+        color: $marron;
+    }
+}
+
+.marron-rose-button {
+    background-color: $marron;
+    color: $floral;
+
+    &:hover {
+        background-color: $rose;
+    }
+}
+
+.marron-coperwood-button {
+    background-color: $marron;
+    color: $desert;
+
+    &:hover {
+        background-color: $coperwood;
     }
 }
 

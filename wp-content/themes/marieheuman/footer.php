@@ -1,6 +1,6 @@
-<div class="img-under-header-2"></div>
+<!-- <div class="img-under-header-2"></div> -->
 
-<footer class="md:ml-20">
+<footer>
     <div class="flex flex-wrap gap-10 md:gap-20 justify-between mb-12">
         <div>
             <img src="<?= get_template_directory_uri() ?>/assets/images/marie-heuman-architecte-interieur-tours-blois-logo-clair.png"
@@ -52,8 +52,9 @@
         </div>
     </div>
 </footer>
+</div>
+</div>
 <?php wp_footer(); ?>
-
 </body>
 
 </html>

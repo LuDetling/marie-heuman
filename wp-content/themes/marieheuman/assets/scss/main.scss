@@ -143,6 +143,32 @@ section {
     }
 }
 
+.section-rose {
+    background-color: $rose;
+}
+
+.section-cadriage {
+    background-color: $floral;
+    inset: 0;
+
+    .cadriage {
+        background-image: linear-gradient(0deg, rgb(70, 38, 32) 1px, transparent 1px), linear-gradient(90deg, rgb(70, 38, 32) 1px, transparent 1px);
+        background-size: 80px 80px;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: .03;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .content-section-cadriage {
+        z-index: 1;
+        position: relative;
+    }
+}
+
 .img-under-header {
     width: 100%;
     height: 150px;
@@ -438,6 +464,10 @@ main:not(.front-page) {
         //     background-color: $marron;
         //     margin-bottom: .5rem;
         // }
+        em {
+            font-family: 'Newsreader';
+            font-style: italic;
+        }
 
         @media screen and (max-width: 767px) {
             &::before {

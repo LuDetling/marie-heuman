@@ -691,6 +691,156 @@
   gap: 0.5rem;
   margin-bottom: 2rem;
 }
+
+.home-projets {
+  padding: 120px 0;
+}
+.home-projets .header-home-projets {
+  padding: 0 80px;
+}
+.home-projets .header-home-projets .tag-home {
+  text-align: left;
+}
+.home-projets .header-home-projets .content {
+  text-align: left;
+}
+.home-projets .header-home-projets .content p {
+  margin-inline: 0;
+}
+.home-projets .marquee-gallery {
+  overflow: hidden;
+  width: 100%;
+  padding: 30px 0;
+}
+.home-projets .marquee-gallery .marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 2rem;
+  animation: scrollMarquee 120s linear infinite;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item {
+  flex-shrink: 0;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item.img-short {
+  width: 420px;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item.img-short img {
+  height: 280px;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item.img-tall {
+  width: 280px;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item.img-tall img {
+  height: 380px;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item a .content-img {
+  overflow: hidden;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item a:hover img {
+  transform: scale(1.05);
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item img {
+  object-fit: cover;
+  transition: 0.5s;
+  width: 100%;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item h3 {
+  font-family: "Newsreader";
+  font-size: 20px;
+  font-weight: 500;
+}
+.home-projets .marquee-gallery .marquee-track .marquee-item p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #A76523;
+}
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.home-projets .secondary-button {
+  margin: 0 80px;
+}
+
+.home-methode .left-methode .accordion-content {
+  border-bottom: 1px solid #e5d9c8;
+}
+.home-methode .left-methode .accordion-content:has(.collapse:open) .circle {
+  background-color: #ac9c35;
+}
+.home-methode .left-methode .circle {
+  background-color: #e5d9c8;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transition: 0.2s;
+  margin-top: 0.5rem;
+}
+.home-methode .left-methode .collapse-title {
+  display: flex;
+  padding: 0;
+  align-items: center;
+  gap: 1rem;
+}
+.home-methode .left-methode .collapse-title .index {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ac9c35;
+  letter-spacing: 0.05em;
+}
+.home-methode .left-methode .collapse-title .title {
+  font-family: "Newsreader";
+  font-size: 24px;
+  line-height: 1.3;
+}
+.home-methode .left-methode .collapse-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 540px;
+}
+.home-methode .right-methode .tag-home,
+.home-methode .right-methode .content {
+  text-align: left;
+}
+
+.section-demarrer .content-section-demarrer {
+  max-width: 720px;
+  position: relative;
+  background-color: #f3ceb1;
+  padding: 5rem;
+  margin: auto;
+}
+.section-demarrer .content-section-demarrer .cadriage {
+  background-image: linear-gradient(0deg, rgb(70, 38, 32) 1px, transparent 1px), linear-gradient(90deg, rgb(70, 38, 32) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+.section-demarrer .content-section-demarrer a {
+  margin: auto;
+}
+
+.section-rose .tag-home {
+  color: #fffdf3;
+}
+.section-rose .title h2 {
+  font-size: 44px;
+  color: #fffdf3;
+  font-family: "Newsreader";
+  text-align: center;
+}
+.section-rose .title h2 em {
+  font-family: "Newsreader";
+}
+
 .fas, .search::after, main .sidebar form button::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
@@ -2813,6 +2963,30 @@ section {
   /* Place le contenu au-dessus du grain */
 }
 
+.section-rose {
+  background-color: #a15d66;
+}
+
+.section-cadriage {
+  background-color: #fffdf3;
+  inset: 0;
+}
+.section-cadriage .cadriage {
+  background-image: linear-gradient(0deg, rgb(70, 38, 32) 1px, transparent 1px), linear-gradient(90deg, rgb(70, 38, 32) 1px, transparent 1px);
+  background-size: 80px 80px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.03;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.section-cadriage .content-section-cadriage {
+  z-index: 1;
+  position: relative;
+}
+
 .img-under-header {
   width: 100%;
   height: 150px;
@@ -3057,6 +3231,10 @@ main:not(.front-page) h3 {
   font-family: "Roboto";
   color: #462620;
   font-size: 20px;
+}
+main:not(.front-page) h3 em {
+  font-family: "Newsreader";
+  font-style: italic;
 }
 @media screen and (max-width: 767px) {
   main:not(.front-page) h3::before {

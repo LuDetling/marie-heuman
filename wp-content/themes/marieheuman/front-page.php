@@ -82,6 +82,140 @@
             <?php endforeach; ?>
         </div>
     </section>
+
+    <section class="home-section section-cadriage home-projets relative">
+        <div class="cadriage"></div>
+        <?php
+        $accueil_projets = get_field('accueil_projets');
+        ?>
+        <div class="content-section-cadriage">
+            <div class="header-home-projets">
+                <div class="tag-home"><?= $accueil_projets['tag'] ?></div>
+                <div class="content"><?= $accueil_projets['content'] ?></div>
+            </div>
+            <?php
+            $args = [
+                'post_type' => 'post', // Le slug de ta catégorie
+                'posts_per_page' => 10,          // Nombre d'articles à récupérer
+                'post__not_in' => [get_the_ID()], // Optionnel : exclure l'article actuel pour éviter les doublons
+            ];
+            $recent_posts_query = new WP_Query($args);
+            if ($recent_posts_query->have_posts()): ?>
+                <div class="marquee-gallery">
+                    <div class="marquee-track">
+
+                        <?php $i = 0;
+                        while ($recent_posts_query->have_posts()):
+                            $recent_posts_query->the_post();
+                            $projet = get_field('projet');
+                            $img_class = ($i % 2 === 0) ? 'img-short' : 'img-tall';
+                            $i++; ?>
+                            <div class="marquee-item <?= $img_class; ?>">
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php if (!empty($projet['image']['url'])): ?>
+                                        <div class="content-img">
+                                            <img src="<?= esc_url($projet['image']['url']) ?>"
+                                                alt="<?= esc_attr($projet['image']['alt']) ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <h3 class="mb-2 mt-4"><?php the_title(); ?></h3>
+                                    <p>Résidentiel · Blois</p>
+                                </a>
+                            </div>
+                        <?php endwhile; ?>
+
+                        <?php rewind_posts(); // On remet le curseur au début ?>
+                        <?php $i = 0;
+                        while ($recent_posts_query->have_posts()):
+                            $recent_posts_query->the_post();
+                            $projet = get_field('projet');
+                            $img_class = ($i % 2 === 0) ? 'img-short' : 'img-tall';
+                            $i++; ?>
+                            <div class="marquee-item <?= $img_class; ?>" aria-hidden="true">
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php if (!empty($projet['image']['url'])): ?>
+                                        <div class="content-img">
+                                            <img src="<?= esc_url($projet['image']['url']) ?>"
+                                                alt="<?= esc_attr($projet['image']['alt']) ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <h3 class="mb-2 mt-4"><?php the_title(); ?></h3>
+                                    <p>Résidentiel · Blois</p>
+                                </a>
+                            </div>
+                        <?php endwhile;
+                        wp_reset_postdata(); ?>
+
+                    </div>
+                </div>
+            <?php endif; ?>
+            <a href="<?= $accueil_projets['lien']['url'] ?>"
+                class="secondary-button"><?= $accueil_projets['lien']['title'] ?></a>
+        </div>
+    </section>
+
+    <section class="home-section section-floral home-methode">
+        <?php
+        $accueil_methode = get_field("accueil_methode");
+        ?>
+        <div class="grid xl:grid-cols-12 gap-12">
+            <div class="xl:col-span-5 xl:col-start-8 right-methode">
+                <div class="tag-home"><?= $accueil_methode['tag'] ?></div>
+                <div class="content"><?= $accueil_methode['content'] ?></div>
+            </div>
+            <div class="xl:col-span-7 xl:col-start-1 xl:row-start-1 left-methode">
+                <?php $accordions = $accueil_methode['accordions'];
+                $i = 1;
+
+                foreach ($accordions as $accordion):
+                    $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
+                    ?>
+                    <div class="flex items-start gap-6 py-8 accordion-content">
+                        <div class="hidden md:block circle"></div>
+                        <details class="collapse" name="accordion-methode-home">
+                            <summary class="collapse-title mb-2">
+                                <span class="index">
+                                    <?= $numero ?>
+                                </span>
+                                <div class="title">
+                                    <?= $accordion['title'] ?>
+                                </div>
+                            </summary>
+                            <div class="collapse-content mt-4"><?= $accordion['content'] ?></div>
+                        </details>
+                    </div>
+                    <?php $i++; endforeach; ?>
+            </div>
+        </div>
+        <a href="<?= $accueil_methode['lien']['url'] ?>"
+            class="secondary-button mt-12 inline-block"><?= $accueil_methode['lien']['title'] ?></a>
+    </section>
+
+    <section class="home-section section-rose section-avis">
+        <?php $accueil_avis = get_field('accueil_avis'); ?>
+        <div class="tag-home"><?= $accueil_avis['tag'] ?></div>
+        <div class="title">
+            <?= $accueil_avis['titre'] ?>
+        </div>
+    </section>
+
+    <section class="home-section section-demarrer section-floral">
+        <?php $accueil_demarrer = get_field('accueil_demarrer'); ?>
+        <div class="content-section-demarrer section-cadriage">
+            <div class="cadriage"></div>
+            <div class="tag-content-button">
+                <div class="tag-home">
+                    <?= $accueil_demarrer['tag'] ?>
+                </div>
+                <div class="content">
+                    <?= $accueil_demarrer['content'] ?>
+                </div>
+                <a href="<?= $accueil_demarrer['lien']['url'] ?>"
+                    class="button marron-button"><?= $accueil_demarrer['lien']['title'] ?></a>
+            </div>
+
+        </div>
+    </section>
 </main>
 
 <?php get_footer(); ?>

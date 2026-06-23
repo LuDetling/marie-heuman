@@ -194,8 +194,25 @@
     <section class="home-section section-rose section-avis">
         <?php $accueil_avis = get_field('accueil_avis'); ?>
         <div class="tag-home"><?= $accueil_avis['tag'] ?></div>
-        <div class="title">
+        <div class="title mb-16">
             <?= $accueil_avis['titre'] ?>
+        </div>
+
+        <div class="grid xl:grid-cols-3 gap-12 mb-20">
+            <?php
+            foreach ($accueil_avis['avis'] as $avi): ?>
+                <div>
+                    <div class="description mb-6"><?= $avi['description'] ?></div>
+                    <div class="tag mb-1"><?= $avi['tag'] ?></div>
+                    <div class="date">
+                        <?= $avi['date'] ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="confiance">
+            <?= $accueil_avis['confiance'] ?>
         </div>
     </section>
 

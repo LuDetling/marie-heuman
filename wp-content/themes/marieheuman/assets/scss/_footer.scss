@@ -2,141 +2,191 @@
 @use "fontawesome" as *;
 
 footer {
-    background-color: $marron;
-    color: $white;
-    padding: 5rem 120px;
+    transition: .2s;
 
-    @media screen and (max-width: 767px) {
-        padding: 64px 20px 2rem;
+    h2 {
+        font-family: 'Newsreader';
+        font-size: 56px;
+        font-weight: 300;
+        line-height: 1.1;
+
+        em {
+            font-family: 'Newsreader';
+        }
     }
 
-    img {
-        max-width: 190px;
-        display: block;
-        margin-bottom: 2rem;
-
-        @media screen and (max-width: 767px) {
-            max-width: 145px;
-        }
+    h3 {
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 1.5rem;
     }
 
     p {
         font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
     }
 
-
-
-    h2 {
-        font-weight: bold;
-        color: $beige;
-        font-family: 'Roboto';
-        font-size: 1rem !important;
-        margin-bottom: 1rem;
-    }
-
-    #menu-reseaux {
-        margin-top: 2rem;
-        flex-direction: row;
-        padding: 0;
-        gap: .5rem;
-        flex-wrap: wrap;
-
-        a {
-            padding: 0;
-            font-size: 0;
-            display: block;
-
-            &:hover {
-                background: none;
-
-                .menu-icon {
-                    border-color: $orange;
-
-                    svg {
-                        // fill: $orange;
-                    }
-                }
-            }
-
-            .menu-icon {
-                font-size: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 40px;
-                height: 40px;
-                background-color: rgba($color: $beige, $alpha: .3);
-                border: 1px solid rgba($color: $beige, $alpha: .3);
-                border-radius: 50%;
-                transition: .3s;
-
-                svg {
-                    fill: $beige;
-                    width: 24px;
-                    transition: .3s;
-                }
-            }
-        }
-
-    }
-
-    #menu-navigation {
+    ul {
         padding: 0;
 
-        a {
-            padding: 0;
-            transition: .3s;
-            font-size: 14px;
-            margin-bottom: .5rem;
-
-            &:hover {
-                background: none;
-                color: $orange;
+        li {
+            a {
+                padding: 0;
+                margin-bottom: .75rem;
             }
         }
+    }
+
+    a {
+        transition: .2s;
+        font-size: 14px;
+        font-weight: 400;
     }
 
     .contact {
-        ul {
-            li {
-                font-size: 14px;
-                margin-bottom: .5rem;
+        .top-contact {
 
-                a:hover {
-                    color: $orange;
+            a,
+            p {
+                display: block;
+                margin-bottom: .75rem;
+            }
+        }
 
-                    svg {
-                        fill: $orange;
-                    }
-                }
+        #menu-reseaux {
+            flex-direction: row;
+            gap: 1rem;
 
-                a {
-                    transition: .3s;
-                    display: flex;
-                    align-items: center;
-                    gap: .5rem;
-
-                    svg {
-                        display: inline-block;
-                        fill: $beige;
-                        width: 24px;
-                        transition: .3s;
-                    }
-                }
+            svg {
+                width: 20px;
+                height: 20px;
             }
         }
     }
 
-    .footer-bottom {
-        padding-top: 1.5rem;
-        border-top: 1px solid $orange;
+    .credentials {
+        p {
+            font-size: 12px;
+            opacity: 0.7;
+        }
 
         a {
-            font-size: 14px;
-            transition: .3s;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+    }
 
+    &.footer-blue {
+        background-color: $blue;
+        color: $marron;
+
+        .border-b,
+        .border-t {
+            border-color: rgba(70, 38, 32, 0.2);
+        }
+
+        h3 {
+            color: $green;
+        }
+
+        a {
             &:hover {
-                color: $orange;
+                opacity: .7;
+                background: none;
+            }
+        }
+
+        #menu-reseaux {
+            svg {
+                fill: $marron;
+            }
+        }
+    }
+
+
+
+    &.footer-desert {
+        background-color: $desert;
+        color: $marron;
+
+        .border-b,
+        .border-t {
+            border-color: rgba(70, 38, 32, 0.2);
+        }
+
+        h3 {
+            color: $rose;
+        }
+
+        a {
+            &:hover {
+                opacity: .7;
+                background: none;
+            }
+        }
+
+        #menu-reseaux {
+            svg {
+                fill: $marron;
+            }
+        }
+    }
+
+
+    &.footer-marron {
+        background-color: $marron;
+        color: $floral;
+
+        .border-b,
+        .border-t {
+            border-color: rgba(255, 253, 243, 0.2);
+        }
+
+        h3 {
+            color: $rose;
+        }
+
+        a {
+            &:hover {
+                opacity: .7;
+                background: none;
+            }
+        }
+
+        #menu-reseaux {
+            svg {
+                fill: $floral;
+            }
+        }
+    }
+
+
+    &.footer-marron-bis {
+        background-color: $marron;
+        color: $desert;
+
+        .border-b,
+        .border-t {
+            border-color: rgba(243, 206, 177, 0.2);
+        }
+
+        h3 {
+            color: $coperwood;
+        }
+
+        a {
+            &:hover {
+                opacity: .7;
+                background: none;
+            }
+        }
+
+        #menu-reseaux {
+            svg {
+                fill: $desert;
             }
         }
     }

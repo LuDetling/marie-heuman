@@ -463,3 +463,59 @@
     }
 
 }
+
+.section-avis {
+    .description {
+        color: $floral;
+        font-family: 'Newsreader';
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.6;
+
+        em {
+            font-family: 'Newsreader';
+
+        }
+    }
+
+    .tag {
+        font-size: 13px;
+        font-weight: 500;
+        color: $floral;
+    }
+
+    .date {
+        font-size: 12px;
+        font-weight: 400;
+        color: $floral;
+        opacity: 0.7;
+    }
+
+    .confiance {
+        p {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: $floral;
+            margin-bottom: 2rem;
+            margin-inline: auto;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            li {
+                font-family: "Newsreader";
+                font-size: 20px;
+                font-weight: 300;
+                opacity: 0.6;
+                color: $floral;
+            }
+        }
+    }
+}

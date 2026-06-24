@@ -2803,6 +2803,12 @@ footer h3 {
   letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
 }
+footer h4 {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 footer p {
   font-size: 14px;
   font-weight: 400;
@@ -2841,6 +2847,37 @@ footer .credentials a {
   font-size: 12px;
   opacity: 0.7;
 }
+footer #sib_signup_form_4 input[type=email] {
+  border-bottom: 1px solid;
+  padding-block: 0.75rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  color: #462620;
+}
+footer #sib_signup_form_4 label {
+  font-size: 14px;
+}
+footer #sib_signup_form_4 .content-secondary-button {
+  position: relative;
+  width: fit-content;
+  margin-block: 1rem;
+}
+footer #sib_signup_form_4 .content-secondary-button .secondary-button {
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.2s;
+}
+footer #sib_signup_form_4 .content-secondary-button .secondary-button:hover {
+  opacity: 0.7;
+}
+footer #sib_signup_form_4 .content-secondary-button .border-secondary-button {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
 footer.footer-blue {
   background-color: #bed0ce;
   color: #462620;
@@ -2852,12 +2889,27 @@ footer.footer-blue .border-t {
 footer.footer-blue h3 {
   color: #ac9c35;
 }
+footer.footer-blue h4 {
+  color: #ac9c35;
+}
 footer.footer-blue a:hover {
   opacity: 0.7;
   background: none;
 }
 footer.footer-blue #menu-reseaux svg {
   fill: #462620;
+}
+footer.footer-blue #sib_signup_form_4 input[type=email] {
+  border-color: rgba(70, 38, 32, 0.4);
+}
+footer.footer-blue #sib_signup_form_4 input[type=checkbox] {
+  accent-color: #ac9c35;
+}
+footer.footer-blue #sib_signup_form_4 .secondary-button {
+  color: #462620;
+}
+footer.footer-blue #sib_signup_form_4 .border-secondary-button {
+  background-color: #ac9c35;
 }
 footer.footer-desert {
   background-color: #f3ceb1;
@@ -2870,12 +2922,27 @@ footer.footer-desert .border-t {
 footer.footer-desert h3 {
   color: #a15d66;
 }
+footer.footer-desert h4 {
+  color: #a15d66;
+}
 footer.footer-desert a:hover {
   opacity: 0.7;
   background: none;
 }
 footer.footer-desert #menu-reseaux svg {
   fill: #462620;
+}
+footer.footer-desert #sib_signup_form_4 input[type=email] {
+  border-color: rgba(70, 38, 32, 0.4);
+}
+footer.footer-desert #sib_signup_form_4 input[type=checkbox] {
+  accent-color: #a15d66;
+}
+footer.footer-desert #sib_signup_form_4 .secondary-button {
+  color: #462620;
+}
+footer.footer-desert #sib_signup_form_4 .border-secondary-button {
+  background-color: #a15d66;
 }
 footer.footer-marron {
   background-color: #462620;
@@ -2888,12 +2955,28 @@ footer.footer-marron .border-t {
 footer.footer-marron h3 {
   color: #a15d66;
 }
+footer.footer-marron h4 {
+  color: #a15d66;
+}
 footer.footer-marron a:hover {
   opacity: 0.7;
   background: none;
 }
 footer.footer-marron #menu-reseaux svg {
   fill: #fffdf3;
+}
+footer.footer-marron #sib_signup_form_4 input[type=email] {
+  border-color: rgba(255, 253, 243, 0.4);
+  color: #fffdf3;
+}
+footer.footer-marron #sib_signup_form_4 input[type=checkbox] {
+  accent-color: #a15d66;
+}
+footer.footer-marron #sib_signup_form_4 .secondary-button {
+  color: #fffdf3;
+}
+footer.footer-marron #sib_signup_form_4 .border-secondary-button {
+  background-color: #a15d66;
 }
 footer.footer-marron-bis {
   background-color: #462620;
@@ -2906,12 +2989,28 @@ footer.footer-marron-bis .border-t {
 footer.footer-marron-bis h3 {
   color: #A76523;
 }
+footer.footer-marron-bis h4 {
+  color: #A76523;
+}
 footer.footer-marron-bis a:hover {
   opacity: 0.7;
   background: none;
 }
 footer.footer-marron-bis #menu-reseaux svg {
   fill: #f3ceb1;
+}
+footer.footer-marron-bis #sib_signup_form_4 input[type=email] {
+  border-color: rgba(243, 206, 177, 0.4);
+  color: rgb(243, 206, 177);
+}
+footer.footer-marron-bis #sib_signup_form_4 input[type=checkbox] {
+  accent-color: #A76523;
+}
+footer.footer-marron-bis #sib_signup_form_4 .secondary-button {
+  color: #f3ceb1;
+}
+footer.footer-marron-bis #sib_signup_form_4 .border-secondary-button {
+  background-color: #A76523;
 }
 
 * {
@@ -2952,18 +3051,6 @@ img {
   list-style: disc;
 }
 
-form label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.3rem;
-}
-form input {
-  border-radius: 15px;
-  width: 100%;
-  padding: 0.7rem 1.5rem;
-  font-weight: normal;
-  max-width: 400px;
-}
 form .required::after {
   content: " *";
   color: #d86a3d;

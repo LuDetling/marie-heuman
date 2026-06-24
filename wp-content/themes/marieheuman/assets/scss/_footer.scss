@@ -23,6 +23,13 @@ footer {
         margin-bottom: 1.5rem;
     }
 
+    h4 {
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
     p {
         font-size: 14px;
         font-weight: 400;
@@ -79,6 +86,45 @@ footer {
         }
     }
 
+    #sib_signup_form_4 {
+        input[type="email"] {
+            border-bottom: 1px solid;
+            padding-block: .75rem;
+            width: 100%;
+            margin-bottom: 1rem;
+            font-size: 14px;
+            color: $marron;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        .content-secondary-button {
+            position: relative;
+            width: fit-content;
+            margin-block: 1rem;
+
+            .secondary-button {
+                font-size: 14px;
+                font-weight: 400;
+                transition: .2s;
+
+                &:hover {
+                    opacity: .7;
+                }
+            }
+
+            .border-secondary-button {
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+            }
+        }
+    }
+
     &.footer-blue {
         background-color: $blue;
         color: $marron;
@@ -92,6 +138,10 @@ footer {
             color: $green;
         }
 
+        h4 {
+            color: $green;
+        }
+
         a {
             &:hover {
                 opacity: .7;
@@ -102,6 +152,24 @@ footer {
         #menu-reseaux {
             svg {
                 fill: $marron;
+            }
+        }
+
+        #sib_signup_form_4 {
+            input[type="email"] {
+                border-color: rgba(70, 38, 32, 0.4);
+            }
+
+            input[type="checkbox"] {
+                accent-color: $green;
+            }
+
+            .secondary-button {
+                color: $marron;
+            }
+
+            .border-secondary-button {
+                background-color: $green;
             }
         }
     }
@@ -121,6 +189,10 @@ footer {
             color: $rose;
         }
 
+        h4 {
+            color: $rose;
+        }
+
         a {
             &:hover {
                 opacity: .7;
@@ -131,6 +203,24 @@ footer {
         #menu-reseaux {
             svg {
                 fill: $marron;
+            }
+        }
+
+        #sib_signup_form_4 {
+            input[type="email"] {
+                border-color: rgba(70, 38, 32, 0.4);
+            }
+
+            input[type="checkbox"] {
+                accent-color: $rose;
+            }
+
+            .secondary-button {
+                color: $marron;
+            }
+
+            .border-secondary-button {
+                background-color: $rose;
             }
         }
     }
@@ -149,6 +239,10 @@ footer {
             color: $rose;
         }
 
+        h4 {
+            color: $rose;
+        }
+
         a {
             &:hover {
                 opacity: .7;
@@ -159,6 +253,25 @@ footer {
         #menu-reseaux {
             svg {
                 fill: $floral;
+            }
+        }
+
+        #sib_signup_form_4 {
+            input[type="email"] {
+                border-color: rgba(255, 253, 243, 0.4);
+                color: $floral;
+            }
+
+            input[type="checkbox"] {
+                accent-color: $rose;
+            }
+
+            .secondary-button {
+                color: $floral;
+            }
+
+            .border-secondary-button {
+                background-color: $rose;
             }
         }
     }
@@ -177,6 +290,10 @@ footer {
             color: $coperwood;
         }
 
+        h4 {
+            color: $coperwood;
+        }
+
         a {
             &:hover {
                 opacity: .7;
@@ -187,6 +304,26 @@ footer {
         #menu-reseaux {
             svg {
                 fill: $desert;
+            }
+        }
+
+        #sib_signup_form_4 {
+            input[type="email"] {
+                border-color: rgba(243, 206, 177, 0.4);
+                color: rgb(243, 206, 177);
+
+            }
+
+            input[type="checkbox"] {
+                accent-color: $coperwood;
+            }
+
+            .secondary-button {
+                color: $desert;
+            }
+
+            .border-secondary-button {
+                background-color: $coperwood;
             }
         }
     }

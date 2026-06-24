@@ -57,19 +57,19 @@ img {
 
 form {
 
-    label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 0.3rem;
-    }
+    // label {
+    //     display: block;
+    //     font-weight: bold;
+    //     margin-bottom: 0.3rem;
+    // }
 
-    input {
-        border-radius: 15px;
-        width: 100%;
-        padding: 0.7rem 1.5rem;
-        font-weight: normal;
-        max-width: 400px;
-    }
+    // input {
+    //     border-radius: 15px;
+    //     width: 100%;
+    //     padding: 0.7rem 1.5rem;
+    //     font-weight: normal;
+    //     max-width: 400px;
+    // }
 
     .required {
         &::after {

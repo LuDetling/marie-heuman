@@ -1,28 +1,51 @@
 const toggleMenu = () => {
     const button = document.getElementById('menu-toggle');
-    const container = document.querySelector('.header-marron'); // Note : si la classe change, querySelector('.header-marron') risque de ne plus fonctionner au second clic. Mieux vaut cibler via un ID ou une classe fixe.
+    
+    // ASTUCE : On cible les éléments via des IDs ou des classes fixes pour ne pas perdre la sélection !
+    const container = document.getElementById('main-header'); // Remplace par l'ID réel de ton header
     const headerButton = document.querySelector('.header-white-button');
-    const footer = document.querySelector('footer')
-    // 1. On définit le cycle des classes dans l'ordre
+    const footer = document.querySelector('footer');
+
+    // 1. Les cycles de classes
     const classes = ['header-marron', 'header-rose', 'header-floral', 'header-desert'];
     const classesButton = ['header-white-button', 'marron-desert-button', 'marron-rose-button', 'marron-coperwood-button'];
     const classesFooter = ['footer-blue', 'footer-desert', 'footer-marron', 'footer-marron-bis'];
-    let currentIndex = 0; // On commence à marron (index 0)
 
-    button.addEventListener('click', (e) => {
-        // 2. On supprime la classe actuelle
-        container.classList.remove(classes[currentIndex]);
-        headerButton.classList.remove(classesButton[currentIndex]);
-        footer.classList.remove(classesFooter[currentIndex]);
+    // 2. On récupère l'index sauvegardé, sinon on commence à 0 (marron)
+    // On utilise parseInt car localStorage stocke tout sous forme de chaîne de caractères (string)
+    let currentIndex = parseInt(localStorage.getItem('themeIndex')) || 0;
+
+    // 3. FONCTION DE MISE À JOUR (Pour appliquer les classes)
+    const applyThemeClasses = (oldIndex, newIndex) => {
+        // On retire les anciennes classes si elles existent
+        if (oldIndex !== undefined) {
+            container.classList.remove(classes[oldIndex]);
+            headerButton.classList.remove(classesButton[oldIndex]);
+            footer.classList.remove(classesFooter[oldIndex]);
+        }
+        // On ajoute les nouvelles classes
+        container.classList.add(classes[newIndex]);
+        headerButton.classList.add(classesButton[newIndex]);
+        footer.classList.add(classesFooter[newIndex]);
+    };
+
+    // 4. INITIALISATION : On applique le thème sauvegardé dès le chargement de la page
+    applyThemeClasses(undefined, currentIndex);
+
+    // 5. L'ÉVÉNEMENT CLIC
+    button.addEventListener('click', () => {
+        const oldIndex = currentIndex;
         
-        // 3. On passe à l'index suivant (le % permet de revenir à 0 une fois arrivé au bout)
+        // On passe à l'index suivant
         currentIndex = (currentIndex + 1) % classes.length;
         
-        // 4. On ajoute la nouvelle classe
-        container.classList.add(classes[currentIndex]);
-        headerButton.classList.add(classesButton[currentIndex]);
-        footer.classList.add(classesFooter[currentIndex]);
+        // On applique le changement visuel
+        applyThemeClasses(oldIndex, currentIndex);
+        
+        // On sauvegarde le nouvel index dans le localStorage
+        localStorage.setItem('themeIndex', currentIndex);
     });
 }
 
-toggleMenu();
+// On lance la fonction une fois que le DOM est prêt
+document.addEventListener('DOMContentLoaded', toggleMenu);

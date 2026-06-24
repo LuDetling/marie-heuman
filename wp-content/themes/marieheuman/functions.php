@@ -35,6 +35,7 @@ function marieheuman_setup()
         'reseaux' => 'Réseaux',
         'navigation' => 'Navigation',
         'contact' => 'Contact',
+        'for_who' => 'Pour qui',
     ]);
 }
 

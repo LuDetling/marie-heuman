@@ -9,7 +9,7 @@
     </div>
 
     <div class="p-20">
-        <div class="grid grid-cols-5 gap-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-12">
             <div>
                 <h3>LE STUDIO</h3>
                 <p>Marie Heuman EI — Architecture d'intérieur & design global. Pour les lieux professionnels qui veulent

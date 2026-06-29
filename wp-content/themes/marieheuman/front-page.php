@@ -4,7 +4,7 @@
     <?php
     $accueil_header = get_field('accueil_header');
     ?>
-    <section class="home-header">
+    <section class="home-header relative">
         <div class="content-home-header">
             <?= $accueil_header['content'] ?>
             <div class="flex gap-6 items-center justify-center flex-wrap">
@@ -13,6 +13,9 @@
                 <a href="<?= $accueil_header['lien_2']['url'] ?>"
                     class="secondary-button"><?= $accueil_header['lien_2']['title'] ?></a>
             </div>
+        </div>
+        <div class="images-header">
+            <?= $accueil_header['images'] ?>
         </div>
     </section>
     <div class="infinity-bar">
@@ -163,7 +166,7 @@
                 <div class="tag-home"><?= $accueil_methode['tag'] ?></div>
                 <div class="content"><?= $accueil_methode['content'] ?></div>
             </div>
-            <div class="xl:col-span-7 xl:col-start-1 xl:row-start-1 left-methode">
+            <div class="xl:col-span-7 xl:col-start-1 xl:row-start-1 accordions">
                 <?php $accordions = $accueil_methode['accordions'];
                 $i = 1;
 

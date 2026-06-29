@@ -8,12 +8,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 
     .content-home-header {
+        pointer-events: none;
         max-width: 840px;
         padding-inline: 80px;
         margin: auto;
         text-align: center;
+        z-index: 10;
+        position: relative;
+
+        a,
+        button {
+            pointer-events: auto;
+        }
 
         h1 {
             font-family: 'Newsreader';
@@ -39,6 +48,36 @@
             max-width: 620px;
             margin-inline: auto;
             margin-bottom: 1.5rem;
+        }
+    }
+
+    .images-header {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        img {
+            position: absolute;
+            width: 200px;
+            /* Taille max de l'image volante, ajuste selon tes souhaits */
+            height: 250px;
+            object-fit: cover;
+            opacity: 0;
+            pointer-events: none;
+            /* Pour que l'image ne bloque pas le mouvement de la souris */
+            transform: translate(-50%, -50%) scale(0.8);
+            filter: blur(1rem);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter .25s;
+            z-index: 1;
+
+            &.is-active {
+                opacity: .7;
+                // transform: translate(-50%, -50%) scale(1) rotate(var(--rotation, 0deg));
+                transform: translate(-50%, -50%) scale(1);
+                filter: blur(0);
+            }
         }
     }
 }
@@ -95,20 +134,20 @@
     }
 }
 
+.tag-home {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $coperwood;
+    text-align: center;
+    margin-bottom: 1rem;
+    letter-spacing: .1rem;
+    line-height: 1.6;
+}
+
 .home-section {
     padding: 120px 80px;
 
-    .tag-home {
-        font-family: Jost;
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: $coperwood;
-        text-align: center;
-        margin-bottom: 1rem;
-        letter-spacing: .1rem;
-        line-height: 1.6;
-    }
 
     .content {
         text-align: center;
@@ -363,55 +402,7 @@
 }
 
 .home-methode {
-    .left-methode {
-        .accordion-content {
-            border-bottom: 1px solid #e5d9c8;
-
-            &:has(.collapse:open) {
-                .circle {
-                    background-color: $green;
-                }
-            }
-        }
-
-
-        .circle {
-            background-color: #e5d9c8;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            transition: .2s;
-            margin-top: .5rem;
-        }
-
-        .collapse-title {
-            display: flex;
-            padding: 0;
-            align-items: center;
-            gap: 1rem;
-
-            .index {
-                font-size: 14px;
-                font-weight: 500;
-                color: $green;
-                letter-spacing: 0.05em;
-            }
-
-            .title {
-                font-family: 'Newsreader';
-                font-size: 24px;
-                line-height: 1.3;
-            }
-        }
-
-        .collapse-content {
-            p {
-                font-size: 16px;
-                line-height: 1.7;
-                max-width: 540px;
-            }
-        }
-    }
+    
 
     .right-methode {
 

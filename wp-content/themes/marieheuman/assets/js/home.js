@@ -54,3 +54,51 @@ function toggleApproche() {
 }
 
 toggleApproche();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.home-header');
+    const images = document.querySelectorAll('.images-header img');
+    
+    if (!header || images.length === 0) return;
+
+    let imageIndex = 0;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+    const threshold = 150; // Distance en pixels à parcourir avant d'afficher la prochaine image
+
+    header.addEventListener('mousemove', (e) => {
+        // Calcul de la distance parcourue par la souris
+        const distance = Math.hypot(e.clientX - lastMouseX, e.clientY - lastMouseY);
+
+        if (distance > threshold) {
+            // Sélection de l'image actuelle
+            const img = images[imageIndex];
+
+            // Positionnement par rapport à la section header
+            const rect = header.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Génération d'une rotation aléatoire entre -10 et 10 degrés
+            // const randomRotation = (Math.random() - 0.5) * 20;
+
+            // Appliquer les styles et la classe active
+            img.style.left = `${x}px`;
+            img.style.top = `${y}px`;
+            // img.style.setProperty('--rotation', `${randomRotation}deg`);
+            img.classList.add('is-active');
+
+            // Faire disparaître l'image après un court instant (ex: 1 seconde)
+            setTimeout(() => {
+                img.classList.remove('is-active');
+            }, 500);
+
+            // Mettre à jour les variables pour la prochaine image
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+
+            // Passer à l'image suivante (et boucler si on arrive à la fin)
+            imageIndex = (imageIndex + 1) % images.length;
+        }
+    });
+});

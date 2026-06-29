@@ -191,6 +191,11 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'block' => 'div',       // REMPLACE ou ENVELOPPE par une div
             'classes' => 'swiper-wrapper',
         ],
+        [
+            'title' => 'Newsreader italic',
+            'block' => 'p',       // REMPLACE ou ENVELOPPE par une div
+            'classes' => 'newsreader-italic',
+        ],
     ];
 
     $settings['style_formats'] = json_encode($style_formats);

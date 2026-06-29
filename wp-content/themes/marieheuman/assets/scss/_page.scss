@@ -7,6 +7,7 @@
     .container-header {
         max-width: 700px;
         margin-left: 25%;
+        // margin: auto;
 
         h1 {
             font-family: 'Newsreader';
@@ -53,6 +54,11 @@
             margin-bottom: 1.5rem;
         }
     }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
 .parti-pris {
@@ -81,13 +87,15 @@
 
 .vision {
     .content {
+        margin-bottom: 4rem;
+        text-align: center;
+
         h2 {
             font-size: 44px;
             margin-bottom: 1.5rem;
         }
 
         p {
-            text-align: center;
             font-size: 17px;
             line-height: 1.6;
             max-width: 640px;

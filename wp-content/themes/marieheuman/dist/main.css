@@ -1284,6 +1284,10 @@ main .more {
 .convictions .content p:not(:last-child) {
   margin-bottom: 1.5rem;
 }
+.convictions img {
+  width: 100%;
+  object-fit: cover;
+}
 
 .parti-pris {
   color: #462620;
@@ -1302,12 +1306,15 @@ main .more {
   line-height: 1.6;
 }
 
+.vision .content {
+  margin-bottom: 4rem;
+  text-align: center;
+}
 .vision .content h2 {
   font-size: 44px;
   margin-bottom: 1.5rem;
 }
 .vision .content p {
-  text-align: center;
   font-size: 17px;
   line-height: 1.6;
   max-width: 640px;

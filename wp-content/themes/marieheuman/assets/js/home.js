@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Faire disparaître l'image après un court instant (ex: 1 seconde)
             setTimeout(() => {
                 img.classList.remove('is-active');
-            }, 500);
+            }, 1000);
 
             // Mettre à jour les variables pour la prochaine image
             lastMouseX = e.clientX;

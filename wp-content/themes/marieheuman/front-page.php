@@ -18,7 +18,7 @@
             <?= $accueil_header['images'] ?>
         </div>
     </section>
-    <div class="infinity-bar">
+    <div class="infinity-bar header-infinity-bar">
         <!-- <div class="content-infinity-bar"> -->
         <?= $accueil_header['infinity_bar'] ?>
         <?= $accueil_header['infinity_bar'] ?>
@@ -196,33 +196,44 @@
 
     <section class="home-section section-rose section-avis">
         <?php $accueil_avis = get_field('accueil_avis'); ?>
-        <div class="tag-home"><?= $accueil_avis['tag'] ?></div>
-        <div class="title mb-16">
-            <?= $accueil_avis['titre'] ?>
-        </div>
+        <div class="top-content-avis">
+            <div class="tag-home">
+                <?= $accueil_avis['tag'] ?>
+            </div>
+            <div class="title mb-16">
+                <?= $accueil_avis['titre'] ?>
+            </div>
 
-        <div class="grid xl:grid-cols-3 gap-12 mb-20">
-            <?php
-            foreach ($accueil_avis['avis'] as $avi): ?>
-                <div>
-                    <div class="description mb-6"><?= $avi['description'] ?></div>
-                    <div class="tag mb-1"><?= $avi['tag'] ?></div>
-                    <div class="date">
-                        <?= $avi['date'] ?>
+            <div class="grid xl:grid-cols-3 gap-12 mb-20">
+                <?php
+                foreach ($accueil_avis['avis'] as $avi): ?>
+                    <div>
+                        <div class="description mb-6">
+                            <?= $avi['description'] ?>
+                        </div>
+                        <div class="tag mb-1">
+                            <?= $avi['tag'] ?>
+                        </div>
+                        <div class="date">
+                            <?= $avi['date'] ?>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
 
         <div class="confiance">
-            <?= $accueil_avis['confiance'] ?>
+            <p> <?= $accueil_avis['titre_confiance'] ?></p>
+            <div class="infinity-bar">
+                <?= $accueil_avis['images_confiance'] ?>
+                <?= $accueil_avis['images_confiance'] ?>
+            </div>
         </div>
     </section>
 
     <section class="home-section section-demarrer section-floral">
         <?php $accueil_demarrer = get_field('accueil_demarrer'); ?>
-        <div class="content-section-demarrer section-cadriage">
-            <div class="cadriage"></div>
+        <div class="content-section-demarrer section-cadriage-desert">
             <div class="tag-content-button">
                 <div class="tag-home">
                     <?= $accueil_demarrer['tag'] ?>

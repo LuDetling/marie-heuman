@@ -6,15 +6,29 @@
 
     #menu-toggle {
         width: 100%;
+        position: relative;
+        padding-bottom: 30px;
 
         .img-menu {
-            width: 60px;
+            width: 100%;
             height: 60px;
             background-size: contain;
             transition: .2s;
             background-repeat: no-repeat;
             background-position: center;
+        }
 
+        .show-hover {
+            position: absolute;
+            bottom: 0px;
+            transition: .2s;
+            opacity: 0;
+        }
+
+        &:hover {
+            .show-hover {
+                opacity: 1;
+            }
         }
     }
 
@@ -60,7 +74,11 @@
     background-color: $marron;
 
     .img-menu {
-        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png');
+        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-crème.png');
+    }
+
+    .show-hover {
+        color: $blue;
     }
 
     #menu-menu-principal {
@@ -82,7 +100,11 @@
     background-color: $rose;
 
     .img-menu {
-        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png');
+        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-marron.png');
+    }
+
+    .show-hover {
+        color: $desert;
     }
 
     #menu-menu-principal {
@@ -93,7 +115,7 @@
 
             &.current-menu-item {
                 a::before {
-                    background-color: $marron;
+                    background-color: $desert;
                 }
             }
         }
@@ -104,7 +126,11 @@
     background-color: $floral;
 
     .img-menu {
-        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png');
+        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-marron.png');
+    }
+
+    .show-hover {
+        color: $rose;
     }
 
     #menu-menu-principal {
@@ -126,7 +152,11 @@
     background-color: $desert;
 
     .img-menu {
-        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-clair.png');
+        background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-marron.png');
+    }
+
+    .show-hover {
+        color: $coperwood;
     }
 
     #menu-menu-principal {

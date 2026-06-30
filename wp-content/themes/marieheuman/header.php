@@ -15,7 +15,9 @@
                     <!-- Menu -->
                     <button id="menu-toggle" class="cursor-pointer flex items-center justify-center" aria-expanded="false" aria-controls="main-menu">
                         <div class="img-menu"></div>
+                        <p class="show-hover">↻ Changer l'ambiance</p>
                     </button>
+                    
                     <nav>
                         <?php
                         wp_nav_menu([

@@ -15,11 +15,11 @@ get_header();
     <?php
     $convictions = get_field('approche_convictions');
     ?>
-    <div class="grid xl:grid-cols-12 gap-12">
-        <div class=" xl:col-span-6">
+    <div class="grid xl:grid-cols-12 gap-12 items-center">
+        <div class=" xl:col-span-5">
             <img src="<?= $convictions['image']['url'] ?>" alt="<?= $convictions['image']['alt'] ?>">
         </div>
-        <div class="xl:col-span-6">
+        <div class="xl:col-span-7">
             <div class="tag-home"><?= $convictions['tag'] ?></div>
             <div class="content"><?= $convictions['content'] ?></div>
         </div>
@@ -117,7 +117,7 @@ get_header();
     </div>
 </section>
 
-<section class="studio section-blue">
+<section class="section-blue studio">
     <?php $studio = get_field('approche_studio'); ?>
     <div class="grid xl:grid-cols-12 gap-12 items-center">
         <div class="xl:col-span-5 h-full">
@@ -132,31 +132,33 @@ get_header();
 
 <section class="section-floral questions">
     <?php $questions = get_field('approche_questions'); ?>
-    <div class="tag-home">
-        <?= $questions['tag'] ?>
-    </div>
-    <div class="content">
-        <?= $questions['content'] ?>
-    </div>
-    <div class="accordions">
-        <?php $accordions = $questions['accordions'];
+    <div class="container-questions">
 
-        foreach ($accordions as $accordion):
-            ?>
-            <div class="flex items-start gap-6 py-8 accordion-content">
-                <div class="hidden md:block circle"></div>
-                <details class="collapse" name="accordion-methode-home">
-                    <summary class="collapse-title mb-2">
-                        <div class="title">
-                            <?= $accordion['titre'] ?>
+        <div class="tag-home">
+            <?= $questions['tag'] ?>
+        </div>
+        <div class="content">
+            <?= $questions['content'] ?>
+        </div>
+        <div class="accordions">
+            <?php $accordions = $questions['accordions'];
+            foreach ($accordions as $accordion):
+                ?>
+                <div class="flex items-start gap-6 py-8 accordion-content">
+                    <div class="hidden md:block circle"></div>
+                    <details class="collapse" name="accordion-methode-home">
+                        <summary class="collapse-title mb-2">
+                            <div class="title">
+                                <?= $accordion['titre'] ?>
+                            </div>
+                        </summary>
+                        <div class="collapse-content mt-4">
+                            <?= $accordion['content'] ?>
                         </div>
-                    </summary>
-                    <div class="collapse-content mt-4">
-                        <?= $accordion['content'] ?>
-                    </div>
-                </details>
-            </div>
-        <?php endforeach; ?>
+                    </details>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
 

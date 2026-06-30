@@ -148,17 +148,22 @@ add_filter('tiny_mce_before_init', function ($settings) {
 
     $style_formats = [
         [
-            'title' => 'Bloc blanc',
-            'block' => 'div',
-            'classes' => 'white-block',
-            'wrapper' => true,
+            'title' => 'à la ligne',
+            'inline' => 'span',
+            'classes' => 'inline-block',
         ],
-        [
-            'title' => 'Bloc beige',
-            'block' => 'div',
-            'classes' => 'beige-block',
-            'wrapper' => true,
-        ],
+        // [
+        //     'title' => 'Bloc blanc',
+        //     'block' => 'div',
+        //     'classes' => 'white-block',
+        //     'wrapper' => true,
+        // ],
+        // [
+        //     'title' => 'Bloc beige',
+        //     'block' => 'div',
+        //     'classes' => 'beige-block',
+        //     'wrapper' => true,
+        // ],
         [
             'title' => 'Citation',
             'block' => 'div',
@@ -193,7 +198,7 @@ add_filter('tiny_mce_before_init', function ($settings) {
         ],
         [
             'title' => 'Newsreader italic',
-            'block' => 'p',       // REMPLACE ou ENVELOPPE par une div
+            'block' => 'p',
             'classes' => 'newsreader-italic',
         ],
     ];
@@ -589,6 +594,108 @@ function handle_contact_form()
         exit;
     }
 }
+
+/**
+ * Injection manuelle des données structurées JSON-LD pour Marie Heuman Studio
+ */
+// add_action('wp_head', function () {
+
+//     if (is_front_page()) {
+
+//         $schema = [
+//             '@context' => 'https://schema.org',
+//             '@type' => 'ProfessionalService',
+//             '@id' => 'https://www.marieheuman.com/#studio',
+//             'name' => 'Marie Heuman Studio',
+//             'alternateName' => 'Marie Heuman EI',
+//             'description' => 'Studio d\'architecture d\'intérieur et de design global à Tours et Blois. Conception de lieux professionnels et résidentiels en Val de Loire et en France.',
+//             'url' => 'https://www.marieheuman.com',
+//             'logo' => 'https://www.marieheuman.com/logo.svg',
+//             'image' => 'https://www.marieheuman.com/marie-heuman-portrait.jpg',
+//             'telephone' => '+33661650745',
+//             'email' => 'contact@marieheuman.com',
+//             'priceRange' => '€€€€',
+
+//             'founder' => [
+//                 '@type' => 'Person',
+//                 'name' => 'Marie Heuman',
+//                 'jobTitle' => 'Architecte d\'intérieur & Designer global',
+//                 'image' => 'https://www.marieheuman.com/marie-heuman-portrait.jpg',
+//                 'sameAs' => [
+//                     'https://www.instagram.com/marieheuman',
+//                     'https://www.linkedin.com/in/marie-heuman',
+//                     'https://pinterest.com/marieheuman'
+//                 ]
+//             ],
+
+//             'address' => [
+//                 '@type' => 'PostalAddress',
+//                 'addressLocality' => 'Tours',
+//                 'postalCode' => '37000',
+//                 'addressRegion' => 'Centre-Val de Loire',
+//                 'addressCountry' => 'FR'
+//             ],
+
+//             'geo' => [
+//                 '@type' => 'GeoCoordinates',
+//                 'latitude' => 47.3941,
+//                 'longitude' => 0.6848
+//             ],
+
+//             'areaServed' => [
+//                 ['@type' => 'City', 'name' => 'Tours'],
+//                 ['@type' => 'City', 'name' => 'Blois'],
+//                 ['@type' => 'City', 'name' => 'Amboise'],
+//                 ['@type' => 'City', 'name' => 'Chinon'],
+//                 ['@type' => 'City', 'name' => 'Orléans'],
+//                 ['@type' => 'State', 'name' => 'Centre-Val de Loire'],
+//                 ['@type' => 'Country', 'name' => 'France']
+//             ],
+
+//             // --- CORRECTION ICI : On encapsule les services dans un OfferCatalog ---
+//             'hasOfferCatalog' => [
+//                 '@type' => 'OfferCatalog',
+//                 'name' => 'Prestations de services',
+//                 'itemListElement' => [
+//                     ['@type' => 'Service', 'serviceType' => 'Architecture d\'intérieur'],
+//                     ['@type' => 'Service', 'serviceType' => 'Design global'],
+//                     ['@type' => 'Service', 'serviceType' => 'Identité visuelle'],
+//                     ['@type' => 'Service', 'serviceType' => 'Direction artistique'],
+//                     ['@type' => 'Service', 'serviceType' => 'Mobilier sur-mesure'],
+//                     ['@type' => 'Service', 'serviceType' => 'Branding'],
+//                     ['@type' => 'Service', 'serviceType' => 'Décoration d\'intérieur']
+//                 ]
+//             ],
+//             // ---------------------------------------------------------------------
+
+//             'openingHoursSpecification' => [
+//                 [
+//                     '@type' => 'OpeningHoursSpecification',
+//                     'dayOfWeek' => [
+//                         'Monday',
+//                         'Tuesday',
+//                         'Wednesday',
+//                         'Thursday',
+//                         'Friday',
+//                         'Saturday',
+//                         'Sunday'
+//                     ],
+//                     'opens' => '00:00',
+//                     'closes' => '23:59'
+//                 ]
+//             ],
+
+//             'sameAs' => [
+//                 'https://www.instagram.com/marieheuman',
+//                 'https://www.linkedin.com/in/marie-heuman',
+//                 'https://pinterest.com/marieheuman'
+//             ]
+//         ];
+
+//         echo "\n\n";
+//         echo '<script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . '</script>' . "\n";
+//     }
+// });
 
 // END Formulaire de contact
 

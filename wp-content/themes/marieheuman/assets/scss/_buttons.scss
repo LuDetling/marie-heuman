@@ -57,7 +57,18 @@
     transition: .2s;
 
     &:hover {
-        background-color: $green
+        background-color: $green;
+    }
+}
+
+.white-rose-button {
+    background-color: $creme;
+    color: $marron;
+    transition: .2s;
+
+    &:hover {
+        background-color: $rose;
+        color: $floral;
     }
 }
 

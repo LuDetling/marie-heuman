@@ -6,6 +6,7 @@
 @use "blog";
 @use "faq";
 @use "page";
+@use "professionnel";
 @use "presse";
 @use "projet";
 @use "contact";
@@ -90,7 +91,7 @@ section {
 
     /* Votre couleur de base */
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
 
 }
 
@@ -98,6 +99,12 @@ section {
     .header-content {
         padding-top: 144px;
     }
+}
+
+.section-marron {
+    background-color: $marron;
+    padding: 160px 80px;
+    color: $floral;
 }
 
 .section-floral {
@@ -432,6 +439,28 @@ section {
     }
 }
 
+.content {
+    ul {
+        li {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+
+            &::before {
+                content: '';
+                height: 6px;
+                width: 6px;
+                background-color: $green;
+                border-radius: 50%;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: .5rem;
+            }
+        }
+    }
+}
+
 .green-list-container {
     display: flex;
     flex-wrap: wrap;
@@ -531,7 +560,8 @@ p {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: 'Newsreader';
 
     * {

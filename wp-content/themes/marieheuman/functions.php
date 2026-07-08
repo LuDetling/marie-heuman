@@ -148,6 +148,11 @@ add_filter('tiny_mce_before_init', function ($settings) {
 
     $style_formats = [
         [
+            'title' => 'span',
+            'inline' => 'span',
+            'classes' => 'span',
+        ],
+        [
             'title' => 'à la ligne',
             'inline' => 'span',
             'classes' => 'inline-block',

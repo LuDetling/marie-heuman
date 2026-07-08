@@ -248,7 +248,7 @@ section {
     .collapse-title {
         display: flex;
         padding: 0;
-        align-items: center;
+        // align-items: center;
         gap: 1rem;
 
         .index {
@@ -256,6 +256,7 @@ section {
             font-weight: 500;
             color: $green;
             letter-spacing: 0.05em;
+            margin-top: 5px;
         }
 
         .title {

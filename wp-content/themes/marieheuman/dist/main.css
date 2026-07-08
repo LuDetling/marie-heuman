@@ -1601,38 +1601,38 @@ main .more {
 #professionnel .offre .top-offre {
   padding: 160px 80px 80px;
 }
-#professionnel .offre .section-blue .content h3 {
+#professionnel .offre .temps1 .content h3 {
   margin-bottom: 0.75rem;
 }
-#professionnel .offre .section-blue .content p {
+#professionnel .offre .temps1 .content p {
   opacity: 0.6;
 }
-#professionnel .offre .section-blue .description {
+#professionnel .offre .temps1 .description {
   max-width: 680px;
 }
-#professionnel .offre .section-blue .description .newsreader-italic {
+#professionnel .offre .temps1 .description .newsreader-italic {
   font-size: 22px;
   font-weight: 300;
   line-height: 1.55;
   margin-bottom: 2.5rem;
 }
-#professionnel .offre .section-blue .description hr {
+#professionnel .offre .temps1 .description hr {
   color: rgba(70, 38, 32, 0.15);
   margin: 2rem 0;
 }
-#professionnel .offre .section-blue .description h4 {
+#professionnel .offre .temps1 .description h4 {
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
-#professionnel .offre .section-blue .description p {
+#professionnel .offre .temps1 .description p {
   line-height: 1.7;
 }
-#professionnel .offre .section-blue .card {
+#professionnel .offre .temps1 .card {
   background-color: #462620;
   border-radius: 0;
 }
-#professionnel .offre .section-blue .card .tag {
+#professionnel .offre .temps1 .card .tag {
   margin-bottom: 1rem;
   font-size: 11px;
   font-weight: 500;
@@ -1640,26 +1640,87 @@ main .more {
   letter-spacing: 0.1em;
   color: #ac9c35;
 }
-#professionnel .offre .section-blue .card .content {
+#professionnel .offre .temps1 .card .content {
   color: #fffdf3;
 }
-#professionnel .offre .section-blue .card .content h4 {
+#professionnel .offre .temps1 .card .content h4 {
   font-size: 38px;
   font-weight: 300;
   line-height: 1.1;
   margin-bottom: 1.5rem;
 }
-#professionnel .offre .section-blue .card .content h4 span {
+#professionnel .offre .temps1 .card .content h4 span {
   display: block;
 }
-#professionnel .offre .section-blue .card .content p {
+#professionnel .offre .temps1 .card .content p {
   margin-bottom: 2.5rem;
   font-size: 14px;
   line-height: 1.65;
   color: #f3ceb1;
 }
-#professionnel .offre .section-blue .card .btn {
+#professionnel .offre .temps1 .card .btn {
   width: fit-content;
+}
+#professionnel .offre .temps2 .accordions .collapse-content p span {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #A76523;
+  margin-bottom: 0.75rem;
+}
+#professionnel .offre .temps2 .accordions .title h4,
+#professionnel .offre .temps3 .accordions .title h4 {
+  font-size: 24px;
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+#professionnel .offre .temps2 .accordions .title h4 span,
+#professionnel .offre .temps3 .accordions .title h4 span {
+  background-color: #ac9c35;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+  color: #fffdf3;
+  padding: 2px 8px;
+  margin-left: 0.75rem;
+  font-family: "Jost";
+}
+#professionnel .offre .temps2 .accordions .title p,
+#professionnel .offre .temps3 .accordions .title p {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.65;
+}
+#professionnel .offre .temps2 .accordions .collapse-content p,
+#professionnel .offre .temps3 .accordions .collapse-content p {
+  font-size: 14px;
+  line-height: 1.65;
+}
+#professionnel .offre .temps2 .accordions .collapse-content ul li,
+#professionnel .offre .temps3 .accordions .collapse-content ul li {
+  display: flex;
+  align-items: start;
+  font-size: 14px;
+  line-height: 1.55;
+  gap: 10px;
+}
+#professionnel .offre .temps2 .accordions .collapse-content ul li:not(:last-child),
+#professionnel .offre .temps3 .accordions .collapse-content ul li:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+#professionnel .offre .temps2 .accordions .collapse-content ul li::before,
+#professionnel .offre .temps3 .accordions .collapse-content ul li::before {
+  content: "";
+  width: 4px;
+  min-width: 4px;
+  height: 4px;
+  min-height: 4px;
+  background-color: #A76523;
+  border-radius: 50%;
+  margin-top: 0.5rem;
 }
 
 .card-presse {
@@ -3286,7 +3347,6 @@ section {
 .accordions .collapse-title {
   display: flex;
   padding: 0;
-  align-items: center;
   gap: 1rem;
 }
 .accordions .collapse-title .index {
@@ -3294,6 +3354,7 @@ section {
   font-weight: 500;
   color: #ac9c35;
   letter-spacing: 0.05em;
+  margin-top: 5px;
 }
 .accordions .collapse-title .title {
   font-family: "Newsreader";

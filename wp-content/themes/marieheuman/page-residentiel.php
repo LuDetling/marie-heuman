@@ -180,7 +180,7 @@ get_header();
         <div class="accordions max-w-[800px] mx-auto">
             <?php $accordions = $questions['accordions'];
             foreach ($accordions as $accordion):
-                if (empty($accordion['titre'])): ?>
+                if (!empty($accordion['titre'])): ?>
                     <div class="flex items-start gap-6 py-8 accordion-content">
                         <div class="hidden md:block circle"></div>
                         <details class="collapse" name="accordion-methode-home">

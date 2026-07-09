@@ -2198,6 +2198,10 @@ main .more {
 .page-projet .contexte .grid p {
   line-height: 1.75;
 }
+.page-projet .images .tag-home {
+  padding-left: 80px;
+  padding-top: 160px;
+}
 .page-projet .images {
   padding: 0;
   position: relative;

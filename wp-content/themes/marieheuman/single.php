@@ -3,6 +3,11 @@
 
 $projet = get_field("projet");
 $categories = get_the_category();
+$indexSection = 0;
+function changeIndexSection($i)
+{
+    return str_pad($i, 2, "0", STR_PAD_LEFT) . '. —';
+}
 
 function transformer_en_swiper_slides($content)
 {
@@ -41,20 +46,26 @@ function transformer_en_swiper_slides($content)
             </ul>
         </div>
     </section>
-    <section class="section-floral contexte">
-        <?php $contexte = get_field('projet_contexte'); ?>
-        <div class="tag-home"><?= $contexte['tag'] ?></div>
-        <div class="content"><?= $contexte['titre'] ?></div>
-        <div class="grid xl:grid-cols-2 gap-16">
-            <div><?= $contexte['colonne_gauche'] ?></div>
-            <div><?= $contexte['colonne_droite'] ?></div>
-        </div>
-    </section>
+    <?php $contexte = get_field('projet_contexte');
+    if ($contexte['tag']): ?>
+        <section class="section-floral contexte">
+            <div class="tag-home"><?php $indexSection++;
+            echo (changeIndexSection($indexSection)); ?>
+                <?= $contexte['tag'] ?></div>
+            <div class="content"><?= $contexte['titre'] ?></div>
+            <div class="grid xl:grid-cols-2 gap-16">
+                <div><?= $contexte['colonne_gauche'] ?></div>
+                <div><?= $contexte['colonne_droite'] ?></div>
+            </div>
+        </section>
+    <?php endif; ?>
 
     <section class="section-projet-images images">
-        <?php
-        $images = get_field('projet_images');
-        if (!empty($images['images'])): ?>
+        <?php $images = get_field('projet_images'); ?>
+        <div class="tag-home"><?php $indexSection++;
+        echo (changeIndexSection($indexSection)); ?> <?= $images['tag'] ?>
+        </div>
+        <?php if (!empty($images['images'])): ?>
             <div class="lg:mt-0 mt-8">
                 <div class="swiper swiper-project-page">
                     <?= transformer_en_swiper_slides($images['images']) ?>
@@ -71,7 +82,10 @@ function transformer_en_swiper_slides($content)
         <?php $demarche = get_field('projet_demarche'); ?>
         <div class="grid xl:grid-cols-12 gap-12">
             <div class="xl:col-span-4">
-                <div class="tag-home"><?= $demarche['tag'] ?></div>
+                <div class="tag-home">
+                    <?php $indexSection++;
+                    echo (changeIndexSection($indexSection)); ?> <?= $demarche['tag'] ?>
+                </div>
                 <div class="titre"><?= $demarche['titre'] ?></div>
             </div>
             <div class="xl:col-span-7 xl:col-start-6">
@@ -83,7 +97,10 @@ function transformer_en_swiper_slides($content)
     <section class="section-desert identite">
         <?php $identite = get_field('projet_identite'); ?>
         <div class="top-identite">
-            <div class="tag-home"><?= $identite['tag'] ?></div>
+            <div class="tag-home">
+                <?php $indexSection++;
+                echo (changeIndexSection($indexSection)); ?> <?= $identite['tag'] ?>
+            </div>
             <div class="content"><?= $identite['content'] ?></div>
         </div>
         <?php
@@ -104,7 +121,8 @@ function transformer_en_swiper_slides($content)
         <?php $resultat = get_field('projet_resultat'); ?>
         <div class="grid xl:grid-cols-12 gap-12">
             <div class="xl:col-span-4">
-                <div class="tag-home">
+                <div class="tag-home"><?php $indexSection++;
+                echo (changeIndexSection($indexSection)); ?>
                     <?= $resultat['tag'] ?>
                 </div>
                 <div class="titre">
@@ -121,7 +139,9 @@ function transformer_en_swiper_slides($content)
 
     <section class="section-blue technique">
         <?php $technique = get_field('projet_technique'); ?>
-        <div class="tag-home"><?= $technique['tag'] ?></div>
+        <div class="tag-home"><?php $indexSection++;
+        echo (changeIndexSection($indexSection)); ?> <?= $technique['tag'] ?>
+        </div>
         <div class="content"><?= $technique['content'] ?></div>
         <ul class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-0">
             <?php $listes = $technique['listes'];
@@ -137,7 +157,8 @@ function transformer_en_swiper_slides($content)
     <section class="section-floral projet">
         <?php $projet = get_field('parlons_projet'); ?>
         <div class="section-cadriage-desert max-w-[720px] mx-auto">
-            <div class="tag-home">
+            <div class="tag-home"><?php $indexSection++;
+            echo (changeIndexSection($indexSection)); ?>
                 <?= $projet['tag'] ?>
             </div>
             <div class="content">
@@ -156,14 +177,17 @@ function transformer_en_swiper_slides($content)
     </section>
 
     <section class="home-section section-cadriage home-projets relative decouvrir">
-        <div class="tag-home">08. — À DÉCOUVRIR AUSSI</div>
+        <div class="tag-home"><?php $indexSection++;
+        echo (changeIndexSection($indexSection)); ?> À DÉCOUVRIR AUSSI
+        </div>
         <div class="cadriage"></div>
         <?php
         $accueil_projets = get_field('accueil_projets');
         ?>
         <div class="content-section-cadriage">
             <!-- <div class="header-home-projets">
-                <div class="tag-home">
+                <div class="tag-home"><?php $indexSection++;
+                echo (changeIndexSection($indexSection)); ?> 
                     <?= $accueil_projets['tag'] ?>
                 </div>
                 <div class="content">

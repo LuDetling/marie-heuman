@@ -122,7 +122,7 @@
                                         </div>
                                     <?php endif; ?>
                                     <h3 class="mb-2 mt-4"><?php the_title(); ?></h3>
-                                    <p>Résidentiel · Blois</p>
+                                    <p>A changer</p>
                                 </a>
                             </div>
                         <?php endwhile; ?>

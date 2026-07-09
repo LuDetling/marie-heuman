@@ -137,6 +137,25 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 add_filter('wp_generate_attachment_metadata', 'generate_pdf_thumbnail_from_upload', 10, 2);
 
+add_filter('wpseo_breadcrumb_links', 'marieheuman_yoast_breadcrumb');
+
+function marieheuman_yoast_breadcrumb($links)
+{
+    // Si on est sur un article seul (post)
+    if (is_single() && get_post_type() === 'post') {
+        // On crée manuellement le tableau pour ta page projets
+        $projets_link = [
+            'url' => home_url('/architecte-interieur-renovation-tours-realisations/'), // L'URL de ta page
+            'text' => 'Projets',                // Le texte à afficher
+        ];
+
+        // array_splice permet d'injecter notre lien à la position 1 (juste après "Accueil" qui est à la position 0)
+        array_splice($links, 1, 0, [$projets_link]);
+    }
+
+    return $links;
+}
+
 
 // STYLE WYSIWYG
 add_filter('mce_buttons_2', function ($buttons) {
@@ -157,12 +176,23 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'inline' => 'span',
             'classes' => 'inline-block',
         ],
+        [
+            'title' => 'uppercase',
+            'inline' => 'span',
+            'classes' => 'uppercase',
+        ],
         // [
         //     'title' => 'Bloc blanc',
         //     'block' => 'div',
         //     'classes' => 'white-block',
         //     'wrapper' => true,
         // ],
+        [
+            'title' => 'bordure rose',
+            'block' => 'div',
+            'classes' => 'border-rose',
+            'wrapper' => true,
+        ],
         // [
         //     'title' => 'Bloc beige',
         //     'block' => 'div',

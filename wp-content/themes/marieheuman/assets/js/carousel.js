@@ -98,6 +98,30 @@ const projectSwiper = new Swiper('.swiperProjectPage', {
     }
 });
 
+const swiperProjectPage = new Swiper('.swiper-project-page', {
+    slidesPerView: 'auto', // Par défaut sur mobile
+    spaceBetween: 3,
+    grabCursor: true, // Petit bonus pour l'UX
+    mousewheel: true,
+    navigation: {
+        nextEl: ".swiper-button-next-swiper-project-page",
+        prevEl: ".swiper-button-prev-swiper-project-page",
+    },
+
+});
+
+const swiperIdentitePage = new Swiper('.swiper-identite-page', {
+    slidesPerView: 'auto', // Par défaut sur mobile
+    spaceBetween: 3,
+    grabCursor: true, // Petit bonus pour l'UX
+    mousewheel: true,
+    navigation: {
+        nextEl: ".swiper-button-next-swiper-identite-page",
+        prevEl: ".swiper-button-prev-swiper-identite-page",
+    },
+
+});
+
 const commonOptions = {
     slidesPerView: 1,
     spaceBetween: 40,

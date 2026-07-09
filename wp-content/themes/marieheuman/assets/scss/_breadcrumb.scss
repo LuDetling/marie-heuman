@@ -1,0 +1,24 @@
+@use "globals" as *;
+
+#breadcrumbs {
+    padding: 2rem 80px 1rem;
+    color: rgb(229, 217, 200);
+    font-size: 12px;
+
+    >span {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    a {
+        font-size: 13px;
+        color: $marron;
+    }
+
+    .breadcrumb_last {
+        font-size: 13px;
+        font-weight: 500;
+        color: $coperwood;
+    }
+}

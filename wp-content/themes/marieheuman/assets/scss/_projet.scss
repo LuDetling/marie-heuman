@@ -2,8 +2,6 @@
 @use "buttons";
 @use "fontawesome";
 
-
-
 // LIST PROJETS
 #list-projets {
     .blog-filters {
@@ -402,6 +400,233 @@
                 width: 100%;
                 object-fit: cover;
                 transition: .3s;
+            }
+        }
+    }
+}
+
+.page-projet {
+    .header-projet {
+        padding: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .titre {
+            h1 {
+                margin-bottom: 1.25rem;
+                font-size: 52px;
+                font-weight: 300;
+                line-height: 1.05;
+                letter-spacing: -0.02em;
+            }
+
+            p {
+                margin-bottom: 1.25rem;
+                font-weight: 500;
+                font-size: 13px;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: $coperwood;
+            }
+        }
+
+        ul {
+            li {
+                font-size: 11px;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                padding: 5px 12px;
+
+                &.professionnel {
+                    background-color: $desert;
+                }
+
+                &.identite-visuelle {
+                    background-color: $marron;
+                    color: $floral;
+                }
+
+                &.residentiel {
+                    background-color: $blue;
+                }
+            }
+        }
+    }
+
+    .contexte {
+        .tag-home {
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 44px;
+            line-height: 1.2;
+            max-width: 760px;
+            margin-bottom: 4rem;
+        }
+
+        .grid {
+            h3 {
+                font-size: 22px;
+                font-weight: 500;
+                line-height: 1.3;
+                margin-bottom: 1.25rem;
+            }
+
+            p {
+                line-height: 1.75;
+            }
+        }
+    }
+
+    .images {
+        padding: 0;
+        position: relative;
+    }
+
+    .demarche {
+        .tag-home {
+            text-align: left;
+        }
+
+        .titre {
+            h2 {
+                font-size: 44px;
+                line-height: 1.2;
+            }
+        }
+
+        .content {
+            p {
+                font-size: 17px;
+                line-height: 1.75;
+
+                &:not(:last-child) {
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .tag-home {
+        text-align: left;
+    }
+
+    .identite {
+        padding: 0;
+
+        .top-identite {
+            padding: 160px 80px 40px;
+
+        }
+    }
+
+    h2 {
+        font-size: 44px;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .technique {
+        .tag-home {
+            color: rgb(70, 38, 32);
+            opacity: 0.65;
+        }
+
+        h2 {
+            margin-bottom: 3rem;
+        }
+
+        ul {
+            li {
+                border-top: 1px solid rgba(70, 38, 32, 0.15);
+                padding: 1.25rem 0;
+
+                .tag {
+                    font-size: 11px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: $coperwood;
+                    margin-bottom: 8px;
+                }
+
+                .content {
+                    font-family: Newsreader;
+                    font-size: 17px;
+                    font-weight: 300;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+
+    .decouvrir {
+        .tag-home {
+            padding-left: 80px;
+        }
+    }
+}
+
+.swiper {
+    background-color: $marron;
+
+    .swiper-wrapper {
+        height: 100%;
+        align-items: stretch;
+
+        .swiper-slide {
+            width: 100%;
+            max-width: 80%;
+
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 80vh;
+            border-radius: 0;
+        }
+    }
+
+}
+
+.swiper-navigation {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.25rem;
+    gap: 1rem;
+
+    >div {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background-color: $floral;
+        color: $marron;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .2s;
+
+        svg {
+            display: none;
+        }
+
+        &.swiper-button-prev {
+            &::after {
+                content: '←';
+            }
+        }
+
+        &.swiper-button-next {
+            &::after {
+                content: '→';
             }
         }
     }

@@ -191,6 +191,7 @@ section {
     background-size: 50px 50px;
     opacity: 0.98;
     padding: 5rem;
+
     .tag-home {
         text-align: center;
     }
@@ -704,35 +705,60 @@ h4 {
 //         }
 //     }
 // }
-
-.blog-filters {
-    margin-bottom: 3rem;
-
-    li:not(:last-child) {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-
-        @media screen and (min-width: 767px) {
-            &::after {
-                content: "";
-                width: 10px;
-                height: 10px;
-                background-color: $marron;
-                border-radius: 50%;
-                display: block;
-            }
-        }
+.customize-support {
+    .filters {
+        top: 2rem;
     }
+}
 
-    .filter-btn {
-        @extend .border-marron-button;
+.filters {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: $floral;
+    padding-block: 1.25rem;
+    border-block: 1px solid $desert;
+    margin-bottom: 60px;
 
-        &.active {
-            @extend .marron-button;
+    ul {
 
-            &:hover {
-                background-color: $marron;
+        li {
+            >span {
+                font-size: 11px;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                color: $coperwood;
+            }
+
+            button {
+                font-size: 13px;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: $marron;
+                cursor: pointer;
+                padding: 4px 0px;
+
+                >span {
+                    border-color: rgb(229, 217, 200);
+                    background-color: transparent;
+                }
+
+                .total {
+                    color: $coperwood;
+                    font-size: 11px;
+                }
+
+                &.active {
+                    >span {
+                        border-color: $coperwood;
+
+                        >span {
+                            background-color: $coperwood;
+                        }
+                    }
+                }
             }
         }
     }

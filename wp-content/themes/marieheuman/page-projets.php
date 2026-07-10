@@ -13,22 +13,35 @@ get_header();
     </section>
     <section class="portfolio section-floral">
         <!-- Filtres par catégorie -->
-        <div class="blog-filters">
-            <div class="tag-home">01. — LA SÉLECTION </div>
-            <ul class="flex items-center gap-4 overflow-x-auto">
-                <div>Filtre</div>
-                <li class="min-w-max">
-                    <button class="filter-btn active" data-category="">Tous</button>
+        <div class="tag-home">01. — LA SÉLECTION </div>
+        <div class="filters">
+            <?php
+            $categories = get_terms([
+                'taxonomy' => 'category',
+                'hide_empty' => true
+            ]);
+            $totalProjects = 0;
+            foreach ($categories as $cat):
+                $totalProjects += $cat->count;
+            endforeach;
+            ?>
+            <ul class="flex items-center gap-12 overflow-x-auto">
+                <li><span>Filtre</span></li>
+                <li class="min-w-max flex ">
+                    <button class="filter-btn active flex items-center gap-2.5 transition-colors duration-200 group"
+                        data-category=""><span
+                            class="w-3.5 h-3.5 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-200"><span
+                                class="w-2 h-2 rounded-full"></span></span>
+                        Tous<span class="total">(<?= $totalProjects ?>)</span></button>
                 </li>
+
                 <?php
-                $categories = get_terms([
-                    'taxonomy' => 'category',
-                    'hide_empty' => true
-                ]);
                 if ($categories && !is_wp_error($categories)):
                     foreach ($categories as $cat):
                         if ($cat->slug !== 'identite-visuelle'):
-                            echo '<li class="min-w-max"><button class="filter-btn" data-category="' . esc_attr($cat->slug) . '">' . esc_html($cat->name) . '</button></li>';
+                            echo '<li class="min-w-max"><button class="filter-btn flex items-center gap-2.5 transition-colors duration-200 group" data-category="' . esc_attr($cat->slug) . '"><span
+                            class="w-3.5 h-3.5 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-200"><span
+                                class="w-2 h-2 rounded-full"></span></span>' . esc_html($cat->name) . '<span class="total">('. $cat->count .')</span></button></li>';
                         endif;
                     endforeach;
                 endif;

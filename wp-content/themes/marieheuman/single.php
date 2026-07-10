@@ -47,11 +47,12 @@ function transformer_en_swiper_slides($content)
         </div>
     </section>
     <?php $contexte = get_field('projet_contexte');
-    if ($contexte['tag']): ?>
+    if (!empty($contexte['tag'])): ?>
         <section class="section-floral contexte">
             <div class="tag-home"><?php $indexSection++;
             echo (changeIndexSection($indexSection)); ?>
-                <?= $contexte['tag'] ?></div>
+                <?= $contexte['tag'] ?>
+            </div>
             <div class="content"><?= $contexte['titre'] ?></div>
             <div class="grid xl:grid-cols-2 gap-16">
                 <div><?= $contexte['colonne_gauche'] ?></div>
@@ -60,130 +61,146 @@ function transformer_en_swiper_slides($content)
         </section>
     <?php endif; ?>
 
-    <section class="section-projet-images images">
-        <?php $images = get_field('projet_images'); ?>
-        <div class="tag-home"><?php $indexSection++;
-        echo (changeIndexSection($indexSection)); ?> <?= $images['tag'] ?>
-        </div>
-        <?php if (!empty($images['images'])): ?>
-            <div class="lg:mt-0 mt-8">
-                <div class="swiper swiper-project-page">
-                    <?= transformer_en_swiper_slides($images['images']) ?>
+    <?php $images = get_field('projet_images');
+    if (!empty($images['tag'])): ?>
+        <section class="section-projet-images images">
+            <div class="tag-home"><?php $indexSection++;
+            echo (changeIndexSection($indexSection)); ?>     <?= $images['tag'] ?>
+            </div>
+            <?php if (!empty($images['images'])): ?>
+                <div class="lg:mt-0 mt-8">
+                    <div class="swiper swiper-project-page">
+                        <?= transformer_en_swiper_slides($images['images']) ?>
+                    </div>
+                    <div class="flex gap-8 swiper-navigation justify-center items-center">
+                        <div class="swiper-button-prev swiper-button-prev-swiper-project-page"></div>
+                        <div class="swiper-button-next swiper-button-next-swiper-project-page"></div>
+                    </div>
                 </div>
-                <div class="flex gap-8 swiper-navigation justify-center items-center">
-                    <div class="swiper-button-prev swiper-button-prev-swiper-project-page"></div>
-                    <div class="swiper-button-next swiper-button-next-swiper-project-page"></div>
+            <?php endif; ?>
+        </section>
+    <?php endif; ?>
+
+    <?php $demarche = get_field('projet_demarche');
+    if (!empty($images['tag'])): ?>
+
+        <section class="section-floral demarche">
+            <div class="grid xl:grid-cols-12 gap-12">
+                <div class="xl:col-span-4">
+                    <div class="tag-home">
+                        <?php $indexSection++;
+                        echo (changeIndexSection($indexSection)); ?>     <?= $demarche['tag'] ?>
+                    </div>
+                    <div class="titre"><?= $demarche['titre'] ?></div>
+                </div>
+                <div class="xl:col-span-7 xl:col-start-6">
+                    <div class="content"><?= $demarche['content'] ?></div>
                 </div>
             </div>
-        <?php endif; ?>
-    </section>
+        </section>
+    <?php endif; ?>
 
-    <section class="section-floral demarche">
-        <?php $demarche = get_field('projet_demarche'); ?>
-        <div class="grid xl:grid-cols-12 gap-12">
-            <div class="xl:col-span-4">
+    <?php $identite = get_field('projet_identite');
+    if (!empty($images['tag'])): ?>
+
+        <section class="section-desert identite">
+            <div class="top-identite">
                 <div class="tag-home">
                     <?php $indexSection++;
-                    echo (changeIndexSection($indexSection)); ?> <?= $demarche['tag'] ?>
+                    echo (changeIndexSection($indexSection)); ?>     <?= $identite['tag'] ?>
                 </div>
-                <div class="titre"><?= $demarche['titre'] ?></div>
+                <div class="content"><?= $identite['content'] ?></div>
             </div>
-            <div class="xl:col-span-7 xl:col-start-6">
-                <div class="content"><?= $demarche['content'] ?></div>
-            </div>
-        </div>
-    </section>
+            <?php
+            if (!empty($identite['images'])): ?>
+                <div class="lg:mt-0 mt-8">
+                    <div class="swiper swiper-identite-page">
+                        <?= transformer_en_swiper_slides($identite['images']) ?>
+                    </div>
+                    <div class="flex gap-8 swiper-navigation justify-center items-center">
+                        <div class="swiper-button-prev swiper-button-prev-swiper-identite-page"></div>
+                        <div class="swiper-button-next swiper-button-next-swiper-identite-page"></div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </section>
+    <?php endif; ?>
 
-    <section class="section-desert identite">
-        <?php $identite = get_field('projet_identite'); ?>
-        <div class="top-identite">
-            <div class="tag-home">
-                <?php $indexSection++;
-                echo (changeIndexSection($indexSection)); ?> <?= $identite['tag'] ?>
-            </div>
-            <div class="content"><?= $identite['content'] ?></div>
-        </div>
-        <?php
-        if (!empty($identite['images'])): ?>
-            <div class="lg:mt-0 mt-8">
-                <div class="swiper swiper-identite-page">
-                    <?= transformer_en_swiper_slides($identite['images']) ?>
-                </div>
-                <div class="flex gap-8 swiper-navigation justify-center items-center">
-                    <div class="swiper-button-prev swiper-button-prev-swiper-identite-page"></div>
-                    <div class="swiper-button-next swiper-button-next-swiper-identite-page"></div>
-                </div>
-            </div>
-        <?php endif; ?>
-    </section>
+    <?php $resultat = get_field('projet_resultat');
+    if (!empty($images['tag'])): ?>
 
-    <section class="section-floral demarche">
-        <?php $resultat = get_field('projet_resultat'); ?>
-        <div class="grid xl:grid-cols-12 gap-12">
-            <div class="xl:col-span-4">
+        <section class="section-floral demarche">
+            <div class="grid xl:grid-cols-12 gap-12">
+                <div class="xl:col-span-4">
+                    <div class="tag-home"><?php $indexSection++;
+                    echo (changeIndexSection($indexSection)); ?>
+                        <?= $resultat['tag'] ?>
+                    </div>
+                    <div class="titre">
+                        <?= $resultat['titre'] ?>
+                    </div>
+                </div>
+                <div class="xl:col-span-7 xl:col-start-6">
+                    <div class="content">
+                        <?= $resultat['content'] ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+
+    <?php $technique = get_field('projet_technique');
+    if (!empty($images['tag'])): ?>
+
+        <section class="section-blue technique">
+            <div class="tag-home"><?php $indexSection++;
+            echo (changeIndexSection($indexSection)); ?>     <?= $technique['tag'] ?>
+            </div>
+            <div class="content"><?= $technique['content'] ?></div>
+            <ul class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-0">
+                <?php $listes = $technique['listes'];
+                foreach ($listes as $item): ?>
+                    <li>
+                        <div class="tag"><?= $item['tag'] ?></div>
+                        <div class="content"><?= $item['content'] ?></div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </section>
+    <?php endif; ?>
+
+    <?php $projet = get_field('parlons_projet');
+    if (!empty($images['tag'])): ?>
+
+        <section class="section-floral projet">
+            <div class="section-cadriage-desert max-w-[720px] mx-auto">
                 <div class="tag-home"><?php $indexSection++;
                 echo (changeIndexSection($indexSection)); ?>
-                    <?= $resultat['tag'] ?>
+                    <?= $projet['tag'] ?>
                 </div>
-                <div class="titre">
-                    <?= $resultat['titre'] ?>
-                </div>
-            </div>
-            <div class="xl:col-span-7 xl:col-start-6">
                 <div class="content">
-                    <?= $resultat['content'] ?>
+                    <?= $projet['content'] ?>
+                </div>
+                <div class="flex items-center justify-center gap-6 flex-wrap">
+                    <a href="<?= $projet['lien_1']['url'] ?>" class="button marron-button">
+                        <?= $projet['lien_1']['title'] ?>
+                    </a>
+                    <a href="<?= $projet['lien_2']['url'] ?>" class="secondary-button">
+                        <?= $projet['lien_2']['title'] ?>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="cadriage"></div>
+        </section>
+    <?php endif; ?>
 
-    <section class="section-blue technique">
-        <?php $technique = get_field('projet_technique'); ?>
-        <div class="tag-home"><?php $indexSection++;
-        echo (changeIndexSection($indexSection)); ?> <?= $technique['tag'] ?>
-        </div>
-        <div class="content"><?= $technique['content'] ?></div>
-        <ul class="grid lg:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-0">
-            <?php $listes = $technique['listes'];
-            foreach ($listes as $item): ?>
-                <li>
-                    <div class="tag"><?= $item['tag'] ?></div>
-                    <div class="content"><?= $item['content'] ?></div>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </section>
 
-    <section class="section-floral projet">
-        <?php $projet = get_field('parlons_projet'); ?>
-        <div class="section-cadriage-desert max-w-[720px] mx-auto">
-            <div class="tag-home"><?php $indexSection++;
-            echo (changeIndexSection($indexSection)); ?>
-                <?= $projet['tag'] ?>
-            </div>
-            <div class="content">
-                <?= $projet['content'] ?>
-            </div>
-            <div class="flex items-center justify-center gap-6 flex-wrap">
-                <a href="<?= $projet['lien_1']['url'] ?>" class="button marron-button">
-                    <?= $projet['lien_1']['title'] ?>
-                </a>
-                <a href="<?= $projet['lien_2']['url'] ?>" class="secondary-button">
-                    <?= $projet['lien_2']['title'] ?>
-                </a>
-            </div>
-        </div>
-        <div class="cadriage"></div>
-    </section>
-
+    <?php $accueil_projets = get_field('accueil_projets'); ?>
     <section class="home-section section-cadriage home-projets relative decouvrir">
         <div class="tag-home"><?php $indexSection++;
         echo (changeIndexSection($indexSection)); ?> À DÉCOUVRIR AUSSI
         </div>
         <div class="cadriage"></div>
-        <?php
-        $accueil_projets = get_field('accueil_projets');
-        ?>
         <div class="content-section-cadriage">
             <!-- <div class="header-home-projets">
                 <div class="tag-home"><?php $indexSection++;

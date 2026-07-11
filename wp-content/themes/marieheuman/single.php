@@ -37,7 +37,7 @@ function transformer_en_swiper_slides($content)
                 <h1><?= wp_title() ?></h1>
                 <?= $projet['description'] ?>
             </div>
-            <ul class="flex flex-wrap gap-2">
+            <ul class="flex flex-wrap gap-2 categories">
                 <?php foreach ($categories as $cat):
                     $categoryClasses = $cat->slug;
                     ?>

@@ -2085,6 +2085,13 @@
       overscroll-behavior: contain;
     }
   }
+  .drawer-content {
+    @layer daisyui.component {
+      grid-column-start: 2;
+      grid-row-start: 1;
+      min-width: calc(0.25rem * 0);
+    }
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -2999,6 +3006,20 @@
   .xl\:flex-wrap {
     @media (width >= 80rem) {
       flex-wrap: wrap;
+    }
+  }
+  .xl\:even\:order-1 {
+    @media (width >= 80rem) {
+      &:nth-child(even) {
+        order: 1;
+      }
+    }
+  }
+  .xl\:even\:order-2 {
+    @media (width >= 80rem) {
+      &:nth-child(even) {
+        order: 2;
+      }
     }
   }
   .\32 xl\:grid-cols-3 {

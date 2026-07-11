@@ -1818,6 +1818,66 @@ main .more {
   text-align: left;
   margin-bottom: 2rem;
 }
+#list-projets .categories li {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+}
+#list-projets .categories li.professionnel {
+  background-color: #f3ceb1;
+}
+#list-projets .categories li.identite-visuelle {
+  background-color: #462620;
+  color: #fffdf3;
+}
+#list-projets .categories li.residentiel {
+  background-color: #bed0ce;
+}
+#list-projets .projets .card-article {
+  padding-block: 60px;
+  border-bottom: 1px solid rgb(229, 217, 200);
+  gap: 80px;
+  align-items: center;
+}
+@media (width >= 80rem) {
+  #list-projets .projets .card-article:nth-child(even) .content-img {
+    order: 2;
+  }
+}
+#list-projets .projets .card-article:hover img {
+  transform: scale(1.02);
+}
+#list-projets .projets .card-article:hover .text-card h3 {
+  color: #A76523;
+}
+#list-projets .projets .card-article .content-img {
+  height: 500px;
+  overflow: hidden;
+}
+#list-projets .projets .card-article .content-img img {
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+  width: 100%;
+}
+#list-projets .projets .card-article .text-card h3 {
+  font-size: 52px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  transition: 0.3s;
+  margin-bottom: 14px;
+}
+#list-projets .projets .card-article .text-card p {
+  margin-bottom: 1.5rem;
+}
+#list-projets .projets .card-article .text-card .categories {
+  margin-bottom: 40px;
+}
+#list-projets .projets .card-article .text-card .secondary-button {
+  display: inline-block;
+}
 
 .swiperAvis {
   max-width: 1000px;
@@ -2064,23 +2124,6 @@ main .more {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #A76523;
-}
-.page-projet .header-projet ul li {
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 5px 12px;
-}
-.page-projet .header-projet ul li.professionnel {
-  background-color: #f3ceb1;
-}
-.page-projet .header-projet ul li.identite-visuelle {
-  background-color: #462620;
-  color: #fffdf3;
-}
-.page-projet .header-projet ul li.residentiel {
-  background-color: #bed0ce;
 }
 .page-projet .contexte .tag-home {
   text-align: left;

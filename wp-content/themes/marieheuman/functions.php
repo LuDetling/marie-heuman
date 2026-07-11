@@ -341,10 +341,17 @@ function load_posts()
     $html = '';
 
     if ($query->have_posts()) {
+        $counter = 0;
         ob_start();
         while ($query->have_posts()) {
             $query->the_post();
-            get_template_part($template, 'list');
+            
+            if ($counter === 0 && $post_type === 'blog'):
+                get_template_part('template-parts/first-card-blog');
+            else:
+                get_template_part($template, 'list');
+            endif;
+            $counter++;
         }
         $html = ob_get_clean();
     } else {

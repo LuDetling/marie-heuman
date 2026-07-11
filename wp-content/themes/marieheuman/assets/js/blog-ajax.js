@@ -60,7 +60,7 @@
                 },
                 success: (response) => {
                     if (response.success) {
-                        this.grid.html(response.data.html);
+                        this.grid.html(response.data.html);                        
                         this.maxPages = response.data.max_pages;
                         this.renderPagination();
                     }

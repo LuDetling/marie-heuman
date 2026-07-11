@@ -11,7 +11,7 @@ $projet = get_field('projet');
     <div class="text-card">
         <h3><?php the_title(); ?></h3>
         <?= $projet['description'] ?>
-        <ul class="flex flex-wrap gap-2 categories">
+        <ul class="flex flex-wrap gap-2 categories-projets">
             <?php $categories = get_the_category();
             foreach ($categories as $cat):
                 $categoryClasses = $cat->slug;

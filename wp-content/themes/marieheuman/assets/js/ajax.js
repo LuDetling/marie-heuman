@@ -63,6 +63,9 @@
                 success: (response) => {
                     if (response.success) {
                         this.grid.html(response.data.html);
+                                                $('#ajax-grid div').first().addClass('first-article');
+                        console.log('coucou');
+
                         this.maxPages = response.data.max_pages;
                         this.renderPagination();
                     }

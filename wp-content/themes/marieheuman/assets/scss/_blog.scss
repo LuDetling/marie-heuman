@@ -5,14 +5,17 @@
 
 .categories-blog {
   li {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    padding: 5px 12px;
+    padding: 3px 8px;
+    display: inline-block;
+    white-space: nowrap;
 
     &.decryptages {
       background-color: $desert;
+      color: $marron;
     }
 
     &.coulisses {
@@ -21,6 +24,7 @@
     }
   }
 }
+
 
 // END HEADER
 // LIST
@@ -76,11 +80,16 @@
 //   }
 
 // }
+.articles {
+  .tag-home {
+    text-align: left;
+  }
+}
 
 .blog {
   .first-card-article {
 
-    padding-block: 60px;
+    padding-bottom: 60px;
     border-bottom: 1px solid rgb(229, 217, 200);
     gap: 80px;
     align-items: center;
@@ -221,26 +230,73 @@
   }
 }
 
+.page-journal {
+  .lettre {
+    .tag-home {
+      text-align: left;
+    }
 
-// .blog-meta {
-//   color: $secondary;
-//   margin-bottom: 1rem;
+    h2 {
+      font-size: 44px;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
 
-//   .date {
+    p {
+      font-size: 17px;
+      line-height: 1.65;
+    }
 
-//     span::first-letter {
-//       text-transform: uppercase;
-//     }
+    .newsletter {
+      padding: 3rem;
+      background-color: $floral;
 
-//     svg {
-//       fill: $secondary;
-//       display: inline;
-//       width: 20px;
-//     }
-//   }
-// }
+      .email {
+        label {
+          font-size: 12px;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: $coperwood;
+          margin-bottom: .5rem;
+          display: block;
+        }
 
-// END LIST
+        #email-newsletter {
+          flex: 1 1 0%;
+          padding: 12px 14px;
+          border-width: 1px medium 1px 1px;
+          border-style: solid none solid solid;
+          border-color: rgb(229, 217, 200);
+          border-image: none;
+          background-color: rgb(255, 253, 243);
+          font-size: 15px;
+          outline: none;
+          border-radius: 0;
+          height: 100%;
+        }
+
+        .marron-button {
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          cursor: pointer;
+          padding-block: .75rem;
+          padding-inline: 1.5rem;
+          transition: .2s;
+        }
+
+        span {
+          font-size: 12px;
+          opacity: 0.6;
+          display: block;
+          margin-block: .75rem;
+        }
+      }
+    }
+  }
+}
+
 
 // BLOG SINGLE
 main {

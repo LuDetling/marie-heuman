@@ -151,6 +151,13 @@ function marieheuman_yoast_breadcrumb($links)
 
         // array_splice permet d'injecter notre lien à la position 1 (juste après "Accueil" qui est à la position 0)
         array_splice($links, 1, 0, [$projets_link]);
+    } else if (get_post_type() === 'blog') {
+        $projets_link = [
+            'url' => home_url('/blog-architecture-interieure-tours-blois/'), // L'URL de ta page
+            'text' => 'Journal',                // Le texte à afficher
+        ];
+
+        array_splice($links, 1, 0, [$projets_link]);
     }
 
     return $links;
@@ -345,7 +352,7 @@ function load_posts()
         ob_start();
         while ($query->have_posts()) {
             $query->the_post();
-            
+
             if ($counter === 0 && $post_type === 'blog'):
                 get_template_part('template-parts/first-card-blog');
             else:

@@ -16,6 +16,7 @@ get_header();
 
     <!-- ARTICLES -->
     <section class="blog-section articles section-floral">
+        <div class="tag-home">01. — LES ÉCRITS</div>
 
         <!-- Filtres par catégorie -->
         <div class="filters">
@@ -68,15 +69,42 @@ get_header();
         <!-- Pagination -->
         <div class="pagination" id="ajax-pagination"></div>
 
-        <div class="newsletter-block guide-newsletter">
-            <h2>Entrez dans les coulisses du studio et restez informé des nouveautés</h2>
-            <p>Recevez directement dans votre boîte mail mes nouveaux projets, articles, inspirations, ressources
-                utiles… ainsi que des offres et avantages proposés par mes partenaires.</p>
-            <p class="beige">1 à 2 emails par mois • Pas de spam</p>
-            <?= do_shortcode("[sibwp_form id=3]") ?>
+    </section>
+    <?php $lettre = get_field('blog_lettre'); ?>
+    <section class="section-blue lettre">
+        <div class="grid xl:grid-cols-12 gap-12 items-center">
+            <div class="xl:col-span-5">
+                <div class="tag-home"><?= $lettre['tag'] ?></div>
+                <div class="content"><?= $lettre['content'] ?></div>
+            </div>
+            <div class="xl:col-span-6 xl:col-start-7">
+                <div class="newsletter">
+                    <?= do_shortcode("[sibwp_form id=3]") ?>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- END ARTICLES -->
+
+    <section class="section-floral projet">
+        <?php $projet = get_field('parlons_projet'); ?>
+        <div class="section-cadriage-desert max-w-[720px] mx-auto">
+            <div class="tag-home">
+                <?= $projet['tag'] ?>
+            </div>
+            <div class="content">
+                <?= $projet['content'] ?>
+            </div>
+            <div class="flex items-center justify-center gap-6 flex-wrap">
+                <a href="<?= $projet['lien_1']['url'] ?>" class="button marron-button">
+                    <?= $projet['lien_1']['title'] ?>
+                </a>
+                <a href="<?= $projet['lien_2']['url'] ?>" class="secondary-button">
+                    <?= $projet['lien_2']['title'] ?>
+                </a>
+            </div>
+        </div>
+        <div class="cadriage"></div>
+    </section>
 
 </main>
 <?php

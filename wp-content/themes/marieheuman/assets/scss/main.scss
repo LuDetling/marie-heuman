@@ -22,6 +22,11 @@
     line-height: normal;
 }
 
+body {
+    background-color: $floral;
+    color: $marron;
+}
+
 .site-container-left {
     width: 220px;
 }
@@ -303,6 +308,38 @@ section {
     border-left: 2px solid $rose;
 }
 
+p:has(.badge) {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 0;
+    border: none;
+}
+
+.badge-desert {
+    background-color: $desert;
+    color: $marron;
+}
+
+.badge-rose {
+    background-color: $rose;
+    color: $floral;
+}
+
+.badge-coperwood {
+    background-color: $coperwood;
+    color: $floral;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -346,6 +383,12 @@ section {
     }
 }
 
+.block-desert {
+    margin: 48px 0px;
+    padding: 28px 32px;
+    background-color: $desert;
+    border-left: 2px solid rgb(167, 101, 35);
+}
 
 .beige-block {
     background-color: $white;
@@ -455,6 +498,18 @@ section {
 }
 
 .content {
+    h2 {
+        font-size: 44px;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 17px;
+        line-height: 1.6;
+        max-width: 640px;
+    }
+
     ul {
         li {
             display: flex;

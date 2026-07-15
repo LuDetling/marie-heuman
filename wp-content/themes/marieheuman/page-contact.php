@@ -2,64 +2,33 @@
 /* Template Name: Page Contact */
 get_header();
 ?>
-<main class="md:ml-20" id="page-contact">
-    <section class="header-content section-white">
-        <!-- <div class="container"> -->
-        <?php
-        $header = get_field('header_content');
-        ?>
-        <h1><?= the_title() ?></h1>
-        <?= $header['titre'] ?>
-        <!-- </div> -->
-    </section>
-    <div class="img-under-header"></div>
-    <section class="decouverte">
-        <!-- <div class="container"> -->
+<main id="page-contact">
+    <!-- <div id="app"></div> -->
 
-        <?php
-        $contact = get_field('page_contact')['appel'];
-        ?>
-        <span class="tag-home"><?= $contact['tag'] ?></span>
-        <?= $contact['titre'] ?>
-        <div class="flex flex-wrap gap-10 md:gap-20 md:justify-center mt-12">
+    <section class="header-content section-floral">
+        <div class="container-header">
             <?php
-            // On boucle de 1 à 3 pour parcourir les champs numérotés manuellement
-            for ($i = 1; $i <= 3; $i++) {
-                // 1. Définition de la clé dynamique (ex: 'icone_titre_1')
-                $groupe_icone = $contact['groupe_icone_titre']['icone_titre_' . $i];
-                // 2. Vérification de l'existence de la donnée pour éviter les erreurs PHP
-                if (isset($groupe_icone)) {
-
-                    // Stockage de la classe de l'icône (ex: 'dashicons-phone')
-            
-                    // 3. Affichage sécurisé
-                    ?>
-                    <div class="content-icone-texte flex items-center gap-4 md:block">
-                        <div class="dashicons">
-                            <?php
-                            $icon_path = get_attached_file($groupe_icone['icone']);
-                            // Vérifie si le fichier existe et l'affiche
-                            if (file_exists($icon_path)) {
-                                echo file_get_contents($icon_path);
-                            }
-                            ?>
-                        </div>
-                        <div class="texte"><?= $groupe_icone['description'] ?></div>
-                    </div>
-                    <?php
-                }
-            }
+            $header = get_field('header_content');
             ?>
+            <?= $header['titre'] ?>
+            <a href="<?= $header['lien_1']['url'] ?>" class="button marron-button"><?= $header['lien_1']['title'] ?></a>
         </div>
-        <!-- CALENDLY -->
-        <div id="custom-booking-app" class="section-white">
+    </section>
+    <section class="section-desert decouverte">
 
+        <?php
+        $decouverte = get_field('contact_decouverte');
+        ?>
+        <div class="tag-home"><?= $decouverte['tag'] ?></div>
+        <div class="content"><?= $decouverte['content'] ?></div>
+        <!-- CALENDLY -->
+        <div id="custom-booking-app" class="section-floral">
             <div id="step-1" class="booking-step active">
                 <div class="flex gap-4 justify-between header-form-calendly">
                     <div>
                         <a href="#custom-booking-app" id="previous-date" class="hidden">Précédentes dates</a>
                     </div>
-                    <h4 class="step-title">Sélectionnez une date et une heure</h4>
+                    <h3 class="step-title">Sélectionnez une date et une heure</h3>
                     <div>
                         <a href="#custom-booking-app" id="next-date">Prochaines dates</a>
                     </div>
@@ -70,8 +39,8 @@ get_header();
 
                 <div class="action-area">
                     <div class="flex gap-4 justify-center">
-                        <a id="go-to-step-2" href="#custom-booking-app" class="orange-button locked"
-                            disabled>Suivant</a>
+                        <a id="go-to-step-2" href="#custom-booking-app" class="button marron-button locked"
+                            disabled>Etape suivante</a>
 
                     </div>
                     <p class="summary-text"></p>
@@ -103,153 +72,62 @@ get_header();
                 <div class="info-datas mt-12"></div>
                 <div class="action-area flex gap-10 md:gap-20 items-center flex-wrap md:flex-nowrap">
                     <div class="md:w-1/2 w-full">
-                        <a id="back-to-step-1" href="#custom-booking-app" class="second-link-orange">Retour</a>
+                        <a id="back-to-step-1" href="#custom-booking-app" class="secondary-button">← Retour</a>
                     </div>
                     <div class="md:w-1/2 w-full">
-                        <button class="orange-button send-button" form="form-calendly">Envoyez votre
+                        <button class="button marron-button send-button" form="form-calendly">Envoyez votre
                             demande</button>
                         <span class="loading loading-spinner loading-sm hidden"></span>
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
             <!-- END CALENDLY -->
+        </div>
+        <div class="other"><?= $decouverte['other'] ?></div>
 
     </section>
-    <!-- CONTACT -->
-    <section class="contact section-white">
-        <?php
-        $contact_form = $contact["contact"];
-        ?>
 
-        <span class="tag-home"><?= $contact_form['tag'] ?></span>
-        <?= $contact_form['titre'] ?>
-        <div class="success-contact mt-12">
-            <?php if (isset($_GET['sent']) && $_GET['sent'] === 'success'): ?>
-                <p>Merci ! Votre demande a bien été envoyée. Je reviens vers vous très prochainement.</p>
-            <?php endif; ?>
-            <?php if (isset($_GET['sent']) && $_GET['sent'] === 'error'): ?>
-                <p>Une erreur est survenue lors de l'envoi. Veuillez réessayer ou me contacter directement par email.</p>
-            <?php endif; ?>
+    <?php $appel = get_field('contact_appel'); ?>
+    <section class="section-floral appel">
+        <div class="tag-home"><?= $appel['tag'] ?></div>
+        <div class="content"><?= $appel['content'] ?></div>
+
+        <div class="grid xl:grid-cols-3 gap-0 ">
+            <?php foreach ($appel['cards'] as $card): ?>
+                <div class="card"><?= $card ?></div>
+            <?php endforeach; ?>
         </div>
-
-        <form method="post" class="form-contact section-beige" id="form-contact" enctype="multipart/form-data">
-            <?php wp_nonce_field('contact_form_action', 'contact_nonce'); ?>
-
-            <!-- Honeypot anti-spam -->
-            <input type="text" name="website" style="display:none">
-
-            <div>
-                <label for="lastname-contact" class="required">Nom</label>
-                <input id="lastname-contact" name="lastname" type="text" required>
-            </div>
-            <div>
-                <label for="firstname-contact" class="required">Prénom</label>
-                <input id="firstname-contact" name="firstname" type="text" required>
-            </div>
-            <div>
-                <label for="email-contact" class="required">Email</label>
-                <input id="email-contact" name="email" type="text" required>
-            </div>
-            <div>
-                <label for="phone-contact" class="required">Téléphone</label>
-                <input id="phone-contact" name="phone" type="text" required>
-            </div>
-            <div class="from-calendly"></div>
-            <div class="flex gap-4 files">
-                <div>
-                    <label for="photos">Photos</label>
-                    <input type="file" name="photos[]" id="photos" multiple>
-                </div>
-                <div>
-                    <label for="plans">Plans</label>
-                    <input type="file" name="plans[]" id="plans" multiple>
-                </div>
-                <div>
-                    <label for="otherFiles">Autres</label>
-                    <input type="file" name="otherFiles[]" id="otherFiles" multiple>
-                </div>
-            </div>
-            <fieldset class="cgv flex gap-4 items-start">
-                <div>
-                    <input type="checkbox" name="cgv-contact" id="cgv-contact" required>
-                    <label for="cgv-contact" class="required">J'accepte d'être contactée par Marie Heuman concernant mon
-                        projet
-                        d'architecture
-                        d'intérieur. Mes données seront traitées conformément à la <a href="<?= get_permalink(714) ?>"
-                            class="cgv-contact">politique de
-                            confidentialité.</a></label>
-                </div>
-            </fieldset>
-        </form>
-        <div class="info-datas-contact mt-12"></div>
-
-        <button type="submit" class="orange-button" name="contact_submit" form="form-contact">Envoyez votre
-            demande</button>
     </section>
-    <!-- END CONTACT -->
 
-    <section class="collaboration section-beige">
+    <?php $parcours = get_field('contact_parcours'); ?>
+    <section class="section-floral parcours">
+        <div class="tag-home"><?= $parcours['tag'] ?></div>
+        <div class="content"><?= $parcours['content'] ?></div>
 
-        <?php
-        $collaboration = $contact["collaboration"];
-        ?>
-        <span class="tag-home"><?= $collaboration['tag'] ?></span>
-        <?= $collaboration['titre'] ?>
-        <div class="swiper-navigation">
-            <div class="swiper-pagination"></div>
-        </div>
-        <div class="swiper contactSwiper">
-            <div class="swiper-wrapper">
-                <?php
-                for ($i = 1; $i <= 5; $i++):
-                    $bloc = $collaboration['groupe_collaboration']['collaboration_' . $i];
-                    if ($bloc['titre']):
-                        ?>
-                        <div class="swiper-slide section-white">
-                            <div class="flex flex-wrap md:flex-nowrap gap-4">
-
-                                <div class="dashicons">
-                                    <?php
-                                    $icon_path = get_attached_file($bloc['icone']);
-                                    // Vérifie si le fichier existe et l'affiche
-                                    if (file_exists($icon_path)) {
-                                        echo file_get_contents($icon_path);
-                                    }
-                                    ?>
-                                </div>
-                                <div class="content">
-                                    <h4><?= $bloc['titre'] ?></h4>
-                                    <div class="infos"><?= $bloc['infos'] ?></div>
-                                    <div class="texte"><?= $bloc['description'] ?></div>
-                                </div>
+        <div class="accordions">
+            <?php $i = 1;
+            foreach ($parcours['liste'] as $accordion):
+                $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
+                <div class="flex items-start gap-6 py-8 accordion-content">
+                    <details class="collapse " name="accordion-methode-home">
+                        <summary class="collapse-title mb-2 items-center">
+                            <span class="index">
+                                <?= $numero ?>
+                            </span>
+                            <div class="title">
+                                <?= $accordion['titre'] ?>
                             </div>
+                            <div class="hidden md:block circle ml-auto"></div>
+
+                        </summary>
+                        <div class="collapse-content mt-4 ">
+                            <?= $accordion['content'] ?>
                         </div>
-                    <?php endif; endfor; ?>
-            </div>
+                    </details>
+
+                </div>
+                <?php $i++; endforeach; ?>
         </div>
-    </section>
-    <section class="soutiens section-white">
-        <div class="content-soutiens section-beige">
-            <?= $contact['soutiens'] ?>
-        </div>
-        <div class="newsletter-block guide-newsletter">
-            <h2>Entrez dans les coulisses du studio et restez informé des nouveautés</h2>
-            <p>Recevez directement dans votre boîte mail mes nouveaux projets, articles, inspirations, ressources
-                utiles… ainsi que des offres et avantages proposés par mes partenaires.</p>
-            <p class="beige">1 à 2 emails par mois • Pas de spam</p>
-            <?= do_shortcode("[sibwp_form id=3]") ?>
-        </div>
-    </section>
-    <section class="reseaux section-beige">
-        <span class="tag-home"><?= $contact['reseaux']['tag'] ?></span>
-        <?= $contact['reseaux']['titre'] ?>
-        <?= do_shortcode('[instagram-feed feed=2]'); ?>
-    </section>
-    <section class="faq section-white">
-        <span class="tag-home"><?= $contact['faq']['tag'] ?></span>
-        <?= $contact['faq']['titre'] ?>
-        <a href="<?= $contact['faq']['lien']['url'] ?>" class="more"><?= $contact['faq']['lien']['title'] ?></a>
     </section>
 </main>
 

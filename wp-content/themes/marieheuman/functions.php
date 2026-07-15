@@ -188,6 +188,21 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'inline' => 'span',
             'classes' => 'uppercase',
         ],
+        [
+            'title' => 'Badge desert',
+            'inline' => 'span',
+            'classes' => 'badge badge-desert',
+        ],
+        [
+            'title' => 'Badge rose',
+            'inline' => 'span',
+            'classes' => 'badge badge-rose',
+        ],
+        [
+            'title' => 'Badge coperwood',
+            'inline' => 'span',
+            'classes' => 'badge badge-coperwood',
+        ],
         // [
         //     'title' => 'Bloc blanc',
         //     'block' => 'div',
@@ -206,6 +221,12 @@ add_filter('tiny_mce_before_init', function ($settings) {
         //     'classes' => 'beige-block',
         //     'wrapper' => true,
         // ],
+        [
+            'title' => 'Bloc desert',
+            'block' => 'div',
+            'classes' => 'block-desert',
+            'wrapper' => true,
+        ],
         [
             'title' => 'Citation',
             'block' => 'div',
@@ -643,6 +664,31 @@ function handle_contact_form()
         exit;
     }
 }
+
+function charger_composant_contact_vue()
+{
+    // On ne charge Vue que sur la page de contact pour ne pas alourdir tout le site (remplacez 'contact' par le slug de votre page)
+    if (is_page('contact-architecte-interieur-tours-blois')) {
+
+        // Charger le fichier CSS compilé par Vite
+        wp_enqueue_style(
+            'vue-contact-css',
+            get_template_directory_uri() . '/assets-vue/contact-composant.css',
+            [],
+            '1.0.0'
+        );
+
+        // Charger le fichier JS compilé par Vite (pensez à l'injecter dans le footer avec "true")
+        wp_enqueue_script(
+            'vue-contact-js',
+            get_template_directory_uri() . '/assets-vue/contact-composant.js',
+            [],
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'charger_composant_contact_vue');
 
 /**
  * Injection manuelle des données structurées JSON-LD pour Marie Heuman Studio

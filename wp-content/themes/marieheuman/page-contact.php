@@ -161,7 +161,7 @@ get_header();
     <section class="section-desert canaux">
         <div class="tag-home"><?= $canaux['tag'] ?></div>
         <div class="content"><?= $canaux['content'] ?></div>
-        <div class="grid grid-cols-2 gap-5 mx-auto mb-20 mt-14 email-tel">
+        <div class="grid lg:grid-cols-2 gap-5 mx-auto mb-20 mt-14 email-tel">
             <div class="email"><?= $canaux['email'] ?></div>
             <div class="tel"><?= $canaux['tel'] ?></div>
         </div>

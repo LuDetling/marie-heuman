@@ -1,6 +1,6 @@
 const toggleMenu = () => {
     const button = document.getElementById('menu-toggle');
-    
+
     // ASTUCE : On cible les éléments via des IDs ou des classes fixes pour ne pas perdre la sélection !
     const container = document.getElementById('main-header'); // Remplace par l'ID réel de ton header
     const headerButton = document.querySelector('.header-white-button');
@@ -35,13 +35,13 @@ const toggleMenu = () => {
     // 5. L'ÉVÉNEMENT CLIC
     button.addEventListener('click', () => {
         const oldIndex = currentIndex;
-        
+
         // On passe à l'index suivant
         currentIndex = (currentIndex + 1) % classes.length;
-        
+
         // On applique le changement visuel
         applyThemeClasses(oldIndex, currentIndex);
-        
+
         // On sauvegarde le nouvel index dans le localStorage
         localStorage.setItem('themeIndex', currentIndex);
     });
@@ -49,3 +49,16 @@ const toggleMenu = () => {
 
 // On lance la fonction une fois que le DOM est prêt
 document.addEventListener('DOMContentLoaded', toggleMenu);
+
+
+const toggleResponsiveMenu = () => {
+    const button = document.querySelector('.responsive-menu button');
+    const liens = document.querySelector('.liens');
+
+    button.addEventListener('click', () => {
+        liens.classList.toggle('show-liens');
+    })
+
+}
+
+document.addEventListener('DOMContentLoaded', toggleResponsiveMenu);

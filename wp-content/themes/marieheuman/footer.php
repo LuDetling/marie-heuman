@@ -1,6 +1,6 @@
 <!-- <div class="img-under-header-2"></div> -->
 
-<footer class="footer-blue px-20">
+<footer class="footer-blue px-10 md:px-20">
     <div class="flex items-center justify-between py-15 border-b relative gap-4 flex-wrap lg:flex-nowrap">
         <h2>Design de <em>lieux</em>, d'<em>expérience</em> &
             d'<em>identité</em>.</h2>

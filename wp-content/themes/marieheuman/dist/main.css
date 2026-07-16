@@ -403,7 +403,6 @@
 .site-container-left #menu-toggle {
   width: 100%;
   position: relative;
-  padding-bottom: 30px;
 }
 .site-container-left #menu-toggle .img-menu {
   width: 100%;
@@ -413,14 +412,53 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+@media (width < 48rem) {
+  .site-container-left #menu-toggle .img-menu {
+    width: 45px;
+  }
+}
 .site-container-left #menu-toggle .show-hover {
   position: absolute;
-  bottom: 0px;
+  bottom: -30px;
   transition: 0.2s;
   opacity: 0;
 }
+@media (width < 48rem) {
+  .site-container-left #menu-toggle .show-hover {
+    display: none;
+  }
+}
 .site-container-left #menu-toggle:hover .show-hover {
   opacity: 1;
+}
+.site-container-left .responsive-menu button {
+  padding: 1rem;
+  cursor: pointer;
+  color: #fffdf3;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Newsreader";
+}
+.site-container-left .icones {
+  height: 33.3333333333%;
+}
+.site-container-left .liens {
+  height: 66.6666666667%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (width < 48rem) {
+  .site-container-left .liens {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    gap: 2rem;
+  }
+  .site-container-left .liens.show-liens {
+    margin-top: 2rem;
+    max-height: 100vh;
+  }
 }
 .site-container-left #menu-menu-principal {
   display: flex;
@@ -453,6 +491,15 @@
 }
 .header-marron .img-menu {
   background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-crème.png");
+  width: 137px;
+}
+@media (width < 48rem) {
+  .header-marron .img-menu {
+    background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-crème.png");
+  }
+}
+.header-marron .responsive-menu button {
+  color: #fffdf3;
 }
 .header-marron .show-hover {
   color: #bed0ce;
@@ -470,6 +517,14 @@
 .header-rose .img-menu {
   background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-marron.png");
 }
+@media (width < 48rem) {
+  .header-rose .img-menu {
+    background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png");
+  }
+}
+.header-rose .responsive-menu button {
+  color: #f3ceb1;
+}
 .header-rose .show-hover {
   color: #f3ceb1;
 }
@@ -486,6 +541,14 @@
 .header-floral .img-menu {
   background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-marron.png");
 }
+@media (width < 48rem) {
+  .header-floral .img-menu {
+    background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png");
+  }
+}
+.header-floral .responsive-menu button {
+  color: #a15d66;
+}
 .header-floral .show-hover {
   color: #a15d66;
 }
@@ -501,6 +564,14 @@
 }
 .header-desert .img-menu {
   background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-marron.png");
+}
+@media (width < 48rem) {
+  .header-desert .img-menu {
+    background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png");
+  }
+}
+.header-desert .responsive-menu button {
+  color: #A76523;
 }
 .header-desert .show-hover {
   color: #A76523;
@@ -650,9 +721,6 @@
   line-height: 1.6;
 }
 
-.home-section {
-  padding: 120px 80px;
-}
 .home-section .content {
   text-align: center;
   margin-bottom: 64px;
@@ -772,10 +840,20 @@
 }
 
 .home-projets {
-  padding: 120px 0;
+  padding: 160px 0;
+}
+@media (width < 48rem) {
+  .home-projets {
+    padding: 80px 0;
+  }
 }
 .home-projets .header-home-projets {
   padding: 0 80px;
+}
+@media (width < 48rem) {
+  .home-projets .header-home-projets {
+    padding: 0 40px;
+  }
 }
 .home-projets .header-home-projets .tag-home {
   text-align: left;
@@ -892,6 +970,11 @@
 }
 .section-avis .top-content-avis {
   padding: 160px 80px 0;
+}
+@media (width < 48rem) {
+  .section-avis .top-content-avis {
+    padding: 40px 80px;
+  }
 }
 .section-avis .top-content-avis .description {
   color: #fffdf3;
@@ -3253,10 +3336,21 @@ body {
 .site-container-left {
   width: 220px;
 }
+@media (width < 48rem) {
+  .site-container-left {
+    width: 100%;
+  }
+}
 
 .site-container-right {
   width: calc(100% - 220px);
   margin-left: 220px;
+}
+@media (width < 48rem) {
+  .site-container-right {
+    width: auto;
+    margin-left: 0;
+  }
 }
 
 pre {
@@ -3288,11 +3382,11 @@ form .required::after {
 }
 
 section {
-  padding: 120px 80px;
+  padding: 160px 80px;
 }
-@media screen and (max-width: 1200px) {
+@media (width < 48rem) {
   section {
-    padding: 4rem 20px;
+    padding: 80px 40px;
   }
 }
 section {
@@ -3311,28 +3405,23 @@ section > .content {
 }
 .section-marron {
   background-color: #462620;
-  padding: 160px 80px;
   color: #fffdf3;
 }
 
 .section-floral {
   background-color: #fffdf3;
-  padding: 160px 80px;
 }
 
 .section-desert {
   background-color: #f3ceb1;
-  padding: 160px 80px;
 }
 
 .section-blue {
   background-color: #bed0ce;
-  padding: 160px 80px;
 }
 
 .section-rose {
   background-color: #a15d66;
-  padding: 160px 80px;
 }
 
 .section-cadriage {

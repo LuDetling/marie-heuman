@@ -29,11 +29,20 @@ body {
 
 .site-container-left {
     width: 220px;
+
+    @media (width < 48rem) {
+        width: 100%;
+    }
 }
 
 .site-container-right {
     width: calc(100% - 220px);
     margin-left: 220px;
+
+    @media (width < 48rem) {
+        width: auto;
+        margin-left: 0;
+    }
 }
 
 pre {
@@ -73,11 +82,10 @@ form {
 
 section {
     // padding: 5rem 160px;
-    padding: 120px 80px;
+    padding: 160px 80px;
 
-    @media screen and (max-width: 1200px) {
-        padding: 4rem 20px;
-
+    @media (width < 48rem) {
+        padding: 80px 40px;
     }
 
     /* Votre couleur de base */
@@ -98,28 +106,28 @@ section {
 
 .section-marron {
     background-color: $marron;
-    padding: 160px 80px;
+    // padding: 160px 80px;
     color: $floral;
 }
 
 .section-floral {
     background-color: $floral;
-    padding: 160px 80px;
+    // padding: 160px 80px;
 }
 
 .section-desert {
     background-color: $desert;
-    padding: 160px 80px;
+    // padding: 160px 80px;
 }
 
 .section-blue {
     background-color: $blue;
-    padding: 160px 80px;
+    // padding: 160px 80px;
 }
 
 .section-rose {
     background-color: $rose;
-    padding: 160px 80px;
+    // padding: 160px 80px;
 }
 
 .section-cadriage {

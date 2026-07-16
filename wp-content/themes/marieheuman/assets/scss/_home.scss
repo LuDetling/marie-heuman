@@ -159,7 +159,7 @@
 }
 
 .home-section {
-    padding: 120px 80px;
+    // padding: 160px 80px;
 
 
     .content {
@@ -314,10 +314,18 @@
 }
 
 .home-projets {
-    padding: 120px 0;
+    padding: 160px 0;
+
+    @media (width < 48rem) {
+        padding: 80px 0;
+    }
 
     .header-home-projets {
         padding: 0 80px;
+
+        @media (width < 48rem) {
+            padding: 0 40px;
+        }
 
         .tag-home {
             text-align: left;
@@ -485,6 +493,10 @@
 
     .top-content-avis {
         padding: 160px 80px 0;
+
+        @media (width < 48rem) {
+            padding: 40px 80px;
+        }
 
         .description {
             color: $floral;

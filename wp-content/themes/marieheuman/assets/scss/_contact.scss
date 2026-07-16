@@ -33,6 +33,10 @@
             margin-top: 2rem;
             font-size: 14px;
 
+            p {
+                margin-inline: auto;
+            }
+
             a {
                 color: $coperwood;
                 text-decoration: underline;
@@ -122,27 +126,124 @@
             }
         }
 
+        .circle {
+            margin-top: 0;
+        }
+
+        .collapse-content {
+            padding-left: 110px;
+
+            p,
+            div {
+                max-width: none;
+
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+
+            p:has(.uppercase) {
+                margin-bottom: .5rem;
+            }
+
+            .newsreader-italic {
+                margin-bottom: 0;
+            }
+        }
+
+        .texte {
+            max-width: 840px;
+            text-align: center;
+            margin-inline: auto;
+        }
+    }
+
+    .questions {
+        .accordions .accordion-content:has(.collapse:open) .circle {
+            background-color: $green;
+        }
+
         .accordions {
-            .index {
-                font-family: Newsreader;
-                font-size: 72px;
-                font-weight: 300;
-                line-height: 1;
-                color: $coperwood;
-                display: block;
+            .circle {
+                background-color: rgba(70, 38, 32, 0.25);
             }
 
             .accordion-content {
-                .title {
-                    h3 {
-                        font-weight: 500;
-                        margin-bottom: .75rem;
-                    }
-                }
+                border-color: rgba(70, 38, 32, 0.15);
             }
         }
     }
 
+    .canaux {
+        .content {
+            text-align: center;
+
+            p {
+                margin-inline: auto;
+            }
+        }
+
+        .email-tel {
+            max-width: 700px;
+
+            >div {
+                padding: 2.5rem;
+                background-color: $floral;
+
+                .uppercase {
+                    margin-bottom: 1.25rem;
+                    display: block;
+                }
+
+                a {
+                    margin-bottom: .75rem;
+                    display: block;
+                    // font-weight: 300;
+                }
+            }
+        }
+
+        .texte {
+            max-width: 520px;
+            margin-inline: auto;
+
+            a {
+                @extend .button;
+                @extend .marron-button;
+                margin-inline: auto;
+                margin-top: 1.5rem;
+            }
+        }
+    }
+
+    .accordions {
+        max-width: 1000px;
+        margin-inline: auto;
+
+
+
+        .index {
+            font-family: Newsreader;
+            font-size: 72px;
+            font-weight: 300;
+            line-height: 1;
+            color: $coperwood;
+            display: block;
+        }
+
+        details {
+            border-radius: 0;
+        }
+
+        .accordion-content {
+            .title {
+                h3 {
+                    font-weight: 500;
+                    margin-bottom: .75rem;
+                }
+            }
+        }
+    }
 
     // .decouverte {
     //     background-color: $secondary;
@@ -161,136 +262,6 @@
     //     }
 
     // }
-
-    .content-icone-texte {
-        text-align: center;
-
-        @media screen and (max-width: 767px) {
-            text-align: left;
-
-            >* {
-                display: inline;
-            }
-        }
-
-        h4 {
-            margin-bottom: .5rem;
-        }
-
-        .dashicons {
-            font-size: 1.5rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba($color: $beige, $alpha: 0.2);
-            border: 1px solid rgba($color: $beige, $alpha: 0.2);
-            width: 48px;
-            height: 48px;
-            margin: auto;
-            margin-bottom: .5rem;
-
-            @media screen and (max-width: 767px) {
-                margin-bottom: 0;
-            }
-
-            svg {
-                fill: $beige;
-            }
-        }
-    }
-
-
-    .calendly-inline-widget {
-        margin-top: 3rem;
-    }
-
-    .contactSwiper {
-        max-width: 1000px;
-        margin: auto;
-    }
-
-    .swiper-slide {
-        padding: 2rem;
-
-
-        .dashicons {
-            width: 48px;
-            min-width: 48px;
-            height: 48px;
-            font-size: 1.5rem;
-            border-radius: 50%;
-            background-color: $white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            svg {
-                fill: $orange;
-            }
-        }
-
-        h4 {
-            font-family: 'Playfair Display';
-            font-weight: bold;
-            font-size: 24px;
-            margin-bottom: 1.5rem;
-        }
-
-        .infos {
-            color: $secondary;
-            margin-bottom: 1rem;
-            font-size: 18px;
-        }
-
-        .texte {
-            padding: 0;
-        }
-    }
-
-    .swiper-navigation {
-        margin-bottom: 2rem;
-
-        .swiper-pagination {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-
-            .swiper-pagination-bullet {
-                background: none;
-                width: 46px;
-                height: 46px;
-                border: 1px solid $marron;
-                color: $marron;
-                transition: .3s;
-                opacity: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0;
-                position: relative;
-
-                &:not(:last-child)::after {
-                    content: "";
-                    width: 10px;
-                    height: 10px;
-                    display: block;
-                    background-color: $marron;
-                    border-radius: 50%;
-                    position: absolute;
-                    right: -29px;
-                }
-
-                &.swiper-pagination-bullet-active,
-                &:hover {
-                    background-color: $marron;
-                    color: $beige;
-                }
-            }
-
-        }
-    }
 
     .soutiens {
 

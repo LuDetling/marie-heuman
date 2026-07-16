@@ -174,14 +174,49 @@ add_filter('tiny_mce_before_init', function ($settings) {
 
     $style_formats = [
         [
+            'title' => 'Graisse (Font Weight)',
+            'items' => [
+                [
+                    'title' => 'Ultra Léger (100)',
+                    'inline' => 'span',
+                    'styles' => ['font-weight' => '100'],
+                ],
+                [
+                    'title' => 'Léger (300)',
+                    'inline' => 'span',
+                    'styles' => ['font-weight' => '300'],
+                ],
+                [
+                    'title' => 'Normal (400)',
+                    'inline' => 'span',
+                    'styles' => ['font-weight' => '400'],
+                ],
+                [
+                    'title' => 'Médium (500)',
+                    'inline' => 'span',
+                    'styles' => ['font-weight' => '500'],
+                ],
+                [
+                    'title' => 'Demi-Gras (600)',
+                    'inline' => 'span',
+                    'styles' => ['font-weight' => '600'],
+                ],
+                [
+                    'title' => 'Gras (700)',
+                    'inline' => 'span',
+                    'styles' => ['font-weight' => '700'],
+                ],
+                [
+                    'title' => 'Ultra Gras (900)',
+                    'inline' => 'span',
+                    'styles' => ['font-weight' => '900'],
+                ],
+            ]
+        ],
+        [
             'title' => 'span',
             'inline' => 'span',
             'classes' => 'span',
-        ],
-        [
-            'title' => 'à la ligne',
-            'inline' => 'span',
-            'classes' => 'inline-block',
         ],
         [
             'title' => 'uppercase',
@@ -203,24 +238,18 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'inline' => 'span',
             'classes' => 'badge badge-coperwood',
         ],
-        // [
-        //     'title' => 'Bloc blanc',
-        //     'block' => 'div',
-        //     'classes' => 'white-block',
-        //     'wrapper' => true,
-        // ],
         [
             'title' => 'bordure rose',
             'block' => 'div',
             'classes' => 'border-rose',
             'wrapper' => true,
         ],
-        // [
-        //     'title' => 'Bloc beige',
-        //     'block' => 'div',
-        //     'classes' => 'beige-block',
-        //     'wrapper' => true,
-        // ],
+        [
+            'title' => 'bordure desert',
+            'block' => 'div',
+            'classes' => 'border-desert',
+            'wrapper' => true,
+        ],
         [
             'title' => 'Bloc desert',
             'block' => 'div',
@@ -228,25 +257,10 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'wrapper' => true,
         ],
         [
-            'title' => 'Citation',
+            'title' => 'Bloc light blue',
             'block' => 'div',
-            'classes' => 'citation',
-        ],
-        [
-            'title' => 'Tag',
-            'block' => 'div',
-            'classes' => 'tag-home',
+            'classes' => 'block-light-blue',
             'wrapper' => true,
-        ],
-        [
-            'title' => 'Liste Orange (Conteneur)',
-            'block' => 'ul', // Cible spécifiquement la balise UL
-            'classes' => 'orange-list-container', // La nouvelle classe
-        ],
-        [
-            'title' => 'Liste green',
-            'selector' => 'ul, ol', // Cible spécifiquement la balise UL
-            'classes' => 'green-list-container', // La nouvelle classe
         ],
         [
             'title' => 'Liste coperwood',
@@ -267,6 +281,20 @@ add_filter('tiny_mce_before_init', function ($settings) {
     ];
 
     $settings['style_formats'] = json_encode($style_formats);
+
+    $custom_colors = '
+        "f3ceb1", "desert",
+        "a15d66", "rose",
+        "A76523", "coperwood",
+        "bed0ce", "blue",
+        "ac9c35", "green",
+        "fffdf3", "floral"
+    ';
+
+    $settings['textcolor_map'] = '[' . $custom_colors . ']';
+    $settings['textcolor_rows'] = 1;
+
+    $settings['font_formats'] = 'Jost=Jost,sans-serif;' . 'Newsreader=Newsreader,sans-serif;';
 
     return $settings;
 }, 999);

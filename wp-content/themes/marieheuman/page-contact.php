@@ -128,6 +128,44 @@ get_header();
                 </div>
                 <?php $i++; endforeach; ?>
         </div>
+        <div class="mt-14 texte">
+            <?= $parcours['texte'] ?>
+        </div>
+    </section>
+
+    <?php $questions = get_field('contact_questions'); ?>
+    <section class="section-blue questions">
+        <div class="tag-home"><?= $questions['tag'] ?></div>
+        <div class="content"><?= $questions['content'] ?></div>
+        <div class="accordions">
+            <?php foreach ($questions['accordions'] as $accordion): ?>
+                <div class="flex items-start gap-6 py-8 accordion-content">
+                    <div class="hidden md:block circle"></div>
+                    <details class="collapse " name="accordion-methode-home">
+                        <summary class="collapse-title mb-2 items-center">
+                            <div class="title">
+                                <?= $accordion['titre'] ?>
+                            </div>
+                        </summary>
+                        <div class="collapse-content mt-4 ">
+                            <?= $accordion['content'] ?>
+                        </div>
+                    </details>
+
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <?php $canaux = get_field('contact_canaux'); ?>
+    <section class="section-desert canaux">
+        <div class="tag-home"><?= $canaux['tag'] ?></div>
+        <div class="content"><?= $canaux['content'] ?></div>
+        <div class="grid grid-cols-2 gap-5 mx-auto mb-20 mt-14 email-tel">
+            <div class="email"><?= $canaux['email'] ?></div>
+            <div class="tel"><?= $canaux['tel'] ?></div>
+        </div>
+        <div class="texte text-center"><?= $canaux['texte'] ?></div>
     </section>
 </main>
 

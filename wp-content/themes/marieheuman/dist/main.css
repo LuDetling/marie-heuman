@@ -93,6 +93,7 @@
   position: relative;
   display: block;
   width: fit-content;
+  cursor: pointer;
 }
 
 .marron-button, #page-contact .canaux .texte a, #faq-categories button.active {
@@ -145,6 +146,15 @@
 .white-rose-button:hover {
   background-color: #a15d66;
   color: #fffdf3;
+}
+
+.floral-desert-button {
+  background-color: #fffdf3;
+  color: #462620;
+  transition: 0.2s;
+}
+.floral-desert-button:hover {
+  background-color: #f3ceb1;
 }
 
 .header-white-button {
@@ -414,7 +424,8 @@
 }
 @media (width < 48rem) {
   .site-container-left #menu-toggle .img-menu {
-    width: 45px;
+    width: 35px;
+    height: 46px;
   }
 }
 .site-container-left #menu-toggle .show-hover {
@@ -430,14 +441,6 @@
 }
 .site-container-left #menu-toggle:hover .show-hover {
   opacity: 1;
-}
-.site-container-left .responsive-menu button {
-  padding: 1rem;
-  cursor: pointer;
-  color: #fffdf3;
-  font-weight: bold;
-  font-size: 20px;
-  font-family: "Newsreader";
 }
 .site-container-left .icones {
   height: 33.3333333333%;
@@ -466,6 +469,14 @@
   gap: 18px;
   padding-inline: 1.5rem;
 }
+@media (width < 48rem) {
+  .site-container-left #menu-menu-principal {
+    margin: auto;
+  }
+}
+.site-container-left #menu-menu-principal li:nth-child(odd) a {
+  font-family: "Newsreader";
+}
 .site-container-left #menu-menu-principal li a {
   position: relative;
   display: flex;
@@ -473,6 +484,13 @@
   padding: 0;
   font-size: 15px;
   transition: 0.2s;
+}
+@media (width < 48rem) {
+  .site-container-left #menu-menu-principal li a {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+  }
 }
 .site-container-left #menu-menu-principal li a:hover {
   background: none;
@@ -485,21 +503,23 @@
   position: absolute;
   left: -12px;
 }
+@media (width < 48rem) {
+  .site-container-left #menu-menu-principal li.current-menu-item a::before {
+    display: none;
+  }
+}
 
 .header-marron {
   background-color: #462620;
 }
 .header-marron .img-menu {
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-crème.png");
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-logo-floral.png");
   width: 137px;
 }
 @media (width < 48rem) {
   .header-marron .img-menu {
-    background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-crème.png");
+    background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-floral.png");
   }
-}
-.header-marron .responsive-menu button {
-  color: #fffdf3;
 }
 .header-marron .show-hover {
   color: #bed0ce;
@@ -522,9 +542,6 @@
     background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png");
   }
 }
-.header-rose .responsive-menu button {
-  color: #f3ceb1;
-}
 .header-rose .show-hover {
   color: #f3ceb1;
 }
@@ -546,9 +563,6 @@
     background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png");
   }
 }
-.header-floral .responsive-menu button {
-  color: #a15d66;
-}
 .header-floral .show-hover {
   color: #a15d66;
 }
@@ -569,9 +583,6 @@
   .header-desert .img-menu {
     background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png");
   }
-}
-.header-desert .responsive-menu button {
-  color: #A76523;
 }
 .header-desert .show-hover {
   color: #A76523;
@@ -1583,6 +1594,7 @@
 #professionnel .enjeux .content {
   margin-bottom: 3.5rem;
   max-width: 680px;
+  margin-inline: 0;
 }
 #professionnel .enjeux .content h2 {
   font-size: 44px;
@@ -1657,6 +1669,12 @@
 #professionnel .offre .tag-home {
   text-align: left;
 }
+#professionnel .offre > section .tag-home {
+  font-family: Newsreader;
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
 #professionnel .offre .content {
   max-width: 680px;
 }
@@ -1674,11 +1692,19 @@
 #professionnel .offre .top-offre {
   padding: 160px 80px 80px;
 }
+#professionnel .offre .top-offre .tag-home {
+  text-align: center;
+}
+#professionnel .offre .top-offre .content {
+  text-align: center;
+  margin: auto;
+}
+#professionnel .offre .temps1 .content {
+  margin-inline: 0;
+  margin-bottom: 64px;
+}
 #professionnel .offre .temps1 .content h3 {
   margin-bottom: 0.75rem;
-}
-#professionnel .offre .temps1 .content p {
-  opacity: 0.6;
 }
 #professionnel .offre .temps1 .description {
   max-width: 680px;
@@ -1794,6 +1820,15 @@
   background-color: #A76523;
   border-radius: 50%;
   margin-top: 0.5rem;
+}
+#professionnel .offre .temps3 .accordions .accordion-content:has(.collapse:open) .circle {
+  background-color: #ac9c35;
+}
+#professionnel .offre .temps3 .accordions .circle {
+  background-color: rgba(70, 38, 32, 0.25);
+}
+#professionnel .offre .temps3 .accordions .accordion-content {
+  border-color: rgba(70, 38, 32, 0.15);
 }
 
 #breadcrumbs {
@@ -2559,8 +2594,18 @@
   display: block;
   margin-bottom: 6px;
   text-align: left;
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 500;
+  color: #f3ceb1;
+}
+#form-calendly > div > div,
+#form-contact > div > div {
+  display: block;
+  margin-bottom: 6px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f3ceb1;
 }
 #form-calendly input,
 #form-calendly select,
@@ -2570,6 +2615,7 @@
   padding: 0.7rem 1.5rem;
   font-weight: normal;
   border: 1px solid rgb(229, 217, 200);
+  background-color: #fffdf3;
 }
 #form-calendly select,
 #form-calendly ::picker(select),
@@ -2582,7 +2628,7 @@
   flex: 1;
   background: #fffdf3;
   transition: 0.4s;
-  color: #A76523;
+  color: #a15d66;
 }
 #form-calendly select::picker-icon,
 #form-contact select::picker-icon {
@@ -2623,14 +2669,6 @@
 #form-contact option:not(option:last-of-type) {
   border-bottom: none;
 }
-#form-calendly > div > div,
-#form-contact > div > div {
-  display: block;
-  margin-bottom: 6px;
-  text-align: left;
-  font-size: 12px;
-  font-weight: 500;
-}
 #form-calendly fieldset > div,
 #form-contact fieldset > div {
   display: flex;
@@ -2644,7 +2682,7 @@
 #form-contact fieldset > div input {
   width: auto;
   margin-right: 1rem;
-  background-color: #ece7dd;
+  background-color: #fffdf3;
 }
 #form-calendly fieldset > div input:checked,
 #form-contact fieldset > div input:checked {
@@ -2673,7 +2711,7 @@
   font-family: FontAwesome;
   content: "\f00c";
   display: block;
-  color: #ece7dd;
+  color: #fffdf3;
   font-size: 10px;
   position: absolute;
 }
@@ -2726,27 +2764,31 @@
 }
 #custom-booking-app .header-form-calendly > div > a {
   transition: 0.3s;
+  color: #fffdf3;
 }
 #custom-booking-app .header-form-calendly > div > a:hover {
-  color: #A76523;
+  color: #f3ceb1;
 }
 #custom-booking-app .header-form-calendly .step-title {
-  color: #462620;
+  color: #fffdf3;
   text-align: center;
-  font-weight: bold;
   margin-bottom: 2rem;
   font-size: 20px;
+  font-style: italic;
 }
 #custom-booking-app .calendar-card {
-  border: 2px solid #462620;
+  border: 2px solid #a15d66;
   overflow: hidden;
   margin-bottom: 2rem;
   border-radius: 0;
 }
 #custom-booking-app .calendar-card .date-header {
-  background-color: #462620;
+  background-color: #a15d66;
   padding: 1rem 4rem;
   color: #fffdf3;
+}
+#custom-booking-app .calendar-card .collapse-content {
+  background-color: #fffdf3;
 }
 #custom-booking-app .calendar-card .time-slots-grid {
   display: grid;
@@ -2779,14 +2821,14 @@
   }
 }
 #custom-booking-app .calendar-card .time-slots-grid .time-btn {
-  background-color: #ece7dd;
+  background-color: #f3ceb1;
   transition: 0.3s;
   cursor: pointer;
   padding: 1rem 2rem;
 }
 #custom-booking-app .calendar-card .time-slots-grid .time-btn.selected, #custom-booking-app .calendar-card .time-slots-grid .time-btn:hover {
-  background-color: #462620;
-  color: #f6f5f2;
+  background-color: #a15d66;
+  color: #fffdf3;
 }
 #custom-booking-app .calendar-card .trait {
   content: "";
@@ -2813,7 +2855,7 @@
   }
 }
 #custom-booking-app .calendar-card .meeting-type-selector .type-option {
-  background-color: #ece7dd;
+  background-color: #f3ceb1;
   padding: 20px;
   transition: 0.3s;
   cursor: pointer;
@@ -2822,7 +2864,7 @@
   cursor: pointer;
 }
 #custom-booking-app .calendar-card .meeting-type-selector .type-option.active, #custom-booking-app .calendar-card .meeting-type-selector .type-option:hover {
-  background-color: #462620;
+  background-color: #a15d66;
   color: #fffdf3;
 }
 #custom-booking-app .calendar-card .meeting-type-selector .type-option.active .icon svg, #custom-booking-app .calendar-card .meeting-type-selector .type-option:hover .icon svg {
@@ -2872,17 +2914,20 @@
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 0;
+  color: #fffdf3;
 }
 #custom-booking-app .summary-text::first-letter {
   text-transform: uppercase;
 }
 #custom-booking-app .call {
   text-align: center;
+  color: #fffdf3;
+}
+#custom-booking-app .error {
+  color: #fffdf3;
 }
 #custom-booking-app .locked {
   cursor: not-allowed;
-  background-color: #e5d9c8;
-  color: #A76523;
 }
 #custom-booking-app .success-title {
   color: #462620;
@@ -3076,7 +3121,7 @@ footer {
 }
 footer .img-footer {
   flex: 1;
-  min-width: 60px;
+  max-width: 60px;
   height: 80px;
   background-size: contain;
   transition: 0.2s;
@@ -3180,7 +3225,7 @@ footer.footer-blue {
   color: #462620;
 }
 footer.footer-blue .img-footer {
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-vert.png");
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png");
 }
 footer.footer-blue .border-b,
 footer.footer-blue .border-t {
@@ -3216,7 +3261,7 @@ footer.footer-desert {
   color: #462620;
 }
 footer.footer-desert .img-footer {
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-violet.png");
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png");
 }
 footer.footer-desert .border-b,
 footer.footer-desert .border-t {
@@ -3252,7 +3297,7 @@ footer.footer-marron {
   color: #fffdf3;
 }
 footer.footer-marron .img-footer {
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-violet.png");
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-floral.png");
 }
 footer.footer-marron .border-b,
 footer.footer-marron .border-t {
@@ -3289,7 +3334,7 @@ footer.footer-marron-bis {
   color: #f3ceb1;
 }
 footer.footer-marron-bis .img-footer {
-  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-caramel.png");
+  background-image: url("../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-desert.png");
 }
 footer.footer-marron-bis .border-b,
 footer.footer-marron-bis .border-t {
@@ -3458,8 +3503,8 @@ section > .content {
 
 .section-cadriage-page {
   background-color: rgb(255, 253, 243);
-  background-image: linear-gradient(0deg, rgb(229, 217, 200) 1px, transparent 1px), linear-gradient(90deg, rgb(229, 217, 200) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background-image: linear-gradient(0deg, #f9f6ec 1px, transparent 1px), linear-gradient(90deg, #f9f6ec 1px, transparent 1px);
+  background-size: 80px 80px;
   padding: 160px 80px;
   color: #462620;
 }
@@ -3516,10 +3561,6 @@ section > .content {
 .newsreader-italic em,
 .newsreader-italic span {
   font-family: "Newsreader";
-}
-
-.border {
-  border-left: 2px solid #462620;
 }
 
 .border-rose {

@@ -2538,6 +2538,9 @@
   .max-w-\[900px\] {
     max-width: 900px;
   }
+  .max-w-\[1000px\] {
+    max-width: 1000px;
+  }
   .min-w-max {
     min-width: max-content;
   }

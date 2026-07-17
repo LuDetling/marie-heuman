@@ -10,6 +10,7 @@
     position: relative;
     display: block;
     width: fit-content;
+    cursor: pointer;
 }
 
 .marron-button {
@@ -69,6 +70,16 @@
     &:hover {
         background-color: $rose;
         color: $floral;
+    }
+}
+
+.floral-desert-button {
+    background-color: $floral;
+    color: $marron;
+    transition: .2s;
+
+    &:hover {
+        background-color: $desert;
     }
 }
 

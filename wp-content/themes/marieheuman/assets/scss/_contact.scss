@@ -325,8 +325,18 @@
         display: block;
         margin-bottom: 6px;
         text-align: left;
-        font-size: 12px;
+        font-size: 1rem;
         font-weight: 500;
+        color: $desert;
+    }
+
+    >div>div {
+        display: block;
+        margin-bottom: 6px;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $desert;
     }
 
     input,
@@ -335,6 +345,7 @@
         padding: .7rem 1.5rem;
         font-weight: normal;
         border: 1px solid rgb(229, 217, 200);
+        background-color: $floral;
     }
 
     select,
@@ -346,7 +357,7 @@
         flex: 1;
         background: $floral;
         transition: 0.4s;
-        color: $coperwood;
+        color: $rose;
     }
 
     select::picker-icon {
@@ -390,13 +401,7 @@
     }
 
 
-    >div>div {
-        display: block;
-        margin-bottom: 6px;
-        text-align: left;
-        font-size: 12px;
-        font-weight: 500;
-    }
+
 
     fieldset {
         >div {
@@ -410,7 +415,7 @@
             input {
                 width: auto;
                 margin-right: 1rem;
-                background-color: $white;
+                background-color: $floral;
 
                 &:checked {
                     accent-color: #6aa842;
@@ -438,7 +443,7 @@
                         font-family: FontAwesome;
                         content: '\f00c';
                         display: block;
-                        color: $white;
+                        color: $floral;
                         font-size: 10px;
                         position: absolute;
                     }
@@ -500,32 +505,37 @@
 
             >a {
                 transition: .3s;
+                color: $floral;
 
                 &:hover {
-                    color: $coperwood;
+                    color: $desert;
                 }
             }
         }
 
         .step-title {
-            color: $marron;
+            color: $floral;
             text-align: center;
-            font-weight: bold;
             margin-bottom: 2rem;
             font-size: 20px;
+            font-style: italic;
         }
     }
 
     .calendar-card {
-        border: 2px solid $marron;
+        border: 2px solid $rose;
         overflow: hidden;
         margin-bottom: 2rem;
         border-radius: 0;
 
         .date-header {
-            background-color: $marron;
+            background-color: $rose;
             padding: 1rem 4rem;
             color: $floral;
+        }
+
+        .collapse-content {
+            background-color: $floral;
         }
 
         .time-slots-grid {
@@ -557,7 +567,7 @@
             }
 
             .time-btn {
-                background-color: $white;
+                background-color: $desert;
                 transition: .3s;
                 cursor: pointer;
                 padding: 1rem 2rem;
@@ -565,8 +575,8 @@
 
                 &.selected,
                 &:hover {
-                    background-color: $marron;
-                    color: $beige;
+                    background-color: $rose;
+                    color: $floral;
                 }
             }
 
@@ -597,7 +607,7 @@
 
             .type-option {
 
-                background-color: $white;
+                background-color: $desert;
                 padding: 20px;
                 transition: .3s;
                 cursor: pointer;
@@ -608,7 +618,7 @@
 
                 &.active,
                 &:hover {
-                    background-color: $marron;
+                    background-color: $rose;
                     color: $floral;
 
                     .icon {
@@ -677,6 +687,7 @@
         text-align: center;
         margin-top: 1rem;
         margin-bottom: 0;
+        color: $floral;
 
         &::first-letter {
             text-transform: uppercase;
@@ -685,12 +696,17 @@
 
     .call {
         text-align: center;
+        color: $floral;
+    }
+
+    .error {
+        color: $floral;
     }
 
     .locked {
         cursor: not-allowed;
-        background-color: #e5d9c8;
-        color: $coperwood;
+        // background-color: #e5d9c8;
+        // color: $coperwood;
     }
 
 

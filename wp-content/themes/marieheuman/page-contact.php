@@ -14,7 +14,7 @@ get_header();
             <a href="<?= $header['lien_1']['url'] ?>" class="button marron-button"><?= $header['lien_1']['title'] ?></a>
         </div>
     </section>
-    <section class="section-desert decouverte">
+    <section class="section-cadriage-page decouverte">
 
         <?php
         $decouverte = get_field('contact_decouverte');
@@ -22,7 +22,7 @@ get_header();
         <div class="tag-home"><?= $decouverte['tag'] ?></div>
         <div class="content"><?= $decouverte['content'] ?></div>
         <!-- CALENDLY -->
-        <div id="custom-booking-app" class="section-floral">
+        <div id="custom-booking-app" class="section-marron">
             <div id="step-1" class="booking-step active">
                 <div class="flex gap-4 justify-between header-form-calendly">
                     <div>
@@ -39,7 +39,7 @@ get_header();
 
                 <div class="action-area">
                     <div class="flex gap-4 justify-center">
-                        <a id="go-to-step-2" href="#custom-booking-app" class="button marron-button locked"
+                        <a id="go-to-step-2" href="#custom-booking-app" class="button white-rose-button locked"
                             disabled>Etape suivante</a>
 
                     </div>
@@ -72,10 +72,11 @@ get_header();
                 <div class="info-datas mt-12"></div>
                 <div class="action-area flex gap-10 md:gap-20 items-center flex-wrap md:flex-nowrap">
                     <div class="md:w-1/2 w-full">
-                        <a id="back-to-step-1" href="#custom-booking-app" class="secondary-button">← Retour</a>
+                        <a id="back-to-step-1" href="#custom-booking-app" class="button floral-desert-button">←
+                            Retour</a>
                     </div>
                     <div class="md:w-1/2 w-full">
-                        <button class="button marron-button send-button" form="form-calendly">Envoyez votre
+                        <button class="button white-rose-button send-button" form="form-calendly">Envoyez votre
                             demande</button>
                         <span class="loading loading-spinner loading-sm hidden"></span>
                     </div>
@@ -158,14 +159,16 @@ get_header();
     </section>
 
     <?php $canaux = get_field('contact_canaux'); ?>
-    <section class="section-desert canaux">
-        <div class="tag-home"><?= $canaux['tag'] ?></div>
-        <div class="content"><?= $canaux['content'] ?></div>
-        <div class="grid lg:grid-cols-2 gap-5 mx-auto mb-20 mt-14 email-tel">
-            <div class="email"><?= $canaux['email'] ?></div>
-            <div class="tel"><?= $canaux['tel'] ?></div>
+    <section id="coordonnees" class="section-floral canaux">
+        <div class="section-cadriage-desert max-w-[1000px] mx-auto">
+            <div class="tag-home"><?= $canaux['tag'] ?></div>
+            <div class="content"><?= $canaux['content'] ?></div>
+            <div class="grid lg:grid-cols-2 gap-5 mx-auto mb-20 mt-14 email-tel">
+                <div class="email"><?= $canaux['email'] ?></div>
+                <div class="tel"><?= $canaux['tel'] ?></div>
+            </div>
+            <div class="texte text-center"><?= $canaux['texte'] ?></div>
         </div>
-        <div class="texte text-center"><?= $canaux['texte'] ?></div>
     </section>
 </main>
 

@@ -167,8 +167,8 @@ section {
 
 .section-cadriage-page {
     background-color: rgb(255, 253, 243);
-    background-image: linear-gradient(0deg, rgb(229, 217, 200) 1px, transparent 1px), linear-gradient(90deg, rgb(229, 217, 200) 1px, transparent 1px);
-    background-size: 50px 50px;
+    background-image: linear-gradient(0deg, #f9f6ec 1px, transparent 1px), linear-gradient(90deg, #f9f6ec 1px, transparent 1px);
+    background-size: 80px 80px;
     padding: 160px 80px;
     color: $marron;
 }
@@ -240,10 +240,6 @@ section {
     span {
         font-family: 'Newsreader';
     }
-}
-
-.border {
-    border-left: 2px solid $marron;
 }
 
 .border-rose {

@@ -6,7 +6,7 @@ footer {
 
     .img-footer {
         flex: 1;
-        min-width: 60px;
+        max-width: 60px;
         height: 80px;
         background-size: contain;
         transition: .2s;
@@ -142,7 +142,7 @@ footer {
         color: $marron;
 
         .img-footer {
-            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-vert.png');
+            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png');
         }
 
         .border-b,
@@ -197,7 +197,7 @@ footer {
         color: $marron;
 
         .img-footer {
-            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-violet.png');
+            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-marron.png');
         }
 
         .border-b,
@@ -251,7 +251,7 @@ footer {
         color: $floral;
 
         .img-footer {
-            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-violet.png');
+            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-floral.png');
         }
 
         .border-b,
@@ -306,7 +306,7 @@ footer {
         color: $desert;
 
         .img-footer {
-            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-caramel.png');
+            background-image: url('../assets/images/marie-heuman-architecte-interieur-tours-blois-monogramme-desert.png');
         }
 
         .border-b,

@@ -11,6 +11,7 @@
         .content {
             margin-bottom: 3.5rem;
             max-width: 680px;
+            margin-inline: 0;
 
             h2 {
                 font-size: 44px;
@@ -112,6 +113,15 @@
             text-align: left;
         }
 
+        >section {
+            .tag-home {
+                font-family: Newsreader;
+                font-size: 48px;
+                font-weight: 300;
+                margin-bottom: 1rem;
+            }
+        }
+
         .content {
             max-width: 680px;
 
@@ -131,16 +141,25 @@
 
         .top-offre {
             padding: 160px 80px 80px;
+
+            .tag-home {
+                text-align: center;
+            }
+
+            .content {
+                text-align: center;
+                margin: auto;
+            }
+
         }
 
         .temps1 {
             .content {
+                margin-inline: 0;
+                margin-bottom: 64px;
+
                 h3 {
                     margin-bottom: .75rem;
-                }
-
-                p {
-                    opacity: .6;
                 }
             }
 
@@ -282,6 +301,22 @@
                             }
                         }
                     }
+                }
+            }
+        }
+
+        .temps3 {
+            .accordions .accordion-content:has(.collapse:open) .circle {
+                background-color: $green;
+            }
+
+            .accordions {
+                .circle {
+                    background-color: rgba(70, 38, 32, 0.25);
+                }
+
+                .accordion-content {
+                    border-color: rgba(70, 38, 32, 0.15);
                 }
             }
         }

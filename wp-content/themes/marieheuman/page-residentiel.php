@@ -67,7 +67,7 @@ get_header();
                 <?= $offre['content'] ?>
             </div>
         </div>
-        <div class="section-blue temps1">
+        <section class="section-blue temps1">
             <?php $temps1 = $offre['temps_01'] ?>
             <div class="tag-home"><?= $temps1['tag'] ?></div>
             <div class="content"><?= $temps1['content'] ?></div>
@@ -87,8 +87,8 @@ get_header();
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section-floral temps2">
+        </section>
+        <section class="section-floral temps2">
             <?php $temps2 = $offre['temps_02'] ?>
             <div class="grid xl:grid-cols-12 gap-12">
                 <div class="xl:col-span-5 xl:col-start-8">
@@ -126,8 +126,8 @@ get_header();
                             <?php $i++; endif; endforeach; ?>
                 </div>
             </div>
-        </div>
-        <div class="section-cadriage-page temps3">
+        </section>
+        <section class="section-blue temps3">
             <?php $temps3 = $offre['temps_03'] ?>
             <div class="grid xl:grid-cols-12 gap-12">
                 <div class="xl:col-span-5">
@@ -168,7 +168,7 @@ get_header();
                             <?php $i++; endif; endforeach; ?>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
 
     <section class="section-floral questions">

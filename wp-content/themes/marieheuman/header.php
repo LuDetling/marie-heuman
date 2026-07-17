@@ -22,7 +22,7 @@
                                 <p class="show-hover">↻ Changer l'ambiance</p>
                             </button>
                             <div class="responsive-menu md:hidden">
-                                <button>Menu</button>
+                                <button class="button header-white-button">Menu</button>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ const toggleMenu = () => {
 
     // ASTUCE : On cible les éléments via des IDs ou des classes fixes pour ne pas perdre la sélection !
     const container = document.getElementById('main-header'); // Remplace par l'ID réel de ton header
-    const headerButton = document.querySelector('.header-white-button');
+    const headerButton = document.querySelectorAll('.header-white-button');
     const footer = document.querySelector('footer');
 
     // 1. Les cycles de classes
@@ -20,12 +20,17 @@ const toggleMenu = () => {
         // On retire les anciennes classes si elles existent
         if (oldIndex !== undefined) {
             container.classList.remove(classes[oldIndex]);
-            headerButton.classList.remove(classesButton[oldIndex]);
+            headerButton.forEach(element => {
+                element.classList.remove(classesButton[oldIndex])
+            });
             footer.classList.remove(classesFooter[oldIndex]);
         }
         // On ajoute les nouvelles classes
         container.classList.add(classes[newIndex]);
-        headerButton.classList.add(classesButton[newIndex]);
+        headerButton.forEach(element => {
+            element.classList.add(classesButton[newIndex]);
+
+        });
         footer.classList.add(classesFooter[newIndex]);
     };
 

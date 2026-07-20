@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Page Approche */
+/* Template Name: Page Residentiel */
 get_header();
 ?>
 

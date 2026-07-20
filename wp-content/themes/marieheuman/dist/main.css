@@ -93,6 +93,7 @@
   position: relative;
   display: block;
   width: fit-content;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -825,6 +826,13 @@
 }
 .home-pour-qui .cards .container-card {
   padding: 3rem;
+}
+@media (width < 48rem) {
+  .home-pour-qui .cards .container-card {
+    padding: 2rem;
+  }
+}
+.home-pour-qui .cards .container-card {
   border: 1px solid #f3ceb1;
 }
 .home-pour-qui .cards .container-card .tag {
@@ -959,6 +967,11 @@
   padding: 5rem;
   margin: auto;
 }
+@media (width < 48rem) {
+  .section-demarrer .content-section-demarrer {
+    padding: 2rem;
+  }
+}
 .section-demarrer .content-section-demarrer .cadriage {
   background-image: linear-gradient(0deg, rgb(70, 38, 32) 1px, transparent 1px), linear-gradient(90deg, rgb(70, 38, 32) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -988,7 +1001,7 @@
 }
 @media (width < 48rem) {
   .section-avis .top-content-avis {
-    padding: 40px 80px;
+    padding: 80px 40px;
   }
 }
 .section-avis .top-content-avis .description {
@@ -3537,6 +3550,11 @@ section > .content {
   opacity: 0.98;
   padding: 5rem;
 }
+@media (width < 48rem) {
+  .section-cadriage-desert {
+    padding: 80px 40px;
+  }
+}
 .section-cadriage-desert .tag-home {
   text-align: center;
 }
@@ -3546,6 +3564,13 @@ section > .content {
   background-image: linear-gradient(0deg, #f9f6ec 1px, transparent 1px), linear-gradient(90deg, #f9f6ec 1px, transparent 1px);
   background-size: 80px 80px;
   padding: 160px 80px;
+}
+@media (width < 48rem) {
+  .section-cadriage-page {
+    padding: 80px 40px;
+  }
+}
+.section-cadriage-page {
   color: #462620;
 }
 

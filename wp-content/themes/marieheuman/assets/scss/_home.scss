@@ -279,6 +279,11 @@
 
         .container-card {
             padding: 3rem;
+
+            @media (width < 48rem) {
+                padding: 2rem;
+            }
+
             border: 1px solid $desert;
 
             .tag {
@@ -458,6 +463,10 @@
         padding: 5rem;
         margin: auto;
 
+        @media (width < 48rem) {
+            padding: 2rem;
+        }
+
         .cadriage {
             background-image: linear-gradient(0deg, rgb(70, 38, 32) 1px, transparent 1px), linear-gradient(90deg, rgb(70, 38, 32) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -498,7 +507,7 @@
         padding: 160px 80px 0;
 
         @media (width < 48rem) {
-            padding: 40px 80px;
+            padding: 80px 40px;
         }
 
         .description {

@@ -597,11 +597,15 @@
 .home-header {
   background-color: #fffdf3;
   min-height: 90vh;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+@media (width < 48rem) {
+  .home-header {
+    padding: 80px 40px;
+  }
 }
 .home-header .content-home-header {
   pointer-events: none;
@@ -3484,11 +3488,6 @@ section > .content {
   margin-inline: auto;
 }
 
-@media screen and (max-width: 767px) {
-  .header-content {
-    padding-top: 144px;
-  }
-}
 .section-marron {
   background-color: #462620;
   color: #fffdf3;

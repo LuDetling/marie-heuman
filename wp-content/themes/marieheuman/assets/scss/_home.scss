@@ -4,11 +4,14 @@
 .home-header {
     background-color: $creme;
     min-height: 90vh;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+
+    @media (width < 48rem) {
+        padding: 80px 40px;
+    }
 
     .content-home-header {
         pointer-events: none;

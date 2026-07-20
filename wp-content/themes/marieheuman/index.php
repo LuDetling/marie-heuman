@@ -1,14 +1,14 @@
 <?php get_header(); ?>
-<main class="md:ml-20">
+<main class="page-index">
     <?php $header = get_field('header_content'); ?>
-    <section class="header-content section-white <?= $header['lien_1'] ? ' ' : 'header-content-without-link'?>">
-        <?= $header['titre'] ?>
+    <section class="header-content section-floral <?= $header['lien_1'] ? ' ' : 'header-content-without-link' ?>">
+        <div class="container-header">
+            <?= $header['titre'] ?>
+        </div>
     </section>
-    <div class="img-under-header"></div>
-
 
     <?php $contenu = get_field('page_contenu'); ?>
-    <section class="section-beige content">
+    <section class="content">
         <?= $contenu['contenu'] ?>
     </section>
 </main>

@@ -122,7 +122,16 @@
                                         </div>
                                     <?php endif; ?>
                                     <h3 class="mb-2 mt-4"><?php the_title(); ?></h3>
-                                    <p>A changer</p>
+                                    <ul class="flex flex-wrap gap-2 categories-projets">
+                                        <?php $categories = get_the_category();
+                                        foreach ($categories as $cat):
+                                            $categoryClasses = $cat->slug;
+                                            ?>
+                                            <li class="<?= $categoryClasses ?>">
+                                                <?= $cat->name ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 </a>
                             </div>
                         <?php endwhile; ?>

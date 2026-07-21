@@ -686,11 +686,19 @@
     max-width: 720px;
     margin: auto;
 
+    h2 {
+      margin-top: 6rem;
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
     img {
       width: 100%;
       max-height: 540px;
       display: block;
-      margin: 48px 0;
+      margin: 6rem 0;
       object-fit: cover;
     }
 
@@ -712,7 +720,7 @@
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: $coperwood;
-        margin-bottom: 48px;
+        margin-bottom: 6rem;
       }
     }
   }

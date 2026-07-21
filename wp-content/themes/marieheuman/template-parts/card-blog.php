@@ -3,9 +3,9 @@ $blog = get_field('contenu_page_blog');
 ?>
 
 <a href="<?= the_permalink(); ?>" class="block card-article">
-    <div class="flex gap-4 justify-between">
+    <div class="flex flex-col-reverse md:flex-row gap-4 justify-between">
         <div class="text-card">
-            <div class="blog-meta flex gap-5">
+            <div class="blog-meta  flex flex-col md:flex-row gap-5 flex-wrap">
                 <ul class="flex flex-wrap gap-2 categories-blog">
                     <?php $categories = get_the_terms(get_the_ID(), 'blog_category');
 
@@ -35,7 +35,7 @@ $blog = get_field('contenu_page_blog');
             <h3>
                 <?php the_title(); ?>
             </h3>
-            <div class="flex items-end justify-between">
+            <div class="flex flex-col md:flex-row gap-5 md:items-end justify-between">
                 <div class="description">
                     <?= $blog['description'] ?>
                 </div>

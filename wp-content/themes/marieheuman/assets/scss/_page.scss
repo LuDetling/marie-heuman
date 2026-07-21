@@ -21,6 +21,10 @@
             letter-spacing: -0.02em;
             margin-bottom: 1.5rem;
 
+            @media (width < 48rem) {
+                font-size: 50px;
+            }
+
             em {
                 font-family: 'Newsreader';
             }
@@ -78,6 +82,10 @@
                 font-weight: 400;
                 line-height: 1.2;
                 margin-bottom: 1.5rem;
+
+                @media (width < 48rem) {
+                    font-size: 32px;
+                }
             }
 
             p {
@@ -100,6 +108,10 @@
         h2 {
             font-size: 44px;
             margin-bottom: 1.5rem;
+
+            @media (width < 48rem) {
+                font-size: 32px;
+            }
         }
 
         p {
@@ -152,6 +164,10 @@
             line-height: 1.2;
             margin-bottom: 2rem;
             max-width: 350px;
+
+            @media (width < 48rem) {
+                font-size: 32px;
+            }
         }
 
         p {
@@ -207,6 +223,10 @@
             font-size: 36px;
             line-height: 1.2;
             margin-bottom: 2rem;
+
+            @media (width < 48rem) {
+                font-size: 32px;
+            }
         }
 
         p {
@@ -240,6 +260,10 @@
         h2 {
             font-size: 44px;
             margin-bottom: 1.5rem;
+
+            @media (width < 48rem) {
+                font-size: 32px;
+            }
         }
 
         p {
@@ -264,6 +288,10 @@
             font-size: 44px;
             line-height: 1.2;
             margin-bottom: 1.5rem;
+
+            @media (width < 48rem) {
+                font-size: 32px;
+            }
         }
 
         p {

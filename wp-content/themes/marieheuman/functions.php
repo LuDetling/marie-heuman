@@ -224,44 +224,70 @@ add_filter('tiny_mce_before_init', function ($settings) {
             'classes' => 'uppercase',
         ],
         [
-            'title' => 'Badge desert',
-            'inline' => 'span',
-            'classes' => 'badge badge-desert',
+            'title' => 'Badges',
+            'items' => [
+                [
+                    'title' => 'Badge desert',
+                    'inline' => 'span',
+                    'classes' => 'badge badge-desert',
+                ],
+                [
+                    'title' => 'Badge rose',
+                    'inline' => 'span',
+                    'classes' => 'badge badge-rose',
+                ],
+                [
+                    'title' => 'Badge coperwood',
+                    'inline' => 'span',
+                    'classes' => 'badge badge-coperwood',
+                ],
+                [
+                    'title' => 'Badge green',
+                    'inline' => 'span',
+                    'classes' => 'badge badge-green',
+                ],
+                [
+                    'title' => 'Badge blue',
+                    'inline' => 'span',
+                    'classes' => 'badge badge-blue',
+                ]
+            ]
         ],
         [
-            'title' => 'Badge rose',
-            'inline' => 'span',
-            'classes' => 'badge badge-rose',
+            'title' => 'bordures',
+            'items' => [
+                [
+                    'title' => 'bordure rose',
+                    'block' => 'div',
+                    'classes' => 'border-rose',
+                    'wrapper' => true,
+                ],
+                [
+                    'title' => 'bordure desert',
+                    'block' => 'div',
+                    'classes' => 'border-desert',
+                    'wrapper' => true,
+                ]
+            ]
         ],
         [
-            'title' => 'Badge coperwood',
-            'inline' => 'span',
-            'classes' => 'badge badge-coperwood',
+            'title' => 'Blocks',
+            'items' => [
+                [
+                    'title' => 'Bloc desert',
+                    'block' => 'div',
+                    'classes' => 'block-desert',
+                    'wrapper' => true,
+                ],
+                [
+                    'title' => 'Bloc light blue',
+                    'block' => 'div',
+                    'classes' => 'block-light-blue',
+                    'wrapper' => true,
+                ]
+            ]
         ],
-        [
-            'title' => 'bordure rose',
-            'block' => 'div',
-            'classes' => 'border-rose',
-            'wrapper' => true,
-        ],
-        [
-            'title' => 'bordure desert',
-            'block' => 'div',
-            'classes' => 'border-desert',
-            'wrapper' => true,
-        ],
-        [
-            'title' => 'Bloc desert',
-            'block' => 'div',
-            'classes' => 'block-desert',
-            'wrapper' => true,
-        ],
-        [
-            'title' => 'Bloc light blue',
-            'block' => 'div',
-            'classes' => 'block-light-blue',
-            'wrapper' => true,
-        ],
+
         [
             'title' => 'Liste coperwood',
             'selector' => 'ul, ol', // Cible spécifiquement la balise UL

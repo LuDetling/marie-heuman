@@ -94,6 +94,10 @@
     gap: 80px;
     align-items: center;
 
+    @media (width < 48rem) {
+      margin-bottom: 60px;
+    }
+
     &:hover {
       img {
         transform: scale(1.02);
@@ -110,6 +114,10 @@
       height: 500px;
       overflow: hidden;
 
+      @media (width < 48rem) {
+        height: 350px;
+      }
+
       img {
         height: 100%;
         object-fit: cover;
@@ -125,6 +133,10 @@
         letter-spacing: -0.01em;
         transition: .3s;
         margin-bottom: 14px;
+
+        @media (width < 48rem) {
+          font-size: 24px;
+        }
       }
 
       p {
@@ -146,6 +158,10 @@
     transition: .2s;
     position: relative;
 
+    @media (width < 48rem) {
+      margin-bottom: 60px;
+    }
+
     &:hover {
       background-color: #fffbee;
 
@@ -158,6 +174,11 @@
         img {
           width: 280px;
           opacity: 1;
+
+          @media (width < 48rem) {
+            width: 100%;
+          }
+
         }
       }
 
@@ -174,6 +195,11 @@
       padding-block: 60px;
       flex: 1;
       transition: .2s;
+
+      @media (width < 48rem) {
+        padding-top: 0;
+      }
+
     }
 
     .img-link {
@@ -181,12 +207,25 @@
       position: absolute;
       right: 0;
 
+
+
       img {
         width: 0;
         height: 100%;
         object-fit: cover;
         transition: .3s;
         opacity: .5;
+      }
+
+      @media (width < 48rem) {
+        position: relative;
+        height: 200px;
+
+        img {
+          width: 100%;
+          opacity: 1;
+          height: 200px;
+        }
       }
     }
 
@@ -613,6 +652,10 @@
           line-height: 1.05;
           letter-spacing: -0.01em;
           margin-bottom: 1.25rem;
+
+          @media (width < 48rem) {
+            font-size: 40px;
+          }
         }
       }
 

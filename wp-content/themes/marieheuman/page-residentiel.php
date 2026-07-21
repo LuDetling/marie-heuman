@@ -106,9 +106,6 @@ get_header();
                                 <div class="hidden md:block circle"></div>
                                 <details class="collapse" name="accordion-methode-home">
                                     <summary class="collapse-title mb-2">
-                                        <span class="index">
-                                            <?= $numero ?>
-                                        </span>
                                         <div class="title">
                                             <?= $accordion['titre'] ?>
                                         </div>

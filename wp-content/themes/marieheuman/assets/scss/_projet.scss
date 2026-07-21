@@ -39,6 +39,10 @@
             gap: 80px;
             align-items: center;
 
+            @media (width < 48rem) {
+                gap: 14px;
+            }
+
             @media (width >=80rem) {
                 &:nth-child(even) {
                     .content-img {
@@ -78,6 +82,10 @@
                     letter-spacing: -0.01em;
                     transition: .3s;
                     margin-bottom: 14px;
+
+                    @media (width < 48rem) {
+                        font-size: 24px;
+                    }
                 }
 
                 p {
@@ -390,6 +398,10 @@
                 font-weight: 300;
                 line-height: 1.05;
                 letter-spacing: -0.02em;
+
+                @media (width < 48rem) {
+                    font-size: 40px;
+                }
             }
 
             p {
@@ -407,6 +419,10 @@
     .contexte {
         .tag-home {
             text-align: left;
+        }
+
+        .content {
+            margin: 0;
         }
 
         h2 {
@@ -489,6 +505,10 @@
             opacity: 0.65;
         }
 
+        .content {
+            margin: 0;
+        }
+
         h2 {
             margin-bottom: 3rem;
         }
@@ -529,7 +549,7 @@
 
     .swiper-wrapper {
         height: 100%;
-        align-items: stretch;
+        align-items: flex-end;
 
         .swiper-slide {
             width: 100%;
@@ -540,7 +560,7 @@
         img {
             width: 100%;
             object-fit: cover;
-            height: 80vh;
+            max-height: 80vh;
             border-radius: 0;
         }
     }

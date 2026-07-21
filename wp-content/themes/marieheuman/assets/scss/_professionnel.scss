@@ -142,6 +142,10 @@
         .top-offre {
             padding: 160px 80px 80px;
 
+            @media (width < 48rem) {
+                padding: 80px 40px 40px;
+            }
+
             .tag-home {
                 text-align: center;
             }
@@ -251,13 +255,13 @@
                         margin-bottom: .25rem;
 
                         span {
-                            background-color: $green;
+                            // background-color: $green;
                             font-size: 9px;
                             font-weight: 700;
                             text-transform: uppercase;
                             letter-spacing: 0.1em;
                             vertical-align: middle;
-                            color: $floral;
+                            // color: $floral;
                             padding: 2px 8px;
                             margin-left: .75rem;
                             font-family: 'Jost';

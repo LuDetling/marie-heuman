@@ -4,11 +4,16 @@
     padding: 2rem 80px 1rem;
     color: rgb(229, 217, 200);
     font-size: 12px;
-
+    
+    @media (width < 48rem) {
+        padding: 78px 40px 40px;
+    }
+    
     >span {
         display: flex;
         align-items: center;
         gap: .5rem;
+        flex-wrap: wrap;
     }
 
     a {

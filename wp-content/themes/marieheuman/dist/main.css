@@ -1082,6 +1082,11 @@
   gap: 80px;
   align-items: center;
 }
+@media (width < 48rem) {
+  .blog .first-card-article {
+    margin-bottom: 60px;
+  }
+}
 .blog .first-card-article:hover img {
   transform: scale(1.02);
 }
@@ -1091,6 +1096,11 @@
 .blog .first-card-article .content-img {
   height: 500px;
   overflow: hidden;
+}
+@media (width < 48rem) {
+  .blog .first-card-article .content-img {
+    height: 350px;
+  }
 }
 .blog .first-card-article .content-img img {
   height: 100%;
@@ -1104,6 +1114,11 @@
   letter-spacing: -0.01em;
   transition: 0.3s;
   margin-bottom: 14px;
+}
+@media (width < 48rem) {
+  .blog .first-card-article .text-card h3 {
+    font-size: 24px;
+  }
 }
 .blog .first-card-article .text-card p {
   margin-bottom: 1.5rem;
@@ -1119,6 +1134,11 @@
   transition: 0.2s;
   position: relative;
 }
+@media (width < 48rem) {
+  .blog .card-article {
+    margin-bottom: 60px;
+  }
+}
 .blog .card-article:hover {
   background-color: #fffbee;
 }
@@ -1128,6 +1148,11 @@
 .blog .card-article:hover .img-link img {
   width: 280px;
   opacity: 1;
+}
+@media (width < 48rem) {
+  .blog .card-article:hover .img-link img {
+    width: 100%;
+  }
 }
 .blog .card-article:hover h3 {
   color: #A76523;
@@ -1140,6 +1165,11 @@
   flex: 1;
   transition: 0.2s;
 }
+@media (width < 48rem) {
+  .blog .card-article .text-card {
+    padding-top: 0;
+  }
+}
 .blog .card-article .img-link {
   height: 100%;
   position: absolute;
@@ -1151,6 +1181,17 @@
   object-fit: cover;
   transition: 0.3s;
   opacity: 0.5;
+}
+@media (width < 48rem) {
+  .blog .card-article .img-link {
+    position: relative;
+    height: 200px;
+  }
+  .blog .card-article .img-link img {
+    width: 100%;
+    opacity: 1;
+    height: 200px;
+  }
 }
 .blog .card-article h3 {
   font-size: 24px;
@@ -1263,6 +1304,11 @@
   line-height: 1.05;
   letter-spacing: -0.01em;
   margin-bottom: 1.25rem;
+}
+@media (width < 48rem) {
+  .page-blog .header-content .header-container .titre h1 {
+    font-size: 40px;
+  }
 }
 .page-blog .header-content .header-container .description p {
   font-family: Newsreader;
@@ -1408,6 +1454,11 @@
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
 }
+@media (width < 48rem) {
+  .header-content .container-header h1 {
+    font-size: 50px;
+  }
+}
 .header-content .container-header h1 em {
   font-family: "Newsreader";
 }
@@ -1450,6 +1501,11 @@
   line-height: 1.2;
   margin-bottom: 1.5rem;
 }
+@media (width < 48rem) {
+  .parti-pris .right-content .content h2 {
+    font-size: 32px;
+  }
+}
 .parti-pris .right-content .content p {
   font-size: 17px;
   line-height: 1.6;
@@ -1465,6 +1521,11 @@
 .vision .content h2 {
   font-size: 44px;
   margin-bottom: 1.5rem;
+}
+@media (width < 48rem) {
+  .vision .content h2 {
+    font-size: 32px;
+  }
 }
 .vision .content p {
   font-size: 17px;
@@ -1505,6 +1566,11 @@
   line-height: 1.2;
   margin-bottom: 2rem;
   max-width: 350px;
+}
+@media (width < 48rem) {
+  .demarche .content h2 {
+    font-size: 32px;
+  }
 }
 .demarche .content p {
   font-size: 17px;
@@ -1550,6 +1616,11 @@
   line-height: 1.2;
   margin-bottom: 2rem;
 }
+@media (width < 48rem) {
+  .studio .content h2 {
+    font-size: 32px;
+  }
+}
 .studio .content p {
   font-size: 17px;
   line-height: 1.7;
@@ -1577,6 +1648,11 @@
   font-size: 44px;
   margin-bottom: 1.5rem;
 }
+@media (width < 48rem) {
+  .questions .content h2 {
+    font-size: 32px;
+  }
+}
 .questions .content p {
   font-size: 17px;
   line-height: 1.6;
@@ -1596,6 +1672,11 @@
   font-size: 44px;
   line-height: 1.2;
   margin-bottom: 1.5rem;
+}
+@media (width < 48rem) {
+  .projet .content h2 {
+    font-size: 32px;
+  }
 }
 .projet .content p {
   font-size: 17px;
@@ -1750,6 +1831,11 @@
 #professionnel .offre .top-offre {
   padding: 160px 80px 80px;
 }
+@media (width < 48rem) {
+  #professionnel .offre .top-offre {
+    padding: 80px 40px 40px;
+  }
+}
 #professionnel .offre .top-offre .tag-home {
   text-align: center;
 }
@@ -1834,13 +1920,11 @@
 }
 #professionnel .offre .temps2 .accordions .title h4 span,
 #professionnel .offre .temps3 .accordions .title h4 span {
-  background-color: #ac9c35;
   font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   vertical-align: middle;
-  color: #fffdf3;
   padding: 2px 8px;
   margin-left: 0.75rem;
   font-family: "Jost";
@@ -1894,10 +1978,16 @@
   color: rgb(229, 217, 200);
   font-size: 12px;
 }
+@media (width < 48rem) {
+  #breadcrumbs {
+    padding: 78px 40px 40px;
+  }
+}
 #breadcrumbs > span {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 #breadcrumbs a {
   font-size: 13px;
@@ -2009,6 +2099,11 @@
   gap: 80px;
   align-items: center;
 }
+@media (width < 48rem) {
+  #list-projets .projets .card-article {
+    gap: 14px;
+  }
+}
 @media (width >= 80rem) {
   #list-projets .projets .card-article:nth-child(even) .content-img {
     order: 2;
@@ -2036,6 +2131,11 @@
   letter-spacing: -0.01em;
   transition: 0.3s;
   margin-bottom: 14px;
+}
+@media (width < 48rem) {
+  #list-projets .projets .card-article .text-card h3 {
+    font-size: 24px;
+  }
 }
 #list-projets .projets .card-article .text-card p {
   margin-bottom: 1.5rem;
@@ -2289,6 +2389,11 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
+@media (width < 48rem) {
+  .page-projet .header-projet .titre h1 {
+    font-size: 40px;
+  }
+}
 .page-projet .header-projet .titre p {
   margin-bottom: 1.25rem;
   font-weight: 500;
@@ -2299,6 +2404,9 @@
 }
 .page-projet .contexte .tag-home {
   text-align: left;
+}
+.page-projet .contexte .content {
+  margin: 0;
 }
 .page-projet .contexte h2 {
   font-size: 44px;
@@ -2355,6 +2463,9 @@
   color: rgb(70, 38, 32);
   opacity: 0.65;
 }
+.page-projet .technique .content {
+  margin: 0;
+}
 .page-projet .technique h2 {
   margin-bottom: 3rem;
 }
@@ -2385,7 +2496,7 @@
 }
 .swiper .swiper-wrapper {
   height: 100%;
-  align-items: stretch;
+  align-items: flex-end;
 }
 .swiper .swiper-wrapper .swiper-slide {
   width: 100%;
@@ -2394,7 +2505,7 @@
 .swiper .swiper-wrapper img {
   width: 100%;
   object-fit: cover;
-  height: 80vh;
+  max-height: 80vh;
   border-radius: 0;
 }
 
@@ -3208,6 +3319,7 @@ footer h4 {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  font-family: "Jost";
 }
 footer p {
   font-size: 14px;
@@ -3491,6 +3603,9 @@ section {
   section {
     padding: 80px 40px;
   }
+  section:first-child {
+    padding-top: 158px;
+  }
 }
 section {
   /* Votre couleur de base */
@@ -3668,6 +3783,16 @@ p:has(.badge) {
 .badge-coperwood {
   background-color: #A76523;
   color: #fffdf3;
+}
+
+.badge-green {
+  background-color: #ac9c35;
+  color: #fffdf3;
+}
+
+.badge-blue {
+  background-color: #bed0ce;
+  color: #462620;
 }
 
 .uppercase {
@@ -3862,15 +3987,25 @@ h4 * {
 .customize-support .filters {
   top: 2rem;
 }
+@media (width < 48rem) {
+  .customize-support .filters {
+    top: 78px;
+  }
+}
 
 .filters {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 2;
   background-color: #fffdf3;
   padding-block: 1.25rem;
   border-block: 1px solid #f3ceb1;
   margin-bottom: 60px;
+}
+@media (width < 48rem) {
+  .filters {
+    top: 78px;
+  }
 }
 .filters ul li > span {
   font-size: 11px;

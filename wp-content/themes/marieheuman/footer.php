@@ -3,7 +3,7 @@
 <footer class="footer-blue px-10 md:px-20">
     <div class="flex items-center justify-between py-15 border-b relative gap-4 flex-wrap lg:flex-nowrap">
         <h2>Design de <em>lieux</em>, d'<em>expérience</em> &
-            d'<em>identité</em>.</h2>
+            d'<em>identités</em>.</h2>
         <div class="img-footer"></div>
     </div>
 
@@ -43,16 +43,15 @@
                         Val de Loire — Interventions en France
                     </p>
                 </div>
-                <h4 class="mb-4">Suivre</h4>
+                <h3 class="mb-4">Suivre</h3>
                 <?= wp_nav_menu([
                     'theme_location' => 'reseaux'
                 ]); ?>
             </div>
             <div>
                 <div>
-                    <h3>RECEVOIR LE CARNET</h3>
-                    <p class="mb-6">Des notes occasionnelles : projets, lectures, questionnements. Pas plus d'un envoi
-                        par mois.
+                    <h3>RECEVOIR LA LETTRE</h3>
+                    <p class="mb-6">Projets livrés, textes du journal, réflexions de studio. Sans spam.
                     </p>
                 </div>
                 <?= do_shortcode("[sibwp_form id=4]") ?>

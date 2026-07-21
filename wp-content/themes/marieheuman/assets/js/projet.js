@@ -5,9 +5,9 @@ avantApresButtons.forEach((button, index) => {
 
         avantApresButtons.forEach((btn, btnIndex) => {
             if (btnIndex === index) {
-                btn.classList.add('active-border-marron-button');
+                btn.classList.add('active-filter');
             } else {
-                btn.classList.remove('active-border-marron-button');
+                btn.classList.remove('active-filter');
             }
         });
 

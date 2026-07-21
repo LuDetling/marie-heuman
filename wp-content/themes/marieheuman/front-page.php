@@ -224,7 +224,7 @@
 
         <div class="confiance">
             <p> <?= $accueil_avis['titre_confiance'] ?></p>
-            <div class="infinity-bar">
+            <div class="infinity-bar confiance-infinity-bar">
                 <?= $accueil_avis['images_confiance'] ?>
                 <?= $accueil_avis['images_confiance'] ?>
             </div>

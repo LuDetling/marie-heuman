@@ -100,6 +100,17 @@ function transformer_en_swiper_slides($content)
         </section>
     <?php endif; ?>
 
+
+    <?php $diff = get_field("projet_diff");
+    if (!empty($diff['tag'])): ?>
+        <section class="section-floral avant-apres">
+            <div class="tag-home"><?php $indexSection++;
+            echo (changeIndexSection($indexSection)); ?>     <?= $diff['tag'] ?></div>
+            <div class="content"><?= $diff['content'] ?></div>
+            <?php get_template_part('template-parts/content/avant-apres'); ?>
+        </section>
+    <?php endif; ?>
+
     <?php $identite = get_field('projet_identite');
     if (!empty($images['tag'])): ?>
 

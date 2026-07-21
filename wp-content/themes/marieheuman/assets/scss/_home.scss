@@ -97,6 +97,15 @@
 
     &.confiance-infinity-bar {
         background-color: $rose;
+
+        ul {
+            animation: scroll 50s linear infinite;
+
+            li {
+                gap: 2rem;
+                padding-right: 2rem;
+            }
+        }
     }
 
 

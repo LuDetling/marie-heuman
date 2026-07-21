@@ -682,6 +682,13 @@
 .infinity-bar.confiance-infinity-bar {
   background-color: #a15d66;
 }
+.infinity-bar.confiance-infinity-bar ul {
+  animation: scroll 50s linear infinite;
+}
+.infinity-bar.confiance-infinity-bar ul li {
+  gap: 2rem;
+  padding-right: 2rem;
+}
 .infinity-bar ul {
   display: flex;
   align-items: center;
@@ -1483,7 +1490,7 @@
 }
 .convictions .content p {
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 .convictions .content p:not(:last-child) {
   margin-bottom: 1.5rem;
@@ -2159,7 +2166,6 @@
 }
 .swiperAvis .swiper-wrapper .swiper-slide {
   background-color: #ece7dd;
-  border-radius: 15px;
   padding: 2rem;
 }
 .swiperAvis .swiper-wrapper .swiper-slide .nom {
@@ -2173,7 +2179,6 @@
 
 .left-projet {
   padding: 2rem;
-  border-radius: 15px;
   min-width: 311px;
 }
 @media screen and (max-width: 767px) {
@@ -2196,10 +2201,6 @@
   display: inline;
 }
 
-.swiperProjectPage,
-.avant-apres .swiper {
-  border-radius: 15px;
-}
 .swiperProjectPage .swiper-wrapper .swiper-slide,
 .avant-apres .swiper .swiper-wrapper .swiper-slide {
   /* On laisse l'image dicter la largeur du slide */
@@ -2211,7 +2212,6 @@
 }
 .swiperProjectPage .swiper-wrapper .swiper-slide img,
 .avant-apres .swiper .swiper-wrapper .swiper-slide img {
-  border-radius: 15px;
   display: block;
   max-height: 70vh;
   width: auto;
@@ -2241,31 +2241,65 @@
   padding: 2rem;
   max-width: 1000px;
   margin: auto;
-  border-radius: 15px;
 }
 .page-projet .parti-pris p:not(:last-child) {
   margin-bottom: 1rem;
 }
-.page-projet .avant-apres .selectors {
-  margin-bottom: 3rem;
-}
-.page-projet .avant-apres .selectors ul li:not(:last-child) {
+.page-projet .avant-apres .selectors .img-alt {
+  font-family: Newsreader;
+  font-size: 17px;
+  font-style: italic;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 20px;
 }
-.page-projet .avant-apres .selectors ul li:not(:last-child)::after {
+.page-projet .avant-apres .selectors .img-alt::after {
   content: "";
-  width: 10px;
-  height: 10px;
-  background-color: #462620;
-  border-radius: 50%;
   display: block;
+  width: 1px;
+  height: 100%;
+  background-color: #f3ceb1;
+  margin-right: 20px;
 }
-@media screen and (max-width: 767px) {
-  .page-projet .avant-apres .selectors ul li:not(:last-child)::after {
-    display: none;
-  }
+.page-projet .avant-apres .selectors .avant-apres-button {
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 12px 6px;
+  cursor: pointer;
+  transition: color 150ms, border-color 150ms;
+}
+.page-projet .avant-apres .selectors .avant-apres-button.active-filter {
+  font-weight: 600;
+}
+.page-projet .avant-apres .selectors .avant-apres-button.avant.active-filter {
+  color: #a15d66;
+  border-bottom: 1px solid #a15d66;
+}
+.page-projet .avant-apres .selectors .avant-apres-button.rendu.active-filter {
+  color: #A76523;
+  border-bottom: 1px solid #A76523;
+}
+.page-projet .avant-apres .selectors .avant-apres-button.apres.active-filter {
+  color: #ac9c35;
+  border-bottom: 1px solid #ac9c35;
+}
+.page-projet .avant-apres .selectors .swiper-navigation {
+  position: initial;
+}
+.page-projet .avant-apres .selectors .swiper-navigation .swiper-button-lock,
+.page-projet .avant-apres .selectors .swiper-navigation .swiper-button-disabled {
+  background-color: rgb(229, 217, 200);
+  color: #A76523;
+  cursor: not-allowed;
+  font-family: Jost;
+  transition: background-color 150ms, color 150ms;
+  opacity: 1;
+}
+.page-projet .avant-apres .selectors .swiper-navigation > div {
+  background-color: #462620;
+  color: #fffdf3;
 }
 .page-projet .avant-apres .container-avant-apres {
   position: relative;
@@ -2291,7 +2325,6 @@
   margin: auto;
 }
 .page-projet .identite img {
-  border-radius: 15px;
   width: auto;
   margin: auto;
   max-height: none;
@@ -2333,7 +2366,6 @@
 .swiperSingleBlog .swiper-slide a {
   display: block;
   overflow: hidden;
-  border-radius: 15px;
   height: 100%;
 }
 .swiperProjetsRecents .swiper-slide a:hover img,
@@ -2366,7 +2398,6 @@
 }
 .swiperProjetsRecents .swiper-slide a img,
 .swiperSingleBlog .swiper-slide a img {
-  border-radius: 15px;
   height: 100%;
   max-height: 70vh;
   width: 100%;
@@ -2430,6 +2461,9 @@
 .page-projet .images {
   padding: 0;
   position: relative;
+}
+.page-projet .avant-apres .content {
+  margin: 0;
 }
 .page-projet .demarche .tag-home {
   text-align: left;
@@ -3297,6 +3331,12 @@ footer .img-footer {
   background-repeat: no-repeat;
   background-position: center;
 }
+@media (width < 48rem) {
+  footer .img-footer {
+    max-width: 40px;
+    height: 53px;
+  }
+}
 footer h2 {
   font-family: "Newsreader";
   font-size: 56px;
@@ -3572,6 +3612,10 @@ pre {
   margin-left: 85px;
 }
 
+strong {
+  font-weight: 500;
+}
+
 .items-end {
   align-items: flex-end;
 }
@@ -3735,7 +3779,7 @@ section > .content {
   font-family: "Newsreader";
   font-weight: 300;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.2;
   margin-bottom: 2rem;
 }
 .newsreader-italic em,

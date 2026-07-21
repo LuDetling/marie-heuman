@@ -125,7 +125,7 @@ const swiperIdentitePage = new Swiper('.swiper-identite-page', {
 const commonOptions = {
     slidesPerView: 1,
     spaceBetween: 40,
-    loop: true,
+    loop: false,
     observer: true,
     observeParents: true,
     controller: {

@@ -82,7 +82,7 @@ function transformer_en_swiper_slides($content)
     <?php endif; ?>
 
     <?php $demarche = get_field('projet_demarche');
-    if (!empty($images['tag'])): ?>
+    if (!empty($demarche['tag'])): ?>
 
         <section class="section-floral demarche">
             <div class="grid xl:grid-cols-12 gap-12">
@@ -112,7 +112,7 @@ function transformer_en_swiper_slides($content)
     <?php endif; ?>
 
     <?php $identite = get_field('projet_identite');
-    if (!empty($images['tag'])): ?>
+    if (!empty($identite['tag'])): ?>
 
         <section class="section-desert identite">
             <div class="top-identite">
@@ -138,7 +138,7 @@ function transformer_en_swiper_slides($content)
     <?php endif; ?>
 
     <?php $resultat = get_field('projet_resultat');
-    if (!empty($images['tag'])): ?>
+    if (!empty($resultat['tag'])): ?>
 
         <section class="section-floral demarche">
             <div class="grid xl:grid-cols-12 gap-12">
@@ -161,7 +161,7 @@ function transformer_en_swiper_slides($content)
     <?php endif; ?>
 
     <?php $technique = get_field('projet_technique');
-    if (!empty($images['tag'])): ?>
+    if (!empty($technique['tag'])): ?>
 
         <section class="section-blue technique">
             <div class="tag-home"><?php $indexSection++;
@@ -181,7 +181,7 @@ function transformer_en_swiper_slides($content)
     <?php endif; ?>
 
     <?php $projet = get_field('parlons_projet');
-    if (!empty($images['tag'])): ?>
+    if (!empty($projet['tag'])): ?>
 
         <section class="section-floral projet">
             <div class="section-cadriage-desert max-w-[720px] mx-auto">

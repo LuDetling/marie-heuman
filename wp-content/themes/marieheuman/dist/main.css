@@ -2490,6 +2490,9 @@
 .page-projet .identite .top-identite {
   padding: 160px 80px 40px;
 }
+.page-projet .identite .top-identite .content p {
+  margin: 0;
+}
 .page-projet h2 {
   font-size: 44px;
   line-height: 1.2;

@@ -1,6 +1,7 @@
 @use "globals" as *;
 @use "buttons";
 @use "icone";
+@use "swiper";
 @use "menu";
 @use "home";
 @use "blog";
@@ -63,16 +64,6 @@ img {
 
 .overflow-x-auto {
     scrollbar-width: none;
-}
-
-.swiper-slide {
-    ul {
-        padding-left: 20px;
-
-        li {
-            list-style: disc;
-        }
-    }
 }
 
 form {
@@ -169,7 +160,7 @@ section {
     padding: 5rem;
 
     @media (width < 48rem) {
-        padding: 80px 40px;
+        padding: 80px 20px;
     }
 
     .tag-home {
@@ -286,6 +277,7 @@ p:has(.badge) {
     padding: 4px 12px;
     border-radius: 0;
     border: none;
+    display: inline-block;
 }
 
 .badge-desert {
@@ -392,22 +384,21 @@ p:has(.badge) {
     //     max-width: 640px;
     // }
 
-    ul {
+    ul li {
+        list-style: disc;
+    }
+
+    ol li {
+        list-style: decimal;
+    }
+
+    ul,
+    ol {
         li {
-            display: flex;
-            align-items: center;
-            gap: .75rem;
+            margin-left: 1.1rem;
 
-            &::before {
-                content: '';
-                height: 6px;
-                width: 6px;
-                background-color: $green;
-                border-radius: 50%;
-            }
-
-            &:not(:last-child) {
-                margin-bottom: .5rem;
+            &::marker {
+                color: $green;
             }
         }
     }

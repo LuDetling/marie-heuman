@@ -133,6 +133,11 @@
         .collapse-content {
             padding-left: 110px;
 
+            @media (width < 48rem) {
+                padding-left: 52px;
+
+            }
+
             p,
             div {
                 max-width: none;
@@ -190,6 +195,10 @@
                 padding: 2.5rem;
                 background-color: $floral;
 
+                @media (width < 48rem) {
+                    padding: 1rem;
+                }
+
                 .uppercase {
                     margin-bottom: 1.25rem;
                     display: block;
@@ -229,6 +238,10 @@
             line-height: 1;
             color: $coperwood;
             display: block;
+
+            @media (width < 48rem) {
+                font-size: 30px;
+            }
         }
 
         details {

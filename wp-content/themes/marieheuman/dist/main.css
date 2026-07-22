@@ -407,6 +407,101 @@
   fill: #d86a3d;
 }
 
+.content-swipper {
+  position: relative;
+}
+.content-swipper #swiperDefilement {
+  background: none;
+}
+.content-swipper #swiperDefilement .swiper-wrapper {
+  align-items: center;
+}
+.content-swipper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(odd) {
+  width: 550px;
+  max-width: 100%;
+}
+.content-swipper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(odd) img {
+  height: 400px;
+  width: 100%;
+}
+.content-swipper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(even) {
+  width: 400px;
+  max-width: 100%;
+}
+.content-swipper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(even) img {
+  height: 500px;
+  width: 100%;
+}
+.content-swipper .swiper-navigation {
+  bottom: -70px;
+}
+.content-swipper .swiper-navigation > div {
+  background-color: #462620;
+  color: #fffdf3;
+}
+
+.marquee-gallery {
+  overflow: hidden;
+  width: 100%;
+  padding: 30px 0;
+}
+.marquee-gallery .marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 2rem;
+  animation: scrollMarquee 120s linear infinite;
+}
+.marquee-gallery .marquee-track .marquee-item {
+  flex-shrink: 0;
+}
+.marquee-gallery .marquee-track .marquee-item.img-short {
+  width: 550px;
+}
+.marquee-gallery .marquee-track .marquee-item.img-short img {
+  height: 400px;
+}
+.marquee-gallery .marquee-track .marquee-item.img-tall {
+  width: 400px;
+}
+.marquee-gallery .marquee-track .marquee-item.img-tall img {
+  height: 500px;
+}
+.marquee-gallery .marquee-track .marquee-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.marquee-gallery .marquee-track .marquee-item a .content-img {
+  overflow: hidden;
+}
+.marquee-gallery .marquee-track .marquee-item a:hover img {
+  transform: scale(1.05);
+}
+.marquee-gallery .marquee-track .marquee-item img {
+  object-fit: cover;
+  transition: 0.5s;
+  width: 100%;
+}
+.marquee-gallery .marquee-track .marquee-item h3 {
+  font-family: "Newsreader";
+  font-size: 20px;
+  font-weight: 500;
+}
+.marquee-gallery .marquee-track .marquee-item p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #A76523;
+}
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .site-container-left {
   z-index: 1000;
   transition: 0.2s;
@@ -951,7 +1046,8 @@
   }
 }
 .home-projets .secondary-button {
-  margin: 0 80px;
+  display: inline-block;
+  margin: 3rem 80px 0;
 }
 
 .home-methode .right-methode .tag-home,
@@ -2684,6 +2780,11 @@
 #page-contact .parcours .collapse-content {
   padding-left: 110px;
 }
+@media (width < 48rem) {
+  #page-contact .parcours .collapse-content {
+    padding-left: 52px;
+  }
+}
 #page-contact .parcours .collapse-content p,
 #page-contact .parcours .collapse-content div {
   max-width: none;
@@ -2725,6 +2826,11 @@
   padding: 2.5rem;
   background-color: #fffdf3;
 }
+@media (width < 48rem) {
+  #page-contact .canaux .email-tel > div {
+    padding: 1rem;
+  }
+}
 #page-contact .canaux .email-tel > div .uppercase {
   margin-bottom: 1.25rem;
   display: block;
@@ -2752,6 +2858,11 @@
   line-height: 1;
   color: #A76523;
   display: block;
+}
+@media (width < 48rem) {
+  #page-contact .accordions .index {
+    font-size: 30px;
+  }
 }
 #page-contact .accordions details {
   border-radius: 0;
@@ -3643,13 +3754,6 @@ img {
   scrollbar-width: none;
 }
 
-.swiper-slide ul {
-  padding-left: 20px;
-}
-.swiper-slide ul li {
-  list-style: disc;
-}
-
 form .required::after {
   content: " *";
   color: #d86a3d;
@@ -3726,7 +3830,7 @@ section > .content {
 }
 @media (width < 48rem) {
   .section-cadriage-desert {
-    padding: 80px 40px;
+    padding: 80px 20px;
   }
 }
 .section-cadriage-desert .tag-home {
@@ -3829,6 +3933,7 @@ p:has(.badge) {
   padding: 4px 12px;
   border-radius: 0;
   border: none;
+  display: inline-block;
 }
 
 .badge-desert {
@@ -3913,19 +4018,18 @@ p:has(.badge) {
   margin-bottom: 1.5rem;
 }
 .content ul li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  list-style: disc;
 }
-.content ul li::before {
-  content: "";
-  height: 6px;
-  width: 6px;
-  background-color: #ac9c35;
-  border-radius: 50%;
+.content ol li {
+  list-style: decimal;
 }
-.content ul li:not(:last-child) {
-  margin-bottom: 0.5rem;
+.content ul li,
+.content ol li {
+  margin-left: 1.1rem;
+}
+.content ul li::marker,
+.content ol li::marker {
+  color: #ac9c35;
 }
 
 .green-list-container {

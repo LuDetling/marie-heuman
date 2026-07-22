@@ -110,6 +110,20 @@ const swiperProjectPage = new Swiper('.swiper-project-page', {
 
 });
 
+const swiperDefilement = new Swiper('.swiperDefilement', {
+    slidesPerView: 'auto', // Par défaut sur mobile
+    spaceBetween: 32,
+    // loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next-swiperDefilement',
+        prevEl: '.swiper-button-prev-swiperDefilement',
+    },
+});
+
 const swiperIdentitePage = new Swiper('.swiper-identite-page', {
     slidesPerView: 'auto', // Par défaut sur mobile
     spaceBetween: 3,

@@ -118,7 +118,7 @@ get_header();
                             <div class="title">
                                 <?= $accordion['titre'] ?>
                             </div>
-                            <div class="hidden md:block circle ml-auto"></div>
+                            <div class="block circle ml-auto"></div>
 
                         </summary>
                         <div class="collapse-content mt-4 ">
@@ -141,7 +141,7 @@ get_header();
         <div class="accordions">
             <?php foreach ($questions['accordions'] as $accordion): ?>
                 <div class="flex items-start gap-6 py-8 accordion-content">
-                    <div class="hidden md:block circle"></div>
+                    <div class="block circle"></div>
                     <details class="collapse " name="accordion-methode-home">
                         <summary class="collapse-title mb-2 items-center">
                             <div class="title">

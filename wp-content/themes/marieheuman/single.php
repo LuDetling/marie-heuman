@@ -111,9 +111,9 @@ function transformer_en_swiper_slides($content)
         </section>
     <?php endif; ?>
 
+
     <?php $identite = get_field('projet_identite');
     if (!empty($identite['tag'])): ?>
-
         <section class="section-desert identite">
             <div class="top-identite">
                 <div class="tag-home">
@@ -206,40 +206,31 @@ function transformer_en_swiper_slides($content)
     <?php endif; ?>
 
 
-    <?php $accueil_projets = get_field('accueil_projets'); ?>
     <section class="home-section section-cadriage home-projets relative decouvrir">
         <div class="tag-home"><?php $indexSection++;
         echo (changeIndexSection($indexSection)); ?> À DÉCOUVRIR AUSSI
         </div>
         <div class="cadriage"></div>
         <div class="content-section-cadriage">
-            <!-- <div class="header-home-projets">
-                <div class="tag-home"><?php $indexSection++;
-                echo (changeIndexSection($indexSection)); ?> 
-                    <?= $accueil_projets['tag'] ?>
-                </div>
-                <div class="content">
-                    <?= $accueil_projets['content'] ?>
-                </div>
-            </div> -->
+
             <?php
             $args = [
                 'post_type' => 'post', // Le slug de ta catégorie
                 'posts_per_page' => 10,      // Nombre d'articles à récupérer
                 'post__not_in' => [get_the_ID()], // Optionnel : exclure l'article actuel pour éviter les doublons
             ];
-            $recent_posts_query = new WP_Query($args);
-            if ($recent_posts_query->have_posts()): ?>
-                <div class="marquee-gallery">
-                    <div class="marquee-track">
+            $recent_posts_query = new WP_Query($args); ?>
 
-                        <?php $i = 0;
+
+            <div class="content-swipper">
+                <div id="swiperDefilement" class="swiper swiperDefilement">
+                    <div class="swiper-wrapper">
+                        <?php
                         while ($recent_posts_query->have_posts()):
                             $recent_posts_query->the_post();
                             $projet = get_field('projet');
-                            $img_class = ($i % 2 === 0) ? 'img-short' : 'img-tall';
-                            $i++; ?>
-                            <div class="marquee-item <?= $img_class; ?>">
+                            ?>
+                            <div class="swiper-slide">
                                 <a href="<?php the_permalink(); ?>">
                                     <?php if (!empty($projet['image']['url'])): ?>
                                         <div class="content-img">
@@ -264,33 +255,14 @@ function transformer_en_swiper_slides($content)
                             </div>
                         <?php endwhile; ?>
 
-                        <?php rewind_posts(); // On remet le curseur au début ?>
-                        <?php $i = 0;
-                        while ($recent_posts_query->have_posts()):
-                            $recent_posts_query->the_post();
-                            $projet = get_field('projet');
-                            $img_class = ($i % 2 === 0) ? 'img-short' : 'img-tall';
-                            $i++; ?>
-                            <div class="marquee-item <?= $img_class; ?>" aria-hidden="true">
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php if (!empty($projet['image']['url'])): ?>
-                                        <div class="content-img">
-                                            <img src="<?= esc_url($projet['image']['url']) ?>"
-                                                alt="<?= esc_attr($projet['image']['alt']) ?>">
-                                        </div>
-                                    <?php endif; ?>
-                                    <h3 class="mb-2 mt-4">
-                                        <?php the_title(); ?>
-                                    </h3>
-                                    <p>Résidentiel · Blois</p>
-                                </a>
-                            </div>
-                        <?php endwhile;
-                        wp_reset_postdata(); ?>
-
+                        <?php wp_reset_postdata(); // On remet le curseur au début ?>
                     </div>
                 </div>
-            <?php endif; ?>
+                <div class="flex gap-8 swiper-navigation justify-center items-center">
+                    <div class="swiper-button-prev swiper-button-prev-swiperDefilement"></div>
+                    <div class="swiper-button-next swiper-button-next-swiperDefilement"></div>
+                </div>
+            </div>
         </div>
     </section>
 

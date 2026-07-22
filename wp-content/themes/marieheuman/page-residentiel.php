@@ -103,7 +103,7 @@ get_header();
                         $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
                         if (!empty($accordion['titre'])): ?>
                             <div class="flex items-start gap-6 py-8 accordion-content">
-                                <div class="hidden md:block circle"></div>
+                                <div class="block circle"></div>
                                 <details class="collapse" name="accordion-methode-home">
                                     <summary class="collapse-title mb-2">
                                         <div class="title">
@@ -147,7 +147,7 @@ get_header();
                         $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
                         if (!empty($accordion['titre'])): ?>
                             <div class="flex items-start gap-6 py-8 accordion-content">
-                                <div class="hidden md:block circle"></div>
+                                <div class="block circle"></div>
                                 <details class="collapse" name="accordion-methode-home">
                                     <summary class="collapse-title mb-2">
                                         <span class="index">
@@ -179,7 +179,7 @@ get_header();
             foreach ($accordions as $accordion):
                 if (!empty($accordion['titre'])): ?>
                     <div class="flex items-start gap-6 py-8 accordion-content">
-                        <div class="hidden md:block circle"></div>
+                        <div class="block circle"></div>
                         <details class="collapse" name="accordion-methode-home">
                             <summary class="collapse-title mb-2">
                                 <h3 class="title">

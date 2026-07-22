@@ -1373,6 +1373,16 @@
   padding: 0;
   background: none;
 }
+.page-blog .faq .content {
+  text-align: center;
+}
+.page-blog .faq .accordions {
+  max-width: 1000px;
+  margin: auto;
+}
+.page-blog .content h2 {
+  margin-top: 0;
+}
 
 .search {
   position: relative;
@@ -2538,13 +2548,13 @@
   align-items: flex-end;
 }
 .swiper .swiper-wrapper .swiper-slide {
-  width: 100%;
-  max-width: 80%;
+  width: auto;
+  max-width: 100%;
 }
 .swiper .swiper-wrapper img {
-  width: 100%;
+  height: 80vh;
+  width: auto;
   object-fit: cover;
-  max-height: 80vh;
   border-radius: 0;
 }
 

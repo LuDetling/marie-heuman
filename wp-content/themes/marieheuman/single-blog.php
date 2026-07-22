@@ -62,16 +62,45 @@ function changeIndexSection($i)
         </div>
     </section>
 
+    <?php $faq = get_field('blog_faq'); ?>
+    <section class="section-floral faq">
+        <div class="tag-home">
+            <?= $faq['tag'] ?>
+        </div>
+        <div class="content">
+            <?= $faq['content'] ?>
+        </div>
+        <div class="accordions">
+            <?php foreach ($faq['accordions'] as $accordion): ?>
+                <div class="flex items-start gap-6 py-8 accordion-content">
+                    <div class="hidden md:block circle"></div>
+                    <details class="collapse " name="accordion-methode-home">
+                        <summary class="collapse-title mb-2 items-center">
+                            <div class="title">
+                                <?= $accordion['titre'] ?>
+                            </div>
+                        </summary>
+                        <div class="collapse-content mt-4 ">
+                            <?= $accordion['content'] ?>
+                        </div>
+                    </details>
+
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
 
     <?php $lettre = get_field('blog_lettre'); ?>
     <section class="section-blue lettre">
         <div class="content-lettre">
             <div class="">
                 <div class="tag-home">
-                    <?= $lettre['tag'] ?>
-                </div>
+                    — La lettre </div>
                 <div class="content">
-                    <?= $lettre['content'] ?>
+                    <h2>Vous avez aimé cette lecture ?</h2>
+                    <p>Recevez les nouveaux articles du journal, les projets récemment livrés et les réflexions inédites
+                        du studio. Sans spam.</p>
                 </div>
             </div>
             <div class="">

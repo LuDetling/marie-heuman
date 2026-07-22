@@ -740,6 +740,27 @@
       background: none;
     }
   }
+
+  .faq {
+    // .tag-home {
+    //   text-align: left;
+    // }
+
+    .content {
+      text-align: center;
+    }
+
+    .accordions {
+      max-width: 1000px;
+      margin: auto;
+    }
+  }
+
+  .content {
+    h2 {
+      margin-top: 0;
+    }
+  }
 }
 
 // END BLOG SINGLE

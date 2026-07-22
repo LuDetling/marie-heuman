@@ -71,12 +71,12 @@ get_header();
 
     </section>
 
-    
+
     <section class="section-blue lettre">
         <div class="grid xl:grid-cols-12 gap-12 items-center">
             <div class="xl:col-span-5">
                 <div class="tag-home">
-                    — La lettre </div>
+                   02. —  La lettre </div>
                 <div class="content">
                     <h2>Vous avez aimé cette lecture ?</h2>
                     <p>Recevez les nouveaux articles du journal, les projets récemment livrés et les réflexions inédites

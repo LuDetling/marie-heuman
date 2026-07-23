@@ -107,62 +107,106 @@ function transformer_en_swiper_slides($content)
             <div class="tag-home"><?php $indexSection++;
             echo (changeIndexSection($indexSection)); ?>     <?= $diff['tag'] ?></div>
             <div class="content"><?= $diff['content'] ?></div>
-
             <div class="container-avant-apres">
                 <?php
                 $avantApres = $diff['avant_apres'];
-                $indexSelector = 0;
-                $indexSelectorImages = 0;
                 $indexAvantApres = 0;
-                $classes = [
-                    'avant' => 'avant',
-                    'rendu' => 'rendu',
-                    'apres' => 'apres',
-                ];
-                foreach ($avantApres as $selector):
-                    if (!empty($selector['images'])): ?>
+
+                // Ordre de rotation des clés
+                $order = ['avant', 'rendu', 'apres'];
+
+                // Construction de la liste des étapes réellement présentes (avec images)
+                $activeSteps = [];
+                foreach ($order as $stepKey) {
+                    if (!empty($avantApres[$stepKey]['images'])) {
+                        $activeSteps[] = $stepKey;
+                    }
+                }
+                $totalActiveSteps = count($activeSteps);
+
+                // 1. BLOC IMAGES / SWIPER
+                foreach ($avantApres as $key => $selector):
+                    if (!empty($selector['images'])):
+                        // Recherche de la prochaine étape disponible dans la boucle
+                        $currentPos = array_search($key, $activeSteps);
+                        $nextPos = ($currentPos + 1) % $totalActiveSteps;
+                        $nextKey = $activeSteps[$nextPos];
+                        $nextTag = $avantApres[$nextKey]['tag'] ?? '';
+                        $nextIndex = $nextPos; // L'index correspondant au JS du filtre
+                        ?>
                         <div id="content-avant-apres-<?= $indexAvantApres ?>"
                             class="content-avant-apres <?= $indexAvantApres === 0 ? 'active-avant-apres' : '' ?>">
                             <div class="relative swiper swiperProjectAvantApres swiperProjectAvantApres-<?= $indexAvantApres ?>">
                                 <div class="swiper-wrapper">
-                                    <?php foreach ($selector['images'] as $image): ?>
-                                        <div class="swiper-slide">
-                                            <img src="<?= $image['url'] ?>" alt="<?= $image['alt'] ?>">
+                                    <?php foreach ($selector['images'] as $image):
+                                        $caption = !empty($image['caption']) ? esc_attr($image['caption']) : '';
+                                        ?>
+
+                                        <div class="swiper-slide" data-caption="<?= $caption ?>">
+                                            <img src="<?= esc_url($image['url']) ?>" alt="<?= esc_attr($image['alt']) ?>">
+
+
+
+
+
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
+                                <?php if ($totalActiveSteps > 1): ?>
+                                    <button type="button" class="btn-next-tag avant-apres-button-img" data-index="<?= $nextIndex ?>">
+                                        <?= esc_html($nextTag) ?> →
+                                    </button>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <?php
                         $indexAvantApres++;
                     endif;
-                endforeach ?>
+                endforeach; ?>
             </div>
+
+            <!-- 2. BLOC SÉLECTEURS ET NAVIGATION -->
             <div class="selectors flex gap-8 justify-between w-full mt-4">
                 <ul class="flex items-stretch overflow-x-auto">
-                    <li class="img-alt">Filtres</li>
+                    <!-- Remplacement de 'Filtres' par la caption de 'avant' -->
+                    <li class="img-alt caption-container">
+                        <?php
+                        if (!empty($avantApres['avant']['images'][0]['caption'])) {
+                            echo esc_html($avantApres['avant']['images'][0]['caption']);
+                        }
+                        ?>
+                    </li>
                     <?php
+                    $indexSelector = 0;
+                    $classes = [
+                        'avant' => 'avant',
+                        'rendu' => 'rendu',
+                        'apres' => 'apres',
+                    ];
+
                     foreach ($avantApres as $key => $selector):
                         if (!empty($selector['images'])): ?>
-                            <li class="min-w-max ">
+                            <li class="min-w-max">
                                 <button
-                                    class="<?= $indexSelector === 0 ? 'active-filter ' : '' ?>avant-apres-button <?= $classes[$key] ?>"
+                                    class="<?= $indexSelector === 0 ? 'active-filter ' : '' ?>avant-apres-button <?= $classes[$key] ?? '' ?>"
                                     data-index="<?= $indexSelector ?>">
-                                    <?= $selector['tag'] ?>
+                                    <?= esc_html($selector['tag']) ?>
                                 </button>
                             </li>
                             <?php
                             $indexSelector++;
                         endif;
-                    endforeach ?>
+                    endforeach; ?>
                 </ul>
-                <?php if (count($avantApres['avant']['images']) > 1): ?>
+
+                <?php if (!empty($avantApres['avant']['images']) && count($avantApres['avant']['images']) > 1): ?>
                     <div class="flex gap-8 swiper-navigation justify-center items-center">
+
                         <div class="swiper-button-prev swiper-button-prev-avant-apres"></div>
                         <div class="swiper-button-next swiper-button-next-avant-apres"></div>
                     </div>
-                </div>
-            <?php endif; ?>
+                <?php endif; ?>
+            </div>
 
 
         </section>

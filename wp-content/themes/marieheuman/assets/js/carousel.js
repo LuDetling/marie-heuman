@@ -149,6 +149,16 @@ const commonOptions = {
 const allContentAvantApres = document.querySelectorAll('.content-avant-apres');
 const allSwipers = [];
 
+
+function updateCaption(swiper) {
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    const caption = activeSlide ? activeSlide.getAttribute('data-caption') : '';
+    const captionContainer = document.querySelector('.caption-container');
+
+    if (captionContainer) {
+        captionContainer.textContent = caption || '';
+    }
+}
 allContentAvantApres.forEach((content, index) => {
     if (index === 0) {
         const swiper = new Swiper('.swiperProjectAvantApres-' + index, {
@@ -156,6 +166,14 @@ allContentAvantApres.forEach((content, index) => {
             pagination: {
                 el: ".swiper-pagination-avant-apres",
                 clickable: true,
+            },
+            on: {
+                init: function () {
+                    updateCaption(this);
+                },
+                slideChange: function () {
+                    updateCaption(this);
+                }
             },
             navigation: {
                 nextEl: ".swiper-button-next-avant-apres",

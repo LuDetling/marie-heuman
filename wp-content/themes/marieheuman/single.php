@@ -129,7 +129,7 @@ function transformer_en_swiper_slides($content)
                     if (!empty($selector['images'])):
                         // Recherche de la prochaine étape disponible dans la boucle
                         $currentPos = array_search($key, $activeSteps);
-                        $nextPos = ($currentPos + 1) % $totalActiveSteps;
+                        $nextPos = ($currentPos) % $totalActiveSteps;
                         $nextKey = $activeSteps[$nextPos];
                         $nextTag = $avantApres[$nextKey]['tag'] ?? '';
                         $nextIndex = $nextPos; // L'index correspondant au JS du filtre
@@ -144,11 +144,6 @@ function transformer_en_swiper_slides($content)
 
                                         <div class="swiper-slide" data-caption="<?= $caption ?>">
                                             <img src="<?= esc_url($image['url']) ?>" alt="<?= esc_attr($image['alt']) ?>">
-
-
-
-
-
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
@@ -166,7 +161,7 @@ function transformer_en_swiper_slides($content)
             </div>
 
             <!-- 2. BLOC SÉLECTEURS ET NAVIGATION -->
-            <div class="selectors flex gap-8 justify-between w-full mt-4">
+            <div class="selectors flex flex-wrap gap-8 justify-between w-full mt-4">
                 <ul class="flex items-stretch overflow-x-auto">
                     <!-- Remplacement de 'Filtres' par la caption de 'avant' -->
                     <li class="img-alt caption-container">

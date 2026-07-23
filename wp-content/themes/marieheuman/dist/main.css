@@ -2363,7 +2363,6 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   padding: 10px 16px;
-  cursor: pointer;
   z-index: 10;
   border-bottom: 1px solid #f3ceb1;
 }

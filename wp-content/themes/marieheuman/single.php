@@ -107,7 +107,64 @@ function transformer_en_swiper_slides($content)
             <div class="tag-home"><?php $indexSection++;
             echo (changeIndexSection($indexSection)); ?>     <?= $diff['tag'] ?></div>
             <div class="content"><?= $diff['content'] ?></div>
-            <?php get_template_part('template-parts/content/avant-apres'); ?>
+
+            <div class="container-avant-apres">
+                <?php
+                $avantApres = $diff['avant_apres'];
+                $indexSelector = 0;
+                $indexSelectorImages = 0;
+                $indexAvantApres = 0;
+                $classes = [
+                    'avant' => 'avant',
+                    'rendu' => 'rendu',
+                    'apres' => 'apres',
+                ];
+                foreach ($avantApres as $selector):
+                    if (!empty($selector['images'])): ?>
+                        <div id="content-avant-apres-<?= $indexAvantApres ?>"
+                            class="content-avant-apres <?= $indexAvantApres === 0 ? 'active-avant-apres' : '' ?>">
+                            <div class="relative swiper swiperProjectAvantApres swiperProjectAvantApres-<?= $indexAvantApres ?>">
+                                <div class="swiper-wrapper">
+                                    <?php foreach ($selector['images'] as $image): ?>
+                                        <div class="swiper-slide">
+                                            <img src="<?= $image['url'] ?>" alt="<?= $image['alt'] ?>">
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        $indexAvantApres++;
+                    endif;
+                endforeach ?>
+            </div>
+            <div class="selectors flex gap-8 justify-between w-full mt-4">
+                <ul class="flex items-stretch overflow-x-auto">
+                    <li class="img-alt">Filtres</li>
+                    <?php
+                    foreach ($avantApres as $key => $selector):
+                        if (!empty($selector['images'])): ?>
+                            <li class="min-w-max ">
+                                <button
+                                    class="<?= $indexSelector === 0 ? 'active-filter ' : '' ?>avant-apres-button <?= $classes[$key] ?>"
+                                    data-index="<?= $indexSelector ?>">
+                                    <?= $selector['tag'] ?>
+                                </button>
+                            </li>
+                            <?php
+                            $indexSelector++;
+                        endif;
+                    endforeach ?>
+                </ul>
+                <?php if (count($avantApres['avant']['images']) > 1): ?>
+                    <div class="flex gap-8 swiper-navigation justify-center items-center">
+                        <div class="swiper-button-prev swiper-button-prev-avant-apres"></div>
+                        <div class="swiper-button-next swiper-button-next-avant-apres"></div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+
         </section>
     <?php endif; ?>
 
@@ -222,7 +279,7 @@ function transformer_en_swiper_slides($content)
             $recent_posts_query = new WP_Query($args); ?>
 
 
-            <div class="content-swipper">
+            <div class="content-swiper">
                 <div id="swiperDefilement" class="swiper swiperDefilement">
                     <div class="swiper-wrapper">
                         <?php

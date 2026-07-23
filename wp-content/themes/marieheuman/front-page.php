@@ -104,7 +104,7 @@
             ];
             $recent_posts_query = new WP_Query($args);
             if ($recent_posts_query->have_posts()): ?>
-                <div class="content-swipper">
+                <div class="content-swiper">
                     <div id="swiperDefilement" class="swiper swiperDefilement">
                         <div class="swiper-wrapper">
                             <?php

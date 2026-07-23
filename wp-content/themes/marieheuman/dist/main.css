@@ -407,35 +407,35 @@
   fill: #d86a3d;
 }
 
-.content-swipper {
+.content-swiper {
   position: relative;
 }
-.content-swipper #swiperDefilement {
+.content-swiper #swiperDefilement {
   background: none;
 }
-.content-swipper #swiperDefilement .swiper-wrapper {
+.content-swiper #swiperDefilement .swiper-wrapper {
   align-items: center;
 }
-.content-swipper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(odd) {
+.content-swiper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(odd) {
   width: 550px;
   max-width: 100%;
 }
-.content-swipper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(odd) img {
+.content-swiper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(odd) img {
   height: 400px;
   width: 100%;
 }
-.content-swipper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(even) {
+.content-swiper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(even) {
   width: 400px;
   max-width: 100%;
 }
-.content-swipper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(even) img {
+.content-swiper #swiperDefilement .swiper-wrapper .swiper-slide:nth-child(even) img {
   height: 500px;
   width: 100%;
 }
-.content-swipper .swiper-navigation {
+.content-swiper .swiper-navigation {
   bottom: -70px;
 }
-.content-swipper .swiper-navigation > div {
+.content-swiper .swiper-navigation > div {
   background-color: #462620;
   color: #fffdf3;
 }
@@ -1925,7 +1925,7 @@
 }
 #professionnel .offre > section .tag-home {
   font-family: Newsreader;
-  font-size: 48px;
+  font-size: 72px;
   font-weight: 300;
   margin-bottom: 1rem;
 }

@@ -10,7 +10,6 @@ $classes = [
     'apres' => 'apres',
 ] ?>
 
-
 <?php if (!empty($avantApres['avant']['images']) || !empty($avantApres['rendu']['images']) || !empty($avantApres['apres']['images'])): ?>
     <div class="container-avant-apres">
         <?php

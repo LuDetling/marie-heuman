@@ -135,7 +135,7 @@ section {
     position: relative;
 
     .cadriage {
-        background-image: linear-gradient(0deg, rgb(70, 38, 32) 1px, transparent 1px), linear-gradient(90deg, rgb(70, 38, 32) 1px, transparent 1px);
+        // background-image: linear-gradient(0deg, rgb(70, 38, 32) 1px, transparent 1px), linear-gradient(90deg, rgb(70, 38, 32) 1px, transparent 1px);
         background-size: 80px 80px;
         width: 100%;
         height: 100%;
@@ -154,10 +154,25 @@ section {
 
 .section-cadriage-desert {
     background-color: rgb(243, 206, 177);
-    background-image: linear-gradient(0deg, #eec9ac 1px, transparent 1px), linear-gradient(90deg, #eec9ac 1px, transparent 1px);
-    background-size: 50px 50px;
     opacity: 0.98;
     padding: 5rem;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        content: '';
+        background-image: url('../assets/images/trèfle-marie-heuman-marron.png');
+        background-position: center;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .10;
+        z-index: -1;
+    }
 
     @media (width < 48rem) {
         padding: 80px 20px;
@@ -170,7 +185,7 @@ section {
 
 .section-cadriage-page {
     background-color: rgb(255, 253, 243);
-    background-image: linear-gradient(0deg, #f9f6ec 1px, transparent 1px), linear-gradient(90deg, #f9f6ec 1px, transparent 1px);
+    // background-image: linear-gradient(0deg, #f9f6ec 1px, transparent 1px), linear-gradient(90deg, #f9f6ec 1px, transparent 1px);
     background-size: 80px 80px;
     padding: 160px 80px;
 
@@ -184,36 +199,46 @@ section {
 .accordions {
     .accordion-content {
         border-bottom: 1px solid #e5d9c8;
+        flex-direction: row-reverse;
 
         &:has(.collapse:open) {
             .circle {
                 background-color: $green;
+                border-color: $green;
             }
+        }
+    }
+
+    &.accordions-faq {
+        .circle {
+            margin-top: .5rem;
         }
     }
 
 
     .circle {
-        background-color: #e5d9c8;
+        border: 1px solid $green;
+        // background-color: #e5d9c8;
         min-width: 15px;
         min-height: 15px;
         border-radius: 50%;
         transition: .2s;
-        margin-top: .5rem;
+        margin-top: 30px;
     }
 
     .collapse-title {
         display: flex;
         padding: 0;
-        // align-items: center;
+        align-items: center;
         gap: 1rem;
 
         .index {
-            font-size: 14px;
-            font-weight: 500;
-            color: $green;
-            letter-spacing: 0.05em;
-            margin-top: 5px;
+            font-family: 'Newsreader';
+            font-size: 72px;
+            font-weight: 300;
+            line-height: 1;
+            color: $coperwood;
+            display: block;
         }
 
         .title {
@@ -583,7 +608,7 @@ h4 {
     z-index: 2;
     background-color: $floral;
     padding-block: 1.25rem;
-    border-block: 1px solid $desert;
+    border-block: 1px solid $green;
     margin-bottom: 60px;
 
     @media (width < 48rem) {
@@ -598,7 +623,7 @@ h4 {
                 font-weight: 500;
                 text-transform: uppercase;
                 letter-spacing: 0.15em;
-                color: $coperwood;
+                color: $green;
             }
 
             button {
@@ -611,21 +636,22 @@ h4 {
                 padding: 4px 0px;
 
                 >span {
-                    border-color: rgb(229, 217, 200);
+                    border-color: $green;
+                    // border-color: rgb(229, 217, 200);
                     background-color: transparent;
                 }
 
                 .total {
-                    color: $coperwood;
+                    color: $green;
                     font-size: 11px;
                 }
 
                 &.active {
                     >span {
-                        border-color: $coperwood;
+                        border-color: $green;
 
                         >span {
-                            background-color: $coperwood;
+                            background-color: $green;
                         }
                     }
                 }

@@ -6,15 +6,17 @@ get_header();
     <!-- <div id="app"></div> -->
 
     <section class="header-content section-floral">
-        <div class="container-header">
+        <div class="container-header z-1">
             <?php
             $header = get_field('header_content');
             ?>
             <?= $header['titre'] ?>
             <a href="<?= $header['lien_1']['url'] ?>" class="button marron-button"><?= $header['lien_1']['title'] ?></a>
         </div>
+        <img src="<?= get_template_directory_uri() ?>/assets/images/trèfle-marie-heuman-marron.png"
+            alt="fleur décorative" class="absolute z-0 opacity-10">
     </section>
-    <section class="section-cadriage-page decouverte">
+    <section class="section-floral decouverte">
 
         <?php
         $decouverte = get_field('contact_decouverte');
@@ -89,7 +91,7 @@ get_header();
     </section>
 
     <?php $appel = get_field('contact_appel'); ?>
-    <section class="section-floral appel">
+    <section class="section-rose appel">
         <div class="tag-home"><?= $appel['tag'] ?></div>
         <div class="content"><?= $appel['content'] ?></div>
 
@@ -135,32 +137,37 @@ get_header();
     </section>
 
     <?php $questions = get_field('contact_questions'); ?>
-    <section class="section-blue questions">
-        <div class="tag-home"><?= $questions['tag'] ?></div>
-        <div class="content"><?= $questions['content'] ?></div>
-        <div class="accordions">
-            <?php foreach ($questions['accordions'] as $accordion): ?>
-                <div class="flex items-start gap-6 py-8 accordion-content">
-                    <div class="block circle"></div>
-                    <details class="collapse " name="accordion-methode-home">
-                        <summary class="collapse-title mb-2 items-center">
-                            <div class="title">
-                                <?= $accordion['titre'] ?>
+    <section class="section-floral questions grid xl:grid-cols-12">
+        <div class="xl:col-span-6">
+            <div class="tag-home"><?= $questions['tag'] ?></div>
+            <div class="content"><?= $questions['content'] ?></div>
+            <div class="accordions accordions-faq">
+                <?php foreach ($questions['accordions'] as $accordion): ?>
+                    <div class="flex items-start gap-6 py-8 accordion-content">
+                        <div class="block circle"></div>
+                        <details class="collapse " name="accordion-methode-home">
+                            <summary class="collapse-title mb-2 items-center">
+                                <div class="title">
+                                    <?= $accordion['titre'] ?>
+                                </div>
+                            </summary>
+                            <div class="collapse-content mt-4 ">
+                                <?= $accordion['content'] ?>
                             </div>
-                        </summary>
-                        <div class="collapse-content mt-4 ">
-                            <?= $accordion['content'] ?>
-                        </div>
-                    </details>
+                        </details>
 
-                </div>
-            <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="xl:col-span-5 xl:col-start-8">
+            <img src="<?= $questions['image']['url'] ?>" alt="<?= $questions['image']['alt'] ?>" class="xl:w-full object-cover">
         </div>
     </section>
 
     <?php $canaux = get_field('contact_canaux'); ?>
     <section id="coordonnees" class="section-floral canaux">
-        <div class="section-cadriage-desert max-w-[1000px] mx-auto">
+        <div class="section-desert xl:p-20 px-10 py-20 max-w-[1000px] mx-auto">
             <div class="tag-home"><?= $canaux['tag'] ?></div>
             <div class="content"><?= $canaux['content'] ?></div>
             <div class="grid lg:grid-cols-2 gap-5 mx-auto mb-20 mt-14 email-tel">

@@ -590,8 +590,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 buttonSend.style.display = "table";
                 loading.classList.add('hidden')
                 content.innerHTML = `
-                    <h4 class="text-2xl font-bold mb-4 success-title">Merci pour votre demande !</h4>
-                    <p>Vous allez recevoir un email de confirmation dans quelques instants.</p>
+                    <div class="success-content">
+                        <h4 class="text-2xl font-bold mb-4 success-title">Merci pour votre demande !</h4>
+                        <p>Vous allez recevoir un email de confirmation dans quelques instants. Si vous ne le recevez pas, n'hésitez pas à m'envoyer un email ou un SMS pour vérifier que votre demande a bien été prise en compte.</p>
+                    </div>
                 `
                 customBookingApp.scrollIntoView({ behavior: 'smooth' });
             } else {

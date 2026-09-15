@@ -45,6 +45,8 @@
     }
 
     .appel {
+        color: $floral;
+
         .content {
             text-align: center;
             margin-bottom: 56px;
@@ -56,22 +58,32 @@
 
         .card {
             padding: 40px;
-            border: 1px solid rgb(161, 93, 102);
+            // border: 1px solid rgb(161, 93, 102);
             border-radius: 0;
 
             &:nth-child(2) {
                 border-color: $desert;
 
-                .span {
-                    color: $desert ;
+                h3 {
+                    color: $blue;
+                }
+
+                ul li::before {
+                    background-color: $blue;
                 }
             }
 
             &:nth-child(3) {
-                border-color: $coperwood;
+                background-color: $floral;
+                color: $marron;
 
-                .span {
-                    color: $coperwood ;
+
+                h3 {
+                    color: $rose;
+                }
+
+                ul li::before {
+                    background-color: $rose;
                 }
             }
 
@@ -90,12 +102,12 @@
                 font-weight: 500;
                 line-height: 1.3;
                 margin-bottom: 1.5rem;
+                color: $desert;
             }
 
             ul {
                 li {
                     display: flex;
-                    align-items: flex-start;
                     gap: .75rem;
                     font-size: 15px;
                     line-height: 1.7;
@@ -105,11 +117,14 @@
                     }
 
                     &::before {
-                        content: '·';
+                        content: '';
                         display: block;
-                        color: $coperwood;
+                        background-color: $desert;
                         flex-shrink: 0;
-                        margin-top: 1px;
+                        margin-top: 10px;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
                     }
                 }
             }
@@ -164,17 +179,37 @@
     }
 
     .questions {
+
+        .tag-home,
+        .content {
+            text-align: left;
+        }
+
+        img {
+            object-fit: cover;
+        }
+
         .accordions .accordion-content:has(.collapse:open) .circle {
             background-color: $green;
         }
 
         .accordions {
+            .collapse-title {
+                .title {
+                    font-family: 'Jost';
+                    font-size: 20px;
+                }
+            }
+
             .circle {
-                background-color: rgba(70, 38, 32, 0.25);
+                // background-color: rgba(70, 38, 32, 0.25);
+                // border-color: rgba(70, 38, 32, 0.25);
+                border-color: $green;
             }
 
             .accordion-content {
                 border-color: rgba(70, 38, 32, 0.15);
+                // border-color: $coperwood;
             }
         }
     }
@@ -251,7 +286,6 @@
         .accordion-content {
             .title {
                 h3 {
-                    font-weight: 500;
                     margin-bottom: .75rem;
                 }
             }
@@ -723,17 +757,20 @@
     }
 
 
-    .success-title {
-        color: $marron;
-        font-family: 'Display Playfair', serif;
-        font-size: 36px;
+    .success-content {
+        h4 {
+            font-family: 'Display Playfair', serif;
+            font-size: 36px;
+        }
+
+        color: $floral;
     }
 }
 
 .info-datas,
 .info-datas-contact,
 .success-contact {
-    color: $secondary;
+    color: $blue;
 }
 
 .faq {

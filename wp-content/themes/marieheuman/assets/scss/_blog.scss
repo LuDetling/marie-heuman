@@ -14,8 +14,8 @@
     white-space: nowrap;
 
     &.decryptages {
-      background-color: $desert;
-      color: $marron;
+      background-color: $green;
+      color: $floral;
     }
 
     &.coulisses {
@@ -163,7 +163,7 @@
     }
 
     &:hover {
-      background-color: #fffbee;
+      // background-color: #fffbee;
 
       .text-card {
         padding-right: 300px;
@@ -240,8 +240,12 @@
       font-size: 14px;
       line-height: 1.6;
       color: $marron;
-      opacity: 0.7;
       max-width: 600px;
+
+      .newsreader-italic {
+        font-family: 'Jost';
+        font-style: normal;
+      }
     }
   }
 

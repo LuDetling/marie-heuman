@@ -2,7 +2,7 @@
 
 <footer class="footer-blue px-10 md:px-20">
     <div class="flex items-center justify-between py-15 border-b relative gap-4 flex-wrap lg:flex-nowrap">
-        <h2>Design de <em>lieux</em>, d'<em>expérience</em> &
+        <h2>Design de <em>lieux</em>, d'<em>expériences</em> &
             d'<em>identités</em>.</h2>
         <div class="img-footer"></div>
     </div>
@@ -37,10 +37,10 @@
                         +33 6 61 65 07 45
                     </a>
                     <p>
-                        Studio à Tours · Atelier à Blois
+                        Studio à Tours
                     </p>
                     <p>
-                        Val de Loire — Interventions en France
+                        Centre-Val de Loire — Interventions en France
                     </p>
                 </div>
                 <h3 class="mb-4">Suivre</h3>

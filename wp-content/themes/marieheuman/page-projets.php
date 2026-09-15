@@ -10,6 +10,8 @@ get_header();
         <div class="container-header">
             <?= $header['titre'] ?>
         </div>
+        <img src="<?= get_template_directory_uri() ?>/assets/images/trèfle-marie-heuman-marron.png"
+            alt="fleur décorative" class="absolute z-0 opacity-10">
     </section>
     <section class="portfolio section-floral">
         <!-- Filtres par catégorie -->
@@ -41,7 +43,7 @@ get_header();
                         if ($cat->slug !== 'identite-visuelle'):
                             echo '<li class="min-w-max"><button class="filter-btn flex items-center gap-2.5 transition-colors duration-200 group" data-category="' . esc_attr($cat->slug) . '"><span
                             class="w-3.5 h-3.5 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-200"><span
-                                class="w-2 h-2 rounded-full"></span></span>' . esc_html($cat->name) . '<span class="total">('. $cat->count .')</span></button></li>';
+                                class="w-2 h-2 rounded-full"></span></span>' . esc_html($cat->name) . '<span class="total">(' . $cat->count . ')</span></button></li>';
                         endif;
                     endforeach;
                 endif;

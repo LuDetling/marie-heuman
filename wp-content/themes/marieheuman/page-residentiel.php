@@ -10,20 +10,21 @@ get_header();
     <div class="container-header">
         <?= $header['titre'] ?>
     </div>
+    <img src="<?= get_template_directory_uri() ?>/assets/images/trèfle-marie-heuman-marron.png" alt="fleur décorative"
+        class="absolute z-0 opacity-10">
 </section>
 
 <main id="professionnel">
-    <section class="section-marron enjeux">
+    <section class="section-blue enjeux">
         <?php $professionnel_enjeux = get_field("professionnel_enjeux"); ?>
         <div class="tag-home"><?= $professionnel_enjeux['tag'] ?></div>
         <div class="content"><?= $professionnel_enjeux['content'] ?></div>
-        <div class="grid lg:grid-cols-3 gap-0">
+        <div class="grid lg:grid-cols-3 gap-20">
             <?php $liste = $professionnel_enjeux['liste'];
             $index = 1;
             ?>
             <?php foreach ($liste as $item): ?>
-                <div class="grid-item p-10 lg:border-r last:border-r-0">
-                    <div class="index mb-5"><?= str_pad($index, 2, "0", STR_PAD_LEFT) ?></div>
+                <div class="grid-item">
                     <?= $item['content'] ?>
                 </div>
                 <?php $index++; endforeach; ?>
@@ -32,24 +33,19 @@ get_header();
 
     <section class="section-floral lieux">
         <?php $lieux = get_field('professionnel_lieux'); ?>
-        <div class="grid xl:grid-cols-12 gap-12 mb-14">
-            <div class="xl:col-span-4">
-                <div class="tag-home"><?= $lieux['tag'] ?></div>
-                <div class="content"><?= $lieux['content'] ?></div>
-            </div>
-            <div class="xl:col-span-8">
-                <div class="grid lg:grid-cols-3 gap-0">
-                    <?php $cards = $lieux['cards'];
-                    foreach ($cards as $card): ?>
-                        <div class="card lg:border-r last:border-r-0">
-                            <img src="<?= $card['image']['url'] ?>" alt="<?= $card['image']['alt'] ?>">
-                            <div class="p-6">
-                                <?= $card['content'] ?>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+
+        <div class="tag-home"><?= $lieux['tag'] ?></div>
+        <div class="content"><?= $lieux['content'] ?></div>
+        <div class="grid lg:grid-cols-3 gap-20">
+            <?php $cards = $lieux['cards'];
+            foreach ($cards as $card): ?>
+                <div class="card">
+                    <img src="<?= $card['image']['url'] ?>" alt="<?= $card['image']['alt'] ?>">
+                    <div class="mt-6">
+                        <?= $card['content'] ?>
+                    </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         <div class="flex flex-wrap justify-between items-end bottom-lieux pt-10 gap-8">
             <div class="content">
@@ -168,30 +164,36 @@ get_header();
         </section>
     </section>
 
-    <section class="section-floral questions">
-        <?php $questions = get_field('professionnel_questions'); ?>
-        <div class="max-w-[900px] mx-auto">
-            <div class="tag-home"><?= $questions['tag'] ?></div>
-            <div class="content"><?= $questions['content'] ?></div>
+    <section class="section-floral questions grid xl:grid-cols-12">
+        <div class="xl:col-span-6">
+            <?php $questions = get_field('professionnel_questions'); ?>
+            <div class="max-w-[900px] mx-auto">
+                <div class="tag-home"><?= $questions['tag'] ?></div>
+                <div class="content"><?= $questions['content'] ?></div>
+            </div>
+            <div class="accordions accordions-faq max-w-[800px] mx-auto">
+                <?php $accordions = $questions['accordions'];
+                foreach ($accordions as $accordion):
+                    if (!empty($accordion['titre'])): ?>
+                        <div class="flex items-start gap-6 py-8 accordion-content">
+                            <div class="block circle"></div>
+                            <details class="collapse" name="accordion-methode-home">
+                                <summary class="collapse-title mb-2">
+                                    <h3 class="title">
+                                        <?= $accordion['titre'] ?>
+                                    </h3>
+                                </summary>
+                                <div class="collapse-content mt-4">
+                                    <?= $accordion['content'] ?>
+                                </div>
+                            </details>
+                        </div>
+                    <?php endif; endforeach; ?>
+            </div>
         </div>
-        <div class="accordions max-w-[800px] mx-auto">
-            <?php $accordions = $questions['accordions'];
-            foreach ($accordions as $accordion):
-                if (!empty($accordion['titre'])): ?>
-                    <div class="flex items-start gap-6 py-8 accordion-content">
-                        <div class="block circle"></div>
-                        <details class="collapse" name="accordion-methode-home">
-                            <summary class="collapse-title mb-2">
-                                <h3 class="title">
-                                    <?= $accordion['titre'] ?>
-                                </h3>
-                            </summary>
-                            <div class="collapse-content mt-4">
-                                <?= $accordion['content'] ?>
-                            </div>
-                        </details>
-                    </div>
-                <?php endif; endforeach; ?>
+        <div class="xl:col-span-5 xl:col-start-8">
+            <img src="<?= $questions['image']['url'] ?>" alt="<?= $questions['image']['alt'] ?>"
+                class="xl:w-full object-cover">
         </div>
     </section>
     <section class="section-floral projet">

@@ -48,6 +48,11 @@
         text-align: left;
     }
 
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+
     .content {
         color: $marron;
 
@@ -275,6 +280,15 @@
 
     .accordions .collapse-content p {
         max-width: 700px;
+    }
+
+    .accordions.accordions-faq {
+        .collapse-title {
+            .title {
+                font-family: 'Jost';
+                font-size: 20px;
+            }
+        }
     }
 }
 

@@ -36,10 +36,10 @@
         <div class="content">
             <?= $accueil_enjeux['content'] ?>
         </div>
-        <div class="grid xl:grid-cols-3 gap-6">
+        <div class="grid xl:grid-cols-3 gap-20">
             <?php
             foreach ($cards as $card): ?>
-                <div class="card-enjeux p-10">
+                <div class="card-enjeux">
                     <span class="key"><?= $card['key'] ?></span>
                     <?= $card['content'] ?>
                 </div>
@@ -71,7 +71,7 @@
         ?>
         <div class="tag-home"><?= $accueil_pour_qui['tag'] ?></div>
         <div class="content"><?= $accueil_pour_qui['content'] ?></div>
-        <div class="grid xl:grid-cols-2 gap-10 cards">
+        <div class="grid xl:grid-cols-2 gap-20 cards">
             <?php
             foreach ($accueil_pour_qui['cards'] as $card): ?>
                 <div>
@@ -86,7 +86,7 @@
         </div>
     </section>
 
-    <section class="home-section section-cadriage home-projets relative">
+    <section class="home-section section-blue home-projets relative">
         <div class="cadriage"></div>
         <?php
         $accueil_projets = get_field('accueil_projets');

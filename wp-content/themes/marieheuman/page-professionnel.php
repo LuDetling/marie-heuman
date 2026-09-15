@@ -99,7 +99,7 @@ get_header();
                         if (!empty($accordion['titre'])): ?>
                             <div class="flex items-start gap-6 py-8 accordion-content">
                                 <div class="block circle"></div>
-                                <details class="collapse" name="accordion-methode-home">
+                                <details class="collapse" name="accordion-missions">
                                     <summary class="collapse-title mb-2">
                                         <div class="title">
                                             <?= $accordion['titre'] ?>
@@ -143,7 +143,7 @@ get_header();
                         if (!empty($accordion['titre'])): ?>
                             <div class="flex items-start gap-6 py-8 accordion-content">
                                 <div class="block circle"></div>
-                                <details class="collapse" name="accordion-methode-home">
+                                <details class="collapse" name="accordion-modules">
                                     <summary class="collapse-title mb-2">
                                         <span class="index">
                                             <?= $numero ?>
@@ -176,7 +176,7 @@ get_header();
                     if (!empty($accordion['titre'])): ?>
                         <div class="flex items-start gap-6 py-8 accordion-content">
                             <div class="block circle"></div>
-                            <details class="collapse" name="accordion-methode-home">
+                            <details class="collapse" name="accordion-questions">
                                 <summary class="collapse-title mb-2">
                                     <h3 class="title">
                                         <?= $accordion['titre'] ?>

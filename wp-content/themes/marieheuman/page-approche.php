@@ -49,7 +49,7 @@ get_header();
                     $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
                     <div class="flex items-start gap-6 py-8 accordion-content">
                         <div class="block circle"></div>
-                        <details class="collapse" name="accordion-methode-home">
+                        <details class="collapse" name="accordion-parti-pris">
                             <summary class="collapse-title mb-2">
                                 <span class="index">
                                     <?= $numero ?>
@@ -149,7 +149,7 @@ get_header();
                     ?>
                     <div class="flex items-start gap-6 py-8 accordion-content">
                         <div class="block circle"></div>
-                        <details class="collapse" name="accordion-methode-home">
+                        <details class="collapse" name="accordion-questions">
                             <summary class="collapse-title mb-2">
                                 <div class="title">
                                     <?= $accordion['titre'] ?>

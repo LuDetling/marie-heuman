@@ -77,7 +77,7 @@ function changeIndexSection($i)
                 <?php foreach ($faq['accordions'] as $accordion): ?>
                     <div class="flex items-start gap-6 py-8 accordion-content">
                         <div class="block circle"></div>
-                        <details class="collapse " name="accordion-methode-home">
+                        <details class="collapse " name="accordion-questions">
                             <summary class="collapse-title mb-2 items-center">
                                 <div class="title">
                                     <?= $accordion['titre'] ?>

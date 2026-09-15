@@ -112,7 +112,7 @@ get_header();
             foreach ($parcours['liste'] as $accordion):
                 $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
                 <div class="flex items-start gap-6 py-8 accordion-content">
-                    <details class="collapse " name="accordion-methode-home">
+                    <details class="collapse " name="accordion-parcours">
                         <summary class="collapse-title mb-2 items-center">
                             <span class="index">
                                 <?= $numero ?>
@@ -145,7 +145,7 @@ get_header();
                 <?php foreach ($questions['accordions'] as $accordion): ?>
                     <div class="flex items-start gap-6 py-8 accordion-content">
                         <div class="block circle"></div>
-                        <details class="collapse " name="accordion-methode-home">
+                        <details class="collapse " name="accordion-questions">
                             <summary class="collapse-title mb-2 items-center">
                                 <div class="title">
                                     <?= $accordion['titre'] ?>

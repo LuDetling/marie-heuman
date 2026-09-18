@@ -70,23 +70,40 @@ get_header();
         <?php $vision = get_field('approche_vision'); ?>
         <div class="tag-home"><?= $vision['tag'] ?></div>
         <div class="content"><?= $vision['content'] ?></div>
-        <div class="cards flex flex-wrap gap-6 justify-center">
+        <!-- name of each tab group should be unique -->
+        <div class="tabs tabs-lift">
             <?php
-            $cards = $vision['cards'];
+            $cards = $vision['cards']['card'];
             $i = 1;
 
             foreach ($cards as $card):
-                $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
-                ?>
-                <div class="card p-8 border lg:w-[calc(50%-1.5rem)] xl:w-[calc(33.333%-1rem)]">
-                    <div class="index"><?= $numero ?></div>
-                    <div class="content-card">
-                        <?= $card['content'] ?>
+                $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
+                <label class="tab">
+                    <input type="radio" name="my_tabs_vision" <?= $i === 1 ? 'checked' : '' ?> />
+                    <div class="title-tab">
+                        <?= $card['titre'] ?>
+                    </div>
+                </label>
+                <!-- <input type="radio" name="my_tabs_vision" class="tab" aria-label="<?= $card['titre'] ?>" <?= $i === 1 ? 'checked' : '' ?> /> -->
+                <div class="tab-content p-10 xl:p-20">
+                    <div class="grid xl:grid-cols-12 gap-12 items-center">
+                        <div class="xl:col-span-4">
+                            <div class="index">
+                                Dimension <?= $numero ?>
+                            </div>
+                            <h3 class="tab-content-title">
+                                <?= $card['titre'] ?>
+                            </h3>
+                        </div>
+                        <div class="xl:col-span-8 content-tab">
+                            <?= $card['content'] ?>
+                        </div>
                     </div>
                 </div>
                 <?php $i++; endforeach; ?>
         </div>
     </section>
+
 
     <section class="section-floral demarche">
         <?php $demarche = get_field('approche_demarche'); ?>

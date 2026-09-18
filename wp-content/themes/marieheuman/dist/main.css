@@ -1686,26 +1686,81 @@
   max-width: 640px;
   margin: 0px auto;
 }
-.vision .cards .card {
-  border-color: rgb(229, 217, 200);
+.vision .tabs.tabs-lift {
+  color: #fffdf3;
+  max-width: 1100px;
+  margin: auto;
+}
+.vision .tabs.tabs-lift .tab {
   border-radius: 0;
-  background-color: #fffdf3;
+  border: 1px solid #f3ceb1;
+  background: none;
+  transition: 0.3s;
+  padding: 20px;
+  height: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  border-right: none;
+  gap: 10px;
+  text-align: left;
 }
-.vision .cards .card .index {
-  font-family: Newsreader;
-  font-size: 48px;
-  font-weight: 300;
-  color: #A76523;
-  margin-bottom: 1rem;
+.vision .tabs.tabs-lift .tab::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  min-width: 10px;
+  height: 10px;
+  min-height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  border: 1px solid #f3ceb1;
+  position: relative;
+  background: none;
 }
-.vision .cards .card h3 {
-  font-size: 20px;
+.vision .tabs.tabs-lift .tab:first-child {
+  border-left: none;
+}
+.vision .tabs.tabs-lift .tab:has(:checked) {
+  background-color: #462620;
+}
+.vision .tabs.tabs-lift .tab:has(:checked) .title-tab {
+  color: #fffdf3;
+}
+.vision .tabs.tabs-lift .tab:has(:checked)::before {
+  background-color: #f3ceb1;
+}
+.vision .tabs.tabs-lift .tab .title-tab {
+  font-size: 12px;
   font-weight: 500;
-  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: 0.3s;
+  color: #462620;
 }
-.vision .cards .card p {
-  font-size: 15px;
-  line-height: 1.6;
+.vision .tabs.tabs-lift .tab-content {
+  margin-top: 0px;
+  background-color: #462620;
+  border-radius: 0;
+}
+.vision .tabs.tabs-lift .tab-content .index {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ac9c35;
+  margin-bottom: 20px;
+}
+.vision .tabs.tabs-lift .tab-content h3 {
+  font-family: Newsreader;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.vision .tabs.tabs-lift .tab-content .content-tab {
+  font-family: Jost;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #f3ceb1;
 }
 
 .demarche {

@@ -70,14 +70,15 @@ get_header();
     </section>
 
     <section class="section-cadriage-page vision">
-        <?php $vision = get_field('approche_vision'); ?>
+        <?php $vision = get_field('approche_vision');
+        $cards = $vision['cards'];
+        $i = 1; ?>
         <div class="tag-home"><?= $vision['tag'] ?></div>
         <div class="content"><?= $vision['content'] ?></div>
         <!-- name of each tab group should be unique -->
-        <div class="tabs tabs-lift">
+
+        <div class="tabs tabs-lift tabs-vertical">
             <?php
-            $cards = $vision['cards'];
-            $i = 1;
             foreach ($cards as $card):
                 $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
                 <label class="tab">
@@ -103,6 +104,7 @@ get_header();
                 </div>
                 <?php $i++; endforeach; ?>
         </div>
+
     </section>
 
 
@@ -113,23 +115,37 @@ get_header();
                 <div class="tag-home"><?= $demarche['tag'] ?></div>
                 <div class="content"><?= $demarche['content'] ?></div>
             </div>
+
             <div class="xl:col-span-7 space-y-0">
-                <?php
-                $liste = $demarche['liste'];
-                $i = 1;
+                <div class="accordions">
+                    <?php
+                    $liste = $demarche['liste'];
+                    $i = 1;
 
-                foreach ($liste as $item):
-                    $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
-                    ?>
-                    <div class="flex gap-6 item">
-                        <div class="index"><?= $numero ?></div>
-                        <div class="content-item">
-                            <h3><?= $item['titre'] ?></h3>
-                            <?= $item['content'] ?>
+                    foreach ($liste as $item):
+                        $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
+                        ?>
+                        <div class="py-8 accordion-content">
+                            <details class="collapse" name="accordion-questions">
+                                <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
+                                    <div class="flex gap-4 items-center">
+                                        <div class="index">
+                                            <?= $numero ?>
+                                        </div>
+                                        <div class="title">
+                                            <?= $item['titre'] ?>
+                                        </div>
+                                    </div>
+                                    <div class="block circle"></div>
+                                </summary>
+                                <div class="collapse-content mt-4">
+                                    <?= $item['content'] ?>
+                                </div>
+                            </details>
                         </div>
-                    </div>
 
-                    <?php $i++; endforeach; ?>
+                        <?php $i++; endforeach; ?>
+                </div>
             </div>
         </div>
         <div class="grid lg:grid-cols-2 gap-6 mt-20">

@@ -1686,12 +1686,22 @@
   max-width: 640px;
   margin: 0px auto;
 }
-.vision .tabs.tabs-lift {
-  color: #fffdf3;
-  max-width: 1100px;
-  margin: auto;
+.vision .tabs-vertical {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: start;
 }
-.vision .tabs.tabs-lift .tab {
+.vision .tabs-vertical > .tab {
+  grid-column: 1;
+  justify-content: flex-start;
+}
+.vision .tabs-vertical > .tab-content {
+  grid-column: 2;
+  grid-row: 1/span 6;
+  height: auto;
+  /* tous les panneaux occupent la même zone */
+}
+.vision .tab {
   border-radius: 0;
   border: 1px solid #f3ceb1;
   background: none;
@@ -1704,7 +1714,7 @@
   gap: 10px;
   text-align: left;
 }
-.vision .tabs.tabs-lift .tab::before {
+.vision .tab::before {
   content: "";
   display: inline-block;
   width: 10px;
@@ -1717,25 +1727,31 @@
   position: relative;
   background: none;
 }
-.vision .tabs.tabs-lift .tab:first-child {
-  border-left: none;
+.vision .tab:not(:first-child) {
+  border-top: none;
 }
-.vision .tabs.tabs-lift .tab:has(:checked) {
+.vision .tab:has(:checked) {
   background-color: #462620;
+  border-color: #462620;
 }
-.vision .tabs.tabs-lift .tab:has(:checked) .title-tab {
+.vision .tab:has(:checked) .title-tab {
   color: #fffdf3;
 }
-.vision .tabs.tabs-lift .tab:has(:checked)::before {
+.vision .tab:has(:checked)::before {
   background-color: #f3ceb1;
 }
-.vision .tabs.tabs-lift .tab .title-tab {
+.vision .tab .title-tab {
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   transition: 0.3s;
   color: #462620;
+}
+.vision .tabs.tabs-lift {
+  color: #fffdf3;
+  max-width: 1100px;
+  margin: auto;
 }
 .vision .tabs.tabs-lift .tab-content {
   margin-top: 0px;
@@ -1744,10 +1760,10 @@
 }
 .vision .tabs.tabs-lift .tab-content .index {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #ac9c35;
+  color: #f3ceb1;
   margin-bottom: 20px;
 }
 .vision .tabs.tabs-lift .tab-content h3 {
@@ -1760,7 +1776,7 @@
   font-family: Jost;
   font-size: 17px;
   line-height: 1.75;
-  color: #f3ceb1;
+  color: #fffdf3;
 }
 
 .demarche {
@@ -1816,7 +1832,6 @@
 }
 .studio .tag-home {
   margin-bottom: 1.5rem;
-  color: #fffdf3;
   text-align: left;
 }
 .studio .content h2 {

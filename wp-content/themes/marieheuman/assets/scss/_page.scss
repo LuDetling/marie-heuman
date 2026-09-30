@@ -127,67 +127,88 @@
         }
     }
 
+
+    .tabs-vertical {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        align-items: start;
+    }
+
+    .tabs-vertical>.tab {
+        grid-column: 1;
+        justify-content: flex-start;
+    }
+
+    .tabs-vertical>.tab-content {
+        grid-column: 2;
+        grid-row: 1 / span 6;
+        height: auto;
+        /* tous les panneaux occupent la même zone */
+    }
+
+    .tab {
+        border-radius: 0;
+        border: 1px solid $desert;
+        // border-bottom: none;
+        background: none;
+        transition: .3s;
+        padding: 20px;
+        height: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        border-right: none;
+        // width: calc(100% / 5);
+        gap: 10px;
+        text-align: left;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            min-width: 10px;
+            height: 10px;
+            min-height: 10px;
+            border-radius: 50%;
+            margin-right: .5rem;
+            border: 1px solid $desert;
+            position: relative;
+            background: none;
+        }
+
+        &:not(:first-child) {
+            border-top: none;
+        }
+
+        &:has(:checked) {
+            background-color: $marron;
+            border-color: $marron;
+
+            .title-tab {
+                color: $floral;
+            }
+
+            &::before {
+                background-color: $desert;
+            }
+        }
+
+        .title-tab {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: .3s;
+            color: $marron;
+            // max-width: 140px;
+        }
+    }
+
     .tabs.tabs-lift {
         color: $floral;
         max-width: 1100px;
         margin: auto;
 
-        .tab {
-            border-radius: 0;
-            border: 1px solid $desert;
-            // border-bottom: none;
-            background: none;
-            transition: .3s;
-            padding: 20px;
-            height: auto;
-            display: flex;
-            flex-wrap: nowrap;
-            border-right: none;
-            // width: calc(100% / 5);
-            gap: 10px;
-            text-align: left;
 
-            &::before {
-                content: '';
-                display: inline-block;
-                width: 10px;
-                min-width: 10px;
-                height: 10px;
-                min-height: 10px;
-                border-radius: 50%;
-                margin-right: .5rem;
-                border: 1px solid $desert;
-                position: relative;
-                background: none;
-            }
-
-            &:first-child {
-                border-left: none;
-            }
-
-
-            &:has(:checked) {
-                background-color: $marron;
-
-                .title-tab {
-                    color: $floral;
-                }
-
-                &::before {
-                    background-color: $desert;
-                }
-            }
-
-            .title-tab {
-                font-size: 12px;
-                font-weight: 500;
-                text-transform: uppercase;
-                letter-spacing: 0.06em;
-                transition: .3s;
-                color: $marron;
-                // max-width: 140px;
-            }
-        }
 
         .tab-content {
             margin-top: 0px;
@@ -196,10 +217,10 @@
 
             .index {
                 font-size: 11px;
-                font-weight: 600;
+                font-weight: 400;
                 text-transform: uppercase;
                 letter-spacing: 0.12em;
-                color: $green;
+                color: $desert;
                 margin-bottom: 20px;
             }
 
@@ -214,7 +235,7 @@
                 font-family: Jost;
                 font-size: 17px;
                 line-height: 1.75;
-                color: $desert;
+                color: $floral;
             }
         }
     }
@@ -283,7 +304,6 @@
 
     .tag-home {
         margin-bottom: 1.5rem;
-        color: $floral;
         text-align: left;
     }
 

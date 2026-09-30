@@ -98,12 +98,12 @@ get_header();
                         $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
                         if (!empty($accordion['titre'])): ?>
                             <div class="flex items-start gap-6 py-8 accordion-content">
-                                <div class="block circle"></div>
                                 <details class="collapse" name="accordion-missions">
-                                    <summary class="collapse-title mb-2">
+                                    <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
                                         <div class="title">
                                             <?= $accordion['titre'] ?>
                                         </div>
+                                        <div class="block circle"></div>
                                     </summary>
                                     <div class="collapse-content mt-4">
                                         <div class="mt-6 grid lg:grid-cols-2 gap-8">
@@ -142,15 +142,17 @@ get_header();
                         $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
                         if (!empty($accordion['titre'])): ?>
                             <div class="flex items-start gap-6 py-8 accordion-content">
-                                <div class="block circle"></div>
                                 <details class="collapse" name="accordion-modules">
-                                    <summary class="collapse-title mb-2">
-                                        <span class="index">
-                                            <?= $numero ?>
-                                        </span>
-                                        <div class="title">
-                                            <?= $accordion['titre'] ?>
+                                    <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
+                                        <div class="md:flex gap-4">
+                                            <span class="index">
+                                                <?= $numero ?>
+                                            </span>
+                                            <div class="title">
+                                                <?= $accordion['titre'] ?>
+                                            </div>
                                         </div>
+                                        <div class="block circle"></div>
                                     </summary>
                                     <div class="collapse-content mt-4">
                                         <?= $accordion['content'] ?>
@@ -174,13 +176,13 @@ get_header();
                 <?php $accordions = $questions['accordions'];
                 foreach ($accordions as $accordion):
                     if (!empty($accordion['titre'])): ?>
-                        <div class="flex items-start gap-6 py-8 accordion-content">
-                            <div class="block circle"></div>
+                        <div class=" py-8 accordion-content">
                             <details class="collapse" name="accordion-questions">
-                                <summary class="collapse-title mb-2">
+                                <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
                                     <h3 class="title">
                                         <?= $accordion['titre'] ?>
                                     </h3>
+                                    <div class="block circle"></div>
                                 </summary>
                                 <div class="collapse-content mt-4">
                                     <?= $accordion['content'] ?>
@@ -190,10 +192,12 @@ get_header();
                     <?php endif; endforeach; ?>
             </div>
         </div>
-        <div class="xl:col-span-5 xl:col-start-8">
-            <img src="<?= $questions['image']['url'] ?>" alt="<?= $questions['image']['alt'] ?>"
-                class="xl:w-full object-cover">
-        </div>
+        <?php if (!empty($questions['image']['url'])): ?>
+            <div class="xl:col-span-5 xl:col-start-8">
+                <img src="<?= $questions['image']['url'] ?>" alt="<?= $questions['image']['alt'] ?>"
+                    class="xl:w-full object-cover">
+            </div>
+        <?php endif; ?>
     </section>
     <section class="section-floral projet">
         <?php $projet = get_field('parlons_projet'); ?>

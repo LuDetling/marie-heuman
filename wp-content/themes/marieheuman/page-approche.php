@@ -47,16 +47,19 @@ get_header();
 
                 foreach ($accordions as $accordion):
                     $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
-                    <div class="flex items-start gap-6 py-8 accordion-content">
-                        <div class="block circle"></div>
+                    <div class=" py-8 accordion-content">
                         <details class="collapse" name="accordion-parti-pris">
-                            <summary class="collapse-title mb-2">
-                                <span class="index">
-                                    <?= $numero ?>
-                                </span>
-                                <div class="title">
-                                    <?= $accordion['titre'] ?>
+                            <summary class="collapse-title mb-2 flex items-start gap-6 justify-between">
+                                <div class="md:flex gap-4 items-center">
+                                    <span class="index">
+                                        <?= $numero ?>
+                                    </span>
+                                    <div class="title">
+                                        <?= $accordion['titre'] ?>
+                                    </div>
                                 </div>
+                                <div class="block circle"></div>
+
                             </summary>
                             <div class="collapse-content mt-4"><?= $accordion['content'] ?></div>
                         </details>
@@ -162,13 +165,13 @@ get_header();
                 <?php $accordions = $questions['accordions'];
                 foreach ($accordions as $accordion):
                     ?>
-                    <div class="flex items-start gap-6 py-8 accordion-content">
-                        <div class="block circle"></div>
+                    <div class="py-8 accordion-content">
                         <details class="collapse" name="accordion-questions">
-                            <summary class="collapse-title mb-2">
+                            <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
                                 <div class="title">
                                     <?= $accordion['titre'] ?>
                                 </div>
+                                <div class="block circle"></div>
                             </summary>
                             <div class="collapse-content mt-4">
                                 <?= $accordion['content'] ?>

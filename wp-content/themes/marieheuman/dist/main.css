@@ -1705,6 +1705,10 @@
   /* tous les panneaux occupent la même zone */
 }
 
+.tabs.tabs-lift {
+  color: #fffdf3;
+  margin: auto;
+}
 .tabs.tabs-lift .tab {
   border-radius: 0;
   border: 1px solid #f3ceb1;
@@ -1755,11 +1759,6 @@
   letter-spacing: 0.06em;
   transition: 0.3s;
   color: #462620;
-}
-.tabs.tabs-lift {
-  color: #fffdf3;
-  max-width: 1100px;
-  margin: auto;
 }
 .tabs.tabs-lift .tab-content {
   margin-top: 0px;
@@ -2063,6 +2062,9 @@
 #professionnel .offre .tag-home {
   text-align: left;
 }
+#professionnel .offre .tab:has(input:checked) .title-tab .index-tab {
+  color: #f3ceb1;
+}
 #professionnel .offre .title-tab {
   display: flex;
   align-items: center;
@@ -2108,6 +2110,18 @@
 #professionnel .offre .top-offre .content {
   text-align: center;
   margin: auto;
+}
+@media (width < 48rem) {
+  #professionnel .offre #tabs-offre.tabs-vertical {
+    display: flex;
+  }
+  #professionnel .offre #tabs-offre.tabs-vertical .tab {
+    border: 1px solid #f3ceb1;
+    border-bottom: none;
+  }
+  #professionnel .offre #tabs-offre.tabs-vertical .tab:not(:first-child) {
+    border-left: none;
+  }
 }
 #professionnel .offre #tabs-offre .tab-content {
   background-color: #462620;
@@ -3660,6 +3674,11 @@ footer h2 {
   font-size: 56px;
   font-weight: 300;
   line-height: 1.1;
+}
+@media (width < 48rem) {
+  footer h2 {
+    font-size: 42px;
+  }
 }
 footer h2 em {
   font-family: "Newsreader";

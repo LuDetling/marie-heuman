@@ -1,7 +1,7 @@
 <!-- <div class="img-under-header-2"></div> -->
 
 <footer class="footer-blue px-10 md:px-20">
-    <div class="flex items-center justify-between py-15 border-b relative gap-4 flex-wrap lg:flex-nowrap">
+    <div class="flex items-center justify-between py-15 border-b relative gap-4 flex-wrap">
         <h2>Design de <em>lieux</em>, d'<em>expériences</em> &
             d'<em>identités</em>.</h2>
         <div class="img-footer"></div>

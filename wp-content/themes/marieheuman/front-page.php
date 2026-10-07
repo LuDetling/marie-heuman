@@ -120,19 +120,22 @@
                                                     alt="<?= esc_attr($projet['image']['alt']) ?>">
                                             </div>
                                         <?php endif; ?>
-                                        <h3 class="mb-2 mt-4">
-                                            <?php the_title(); ?>
-                                        </h3>
-                                        <ul class="flex flex-wrap gap-2 categories-projets">
-                                            <?php $categories = get_the_category();
-                                            foreach ($categories as $cat):
-                                                $categoryClasses = $cat->slug;
-                                                ?>
-                                                <li class="<?= $categoryClasses ?>">
-                                                    <?= $cat->name ?>
-                                                </li>
-                                            <?php endforeach; ?>
-                                        </ul>
+                                        <div class="px-4">
+
+                                            <h3 class="mb-2 mt-4">
+                                                <?php the_title(); ?>
+                                            </h3>
+                                            <ul class="flex flex-wrap gap-2 categories-projets">
+                                                <?php $categories = get_the_category();
+                                                foreach ($categories as $cat):
+                                                    $categoryClasses = $cat->slug;
+                                                    ?>
+                                                    <li class="<?= $categoryClasses ?>">
+                                                        <?= $cat->name ?>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
                                     </a>
                                 </div>
                             <?php endwhile; ?>
@@ -170,7 +173,7 @@
                     <div class="flex items-start gap-6 py-8 accordion-content">
                         <div class="block circle"></div>
                         <details class="collapse" name="accordion-methode-home">
-                            <summary class="collapse-title mb-2">
+                            <summary class="collapse-title mb-2 gap-4">
                                 <span class="index">
                                     <?= $numero ?>
                                 </span>

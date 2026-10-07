@@ -151,6 +151,10 @@
 }
 
 .tabs.tabs-lift {
+    color: $floral;
+    // max-width: 1100px;
+    margin: auto;
+
     .tab {
         border-radius: 0;
         border: 1px solid $desert;
@@ -211,12 +215,6 @@
             // max-width: 140px;
         }
     }
-
-    color: $floral;
-    max-width: 1100px;
-    margin: auto;
-
-
 
     .tab-content {
         margin-top: 0px;

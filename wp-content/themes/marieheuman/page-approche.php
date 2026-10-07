@@ -128,7 +128,7 @@ get_header();
                         <div class="py-8 accordion-content">
                             <details class="collapse" name="accordion-questions">
                                 <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
-                                    <div class="flex gap-4 items-center">
+                                    <div class="md:flex gap-4 items-center">
                                         <div class="index">
                                             <?= $numero ?>
                                         </div>

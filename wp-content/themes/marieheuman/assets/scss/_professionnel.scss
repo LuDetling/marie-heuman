@@ -134,6 +134,15 @@
         .tag-home {
             text-align: left;
         }
+        .tab {
+            &:has(input:checked){
+                .title-tab {
+                    .index-tab {
+                        color: $desert;
+                    }
+                }
+            }
+        }
 
         .title-tab {
             display: flex;
@@ -193,6 +202,21 @@
         }
 
         #tabs-offre {
+            @media (width < 48rem) {
+                &.tabs-vertical {
+                    display: flex;
+
+                    .tab {
+                        border: 1px solid $desert;
+                        border-bottom: none;
+
+                        &:not(:first-child) {
+                            border-left: none;
+                        }
+                    }
+                }
+            }
+
             .tab-content {
                 background-color: $marron;
                 color: $floral;

@@ -128,31 +128,36 @@
     }
 
 
-    .tabs-vertical {
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        align-items: start;
-    }
 
-    .tabs-vertical>.tab {
-        grid-column: 1;
-        justify-content: flex-start;
-    }
 
-    .tabs-vertical>.tab-content {
-        grid-column: 2;
-        grid-row: 1 / span 6;
-        height: auto;
-        /* tous les panneaux occupent la même zone */
-    }
+}
 
+.tabs-vertical {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: start;
+}
+
+.tabs-vertical>.tab {
+    grid-column: 1;
+    justify-content: flex-start;
+}
+
+.tabs-vertical>.tab-content {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    height: auto;
+    /* tous les panneaux occupent la même zone */
+}
+
+.tabs.tabs-lift {
     .tab {
         border-radius: 0;
         border: 1px solid $desert;
         // border-bottom: none;
         background: none;
         transition: .3s;
-        padding: 20px;
+        // padding: 20px;
         height: auto;
         display: flex;
         flex-wrap: nowrap;
@@ -173,6 +178,10 @@
             border: 1px solid $desert;
             position: relative;
             background: none;
+
+            @media (width < 64rem) {
+                margin-right: 0;
+            }
         }
 
         &:not(:first-child) {
@@ -203,40 +212,38 @@
         }
     }
 
-    .tabs.tabs-lift {
-        color: $floral;
-        max-width: 1100px;
-        margin: auto;
+    color: $floral;
+    max-width: 1100px;
+    margin: auto;
 
 
 
-        .tab-content {
-            margin-top: 0px;
-            background-color: $marron;
-            border-radius: 0;
+    .tab-content {
+        margin-top: 0px;
+        background-color: $marron;
+        border-radius: 0;
 
-            .index {
-                font-size: 11px;
-                font-weight: 400;
-                text-transform: uppercase;
-                letter-spacing: 0.12em;
-                color: $desert;
-                margin-bottom: 20px;
-            }
+        .index {
+            font-size: 11px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: $desert;
+            margin-bottom: 20px;
+        }
 
-            h3 {
-                font-family: Newsreader;
-                font-size: 28px;
-                font-weight: 400;
-                line-height: 1.2;
-            }
+        h3 {
+            font-family: Newsreader;
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
 
-            .content-tab {
-                font-family: Jost;
-                font-size: 17px;
-                line-height: 1.75;
-                color: $floral;
-            }
+        .content-tab {
+            font-family: Jost;
+            font-size: 17px;
+            line-height: 1.75;
+            color: $floral;
         }
     }
 }

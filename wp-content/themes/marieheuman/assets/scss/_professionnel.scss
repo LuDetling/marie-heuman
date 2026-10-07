@@ -135,6 +135,19 @@
             text-align: left;
         }
 
+        .title-tab {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            .index-tab {
+                font-family: Newsreader;
+                font-size: 26px;
+                color: $coperwood;
+                font-weight: 300;
+            }
+        }
+
         >section {
             .tag-home {
                 font-family: Newsreader;
@@ -179,10 +192,22 @@
 
         }
 
+        #tabs-offre {
+            .tab-content {
+                background-color: $marron;
+                color: $floral;
+
+                .index-tab-content {
+                    color: #bed0ce;
+                    font-size: 96px;
+                }
+            }
+        }
+
         .temps1 {
             .content {
                 margin-inline: 0;
-                margin-bottom: 64px;
+                // margin-bottom: 64px;
 
                 h3 {
                     margin-bottom: .75rem;
@@ -205,9 +230,13 @@
                 }
 
                 h4 {
-                    font-size: 22px;
-                    font-weight: 500;
+                    // font-size: 22px;
+                    // font-weight: 500;
                     margin-bottom: .75rem;
+
+                    strong {
+                        font-family: 'Jost';
+                    }
                 }
 
                 p {
@@ -216,7 +245,7 @@
             }
 
             .card {
-                background-color: $marron;
+                background-color: $desert;
                 border-radius: 0;
 
                 .tag {
@@ -229,24 +258,18 @@
                 }
 
                 .content {
-                    color: $floral;
+                    color: $marron;
+                    margin-bottom: 2rem;
 
-                    h4 {
-                        font-size: 38px;
-                        font-weight: 300;
-                        line-height: 1.1;
-                        margin-bottom: 1.5rem;
-
+                    p {
                         span {
                             display: block;
                         }
-                    }
 
-                    p {
-                        margin-bottom: 2.5rem;
+                        // margin-bottom: 2.5rem;
                         font-size: 14px;
                         line-height: 1.65;
-                        color: $desert;
+                        // color: $desert;
                     }
                 }
 
@@ -262,7 +285,7 @@
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
-                color: $coperwood;
+                color: $green;
                 margin-bottom: .75rem;
             }
         }
@@ -275,6 +298,10 @@
                         font-size: 24px;
                         line-height: 1.3;
                         margin-bottom: .25rem;
+                        color: $floral;
+                        display: flex;
+                        flex-wrap: wrap;
+                        column-gap: .75rem;
 
                         span {
                             // background-color: $green;
@@ -285,7 +312,6 @@
                             vertical-align: middle;
                             // color: $floral;
                             padding: 2px 8px;
-                            margin-left: .75rem;
                             font-family: 'Jost';
                         }
                     }
@@ -293,7 +319,7 @@
                     p {
                         font-size: 15px;
                         line-height: 1.5;
-                        opacity: 0.65;
+                        color: $desert;
                     }
                 }
 
@@ -301,6 +327,7 @@
                     p {
                         font-size: 14px;
                         line-height: 1.65;
+                        color: $desert;
                     }
 
                     ul {
@@ -329,23 +356,29 @@
                     }
                 }
             }
-        }
 
-        .temps3 {
-            .accordions .accordion-content:has(.collapse:open) .circle {
-                background-color: $green;
-            }
-
-            .accordions {
-                .circle {
-                    background-color: rgba(70, 38, 32, 0.25);
-                }
-
-                .accordion-content {
-                    border-color: rgba(70, 38, 32, 0.15);
+            .content-description {
+                p:not(:last-child) {
+                    margin-bottom: 1rem;
                 }
             }
         }
+
+        // .temps3 {
+        //     .accordions .accordion-content:has(.collapse:open) .circle {
+        //         background-color: $green;
+        //     }
+
+        //     .accordions {
+        //         .circle {
+        //             background-color: rgba(70, 38, 32, 0.25);
+        //         }
+
+        //         .accordion-content {
+        //             border-color: rgba(70, 38, 32, 0.15);
+        //         }
+        //     }
+        // }
     }
 
     .questions {

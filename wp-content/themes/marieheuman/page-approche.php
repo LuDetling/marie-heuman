@@ -47,7 +47,7 @@ get_header();
 
                 foreach ($accordions as $accordion):
                     $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
-                    <div class=" py-8 accordion-content">
+                    <div class="py-8 accordion-content">
                         <details class="collapse" name="accordion-parti-pris">
                             <summary class="collapse-title mb-2 flex items-start gap-6 justify-between">
                                 <div class="md:flex gap-4 items-center">
@@ -81,9 +81,9 @@ get_header();
             <?php
             foreach ($cards as $card):
                 $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
-                <label class="tab">
+                <label class="tab p-3 md:p-5">
                     <input type="radio" name="my_tabs_vision" <?= $i === 1 ? 'checked' : '' ?> />
-                    <div class="title-tab">
+                    <div class="title-tab hidden lg:block">
                         <?= $card['title'] ?>
                     </div>
                 </label>

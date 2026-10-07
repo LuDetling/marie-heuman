@@ -254,6 +254,16 @@ add_filter('tiny_mce_before_init', function ($settings) {
             ]
         ],
         [
+            'title' => 'Buttons',
+            'items' => [
+                [
+                    'title' => 'Button white rose',
+                    'inline' => 'button',
+                    'classes' => 'button white-rose-button',
+                ],
+            ]
+        ],
+        [
             'title' => 'bordures',
             'items' => [
                 [

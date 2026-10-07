@@ -55,117 +55,150 @@ get_header();
         </div>
     </section>
 
-    <section class="section-floral offre">
-        <?php $offre = get_field('professionnel_offre') ?>
-        <div class="top-offre">
-            <div class="tag-home"><?= $offre['tag'] ?></div>
-            <div class="content">
-                <?= $offre['content'] ?>
+ <section class="section-floral offre">
+        <?php
+        $offre = get_field('professionnel_offre');
+        $temps1 = $offre['temps_01'];
+        $temps2 = $offre['temps_02'];
+        $temps3 = $offre['temps_03'];
+        ?>
+        <div class="md:max-w-[1000px] mx-auto">
+
+            <div class="top-offre">
+                <div class="tag-home"><?= $offre['tag'] ?></div>
+                <div class="content">
+                    <?= $offre['content'] ?>
+                </div>
+            </div>
+
+            <div id="tabs-offre" class="tabs tabs-lift justify-center tabs-vertical">
+                <label class="tab p-3">
+                    <input type="radio" name="my_tabs_offre" checked aria-label="offre 1" />
+                    <div class="title-tab">
+                        <span class="index-tab">01</span>
+                        <!-- <?= $temps1['tag'] ?> -->
+                    </div>
+                </label>
+                <div class="tab-content p-10 xl:p-20 temps1">
+                    <h3 class="flex items-center gap-2 mb-8">
+                        <div class="index-tab-content">01</div>
+                        <div><?= $temps1['content'] ?></div>
+                    </h3>
+                    <div class="grid xl:grid-cols-12 gap-12">
+                        <div class="xl:col-span-7">
+                            <div class="description">
+                                <?= $temps1['description'] ?>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-5">
+                            <?php $card = $temps1['card'] ?>
+                            <div class="card p-10 sticky top-8">
+                                <div class="tag"><?= $card['tag'] ?></div>
+                                <div class="content"><?= $card['content'] ?></div>
+                                <a href="<?= $card['lien']['url'] ?>"
+                                    class="button white-rose-button"><?= $card['lien']['title'] ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label class="tab p-3">
+                    <input type="radio" name="my_tabs_offre" aria-label="offre 2" />
+                    <div class="title-tab">
+                        <span class="index-tab">02</span>
+                        <!-- <?= $temps2['tag'] ?> -->
+                    </div>
+                </label>
+                <div class="tab-content p-10 xl:p-20 temps2">
+                    <?= $temps2['title'] ?>
+                    <div class="grid xl:grid-cols-12 gap-12">
+                        <div class="xl:col-span-5 xl:col-start-8">
+                            <div class="content pt-8 content-description">
+                                <?= $temps2['content'] ?>
+                                <a href="<?= $temps2['lien']['url'] ?>"
+                                    class="button white-rose-button mt-8"><?= $temps2['lien']['title'] ?></a>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-7 xl:col-start-1 xl:row-start-1 space-y-0 accordions">
+                            <?php $accordions = $temps2['accordions'];
+                            $i = 1;
+
+                            foreach ($accordions as $accordion):
+                                $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
+                                if (!empty($accordion['titre'])): ?>
+                                    <div class="flex items-start gap-6 py-8 accordion-content">
+                                        <details class="collapse" name="accordion-missions">
+                                            <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
+                                                <div class="title">
+                                                    <?= $accordion['titre'] ?>
+                                                </div>
+                                                <div class="block circle"></div>
+                                            </summary>
+                                            <div class="collapse-content mt-4">
+                                                <div class="mt-6 grid lg:grid-cols-2 gap-8">
+                                                    <?php $listes = $accordion['listes'];
+                                                    foreach ($listes as $liste): ?>
+                                                        <div>
+                                                            <?= $liste['content'] ?>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        </details>
+                                    </div>
+                                    <?php $i++; endif; endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+                <label class="tab p-3">
+                    <input type="radio" name="my_tabs_offre" aria-label="offre 2" />
+                    <div class="title-tab">
+                        <span class="index-tab">03</span>
+                        <!-- <?= $temps3['tag'] ?> -->
+                    </div>
+                </label>
+                <div class="tab-content p-10 xl:p-20 temps3">
+                    <?= $temps3['title'] ?>
+                    <div class="grid xl:grid-cols-12 gap-12">
+                        <div class="xl:col-span-5 pt-8">
+                            <div class="content">
+                                <?= $temps3['content'] ?>
+                            </div>
+                            <div class="mt-14">
+                                <a href="<?= $temps3['lien']['url'] ?>" class="secondary-button">
+                                    <?= $temps3['lien']['title'] ?>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xl:col-span-7 accordions">
+                            <?php $accordions = $temps3['accordions'];
+                            $i = 1;
+
+                            foreach ($accordions as $accordion):
+                                $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
+                                if (!empty($accordion['titre'])): ?>
+                                    <div class="flex items-start gap-6 py-8 accordion-content">
+                                        <details class="collapse" name="accordion-modules">
+                                            <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
+                                                <div class="md:flex gap-4">
+                                                    <div class="title">
+                                                        <?= $accordion['titre'] ?>
+                                                    </div>
+                                                </div>
+                                                <div class="block circle"></div>
+                                            </summary>
+                                            <div class="collapse-content mt-4">
+                                                <?= $accordion['content'] ?>
+                                            </div>
+                                        </details>
+                                    </div>
+                                    <?php $i++; endif; endforeach; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <section class="section-blue temps1">
-            <?php $temps1 = $offre['temps_01'] ?>
-            <div class="tag-home"><?= $temps1['tag'] ?></div>
-            <div class="content"><?= $temps1['content'] ?></div>
-            <div class="grid xl:grid-cols-12 gap-12">
-                <div class="xl:col-span-7">
-                    <div class="description">
-                        <?= $temps1['description'] ?>
-                    </div>
-                </div>
-                <div class="xl:col-span-5">
-                    <?php $card = $temps1['card'] ?>
-                    <div class="card p-10 sticky top-8">
-                        <div class="tag"><?= $card['tag'] ?></div>
-                        <div class="content"><?= $card['content'] ?></div>
-                        <a href="<?= $card['lien']['url'] ?>"
-                            class="button white-rose-button"><?= $card['lien']['title'] ?></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section-floral temps2">
-            <?php $temps2 = $offre['temps_02'] ?>
-            <div class="grid xl:grid-cols-12 gap-12">
-                <div class="xl:col-span-5 xl:col-start-8">
-                    <div class="tag-home"><?= $temps2['tag'] ?></div>
-                    <div class="content"><?= $temps2['content'] ?></div>
-                </div>
-                <div class="xl:col-span-7 xl:col-start-1 xl:row-start-1 space-y-0 accordions">
-                    <?php $accordions = $temps2['accordions'];
-                    $i = 1;
 
-                    foreach ($accordions as $accordion):
-                        $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
-                        if (!empty($accordion['titre'])): ?>
-                            <div class="py-8 accordion-content">
-                                <details class="collapse" name="accordion-missions">
-                                    <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
-                                        <div class="title">
-                                            <?= $accordion['titre'] ?>
-                                        </div>
-                                        <div class="block circle"></div>
-                                    </summary>
-                                    <div class="collapse-content mt-4">
-                                        <div class="mt-6 grid lg:grid-cols-2 gap-8">
-                                            <?php $listes = $accordion['listes'];
-                                            foreach ($listes as $liste): ?>
-                                                <div><?= $liste['content'] ?></div>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>
-                                </details>
-                            </div>
-                            <?php $i++; endif; endforeach; ?>
-                </div>
-            </div>
-        </section>
-        <section class="section-blue temps3">
-            <?php $temps3 = $offre['temps_03'] ?>
-            <div class="grid xl:grid-cols-12 gap-12">
-                <div class="xl:col-span-5">
-                    <div class="tag-home">
-                        <?= $temps3['tag'] ?>
-                    </div>
-                    <div class="content">
-                        <?= $temps3['content'] ?>
-                    </div>
-                    <div class="mt-14">
-                        <a href="<?= $temps3['lien']['url'] ?>"
-                            class="secondary-button"><?= $temps3['lien']['title'] ?></a>
-                    </div>
-                </div>
-                <div class="xl:col-span-7 accordions">
-                    <?php $accordions = $temps3['accordions'];
-                    $i = 1;
-
-                    foreach ($accordions as $accordion):
-                        $numero = str_pad($i, 2, "0", STR_PAD_LEFT);
-                        if (!empty($accordion['titre'])): ?>
-                            <div class=" py-8 accordion-content">
-                                <details class="collapse" name="accordion-modules">
-                                    <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
-                                        <div class="md:flex gap-4">
-                                            <span class="index">
-                                                <?= $numero ?>
-                                            </span>
-                                            <div class="title">
-                                                <?= $accordion['titre'] ?>
-                                            </div>
-                                        </div>
-                                        <div class="block circle"></div>
-                                    </summary>
-                                    <div class="collapse-content mt-4">
-                                        <?= $accordion['content'] ?>
-                                    </div>
-                                </details>
-                            </div>
-                            <?php $i++; endif; endforeach; ?>
-                </div>
-            </div>
-        </section>
     </section>
-
     <section class="section-floral questions grid xl:grid-cols-12">
         <div class="xl:col-span-6">
             <?php $questions = get_field('professionnel_questions'); ?>

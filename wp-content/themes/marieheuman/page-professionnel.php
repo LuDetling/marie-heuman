@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Page Professionnel */
+/* Template Name: Page Residentiel */
 get_header();
 ?>
 
@@ -24,7 +24,7 @@ get_header();
             $index = 1;
             ?>
             <?php foreach ($liste as $item): ?>
-                <div class="grid-item ">
+                <div class="grid-item">
                     <?= $item['content'] ?>
                 </div>
                 <?php $index++; endforeach; ?>
@@ -33,6 +33,7 @@ get_header();
 
     <section class="section-floral lieux">
         <?php $lieux = get_field('professionnel_lieux'); ?>
+
         <div class="tag-home"><?= $lieux['tag'] ?></div>
         <div class="content"><?= $lieux['content'] ?></div>
         <div class="grid lg:grid-cols-3 gap-20">
@@ -53,6 +54,7 @@ get_header();
             <a href="<?= $lieux['lien']['url'] ?>" class="secondary-button"><?= $lieux['lien']['title'] ?></a>
         </div>
     </section>
+
     <section class="section-floral offre">
         <?php
         $offre = get_field('professionnel_offre');
@@ -79,13 +81,13 @@ get_header();
                 </label>
                 <div class="tab-content p-10 xl:p-20 temps1">
                     <?= $temps1['content'] ?>
-                    <div class="grid xl:grid-cols-12 gap-12 pt-8">
-                        <div class="xl:col-span-7">
+                    <div class="grid xl:grid-cols-12 gap-4 pt-8">
+                        <div class="xl:col-span-6">
                             <div class="description">
                                 <?= $temps1['description'] ?>
                             </div>
                         </div>
-                        <div class="xl:col-span-5">
+                        <div class="xl:col-span-5 xl:col-start-8">
                             <?php $card = $temps1['card'] ?>
                             <div class="card p-10 sticky top-8">
                                 <div class="tag"><?= $card['tag'] ?></div>
@@ -105,15 +107,17 @@ get_header();
                 </label>
                 <div class="tab-content p-10 xl:p-20 temps2">
                     <?= $temps2['title'] ?>
-                    <div class="grid xl:grid-cols-12 gap-12">
+                    <div class="grid xl:grid-cols-12 gap-4">
                         <div class="xl:col-span-5">
                             <div class="content pt-8 content-description">
                                 <?= $temps2['content'] ?>
-                                <a href="<?= $temps2['lien']['url'] ?>"
-                                    class="button white-rose-button mt-8"><?= $temps2['lien']['title'] ?></a>
+                                <?php if (!empty($temps2['lien'])): ?>
+                                    <a href="<?= $temps2['lien']['url'] ?>"
+                                        class="button white-rose-button mt-8"><?= $temps2['lien']['title'] ?></a>
+                                <?php endif; ?>
                             </div>
                         </div>
-                        <div class="xl:col-span-7 space-y-0 accordions">
+                        <div class="xl:col-span-6 xl:col-start-7 space-y-0 accordions">
                             <?php $accordions = $temps2['accordions'];
                             $i = 1;
 
@@ -153,7 +157,7 @@ get_header();
                 </label>
                 <div class="tab-content p-10 xl:p-20 temps3">
                     <?= $temps3['title'] ?>
-                    <div class="grid xl:grid-cols-12 gap-12">
+                    <div class="grid xl:grid-cols-12 gap-4">
                         <div class="xl:col-span-5 pt-8">
                             <div class="content">
                                 <?= $temps3['content'] ?>
@@ -164,7 +168,7 @@ get_header();
                                 </a>
                             </div>
                         </div>
-                        <div class="xl:col-span-7 accordions">
+                        <div class="xl:col-span-6 xl:col-start-7 accordions">
                             <?php $accordions = $temps3['accordions'];
                             $i = 1;
 
@@ -194,8 +198,7 @@ get_header();
         </div>
 
     </section>
-
-    <section class="section-floral questions grid xl:grid-cols-12">
+    <section class="section-floral questions grid xl:grid-cols-12 gap-4 items-center">
         <div class="xl:col-span-6">
             <?php $questions = get_field('professionnel_questions'); ?>
             <div class="max-w-[900px] mx-auto">
@@ -206,9 +209,9 @@ get_header();
                 <?php $accordions = $questions['accordions'];
                 foreach ($accordions as $accordion):
                     if (!empty($accordion['titre'])): ?>
-                        <div class=" py-8 accordion-content">
+                        <div class="py-8 accordion-content">
                             <details class="collapse" name="accordion-questions">
-                                <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
+                                <summary class="collapse-title mb-2 flex items-start justify-between gap-6 ">
                                     <h3 class="title">
                                         <?= $accordion['titre'] ?>
                                     </h3>
@@ -225,7 +228,7 @@ get_header();
         <?php if (!empty($questions['image']['url'])): ?>
             <div class="xl:col-span-5 xl:col-start-8">
                 <img src="<?= $questions['image']['url'] ?>" alt="<?= $questions['image']['alt'] ?>"
-                    class="xl:w-full object-cover">
+                    class="xl:w-full object-cover mx-auto">
             </div>
         <?php endif; ?>
     </section>

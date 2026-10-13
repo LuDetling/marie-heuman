@@ -55,14 +55,14 @@ get_header();
         </div>
     </section>
 
- <section class="section-floral offre">
+    <section class="section-floral offre">
         <?php
         $offre = get_field('professionnel_offre');
         $temps1 = $offre['temps_01'];
         $temps2 = $offre['temps_02'];
         $temps3 = $offre['temps_03'];
         ?>
-        <div class="md:max-w-[1000px] mx-auto">
+        <div class="mx-auto">
 
             <div class="top-offre">
                 <div class="tag-home"><?= $offre['tag'] ?></div>
@@ -71,7 +71,7 @@ get_header();
                 </div>
             </div>
 
-            <div id="tabs-offre" class="tabs tabs-lift justify-center tabs-vertical">
+            <div id="tabs-offre" class="tabs tabs-lift justify-center tabs-vertical px-10 md:px-20">
                 <label class="tab p-3">
                     <input type="radio" name="my_tabs_offre" checked aria-label="offre 1" />
                     <div class="title-tab">
@@ -80,17 +80,14 @@ get_header();
                     </div>
                 </label>
                 <div class="tab-content p-10 xl:p-20 temps1">
-                    <h3 class="flex items-center gap-2 mb-8">
-                        <div class="index-tab-content">01</div>
-                        <div><?= $temps1['content'] ?></div>
-                    </h3>
-                    <div class="grid xl:grid-cols-12 gap-12">
-                        <div class="xl:col-span-7">
+                    <?= $temps1['content'] ?>
+                    <div class="grid xl:grid-cols-12 gap-4 pt-8">
+                        <div class="xl:col-span-6">
                             <div class="description">
                                 <?= $temps1['description'] ?>
                             </div>
                         </div>
-                        <div class="xl:col-span-5">
+                        <div class="xl:col-span-5 xl:col-start-8">
                             <?php $card = $temps1['card'] ?>
                             <div class="card p-10 sticky top-8">
                                 <div class="tag"><?= $card['tag'] ?></div>
@@ -110,15 +107,17 @@ get_header();
                 </label>
                 <div class="tab-content p-10 xl:p-20 temps2">
                     <?= $temps2['title'] ?>
-                    <div class="grid xl:grid-cols-12 gap-12">
-                        <div class="xl:col-span-5 xl:col-start-8">
+                    <div class="grid xl:grid-cols-12 gap-4">
+                        <div class="xl:col-span-5">
                             <div class="content pt-8 content-description">
                                 <?= $temps2['content'] ?>
-                                <a href="<?= $temps2['lien']['url'] ?>"
-                                    class="button white-rose-button mt-8"><?= $temps2['lien']['title'] ?></a>
+                                <?php if (!empty($temps2['lien'])): ?>
+                                    <a href="<?= $temps2['lien']['url'] ?>"
+                                        class="button white-rose-button mt-8"><?= $temps2['lien']['title'] ?></a>
+                                <?php endif; ?>
                             </div>
                         </div>
-                        <div class="xl:col-span-7 xl:col-start-1 xl:row-start-1 space-y-0 accordions">
+                        <div class="xl:col-span-6 xl:col-start-7 space-y-0 accordions">
                             <?php $accordions = $temps2['accordions'];
                             $i = 1;
 
@@ -158,7 +157,7 @@ get_header();
                 </label>
                 <div class="tab-content p-10 xl:p-20 temps3">
                     <?= $temps3['title'] ?>
-                    <div class="grid xl:grid-cols-12 gap-12">
+                    <div class="grid xl:grid-cols-12 gap-4">
                         <div class="xl:col-span-5 pt-8">
                             <div class="content">
                                 <?= $temps3['content'] ?>
@@ -169,7 +168,7 @@ get_header();
                                 </a>
                             </div>
                         </div>
-                        <div class="xl:col-span-7 accordions">
+                        <div class="xl:col-span-6 xl:col-start-7 accordions">
                             <?php $accordions = $temps3['accordions'];
                             $i = 1;
 
@@ -199,7 +198,7 @@ get_header();
         </div>
 
     </section>
-    <section class="section-floral questions grid xl:grid-cols-12">
+    <section class="section-floral questions grid xl:grid-cols-12 gap-4 items-center">
         <div class="xl:col-span-6">
             <?php $questions = get_field('professionnel_questions'); ?>
             <div class="max-w-[900px] mx-auto">
@@ -229,7 +228,7 @@ get_header();
         <?php if (!empty($questions['image']['url'])): ?>
             <div class="xl:col-span-5 xl:col-start-8">
                 <img src="<?= $questions['image']['url'] ?>" alt="<?= $questions['image']['alt'] ?>"
-                    class="xl:w-full object-cover">
+                    class="xl:w-full object-cover mx-auto">
             </div>
         <?php endif; ?>
     </section>

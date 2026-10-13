@@ -134,8 +134,9 @@
         .tag-home {
             text-align: left;
         }
+
         .tab {
-            &:has(input:checked){
+            &:has(input:checked) {
                 .title-tab {
                     .index-tab {
                         color: $desert;
@@ -221,6 +222,12 @@
                 background-color: $marron;
                 color: $floral;
 
+                @media (width < 48rem) {
+                    span {
+                        display: block;
+                    }
+                }
+
                 .index-tab-content {
                     color: #bed0ce;
                     font-size: 96px;
@@ -244,7 +251,7 @@
                 .newsreader-italic {
                     font-size: 22px;
                     font-weight: 300;
-                    line-height: 1.55;
+                    line-height: 1.2;
                     margin-bottom: 2.5rem;
                 }
 
@@ -285,15 +292,8 @@
                     color: $marron;
                     margin-bottom: 2rem;
 
-                    p {
-                        span {
-                            display: block;
-                        }
-
-                        // margin-bottom: 2.5rem;
-                        font-size: 14px;
-                        line-height: 1.65;
-                        // color: $desert;
+                    p:not(:last-child) {
+                        margin-bottom: 1rem;
                     }
                 }
 
@@ -304,7 +304,7 @@
         }
 
         .temps2 {
-            .accordions .collapse-content p span {
+            .accordions .collapse-content p .span {
                 font-size: 11px;
                 font-weight: 600;
                 text-transform: uppercase;

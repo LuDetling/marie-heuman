@@ -2127,6 +2127,11 @@
   background-color: #462620;
   color: #fffdf3;
 }
+@media (width < 48rem) {
+  #professionnel .offre #tabs-offre .tab-content span {
+    display: block;
+  }
+}
 #professionnel .offre #tabs-offre .tab-content .index-tab-content {
   color: #bed0ce;
   font-size: 96px;
@@ -2143,7 +2148,7 @@
 #professionnel .offre .temps1 .description .newsreader-italic {
   font-size: 22px;
   font-weight: 300;
-  line-height: 1.55;
+  line-height: 1.2;
   margin-bottom: 2.5rem;
 }
 #professionnel .offre .temps1 .description hr {
@@ -2175,17 +2180,13 @@
   color: #462620;
   margin-bottom: 2rem;
 }
-#professionnel .offre .temps1 .card .content p span {
-  display: block;
-}
-#professionnel .offre .temps1 .card .content p {
-  font-size: 14px;
-  line-height: 1.65;
+#professionnel .offre .temps1 .card .content p:not(:last-child) {
+  margin-bottom: 1rem;
 }
 #professionnel .offre .temps1 .card .btn {
   width: fit-content;
 }
-#professionnel .offre .temps2 .accordions .collapse-content p span {
+#professionnel .offre .temps2 .accordions .collapse-content p .span {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -2967,9 +2968,6 @@
 }
 #page-contact .parcours .content p {
   margin: auto;
-}
-#page-contact .parcours .circle {
-  margin-top: 0;
 }
 #page-contact .parcours .collapse-content {
   padding-left: 110px;

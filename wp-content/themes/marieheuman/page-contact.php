@@ -113,7 +113,7 @@ get_header();
                 $numero = str_pad($i, 2, "0", STR_PAD_LEFT); ?>
                 <div class="flex items-start gap-6 py-8 accordion-content">
                     <details class="collapse " name="accordion-parcours">
-                        <summary class="collapse-title mb-2 items-center">
+                        <summary class="collapse-title mb-2 flex items-start justify-between gap-6">
                             <span class="index">
                                 <?= $numero ?>
                             </span>

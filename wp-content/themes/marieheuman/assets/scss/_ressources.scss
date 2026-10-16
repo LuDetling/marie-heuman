@@ -1,0 +1,29 @@
+@use "globals" as *;
+
+#guides {
+    >.grid {
+        border-bottom: 1px solid rgb(229, 217, 200);
+    }
+
+    .tag {
+        color: $coperwood;
+    }
+
+    .pages {
+        font-size: 14px;
+        padding-inline: .5rem;
+    }
+
+    h2 {
+        font-size: 44px;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    .content {
+        p:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+    }
+}

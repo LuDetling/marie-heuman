@@ -3478,6 +3478,26 @@
   display: block;
 }
 
+#guides > .grid {
+  border-bottom: 1px solid rgb(229, 217, 200);
+}
+#guides .tag {
+  color: #A76523;
+}
+#guides .pages {
+  font-size: 14px;
+  padding-inline: 0.5rem;
+}
+#guides h2 {
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+#guides .content p:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
 #histoire img {
   border-radius: 15px;
   object-fit: cover;
